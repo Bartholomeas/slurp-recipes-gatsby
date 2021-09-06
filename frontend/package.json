@@ -17,7 +17,8 @@
     "gatsby": "^3.13.0",
     "gatsby-source-strapi": "^1.0.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "prettier": "2.3.2"

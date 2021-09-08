@@ -16,10 +16,15 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.13.0",
+    "gatsby-plugin-image": "^1.13.0",
+    "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-plugin-styled-components": "^4.13.0",
+    "gatsby-source-filesystem": "^3.13.0",
     "gatsby-source-strapi": "^1.0.2",
+    "gatsby-transformer-sharp": "^3.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {

@@ -1,18 +1,17 @@
 import React from "react"
 import styled from "styled-components"
-import { GlobalStyle } from "../../styles/globalStyles"
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`
+import { ThemeProvider } from "styled-components"
+import { GlobalStyles } from "../../styles/GlobalStyles"
+import { theme } from "../../styles/theme"
+import Navbar from "../organisms/Navbar/Navbar"
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Navbar />
       {children}
-    </div>
+    </ThemeProvider>
   )
 }
 

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
+export const GlobalStyles = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
 
     *, *::before, *::after {
         margin: 0;
@@ -18,5 +18,3 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Raleway', sans-serif;
     }
 `
-
-export default GlobalStyle

@@ -8,6 +8,7 @@ export const NavContainer = styled.nav`
   min-width: 100%;
   height: 7rem;
   background-color: #f3f3f3;
+  z-index: 1000;
 `
 
 export const NavWrapper = styled.div`
@@ -58,6 +59,7 @@ export const HamburgerBtn = styled(AiOutlineMenu)`
   display: block;
   font-size: 3rem;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.fontColor};
 
   @media only screen and (min-width: 768px) {
     display: none;

@@ -8,7 +8,7 @@ const ButtonWrapper = styled.button`
   background: none;
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 

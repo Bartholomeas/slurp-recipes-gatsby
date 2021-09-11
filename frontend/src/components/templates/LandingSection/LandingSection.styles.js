@@ -1,16 +1,21 @@
 import styled from "styled-components"
 
-export const LandingWrapper = styled.div`
+export const LandingWrapper = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 93vh;
+  // height: 93vh;
+  height: clamp(700px, 93vh, 1600px);
   margin-top: 7rem;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1980px;
   }
 `
 export const TextWrapper = styled.div`
@@ -20,7 +25,7 @@ export const TextWrapper = styled.div`
   align-items: center;
   padding: 0 4rem;
   margin-bottom: 3rem;
-  height: 50%;
+  height: 60%;
   color: ${({ theme }) => theme.colors.fontColor};
 
   @media only screen and (min-width: 768px) {
@@ -39,6 +44,9 @@ export const LandingText = styled.p`
   @media only screen and (min-width: 768px) {
     font-size: 7rem;
   }
+  @media only screen and (min-width: 1600px) {
+    font-size: 9rem;
+  }
 `
 
 export const ColoredText = styled.span`
@@ -50,7 +58,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 40%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
@@ -65,7 +73,6 @@ export const ImageContainer = styled.div`
   align-items: center;
   height: 50%;
   width: 50%;
-  backround-color: tomato;
 
   @media only screen and (min-width: 768px) {
     width: 70%;

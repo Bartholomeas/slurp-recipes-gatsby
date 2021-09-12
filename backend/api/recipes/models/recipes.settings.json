@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "recipes",
   "info": {
-    "name": "recipes"
+    "name": "recipes",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,30 +16,6 @@
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "breakfast",
-        "lunch",
-        "dinner",
-        "dessert",
-        "soup",
-        "drink",
-        "starter"
-      ],
-      "required": true,
-      "default": "breakfast"
-    },
-    "difficulity": {
-      "type": "enumeration",
-      "enum": [
-        "easy",
-        "medium",
-        "hard"
-      ],
-      "required": true,
-      "default": "medium"
     },
     "time": {
       "type": "integer",
@@ -63,6 +40,10 @@
     "ingredients": {
       "type": "richtext",
       "required": true
+    },
+    "types": {
+      "via": "recipe",
+      "collection": "type"
     }
   }
 }

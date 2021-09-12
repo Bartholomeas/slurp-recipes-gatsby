@@ -9,6 +9,7 @@ const ButtonWrapper = styled.button`
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 2rem;
   font-weight: 500;
+  font-family: "Raleway", sans-serif;
   white-space: nowrap;
   cursor: pointer;
 
@@ -24,8 +25,11 @@ const ButtonWrapper = styled.button`
     transition: height 0.3s;
   }
 
-  &:hover&::before {
-    height: 100%;
+  &:hover {
+    color: ${({ theme }) => theme.colors.lightGrey};
+    &::before {
+      height: 100%;
+    }
   }
 `
 

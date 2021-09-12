@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "name": "type",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "dessert",
+        "soup",
+        "drink",
+        "starter"
+      ],
+      "required": true,
+      "default": "breakfast"
+    },
+    "difficulity": {
+      "type": "enumeration",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "required": true,
+      "default": "medium"
+    },
+    "recipe": {
+      "model": "recipes",
+      "via": "types"
+    }
+  }
+}

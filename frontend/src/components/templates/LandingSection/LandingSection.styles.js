@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const LandingWrapper = styled.section`
+export const LandingWrapper = styled.header`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ export const TextWrapper = styled.div`
     width: 50%;
   }
 `
-export const LandingText = styled.p`
+export const LandingText = styled.h1`
   margin-bottom: 2rem;
   font-size: 4rem;
   font-weight: 300;

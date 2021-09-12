@@ -7,6 +7,7 @@ const Heading = styled.h1`
   justify-self: start;
   font-size: 3rem;
   font-weight: 300;
+  color: ${({ theme }) => theme.colors.fontColor};
 
   &::before,
   &::after {

@@ -17,6 +17,7 @@
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.13.0",
     "gatsby-plugin-image": "^1.13.0",
+    "gatsby-plugin-offline": "^4.13.0",
     "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-plugin-styled-components": "^4.13.0",
     "gatsby-source-filesystem": "^3.13.0",

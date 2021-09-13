@@ -9,23 +9,41 @@ import SearchBar from "../../molecules/SearchBar/SearchBar"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 
 const FilterBar = () => {
+  // const data = useStaticQuery(graphql`
+  //   query Difficulties {
+  //     allStrapiDifficulties {
+  //       nodes {
+  //         difficulty
+  //       }
+  //     }
+  //   }
+  // `)
   const data = useStaticQuery(graphql`
-    query Difficulties {
+    query Filters {
       allStrapiDifficulties {
         nodes {
           difficulty
         }
       }
+      allStrapiTypes {
+        nodes {
+          types
+        }
+      }
     }
   `)
   console.log(data)
+  const difficulties = data.allStrapiDifficulties.nodes
+  const types = data.allStrapiTypes.nodes
 
   return (
     <FilterWrapper>
       <FilterHeader>filters</FilterHeader>
       <FilterContainer>
         <SearchBar />
-        <FilterOptionsBody />
+        <FilterOptionsBody content={difficulties} />
+        <FilterOptionsBody content={difficulties} />
+        <FilterOptionsBody content={types} />
       </FilterContainer>
     </FilterWrapper>
   )

@@ -16,6 +16,9 @@ export const FilterHeader = styled.p`
 `
 
 export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 100%;
   padding: 3rem;

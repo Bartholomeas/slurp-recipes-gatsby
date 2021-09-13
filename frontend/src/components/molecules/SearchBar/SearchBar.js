@@ -7,13 +7,14 @@ const SearchWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2.4rem;
 `
 
 const SearchForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: #fff;
 `
 
 const SearchLabel = styled.label`

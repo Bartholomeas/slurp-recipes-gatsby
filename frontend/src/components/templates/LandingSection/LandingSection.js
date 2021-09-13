@@ -22,7 +22,7 @@ const LandingSection = () => {
       <ImageWrapper>
         <ImageContainer>
           <StaticImage
-            src="../images/pizza.png"
+            src="../../../images/pizza.png"
             placeholder="blurred"
             alt="Pizza"
           />

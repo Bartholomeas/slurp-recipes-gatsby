@@ -23,6 +23,7 @@ export const RecipesContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  margin-top: 6rem;
 
   @media only screen and (min-width: 768px) {
     display: grid;

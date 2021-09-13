@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "types",
+  "collectionName": "difficulties",
   "info": {
-    "name": "type",
-    "description": ""
+    "name": "Difficulty"
   },
   "options": {
     "increments": true,
@@ -12,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "types": {
+    "difficulty": {
       "type": "string",
       "required": true
     },
     "recipes": {
-      "via": "types",
+      "via": "difficulties",
       "collection": "recipes"
     }
   }

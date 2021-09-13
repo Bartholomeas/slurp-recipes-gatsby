@@ -42,8 +42,14 @@
       "required": true
     },
     "types": {
-      "via": "recipe",
-      "collection": "type"
+      "collection": "type",
+      "via": "recipes",
+      "dominant": true
+    },
+    "difficulties": {
+      "collection": "difficulty",
+      "via": "recipes",
+      "dominant": true
     }
   }
 }

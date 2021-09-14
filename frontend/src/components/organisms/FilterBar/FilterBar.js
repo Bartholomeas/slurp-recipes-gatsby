@@ -28,7 +28,6 @@ const FilterBar = () => {
       }
     }
   `)
-  console.log(data)
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes

@@ -6,21 +6,25 @@ export const FilterWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  // height: 100%;
   width: 100%;
+  padding: 3rem;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   `
 export const FilterHeader = styled.p`
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 3rem;
   font-weight: bold;
+  margin-bottom: 2rem;
 `
 
 export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   width: 100%;
-  padding: 3rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-start;
+  }
 `

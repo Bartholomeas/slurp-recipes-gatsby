@@ -8,6 +8,8 @@ const FilterWrapper = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 45%;
+  margin-bottom: 3rem;
 `
 
 const FilterOptionsBody = ({ content }) => {

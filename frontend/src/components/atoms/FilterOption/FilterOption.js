@@ -7,10 +7,11 @@ const FilterOptionText = styled.input`
 const FilterOptionLabel = styled.label`
   color: ${({ theme }) => theme.colors.fontColor};
 `
-const FilterOptionWrapper = styled.div``
+const FilterOptionWrapper = styled.div`
+  margin-bottom: 0.8rem;
+`
 
 export const FilterOption = ({ name, option = "", id }) => {
-  console.log(option)
   return (
     <FilterOptionWrapper>
       <FilterOptionText

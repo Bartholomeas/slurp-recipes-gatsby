@@ -26,7 +26,7 @@ export const RecipesContainer = styled.div`
     display: grid;
     grid-gap: 3rem;
     // grid-template-columns: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
 `
 

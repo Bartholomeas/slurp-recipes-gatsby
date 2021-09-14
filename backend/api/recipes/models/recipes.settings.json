@@ -50,6 +50,11 @@
       "collection": "difficulty",
       "via": "recipes",
       "dominant": true
+    },
+    "diets": {
+      "collection": "diet",
+      "via": "recipes",
+      "dominant": true
     }
   }
 }

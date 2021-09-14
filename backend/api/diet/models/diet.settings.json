@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diets",
+  "info": {
+    "name": "diet"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "diet": {
+      "type": "string"
+    },
+    "recipes": {
+      "via": "diets",
+      "collection": "recipes"
+    }
+  }
+}

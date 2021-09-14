@@ -25,7 +25,7 @@ const LandingSection = () => {
             src="../../../images/pizza.png"
             placeholder="blurred"
             alt="Pizza"
-            width="500"
+            width={500}
           />
         </ImageContainer>
       </ImageWrapper>

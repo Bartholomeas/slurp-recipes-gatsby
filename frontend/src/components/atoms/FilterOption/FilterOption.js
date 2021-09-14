@@ -5,6 +5,8 @@ const FilterOptionText = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
 `
 const FilterOptionLabel = styled.label`
+  font-size: 1.6rem;
+  text-wrap: nowrap;
   color: ${({ theme }) => theme.colors.fontColor};
 `
 const FilterOptionWrapper = styled.div`

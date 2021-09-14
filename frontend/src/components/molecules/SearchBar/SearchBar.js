@@ -7,6 +7,7 @@ const SearchWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   margin-bottom: 2.4rem;
 `
 
@@ -18,13 +19,14 @@ const SearchForm = styled.form`
 `
 
 const SearchLabel = styled.label`
+  font-size: 1.4rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 
 const SearchInput = styled.input`
   padding: 0.6rem 1rem;
-  width: 10rem;
+  width: 100%;
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   border: none;

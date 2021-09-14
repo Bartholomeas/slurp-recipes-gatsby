@@ -5,6 +5,7 @@ import {
   RecipesContainer,
   RecipesWrapper,
   FiltersButton,
+  CardsContainer
 } from "./RecipesSection.styles"
 
 const RecipesSection = () => {
@@ -14,6 +15,7 @@ const RecipesSection = () => {
       <FiltersButton content="filters" />
       <RecipesContainer>
         <FilterBar />
+        <CardsContainer></CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>
   )

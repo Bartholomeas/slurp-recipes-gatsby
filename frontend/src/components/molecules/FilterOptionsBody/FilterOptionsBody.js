@@ -7,13 +7,16 @@ const FilterWrapper = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 45%;
+  align-items: center;
+  width: 100%;
   margin-bottom: 3rem;
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-start;
+  }
 `
 
 const FilterOptionsBody = ({ content }) => {
-  console.log(content)
   return (
     <FilterWrapper>
       <FilterOptionHeader content={Object.keys(content[0])} />

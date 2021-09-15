@@ -15,11 +15,14 @@ export const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1600px;
   height: 100%;
   width: 100%;
-  padding: 0 4rem;
   margin: 0 auto;
+
+  @media only screen and (max-width: 1920px) {
+    padding: 0 2rem;
+  }
 `
 
 export const LinkContainer = styled.div`

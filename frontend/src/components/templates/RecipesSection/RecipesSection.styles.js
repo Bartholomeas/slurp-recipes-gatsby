@@ -10,7 +10,7 @@ export const RecipesWrapper = styled.section`
   padding-top: 6rem;
 
   @media only screen and (min-width: 768px) {
-    max-width: 1980px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 `
@@ -19,29 +19,29 @@ export const RecipesContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 1080px;
   margin-top: 4rem;
   padding: 4rem 0;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     height: 90vh;
-    padding: 4rem;
+    padding: 0 2rem;
+    grid-gap: 2rem;
   }
 `
 
 export const CardsContainer = styled.div`
-  grid-column: 2/8;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   width: 100%;
   height: 100%;
-  background-color: gold;
 
   @media only screen and (min-width: 768px) {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 3rem;
   }
 `

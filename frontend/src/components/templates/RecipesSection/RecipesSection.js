@@ -63,6 +63,9 @@ const RecipesSection = () => {
           <Card img={image} />
           <Card img={image} />
           <Card img={image} />
+          <Card img={image} />
+          <Card img={image} />
+          <Card img={image} />
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

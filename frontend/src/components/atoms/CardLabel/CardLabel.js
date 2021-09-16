@@ -2,6 +2,10 @@ import React from "react"
 import styled from "styled-components"
 
 const CardLabelWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 5rem;
   width: 100%;
   padding: 0.6rem;
@@ -9,7 +13,6 @@ const CardLabelWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.darkerBase};
   opacity: 0.8;
   color: ${({ theme }) => theme.colors.lightFont};
-
 `
 
 const CardLabelType = styled.p`

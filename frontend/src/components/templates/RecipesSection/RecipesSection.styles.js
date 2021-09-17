@@ -20,13 +20,13 @@ export const RecipesContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 1080px;
-  margin-top: 4rem;
   padding: 4rem 0;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     height: 90vh;
     padding: 0 2rem;
+    margin-top: 8rem;
     grid-gap: 2rem;
   }
 `
@@ -34,8 +34,6 @@ export const RecipesContainer = styled.div`
 export const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   width: 100%;
   height: 100%;
 
@@ -48,10 +46,9 @@ export const CardsContainer = styled.div`
 `
 
 export const FiltersButton = styled(Button)`
-  font-size: 5rem;
-  color: red;
+  margin-top: 3rem;
 
-  &::before {
-    width: 5rem;
+  @media only screen and (min-width: 768px) {
+    display: none;
   }
 `

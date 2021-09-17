@@ -49,14 +49,12 @@ const RecipesSection = () => {
 
   const image = getImage(data.strapiRecipes.img.localFile)
 
-  // console.log(data.allStrapiRecipes.nodes)
-  // const { nodes } = data.allStrapiRecipes
   console.log(image)
 
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
-      <FiltersButton content="filters" />
+      <FiltersButton content="filters"></FiltersButton>
       <RecipesContainer>
         <FilterBar />
         <CardsContainer>

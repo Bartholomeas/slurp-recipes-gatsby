@@ -33,8 +33,8 @@ const ButtonWrapper = styled.button`
   }
 `
 
-const Button = ({ content }) => {
-  return <ButtonWrapper>{content}</ButtonWrapper>
+const Button = ({ content, className }) => {
+  return <ButtonWrapper className={className}>{content}</ButtonWrapper>
 }
 
 export default Button

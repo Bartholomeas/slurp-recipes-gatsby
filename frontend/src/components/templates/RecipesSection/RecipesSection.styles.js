@@ -14,6 +14,7 @@ export const RecipesWrapper = styled.section`
     margin: 0 auto;
   }
 `
+
 export const RecipesContainer = styled.div`
   display: flex;
   flex-direction: column;

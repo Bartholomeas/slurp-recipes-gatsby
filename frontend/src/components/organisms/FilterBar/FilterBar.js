@@ -8,7 +8,7 @@ import {
 import SearchBar from "../../molecules/SearchBar/SearchBar"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 
-const FilterBar = () => {
+const FilterBar = ({ className }) => {
   const data = useStaticQuery(graphql`
     query Filters {
       allStrapiDifficulties {
@@ -33,7 +33,7 @@ const FilterBar = () => {
   const types = data.allStrapiTypes.nodes
 
   return (
-    <FilterWrapper>
+    <FilterWrapper className={className}>
       <FilterHeader>filters</FilterHeader>
       <FilterContainer>
         <SearchBar />

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import Header from "../../atoms/Header/Header"
@@ -10,6 +10,7 @@ import {
   FiltersButton,
   CardsContainer,
 } from "./RecipesSection.styles"
+import styles from "../../../styles/user-stylesheet.css"
 
 const RecipesSection = () => {
   // const data = useStaticQuery(graphql`
@@ -48,16 +49,25 @@ const RecipesSection = () => {
   `)
 
   const image = getImage(data.strapiRecipes.img.localFile)
-
   console.log(image)
+
+  const [active, setActive] = useState("active")
+
+  const handleActive = () => {
+    console.log(active)
+    setActive(active != "" ? "" : "active")
+  }
 
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
-      <FiltersButton content="filters"></FiltersButton>
+      <FiltersButton
+        onClick={() => handleActive()}
+        content="filters"
+      ></FiltersButton>
       <RecipesContainer>
-        <FilterBar />
-        <CardsContainer>
+        <FilterBar className={active} />
+        <CardsContainer className="active">
           <Card img={image} />
           <Card img={image} />
           <Card img={image} />

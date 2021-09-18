@@ -49,25 +49,18 @@ const RecipesSection = () => {
   `)
 
   const image = getImage(data.strapiRecipes.img.localFile)
+
   console.log(image)
 
-  const [active, setActive] = useState("active")
-
-  const handleActive = () => {
-    console.log(active)
-    setActive(active != "" ? "" : "active")
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
-      <FiltersButton
-        onClick={() => handleActive()}
-        content="filters"
-      ></FiltersButton>
+      <FiltersButton onClick={() => setIsOpen(!isOpen)} content="filters" />
       <RecipesContainer>
-        <FilterBar className={active} />
-        <CardsContainer className="active">
+        <FilterBar isOpen={isOpen} />
+        <CardsContainer>
           <Card img={image} />
           <Card img={image} />
           <Card img={image} />

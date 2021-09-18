@@ -14,17 +14,16 @@ export const RecipesWrapper = styled.section`
     margin: 0 auto;
   }
 `
-
 export const RecipesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 1080px;
   padding: 4rem 0;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    align-items: flex-start;
     height: 90vh;
     padding: 0 2rem;
     margin-top: 8rem;
@@ -43,6 +42,8 @@ export const CardsContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 30rem;
     grid-gap: 3rem;
+    overflow-y: scroll;
+    padding-bottom: 3rem;
   }
 `
 

@@ -2,16 +2,16 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { AiOutlineMenu } from "react-icons/ai"
 
-export const NavContainer = styled.nav`
+export const NavWrapper = styled.nav`
   position: fixed;
   top: 0;
   min-width: 100%;
   height: 7rem;
-  background-color: #f3f3f3;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 1000;
 `
 
-export const NavWrapper = styled.div`
+export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +27,17 @@ export const NavWrapper = styled.div`
 
 export const LinkContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    background-color: ${({ theme }) => theme.colors.lightGrey};
+    overflow: hidden;
+    width: 100%;
+  } ;
 `
 export const NavLink = styled(Link)`
   color: ${({ theme }) => theme.colors.fontColor};
@@ -46,10 +56,6 @@ export const NavLink = styled(Link)`
 
   &:hover {
     color: ${({ theme }) => theme.colors.baseColor};
-  }
-
-  @media only screen and (max-width: 767px) {
-    display: none;
   }
 `
 

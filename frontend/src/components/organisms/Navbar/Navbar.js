@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   NavContainer,
   NavWrapper,
@@ -9,12 +9,14 @@ import {
 } from "./Navbar.styles"
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <NavContainer>
-      <NavWrapper>
+    <NavWrapper>
+      <NavContainer>
         <Logo>s:urp</Logo>
-        <LinkContainer>
-        <HamburgerBtn />
+        <HamburgerBtn onClick={() => setIsOpen(!isOpen)} />
+        <LinkContainer isOpen={isOpen}>
           <NavLink className="bold" to="/">
             converter
           </NavLink>
@@ -23,8 +25,8 @@ const Navbar = () => {
           <NavLink to="/tips">tips&tricks</NavLink>
           <NavLink to="/contact">contact</NavLink>
         </LinkContainer>
-      </NavWrapper>
-    </NavContainer>
+      </NavContainer>
+    </NavWrapper>
   )
 }
 

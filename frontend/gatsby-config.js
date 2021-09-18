@@ -14,6 +14,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-offline",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-strapi`,
       options: {

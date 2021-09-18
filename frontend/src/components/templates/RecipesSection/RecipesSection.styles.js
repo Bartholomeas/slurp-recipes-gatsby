@@ -8,10 +8,12 @@ export const RecipesWrapper = styled.section`
   align-items: center;
   width: 100%;
   padding-top: 6rem;
+  margin-bottom: 4rem;
 
   @media only screen and (min-width: 768px) {
-    max-width: 1600px;
+    max-width: 1920px;
     margin: 0 auto;
+    margin-bottom: 8rem;
   }
 `
 export const RecipesContainer = styled.div`

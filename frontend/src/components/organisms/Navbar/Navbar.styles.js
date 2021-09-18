@@ -15,9 +15,8 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1600px;
+  max-width: 1920px;
   height: 100%;
-  width: 100%;
   margin: 0 auto;
 
   @media only screen and (max-width: 1920px) {

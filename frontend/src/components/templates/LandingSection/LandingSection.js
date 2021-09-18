@@ -17,12 +17,12 @@ const LandingSection = () => {
         <LandingText>
           Best tastes of your life with <ColoredText>our recipes</ColoredText>
         </LandingText>
-        <Button content="Contact us!" />
+        <Button to="/contact" content="Contact us!" />
       </TextWrapper>
       <ImageWrapper>
         <ImageContainer>
           <StaticImage
-            src="../../../images/pizza.png"
+            src="../../../../static/pizza.png"
             placeholder="blurred"
             alt="Pizza"
             width={500}

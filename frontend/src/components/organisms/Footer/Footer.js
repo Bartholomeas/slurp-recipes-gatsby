@@ -12,7 +12,8 @@ const FooterWrapper = styled.footer`
 
 const FooterContainer = styled.div`
   height: 100%;
-  max-width: 1600px;
+  max-width: 1920px;
+  margin: 0 auto;
 `
 
 const Footer = () => {

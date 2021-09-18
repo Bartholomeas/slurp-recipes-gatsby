@@ -15,15 +15,26 @@ const Navbar = () => {
     <NavWrapper>
       <NavContainer>
         <Logo>s:urp</Logo>
-        <HamburgerBtn onClick={() => setIsOpen(!isOpen)} />
+        <HamburgerBtn
+          aria-label="Open mobile menu"
+          onClick={() => setIsOpen(!isOpen)}
+        />
         <LinkContainer isOpen={isOpen}>
           <NavLink className="bold" to="/">
             converter
           </NavLink>
-          <NavLink to="/">recipes</NavLink>
-          <NavLink to="/shop">shop</NavLink>
-          <NavLink to="/tips">tips&tricks</NavLink>
-          <NavLink to="/contact">contact</NavLink>
+          <NavLink to="/" activeStyle={{ color: "#A41A1A" }}>
+            recipes
+          </NavLink>
+          <NavLink to="/shop" activeStyle={{ color: "#A41A1A" }}>
+            shop
+          </NavLink>
+          <NavLink to="/tips" activeStyle={{ color: "#A41A1A" }}>
+            tips&tricks
+          </NavLink>
+          <NavLink to="/contact" activeStyle={{ color: "#A41A1A" }}>
+            contact
+          </NavLink>
         </LinkContainer>
       </NavContainer>
     </NavWrapper>

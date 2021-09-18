@@ -49,9 +49,6 @@ const RecipesSection = () => {
   `)
 
   const image = getImage(data.strapiRecipes.img.localFile)
-
-  console.log(image)
-
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -61,12 +58,17 @@ const RecipesSection = () => {
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          <Card img={image} />
-          <Card img={image} />
-          <Card img={image} />
-          <Card img={image} />
-          <Card img={image} />
-          <Card img={image} />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
+          <Card img={image} alt="recipe image" />
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

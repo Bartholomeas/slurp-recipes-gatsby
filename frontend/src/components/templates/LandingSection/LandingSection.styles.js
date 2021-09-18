@@ -7,7 +7,7 @@ export const LandingWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   // height: 93vh;
-  height: clamp(700px, 93vh, 1600px);
+  height: clamp(700px, 93vh, 1920px);
   margin-top: 7rem;
 
   @media only screen and (min-width: 768px) {

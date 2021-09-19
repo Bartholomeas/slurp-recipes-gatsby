@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import {
   FilterWrapper,
@@ -32,9 +32,7 @@ const FilterBar = ({ isOpen }) => {
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes
-  useEffect(() => {
-    console.log("filterbar rendered")
-  }, [data])
+
   return (
     <FilterWrapper isOpen={isOpen}>
       <FilterHeader>filters</FilterHeader>

@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import CardLabel from "../../atoms/CardLabel/CardLabel"
 
@@ -28,7 +28,8 @@ export const CardImg = styled(GatsbyImage)`
   height: 250px;
 `
 
-const Card = ({ img }) => {
+const Card = ({ image }) => {
+  const img = getImage(image)
   return (
     <CardWrapper>
       <CardImg image={img} alt="Food image" />

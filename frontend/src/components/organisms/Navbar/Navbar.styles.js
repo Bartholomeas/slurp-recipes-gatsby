@@ -12,6 +12,7 @@ export const NavWrapper = styled.nav`
 `
 
 export const NavContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,12 +31,21 @@ export const LinkContainer = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: 768px) {
+    position: absolute;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
-    background-color: ${({ theme }) => theme.colors.lightGrey};
-    overflow: hidden;
+    left: 0;
+    top: 0;
+    height: 100vh;
     width: 100%;
+    padding: 4rem 0;
+    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100%")});
+    max-height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
+    background-color: ${({ theme }) => theme.colors.lightGrey};
+    transition: transform 0.3s, max-height 0.6s;
+    overflow: hidden;
+    z-index: -10;
   } ;
 `
 export const NavLink = styled(Link)`
@@ -64,12 +74,13 @@ export const Logo = styled.p`
 `
 
 export const HamburgerBtn = styled(AiOutlineMenu)`
-  display: block;
+  position: absolute;
+  right: 2rem;
+  color: ${({ theme }) => theme.colors.fontColor};
   font-size: 3rem;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.fontColor};
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 769px) {
     display: none;
   }
 `

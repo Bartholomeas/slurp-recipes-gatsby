@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
 import Header from "../../atoms/Header/Header"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
@@ -10,45 +9,40 @@ import {
   FiltersButton,
   CardsContainer,
 } from "./RecipesSection.styles"
-import styles from "../../../styles/user-stylesheet.css"
 
 const RecipesSection = () => {
-  // const data = useStaticQuery(graphql`
-  //   query MyQuery {
-  //     allStrapiRecipes {
-  //       nodes {
-  //         diets {
-  //           diet
-  //         }
-  //         difficulties {
-  //           difficulty
-  //         }
-  //         ingredients
-  //         time
-  //         title
-  //         preparation
-  //         img {
-  //           url
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      strapiRecipes {
-        img {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 400)
+    query GetRecipes {
+      allStrapiRecipes {
+        nodes {
+          ingredients
+          id
+          difficulties {
+            difficulty
+          }
+          diets {
+            diet
+          }
+          types {
+            types
+          }
+          title
+          time
+          preparation
+          img {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 300)
+              }
             }
           }
         }
       }
     }
   `)
+  const recipes = data.allStrapiRecipes.nodes
+  console.log(recipes)
 
-  const image = getImage(data.strapiRecipes.img.localFile)
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -58,17 +52,9 @@ const RecipesSection = () => {
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
-          <Card img={image} alt="recipe image" />
+          {recipes.map(recipe => (
+            <Card key={recipe.id} image={recipe.img.localFile} />
+          ))}
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

@@ -5,9 +5,9 @@ const CardLabelWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 5rem;
+  height: 7rem;
   width: 100%;
   padding: 0.6rem;
   text-align: center;
@@ -23,12 +23,13 @@ const CardDetailsWrapper = styled.div`
 `
 
 const CardDetails = styled.p`
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.2rem;
 `
 
 const CardLabelTitle = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  flex-grow: 1;
+  font-weight: 700;
 `
 
 const CardLabel = () => {

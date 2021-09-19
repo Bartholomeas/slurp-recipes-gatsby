@@ -6,7 +6,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: "SlurpRecipes",
+    title: "s:urp recipes",
+    description: "Best recipes for every occasion",
+    copyright: "copyright 2021 by s:urp",
+    contact: "slurprecipes@gmail.com",
   },
   plugins: [
     "gatsby-plugin-image",

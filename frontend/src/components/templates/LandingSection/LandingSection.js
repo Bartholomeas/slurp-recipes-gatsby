@@ -9,13 +9,17 @@ import {
   ImageContainer,
   ColoredText,
 } from "./LandingSection.styles"
+import { counterState } from "../../../redux/counter"
+import { useSelector } from "react-redux"
+
 // import { useSelector, useDispatch } from "react-redux"
 // import { increment, decrement } from "../../../redux/counter"
 
 const LandingSection = () => {
   // const { count } = useSelector(state => state.counter)
   // const dispatch = useDispatch()
-
+  const state = useSelector(counterState)
+  console.log(state)
   return (
     <LandingWrapper>
       <TextWrapper>

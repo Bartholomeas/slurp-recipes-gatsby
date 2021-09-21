@@ -3,8 +3,11 @@ import Layout from "../components/providers/Layout"
 import LandingSection from "../components/templates/LandingSection/LandingSection"
 import RecipesSection from "../components/templates/RecipesSection/RecipesSection"
 import { Helmet } from "react-helmet"
+import { store } from "../redux/store"
+import { Provider } from "react-redux"
 
 const Home = () => {
+  // console.log(state)
   return (
     <Layout>
       <Helmet>
@@ -17,8 +20,10 @@ const Home = () => {
         />
         <link rel="canonical" href="http://localhost:8000/" />
       </Helmet>
-      <LandingSection />
-      <RecipesSection />
+      <Provider store={store}>
+        <LandingSection />
+        <RecipesSection />
+      </Provider>
     </Layout>
   )
 }

@@ -53,7 +53,11 @@ const RecipesSection = () => {
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
           {recipes.map(recipe => (
-            <Card key={recipe.id} image={recipe.img.localFile} />
+            <Card
+              slug={recipe.id}
+              key={recipe.id}
+              image={recipe.img.localFile}
+            />
           ))}
         </CardsContainer>
       </RecipesContainer>

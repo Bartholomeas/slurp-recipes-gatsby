@@ -2,6 +2,7 @@ import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import CardLabel from "../../atoms/CardLabel/CardLabel"
+import { Link } from "gatsby"
 
 export const CardWrapper = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ export const CardWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     margin: 0;
     margin-bottom: 2rem;
+    text-decoration: none;
   }
 `
 
@@ -28,13 +30,19 @@ export const CardImg = styled(GatsbyImage)`
   height: 250px;
 `
 
-const Card = ({ image }) => {
+export const CardLink = styled(Link)`
+  text-decoration: none;
+`
+
+const Card = ({ image, slug }) => {
   const img = getImage(image)
   return (
-    <CardWrapper>
-      <CardImg image={img} alt="Food image" />
-      <CardLabel />
-    </CardWrapper>
+    <CardLink to={`/${slug}`}>
+      <CardWrapper>
+        <CardImg image={img} alt="Food image" />
+        <CardLabel />
+      </CardWrapper>
+    </CardLink>
   )
 }
 

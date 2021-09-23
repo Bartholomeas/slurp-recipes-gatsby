@@ -34,5 +34,11 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-redux",
+      options: {
+        path: "./src/redux/store.js",
+      },
+    },
   ],
 }

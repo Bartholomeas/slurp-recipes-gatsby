@@ -41,8 +41,6 @@ const RecipesSection = () => {
     }
   `)
   const recipes = data.allStrapiRecipes.nodes
-  console.log(recipes)
-
   const [isOpen, setIsOpen] = useState(false)
 
   return (

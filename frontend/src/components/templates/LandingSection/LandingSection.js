@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Button from "../../atoms/Button/Button"
 import {
@@ -9,13 +9,8 @@ import {
   ImageContainer,
   ColoredText,
 } from "./LandingSection.styles"
-import StateContext from "../../../context/StateContext"
 
 const LandingSection = () => {
-  const value = useContext(StateContext)
-
-  console.log(value)
-
   return (
     <LandingWrapper>
       <TextWrapper>

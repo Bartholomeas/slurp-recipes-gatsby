@@ -11,36 +11,37 @@ import {
 } from "./RecipesSection.styles"
 
 const RecipesSection = () => {
-  // const data = useStaticQuery(graphql`
-  //   query GetRecipes {
-  //     allStrapiRecipes {
-  //       nodes {
-  //         ingredients
-  //         id
-  //         difficulties {
-  //           difficulty
-  //         }
-  //         diets {
-  //           diet
-  //         }
-  //         types {
-  //           types
-  //         }
-  //         title
-  //         time
-  //         preparation
-  //         img {
-  //           localFile {
-  //             childImageSharp {
-  //               gatsbyImageData(width: 300)
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-  // const recipes = data.allStrapiRecipes.nodes
+  const data = useStaticQuery(graphql`
+    query GetRecipes {
+      allStrapiRecipes {
+        nodes {
+          ingredients
+          id
+          difficulties {
+            difficulty
+          }
+          diets {
+            diet
+          }
+          types {
+            types
+          }
+          title
+          time
+          preparation
+          img {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 300)
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const recipes = data.allStrapiRecipes.nodes
+
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -50,13 +51,13 @@ const RecipesSection = () => {
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          {/* {recipes.map(recipe => (
+          {recipes.map(recipe => (
             <Card
               slug={recipe.id}
               key={recipe.id}
               image={recipe.img.localFile}
             />
-          ))} */}
+          ))}
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

@@ -1,7 +1,7 @@
-import React from "react"
+// import React from "react"
 
-import { StateProvider } from "./src/context/StateContext"
+// import { StateProvider } from "./src/context/StateContext"
 
-export const wrapRootElement = ({ element }) => (
-  <StateProvider>{element}</StateProvider>
-)
+// export const wrapRootElement = ({ element }) => (
+//   <StateProvider>{element}</StateProvider>
+// )

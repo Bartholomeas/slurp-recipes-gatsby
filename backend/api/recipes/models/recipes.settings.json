@@ -55,6 +55,10 @@
       "collection": "diet",
       "via": "recipes",
       "dominant": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
     }
   }
 }

@@ -35,7 +35,7 @@ const Heading = styled.h1`
 const Header = ({ content }) => {
   return (
     <>
-      <Heading>{content}</Heading>
+      <Heading>{content.toLowerCase()}</Heading>
     </>
   )
 }

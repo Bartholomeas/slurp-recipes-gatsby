@@ -24,7 +24,6 @@ const HeaderRecipeDetailsImg = styled(GatsbyImage)`
   width: 100%;
 `
 const RecipeDetailsHeader = styled(Header)`
-  margin: 4rem 0;
   font-size: 3rem;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.fontColor};
@@ -40,14 +39,14 @@ const RecipeDetailsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
-  /* padding: 4rem; */
+  padding: 4rem;
+  margin-bottom: 8rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    /* justify-content: space-evenly; */
     height: 10rem;
     padding: 2rem;
   }
@@ -60,7 +59,6 @@ const RecipeInfoContainer = styled.div`
   justify-content: center;
   height: 100%;
   width: auto;
-  /* margin-bottom: 2em; */
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -82,7 +80,7 @@ const RecipeInfoValue = styled.p`
   font-weight: 300;
 `
 const RecipeDetailsLine = styled.div`
-  height: 3px;
+  height: 6px;
   width: 50%;
   background-color: ${({ theme }) => theme.colors.darkGrey};
 
@@ -91,43 +89,103 @@ const RecipeDetailsLine = styled.div`
     height: 90%;
   }
 `
+const PreparationsWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+`
+
+const IngredientsContainer = styled.aside`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.fontColor};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+  font-size: 0.8em;
+  line-height: 2.2rem;
+
+  & ul {
+    background-color: tomato;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 25%;
+  }
+`
+
+const PreparationContainer = styled.div`
+  width: 100%;
+  padding-left: 2rem;
+  color: ${({ theme }) => theme.colors.fontColor};
+  line-height: 3rem;
+
+  @media only screen and (min-width: 768px) {
+    width: 75%;
+  }
+`
+
+const PreparationsHeader = styled.p`
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: ${({ theme }) => theme.colors.fontColor};
+`
 
 const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
-  const { id, preparation } = recipeInfo
   const image = getImage(
     recipeInfo.img.localFile.childImageSharp.gatsbyImageData
   )
-  console.log(data)
+  console.log(recipeInfo)
 
   return (
     <Layout>
       <RecipeDetailsSection>
         <HeaderRecipeDetailsImg image={image} alt="Food header img" />
-        <RecipeDetailsHeader content="sushi futomaki"></RecipeDetailsHeader>
+        <RecipeDetailsHeader content={recipeInfo.title}></RecipeDetailsHeader>
         <RecipeDetailsWrapper>
           <RecipeInfoContainer>
-            <RecipeInfoTitle>difficulity</RecipeInfoTitle>
-            <RecipeInfoValue>easy</RecipeInfoValue>
+            <RecipeInfoTitle>cook time</RecipeInfoTitle>
+            <RecipeInfoValue>~{recipeInfo.time} min</RecipeInfoValue>
           </RecipeInfoContainer>
           <RecipeDetailsLine />
           <RecipeInfoContainer>
             <RecipeInfoTitle>difficulity</RecipeInfoTitle>
-            <RecipeInfoValue>easy</RecipeInfoValue>
+            <RecipeInfoValue>
+              {recipeInfo.difficulties[0].difficulty}
+            </RecipeInfoValue>
           </RecipeInfoContainer>
           <RecipeDetailsLine />
           <RecipeInfoContainer>
-            <RecipeInfoTitle>difficulity</RecipeInfoTitle>
-            <RecipeInfoValue>easy</RecipeInfoValue>
-          </RecipeInfoContainer>
-          <RecipeDetailsLine />
-          <RecipeInfoContainer>
-            <RecipeInfoTitle>difficulity</RecipeInfoTitle>
-            <RecipeInfoValue>easy</RecipeInfoValue>
+            <RecipeInfoTitle>diet</RecipeInfoTitle>
+            <RecipeInfoValue>
+              {recipeInfo.diets[0] ? recipeInfo.diets[0].diet : "standard"}
+            </RecipeInfoValue>
           </RecipeInfoContainer>
         </RecipeDetailsWrapper>
-        <div>{id}</div>
-        <div>{preparation}</div>
+
+        <PreparationsWrapper>
+          <IngredientsContainer>
+            <PreparationsHeader>ingredients</PreparationsHeader>
+            {recipeInfo.ingredients}
+          </IngredientsContainer>
+          <PreparationContainer>
+            <PreparationsHeader>preparation</PreparationsHeader>
+            {recipeInfo.preparation}
+          </PreparationContainer>
+        </PreparationsWrapper>
       </RecipeDetailsSection>
     </Layout>
   )

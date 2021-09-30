@@ -1,7 +1,13 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { graphql } from "gatsby"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import {
+  AiFillMail,
+  AiFillFacebook,
+  AiOutlineShareAlt,
+  AiFillPrinter,
+} from "react-icons/ai"
 import Layout from "../providers/Layout"
 import Header from "../atoms/Header/Header"
 
@@ -15,8 +21,8 @@ const RecipeDetailsSection = styled.section`
   width: 100%;
   max-width: 1600px;
   padding: 2rem;
+  margin: 0 auto;
   margin-top: 7rem;
-  /* background-color: skyblue; */
 `
 
 const HeaderRecipeDetailsImg = styled(GatsbyImage)`
@@ -81,7 +87,7 @@ const RecipeInfoValue = styled.p`
 `
 const RecipeDetailsLine = styled.div`
   height: 6px;
-  width: 50%;
+  width: 70%;
   background-color: ${({ theme }) => theme.colors.darkGrey};
 
   @media only screen and (min-width: 768px) {
@@ -129,6 +135,7 @@ const PreparationContainer = styled.div`
   padding-left: 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
   line-height: 3rem;
+  font-weight: 300;
 
   @media only screen and (min-width: 768px) {
     width: 75%;
@@ -139,8 +146,38 @@ const PreparationsHeader = styled.p`
   font-size: 3rem;
   font-weight: 500;
   text-align: center;
+  word-wrap: wrap;
   margin: 4rem 0 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
+`
+const IconsWrapper = styled.div`
+  position: relative;
+  align-self: flex-end;
+  margin: 2rem 0;
+`
+
+const iconsStyle = css`
+  height: 3rem;
+  color: ${({ theme }) => theme.colors.baseColor};
+  font-size: 3rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`
+
+const FacebookIcon = styled(AiFillFacebook)`
+  ${iconsStyle}
+`
+const MailIcon = styled(AiFillMail)`
+  ${iconsStyle}
+`
+const ShareIcon = styled(AiOutlineShareAlt)`
+  ${iconsStyle}
+`
+const PrinterIcon = styled(AiFillPrinter)`
+  ${iconsStyle}
 `
 
 const RecipeDetails = ({ data }) => {
@@ -179,13 +216,19 @@ const RecipeDetails = ({ data }) => {
         <PreparationsWrapper>
           <IngredientsContainer>
             <PreparationsHeader>ingredients</PreparationsHeader>
-            {recipeInfo.ingredients}
+            {recipeInfo.ingredients.split("-")}
           </IngredientsContainer>
           <PreparationContainer>
             <PreparationsHeader>preparation</PreparationsHeader>
             {recipeInfo.preparation}
           </PreparationContainer>
         </PreparationsWrapper>
+        <IconsWrapper>
+          <MailIcon />
+          <FacebookIcon />
+          <ShareIcon />
+          <PrinterIcon />
+        </IconsWrapper>
       </RecipeDetailsSection>
     </Layout>
   )

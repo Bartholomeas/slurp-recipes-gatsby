@@ -9,6 +9,10 @@ export const NavWrapper = styled.nav`
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 1000;
+
+  @media print {
+    display: none;
+  }
 `
 
 export const NavContainer = styled.div`

@@ -14,9 +14,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   data.allStrapiRecipes.nodes.forEach(node => {
     actions.createPage({
-      path: `/${node.id}`,
+      path: `/${node.title.toLowerCase().replace(/\s/g, "_")}`,
       component: path.resolve("./src/components/templates/recipe-details.js"),
-      context: { slug: node.id },
+      context: { slug: node.title },
     })
   })
 }

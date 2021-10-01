@@ -81,7 +81,7 @@ const RecipeDetails = ({ data }) => {
           <MailIcon />
           <FacebookIcon />
           <ShareIcon />
-          <PrinterIcon />
+          <PrinterIcon onClick={() => window.print()} />
         </IconsWrapper>
       </RecipeDetailsSection>
     </Layout>
@@ -92,7 +92,7 @@ export default RecipeDetails
 
 export const query = graphql`
   query RecipeDetails($slug: String) {
-    strapiRecipes(id: { eq: $slug }) {
+    strapiRecipes(title: { eq: $slug }) {
       id
       title
       ingredients

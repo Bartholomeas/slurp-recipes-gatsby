@@ -6,7 +6,7 @@ import { CardLink, CardWrapper, CardImg } from "./Card.styles"
 const Card = ({ image, slug }) => {
   const img = getImage(image)
   return (
-    <CardLink to={`/${slug}`}>
+    <CardLink to={`/${slug.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>
         <CardImg image={img} alt="Food image" />
         <CardLabel />

@@ -20,11 +20,19 @@ export const RecipeDetailsSection = styled.section`
   padding: 2rem;
   margin: 0 auto;
   margin-top: 7rem;
+
+  @media print {
+    margin: 0;
+  }
 `
 
 export const HeaderRecipeDetailsImg = styled(GatsbyImage)`
   height: 30rem;
   width: 100%;
+
+  @media print {
+    height: 200px;
+  }
 `
 export const RecipeDetailsHeader = styled(Header)`
   font-size: 3rem;
@@ -53,6 +61,15 @@ export const RecipeDetailsWrapper = styled.div`
     height: 10rem;
     padding: 2rem;
   }
+
+  @media print {
+    flex-direction: row;
+    justify-content: center;
+    height: 100px;
+    width: 70%;
+    padding: 0.8rem;
+    margin: 0;
+  }
 `
 
 export const RecipeInfoContainer = styled.div`
@@ -61,7 +78,7 @@ export const RecipeInfoContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: auto;
+  width: 100%;
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -70,17 +87,30 @@ export const RecipeInfoContainer = styled.div`
   &:last-child {
     border: none;
   }
+
+  @media print {
+    align-items: center;
+  }
 `
 export const RecipeInfoTitle = styled.p`
   margin-bottom: 0.6em;
   color: ${({ theme }) => theme.colors.fontColor};
   font-weight: 500;
   font-size: 1.8rem;
+
+  @media print {
+    width: 100px;
+    font-size: 1.4rem;
+  }
 `
 export const RecipeInfoValue = styled.p`
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.6rem;
   font-weight: 300;
+
+  @media print {
+    font-size: 1.2rem;
+  }
 `
 export const RecipeDetailsLine = styled.div`
   height: 6px;
@@ -106,6 +136,12 @@ export const PreparationsWrapper = styled.div`
     justify-content: center;
     align-items: flex-start;
   }
+
+  @media print {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 `
 
 export const IngredientsContainer = styled.aside`
@@ -118,12 +154,16 @@ export const IngredientsContainer = styled.aside`
   font-size: 0.8em;
   line-height: 2.2rem;
 
-  & ul {
-    background-color: tomato;
-  }
-
   @media only screen and (min-width: 768px) {
     width: 25%;
+  }
+
+  @media print {
+    width: 35%;
+    padding: 0;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: normal;
   }
 `
 
@@ -137,6 +177,14 @@ export const PreparationContainer = styled.div`
   @media only screen and (min-width: 768px) {
     width: 75%;
   }
+
+  @media print {
+    width: 55%;
+    padding: 0;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: normal;
+  }
 `
 
 export const PreparationsHeader = styled.p`
@@ -146,18 +194,35 @@ export const PreparationsHeader = styled.p`
   word-wrap: wrap;
   margin: 4rem 0 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
+
+  @media print {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 `
 export const IconsWrapper = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   align-self: flex-end;
   margin: 2rem 0;
+
+  @media print {
+    display: none;
+  }
 `
 
 export const iconsStyle = css`
   height: 3rem;
+  width: 100%;
+  margin-right: 2rem;
   color: ${({ theme }) => theme.colors.baseColor};
   font-size: 3rem;
   cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &:hover {
     transform: scale(1.1);

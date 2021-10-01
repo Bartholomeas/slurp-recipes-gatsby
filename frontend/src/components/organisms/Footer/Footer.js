@@ -10,17 +10,30 @@ const FooterWrapper = styled.footer`
 `
 
 const FooterContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   height: 100%;
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 0 2rem;
+`
+
+const FooterCopyright = styled.p`
+  color: ${({ theme }) => theme.colors.darkGrey};
+
+  @media print {
+    font-size: 1rem;
+  }
 `
 
 const Footer = () => {
+  const year = new Date().getFullYear()
+
   return (
     <FooterWrapper>
       <FooterContainer>
-        <p>BARTH DESIGN</p>
-        <p>2021</p>
+        <FooterCopyright>barth design {year}&copy; </FooterCopyright>
       </FooterContainer>
     </FooterWrapper>
   )

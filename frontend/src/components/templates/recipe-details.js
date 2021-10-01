@@ -78,7 +78,6 @@ const RecipeDetails = ({ data }) => {
           </PreparationContainer>
         </PreparationsWrapper>
         <IconsWrapper>
-          <MailIcon />
           <FacebookIcon />
           <ShareIcon />
           <PrinterIcon onClick={() => window.print()} />

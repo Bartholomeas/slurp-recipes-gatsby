@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
-  AiFillMail,
   AiFillFacebook,
   AiOutlineShareAlt,
   AiFillPrinter,
@@ -230,9 +229,6 @@ export const iconsStyle = css`
 `
 
 export const FacebookIcon = styled(AiFillFacebook)`
-  ${iconsStyle}
-`
-export const MailIcon = styled(AiFillMail)`
   ${iconsStyle}
 `
 export const ShareIcon = styled(AiOutlineShareAlt)`

@@ -44,9 +44,8 @@ const RecipesSection = () => {
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
 
-  if (!data) {
-    console.log("ni ma")
-  }
+  // console.log(recipes)
+
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -55,13 +54,7 @@ const RecipesSection = () => {
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
           {data ? (
-            recipes.map(recipe => (
-              <Card
-                slug={recipe.title}
-                key={recipe.id}
-                image={recipe.img.localFile}
-              />
-            ))
+            recipes.map(recipe => <Card key={recipe.id} payload={recipe} />)
           ) : (
             <p>We dont have any recipes.. :C</p>
           )}

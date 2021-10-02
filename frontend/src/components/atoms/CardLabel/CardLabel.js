@@ -32,15 +32,15 @@ const CardLabelTitle = styled.p`
   font-weight: 700;
 `
 
-const CardLabel = () => {
+const CardLabel = ({ title, type, difficulty, time }) => {
   return (
     <CardLabelWrapper>
       <CardDetailsWrapper>
-        <CardDetails>easy</CardDetails>
-        <CardDetails>dinner</CardDetails>
-        <CardDetails>30 min</CardDetails>
+        <CardDetails>{difficulty[0].difficulty}</CardDetails>
+        <CardDetails>{type[0].types}</CardDetails>
+        <CardDetails>{time} min</CardDetails>
       </CardDetailsWrapper>
-      <CardLabelTitle>Sushi Futomaki</CardLabelTitle>
+      <CardLabelTitle>{title.toLowerCase()}</CardLabelTitle>
     </CardLabelWrapper>
   )
 }

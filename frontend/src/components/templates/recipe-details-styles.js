@@ -34,12 +34,12 @@ export const HeaderRecipeDetailsImg = styled(GatsbyImage)`
   }
 `
 export const RecipeDetailsHeader = styled(Header)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.fontColor};
 
   @media only screen and (min-width: 768px) {
-    font-size: 6rem;
+    font-size: 5.4rem;
   }
 `
 

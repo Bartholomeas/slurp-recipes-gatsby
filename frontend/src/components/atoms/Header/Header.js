@@ -5,7 +5,7 @@ const Heading = styled.h1`
   position: relative;
   align-self: center;
   justify-self: start;
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 300;
   margin: 4rem 0;
   color: ${({ theme }) => theme.colors.fontColor};

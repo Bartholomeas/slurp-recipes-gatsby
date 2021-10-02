@@ -5,7 +5,6 @@ exports.createPages = async ({ graphql, actions }) => {
     query Recipes {
       allStrapiRecipes {
         nodes {
-          id
           title
         }
       }

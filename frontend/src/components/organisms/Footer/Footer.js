@@ -7,6 +7,12 @@ const FooterWrapper = styled.footer`
   bottom: 0;
   background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
+
+  @media print {
+    position: absolute;
+    height: 3rem;
+    bottom: 0;
+  }
 `
 
 const FooterContainer = styled.div`
@@ -23,7 +29,7 @@ const FooterCopyright = styled.p`
   color: ${({ theme }) => theme.colors.darkGrey};
 
   @media print {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `
 

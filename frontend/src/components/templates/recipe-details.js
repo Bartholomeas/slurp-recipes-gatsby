@@ -18,7 +18,6 @@ import {
   PreparationsHeader,
   IconsWrapper,
   FacebookIcon,
-  MailIcon,
   ShareIcon,
   PrinterIcon,
 } from "./recipe-details-styles"

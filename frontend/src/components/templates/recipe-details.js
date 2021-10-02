@@ -27,7 +27,6 @@ const RecipeDetails = ({ data }) => {
   const image = getImage(
     recipeInfo.img.localFile.childImageSharp.gatsbyImageData
   )
-  console.log(recipeInfo)
 
   return (
     <Layout>
@@ -69,7 +68,8 @@ const RecipeDetails = ({ data }) => {
         <PreparationsWrapper>
           <IngredientsContainer>
             <PreparationsHeader>ingredients</PreparationsHeader>
-            {recipeInfo.ingredients.split("-")}
+            {/* {recipeInfo.ingredients.split("-")} */}
+            {recipeInfo.ingredients}
           </IngredientsContainer>
           <PreparationContainer>
             <PreparationsHeader>preparation</PreparationsHeader>

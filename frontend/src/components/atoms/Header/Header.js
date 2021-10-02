@@ -5,26 +5,20 @@ const Heading = styled.h1`
   position: relative;
   align-self: center;
   justify-self: start;
-  font-size: 2.4rem;
-  font-weight: 300;
+  font-size: 3rem;
+  font-weight: bold;
   margin: 4rem 0;
-  color: ${({ theme }) => theme.colors.fontColor};
+  color: ${({ theme }) => theme.colors.darkerBase};
 
-  &::before,
   &::after {
     content: "";
     position: absolute;
-    height: 3px;
-    width: 3rem;
-    top: 50%;
-    background-color: ${({ theme }) => theme.colors.baseColor};
-  }
-
-  &::before {
-    left: -5rem;
-  }
-  &::after {
-    right: -5rem;
+    height: 2rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -100;
+    background-color: ${({ theme }) => theme.colors.lightGrey};
   }
 
   @media only screen and (min-width: 768px) {

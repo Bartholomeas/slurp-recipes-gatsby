@@ -147,11 +147,10 @@ export const IngredientsContainer = styled.aside`
   position: relative;
   height: 100%;
   width: 100%;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   font-size: 0.8em;
-  line-height: 2.2rem;
 
   @media only screen and (min-width: 768px) {
     width: 25%;
@@ -188,11 +187,11 @@ export const PreparationContainer = styled.div`
 
 export const PreparationsHeader = styled.p`
   font-size: 3rem;
-  font-weight: 500;
-  text-align: center;
+  font-weight: bold;
+  text-align: left;
   word-wrap: wrap;
   margin: 4rem 0 2rem;
-  color: ${({ theme }) => theme.colors.fontColor};
+  color: ${({ theme }) => theme.colors.baseColor};
 
   @media print {
     font-size: 2rem;

@@ -74,7 +74,7 @@ export const NavLink = styled(Link)`
 
 export const Logo = styled.p`
   font-size: 3rem;
-  color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.darkerBase};
 `
 
 export const HamburgerBtn = styled(AiOutlineMenu)`

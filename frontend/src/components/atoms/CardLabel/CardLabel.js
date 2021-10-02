@@ -12,7 +12,6 @@ const CardLabelWrapper = styled.div`
   padding: 0.6rem;
   text-align: center;
   background-color: ${({ theme }) => theme.colors.baseColor};
-  opacity: 0.8;
   color: ${({ theme }) => theme.colors.lightFont};
 `
 const CardDetailsWrapper = styled.div`

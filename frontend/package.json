@@ -16,6 +16,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "babel-plugin-styled-components": "^1.13.2",
+    "emailjs-com": "^3.2.0",
     "gatsby": "^3.13.0",
     "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-offline": "^4.13.0",

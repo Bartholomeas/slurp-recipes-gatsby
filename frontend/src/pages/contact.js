@@ -3,12 +3,11 @@ import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/providers/Layout"
-import Header from "../components/atoms/Header/Header"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
 
 const ContactPageWrapper = styled.div`
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   margin-top: 8rem;
 `
@@ -18,11 +17,11 @@ const AboutUsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: auto;
+  min-height: 50vh;
   max-width: 1600px;
-  padding: 2rem;
+  padding: 4rem 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
   @media only screen and (min-width: 768px) {
@@ -38,7 +37,7 @@ const AboutUsTextWrapper = styled.div`
   width: 100%;
 
   @media only screen and (min-width: 768px) {
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     width: 60%;
     margin-right: 3rem;
@@ -69,7 +68,11 @@ const AboutUsText = styled.p`
   }
 `
 
-const ContactFormSection = styled.section``
+const ContactFormSection = styled.section`
+  min-height: 60vh;
+  width: 100%;
+  padding: 4rem 0;
+`
 
 const Contact = () => {
   return (

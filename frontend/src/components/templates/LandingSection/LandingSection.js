@@ -17,7 +17,17 @@ const LandingSection = () => {
         <LandingText>
           Best tastes of your life with <ColoredText>our recipes</ColoredText>
         </LandingText>
-        <Button to="/contact" content="Contact us!" />
+        <Button
+          href="/contact"
+          content={
+            <a
+              style={{ textDecoration: "none", padding: "2rem" }}
+              href="/contact"
+            >
+              Send us recipe!
+            </a>
+          }
+        ></Button>
       </TextWrapper>
       <ImageWrapper>
         <ImageContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "../../atoms/Header/Header"
 import Card from "../../organisms/Card/Card"
@@ -9,6 +9,7 @@ import {
   FiltersButton,
   CardsContainer,
 } from "./RecipesSection.styles"
+import { StateContext } from "../../../context/StateContext"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -43,8 +44,8 @@ const RecipesSection = () => {
 
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
-
-  // console.log(recipes)
+  const info = useContext(StateContext)
+  console.log(info)
 
   return (
     <RecipesWrapper>

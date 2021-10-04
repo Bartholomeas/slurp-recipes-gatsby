@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "../components/providers/Layout"
 import LandingSection from "../components/templates/LandingSection/LandingSection"
 import RecipesSection from "../components/templates/RecipesSection/RecipesSection"
 import { Helmet } from "react-helmet"

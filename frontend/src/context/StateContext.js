@@ -1,11 +1,15 @@
 import React, { createContext, useState } from "react"
 
-const StateContext = createContext()
+export const StateContext = createContext()
 
-export const StateProvider = ({ children }) => {
+const StateProvider = ({ children }) => {
   const [info, setInfo] = useState("informancja")
 
-  return <StateContext.Provider value={info}>{children}</StateContext.Provider>
+  return (
+    <StateContext.Provider value={{ info, setInfo }}>
+      {children}
+    </StateContext.Provider>
+  )
 }
 
-export default StateContext
+export default StateProvider

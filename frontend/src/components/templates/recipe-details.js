@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { Helmet } from "react-helmet"
-import Layout from "../providers/Layout"
 import {
   RecipeDetailsSection,
   HeaderRecipeDetailsImg,
@@ -29,7 +28,8 @@ const RecipeDetails = ({ data }) => {
   )
 
   return (
-    <Layout>
+    <>
+      {" "}
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
@@ -40,7 +40,6 @@ const RecipeDetails = ({ data }) => {
         />
         <link rel="canonical" href="http://localhost:8000/" />
       </Helmet>
-
       <RecipeDetailsSection>
         <HeaderRecipeDetailsImg image={image} alt="Food header img" />
         <RecipeDetailsHeader content={recipeInfo.title}></RecipeDetailsHeader>
@@ -82,7 +81,7 @@ const RecipeDetails = ({ data }) => {
           <PrinterIcon onClick={() => window.print()} />
         </IconsWrapper>
       </RecipeDetailsSection>
-    </Layout>
+    </>
   )
 }
 

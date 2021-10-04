@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../components/providers/Layout"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
 
 const ContactPageWrapper = styled.div`
@@ -76,7 +75,7 @@ const ContactFormSection = styled.section`
 
 const Contact = () => {
   return (
-    <Layout>
+    <>
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
@@ -109,7 +108,7 @@ const Contact = () => {
           <ContactForm />
         </ContactFormSection>
       </ContactPageWrapper>
-    </Layout>
+    </>
   )
 }
 

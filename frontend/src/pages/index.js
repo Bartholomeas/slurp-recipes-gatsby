@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"
 
 const Home = () => {
   return (
-    <Layout>
+    <>
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
@@ -17,9 +17,9 @@ const Home = () => {
         />
         <link rel="canonical" href="http://localhost:8000/" />
       </Helmet>
-        <LandingSection />
-        <RecipesSection />
-    </Layout>
+      <LandingSection />
+      <RecipesSection />
+    </>
   )
 }
 export default Home

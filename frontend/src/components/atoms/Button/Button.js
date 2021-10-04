@@ -12,6 +12,7 @@ const ButtonWrapper = styled.button`
   font-family: "Raleway", sans-serif;
   white-space: nowrap;
   cursor: pointer;
+  text-decoration: none;
 
   &::before {
     content: "";

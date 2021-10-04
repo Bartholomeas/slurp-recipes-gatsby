@@ -1,7 +1,13 @@
-// import React from "react"
+import React from "react"
+import Layout from "./src/components/providers/Layout"
 
-// import { StateProvider } from "./src/context/StateContext"
+import { StateProvider } from "./src/context/StateContext"
 
-// export const wrapRootElement = ({ element }) => (
-//   <StateProvider>{element}</StateProvider>
-// )
+export const wrapPageElement = ({ element }) => {
+  console.log(element)
+  return (
+    <StateProvider>
+      <Layout>{element}</Layout>
+    </StateProvider>
+  )
+}

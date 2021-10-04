@@ -3,9 +3,9 @@ import Layout from "../components/providers/Layout"
 
 const tips = () => {
   return (
-    <Layout>
+    <>
       <div>tips</div>
-    </Layout>
+    </>
   )
 }
 

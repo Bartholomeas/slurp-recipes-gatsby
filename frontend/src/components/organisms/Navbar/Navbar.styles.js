@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { AiOutlineMenu } from "react-icons/ai"
+import { RiFileList3Line } from "react-icons/ri"
 
 export const NavWrapper = styled.nav`
   position: fixed;
@@ -59,10 +60,6 @@ export const NavLink = styled(Link)`
   font-weight: 300;
   transition: color 0.3s;
 
-  &.bold {
-    font-weight: 700;
-  }
-
   &:not(:last-child) {
     margin-right: 2rem;
   }
@@ -75,6 +72,22 @@ export const NavLink = styled(Link)`
 export const Logo = styled.p`
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.darkerBase};
+`
+
+export const ListIcon = styled(RiFileList3Line)`
+  color: ${({ theme }) => theme.colors.baseColor};
+  font-size: 2rem;
+  cursor: pointer;
+`
+export const ListButton = styled.button`
+  position: relative;
+  padding: 0 1rem;
+  background: none;
+  border: none;
+
+  &:hover ${ListIcon} {
+    transform: scale(1.2);
+  }
 `
 
 export const HamburgerBtn = styled(AiOutlineMenu)`

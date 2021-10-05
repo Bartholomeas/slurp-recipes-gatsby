@@ -8,6 +8,7 @@ export const theme = {
     darkerGrey: "#F2F2F2",
     darkGrey: "#AEAEAE",
     lightFont: "#F9F9F9",
+    shadow: "rgba(46, 46, 46, 0.26)",
   },
 
   breakpoints: {

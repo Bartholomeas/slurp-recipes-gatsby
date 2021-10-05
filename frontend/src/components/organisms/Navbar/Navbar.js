@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Converter from "../Converter/Converter"
 import {
   NavContainer,
   NavWrapper,
@@ -6,6 +7,8 @@ import {
   LinkContainer,
   NavLink,
   HamburgerBtn,
+  ListIcon,
+  ListButton,
 } from "./Navbar.styles"
 
 const Navbar = () => {
@@ -20,14 +23,8 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
         <LinkContainer isOpen={isOpen}>
-          <NavLink className="bold" to="/">
-            converter
-          </NavLink>
           <NavLink to="/" activeStyle={{ color: "#A41A1A" }}>
             recipes
-          </NavLink>
-          <NavLink to="/shop" activeStyle={{ color: "#A41A1A" }}>
-            shop
           </NavLink>
           <NavLink to="/tips" activeStyle={{ color: "#A41A1A" }}>
             tips&tricks
@@ -35,7 +32,11 @@ const Navbar = () => {
           <NavLink to="/contact" activeStyle={{ color: "#A41A1A" }}>
             contact
           </NavLink>
+          <ListButton>
+            <ListIcon />
+          </ListButton>
         </LinkContainer>
+        <Converter />
       </NavContainer>
     </NavWrapper>
   )

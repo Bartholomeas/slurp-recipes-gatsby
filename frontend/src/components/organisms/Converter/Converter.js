@@ -1,80 +1,18 @@
 import React from "react"
 import styled from "styled-components"
+import {
+  ConverterWrapper,
+  MeasuresContainer,
+  MeasureWrapper,
+  MeasureTitle,
+  MeasureValue,
+  MeasureInfos,
+} from "./Converter.styles"
 
-const ConverterWrapper = styled.div`
-  position: absolute;
-  height: 300px;
-  width: 100%;
-  top: 7rem;
-  right: 0;
-  padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
-  box-shadow: 2px 12px 25px ${({ theme }) => theme.colors.shadow};
-  z-index: -15;
-
-  @media only screen and (min-width: 768px) {
-    height: 500px;
-    width: 400px;
-  }
-`
-
-const MeasuresContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-between;
-  height: 100%;
-  width: 100%;
-`
-
-const MeasureWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-const MeasureTitle = styled.p`
-  color: ${({ theme }) => theme.colors.fontColor};
-`
-const MeasureMililiters = styled.p`
-  align-self: end;
-`
-
-const Converter = () => {
+const Converter = ({ isActive }) => {
   return (
-    <ConverterWrapper>
+    <ConverterWrapper isActive={isActive}>
       <MeasuresContainer>
-        <MeasureWrapper>
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M22.5057 1.49603C19.9276 -1.08678 14.776 -0.121153 11.8276 2.83197C9.51665 5.14291 9.24477 7.98822 10.4776 10.3507L0.422896 19.3695C-0.120854 19.8617 -0.144291 20.7054 0.376021 21.221L2.78071 23.6257C3.29633 24.1413 4.14477 24.1179 4.63227 23.5742L13.651 13.5242C16.0135 14.757 18.8588 14.4851 21.1698 12.1742C24.1229 9.22572 25.0885 4.07416 22.5057 1.49603V1.49603Z"
-              fill="#860C0C"
-            />
-          </svg>
-          <MeasureTitle>tbsp</MeasureTitle>
-          <MeasureMililiters>~5ml</MeasureMililiters>
-        </MeasureWrapper>
-        <MeasureWrapper>
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 19 19"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.17 8.39595L1.41 18.156L0 16.7459L9.76 6.98595C9.05 5.45595 9.55 3.30595 11.14 1.71595C13.05 -0.204051 15.79 -0.56405 17.25 0.89595C18.72 2.36595 18.36 5.10595 16.44 7.01595C14.85 8.60595 12.7 9.10595 11.17 8.39595V8.39595Z"
-              fill="#860C0C"
-            />
-          </svg>
-          <MeasureTitle>tsp</MeasureTitle>
-          <MeasureMililiters>~15ml</MeasureMililiters>
-        </MeasureWrapper>
         <MeasureWrapper>
           <svg
             width="20"
@@ -89,7 +27,67 @@ const Converter = () => {
             />
           </svg>
           <MeasureTitle>cup</MeasureTitle>
-          <MeasureMililiters>~240ml</MeasureMililiters>
+          <MeasureInfos>
+            <MeasureValue>~240ml</MeasureValue>
+            <MeasureValue>~16 tbsp</MeasureValue>
+          </MeasureInfos>
+        </MeasureWrapper>
+        <MeasureWrapper>
+          <svg
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22.5057 1.49603C19.9276 -1.08678 14.776 -0.121153 11.8276 2.83197C9.51665 5.14291 9.24477 7.98822 10.4776 10.3507L0.422896 19.3695C-0.120854 19.8617 -0.144291 20.7054 0.376021 21.221L2.78071 23.6257C3.29633 24.1413 4.14477 24.1179 4.63227 23.5742L13.651 13.5242C16.0135 14.757 18.8588 14.4851 21.1698 12.1742C24.1229 9.22572 25.0885 4.07416 22.5057 1.49603V1.49603Z"
+              fill="#860C0C"
+            />
+          </svg>
+          <MeasureTitle>tablespoon</MeasureTitle>
+          <MeasureInfos>
+            <MeasureValue>~15ml</MeasureValue>
+            <MeasureValue>~10g</MeasureValue>
+          </MeasureInfos>
+        </MeasureWrapper>
+        <MeasureWrapper>
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.17 8.39595L1.41 18.156L0 16.7459L9.76 6.98595C9.05 5.45595 9.55 3.30595 11.14 1.71595C13.05 -0.204051 15.79 -0.56405 17.25 0.89595C18.72 2.36595 18.36 5.10595 16.44 7.01595C14.85 8.60595 12.7 9.10595 11.17 8.39595V8.39595Z"
+              fill="#860C0C"
+            />
+          </svg>
+          <MeasureTitle>teaspoon</MeasureTitle>
+          <MeasureInfos>
+            <MeasureValue>~5ml</MeasureValue>
+            <MeasureValue>~5g</MeasureValue>
+          </MeasureInfos>
+        </MeasureWrapper>
+        <MeasureWrapper>
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.17 8.39595L1.41 18.156L0 16.7459L9.76 6.98595C9.05 5.45595 9.55 3.30595 11.14 1.71595C13.05 -0.204051 15.79 -0.56405 17.25 0.89595C18.72 2.36595 18.36 5.10595 16.44 7.01595C14.85 8.60595 12.7 9.10595 11.17 8.39595V8.39595Z"
+              fill="#860C0C"
+            />
+          </svg>
+          <MeasureTitle>pinch</MeasureTitle>
+          <MeasureInfos>
+            <MeasureValue>~1/2ml</MeasureValue>
+            <MeasureValue>~1/2g</MeasureValue>
+          </MeasureInfos>
         </MeasureWrapper>
       </MeasuresContainer>
     </ConverterWrapper>

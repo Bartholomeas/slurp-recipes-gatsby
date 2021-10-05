@@ -9,7 +9,7 @@ export const NavWrapper = styled.nav`
   min-width: 100%;
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  z-index: 1000;
+  z-index: 10000;
 
   @media print {
     display: none;
@@ -84,6 +84,7 @@ export const ListButton = styled.button`
   padding: 0 1rem;
   background: none;
   border: none;
+  z-index: 1000;
 
   &:hover ${ListIcon} {
     transform: scale(1.2);

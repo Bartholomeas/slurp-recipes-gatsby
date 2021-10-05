@@ -13,6 +13,7 @@ import {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   return (
     <NavWrapper>
@@ -32,11 +33,11 @@ const Navbar = () => {
           <NavLink to="/contact" activeStyle={{ color: "#A41A1A" }}>
             contact
           </NavLink>
-          <ListButton>
+          <ListButton onClick={() => setIsActive(!isActive)}>
             <ListIcon />
           </ListButton>
         </LinkContainer>
-        <Converter />
+        <Converter isActive={isActive} />
       </NavContainer>
     </NavWrapper>
   )

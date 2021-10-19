@@ -17,7 +17,8 @@ const LandingSection = () => {
         <LandingText>
           Best tastes of your life with <ColoredText>our recipes</ColoredText>
         </LandingText>
-        <Button
+        <Button content="Send us recipe"></Button>
+        {/* <Button
           href="/contact"
           content={
             <a
@@ -27,7 +28,7 @@ const LandingSection = () => {
               Send us recipe!
             </a>
           }
-        ></Button>
+        ></Button> */}
       </TextWrapper>
       <ImageWrapper>
         <ImageContainer>

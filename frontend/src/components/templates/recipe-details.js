@@ -26,7 +26,6 @@ const RecipeDetails = ({ data }) => {
   const image = getImage(
     recipeInfo.img.localFile.childImageSharp.gatsbyImageData
   )
-
   return (
     <>
       {" "}

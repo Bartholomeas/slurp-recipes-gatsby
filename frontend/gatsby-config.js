@@ -34,8 +34,5 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-    },
   ],
 }

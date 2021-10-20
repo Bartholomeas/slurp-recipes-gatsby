@@ -24,20 +24,37 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
         <LinkContainer isOpen={isOpen}>
-          <NavLink to="/" activeStyle={{ color: "#A41A1A" }}>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/"
+            activeStyle={{ color: "#A41A1A" }}
+          >
             recipes
           </NavLink>
-          <NavLink to="/tips" activeStyle={{ color: "#A41A1A" }}>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/tips"
+            activeStyle={{ color: "#A41A1A" }}
+          >
             tips&tricks
           </NavLink>
-          <NavLink to="/contact" activeStyle={{ color: "#A41A1A" }}>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/contact"
+            activeStyle={{ color: "#A41A1A" }}
+          >
             contact
           </NavLink>
-          <ListButton onClick={() => setIsActive(!isActive)}>
+          <ListButton
+            onClick={() => {
+              setIsActive(!isActive)
+              setIsOpen(false)
+            }}
+          >
             <ListIcon />
           </ListButton>
         </LinkContainer>
-        <Converter isActive={isActive} />
+        <Converter setIsActive={setIsActive} isActive={isActive} />
       </NavContainer>
     </NavWrapper>
   )

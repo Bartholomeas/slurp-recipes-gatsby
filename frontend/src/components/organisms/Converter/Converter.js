@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import {
   ConverterWrapper,
   MeasuresContainer,
@@ -9,9 +8,9 @@ import {
   MeasureInfos,
 } from "./Converter.styles"
 
-const Converter = ({ isActive }) => {
+const Converter = ({ setIsActive, isActive }) => {
   return (
-    <ConverterWrapper isActive={isActive}>
+    <ConverterWrapper onClick={() => setIsActive(false)} isActive={isActive}>
       <MeasuresContainer>
         <MeasureWrapper>
           <svg

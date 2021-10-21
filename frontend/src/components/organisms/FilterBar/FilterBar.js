@@ -26,9 +26,19 @@ const FilterBar = ({ isOpen }) => {
           diet
         }
       }
+
+      allStrapiRecipes(
+        filter: { types: { elemMatch: { types: { eq: "dinner" } } } }
+      ) {
+        edges {
+          node {
+            title
+          }
+        }
+      }
     }
   `)
-
+  console.log(data)
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes
@@ -47,3 +57,17 @@ const FilterBar = ({ isOpen }) => {
 }
 
 export default FilterBar
+
+// export const query = graphql`
+//   query GetSpecifiedRecipe {
+//     allStrapiRecipes(
+//       filter: { types: { elemMatch: { types: { eq: "dinner" } } } }
+//     ) {
+//       edges {
+//         node {
+//           title
+//         }
+//       }
+//     }
+//   }
+// `

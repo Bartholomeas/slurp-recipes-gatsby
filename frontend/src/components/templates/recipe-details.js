@@ -105,10 +105,10 @@ export const query = graphql`
         }
       }
       diets {
-        diet
+        diets
       }
       difficulties {
-        difficulty
+        difficulties
       }
     }
   }

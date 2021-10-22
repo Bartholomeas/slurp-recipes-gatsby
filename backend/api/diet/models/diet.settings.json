@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "diets",
   "info": {
-    "name": "diet"
+    "name": "diet",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "diet": {
+    "diets": {
       "type": "string"
     },
     "recipes": {

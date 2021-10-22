@@ -1,5 +1,4 @@
 import React from "react"
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client"
 import Layout from "./src/components/providers/Layout"
 import StateProvider from "./src/context/StateContext"
 

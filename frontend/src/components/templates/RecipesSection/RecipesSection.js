@@ -19,10 +19,10 @@ const RecipesSection = () => {
           ingredients
           id
           difficulties {
-            difficulty
+            difficulties
           }
           diets {
-            diet
+            diets
           }
           types {
             types

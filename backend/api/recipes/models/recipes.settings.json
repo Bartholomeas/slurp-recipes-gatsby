@@ -47,13 +47,13 @@
       "dominant": true
     },
     "difficulties": {
-      "collection": "difficulty",
       "via": "recipes",
+      "collection": "difficulty",
       "dominant": true
     },
     "diets": {
-      "collection": "diet",
       "via": "recipes",
+      "collection": "diet",
       "dominant": true
     },
     "slug": {

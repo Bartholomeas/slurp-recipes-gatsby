@@ -45,20 +45,3 @@ const LandingSection = ({ data }) => {
   )
 }
 export default LandingSection
-
-export const query = graphql`
-  query MyQuery {
-    strapiRecipes {
-      id
-      title
-    }
-  }
-`
-// export const query = graphql`
-//   query MyQuery($eq: String = "dinner") {
-//     strapiRecipes(types: { elemMatch: { types: { eq: $eq } } }) {
-//       id
-//       title
-//     }
-//   }
-// `

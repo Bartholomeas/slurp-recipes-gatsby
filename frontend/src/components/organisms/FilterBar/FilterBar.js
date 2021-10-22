@@ -38,7 +38,12 @@ const FilterBar = ({ isOpen }) => {
       }
     }
   `)
-  console.log(data)
+  // console.log(data)
+
+  const getSpecificRecipes = () => {
+    
+  }
+
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes

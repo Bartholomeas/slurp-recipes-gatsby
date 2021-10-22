@@ -22,7 +22,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.API_URL,
         collectionTypes: ["recipes", "difficulties", "types", "diets"],
         queryLimit: 1000, // Defaults to 100
       },
@@ -34,5 +34,11 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-apollo",
+    //   options: {
+    //     uri: "http://localhost:8000/__graphql",
+    //   },
+    // },
   ],
 }

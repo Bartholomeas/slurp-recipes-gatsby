@@ -38,7 +38,6 @@ const RecipeDetails = ({ data }) => {
           content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
         />
         <link rel="canonical" href="http://localhost:8000/" />
-        
       </Helmet>
       <RecipeDetailsSection>
         <HeaderRecipeDetailsImg image={image} alt="Food header img" />
@@ -52,14 +51,14 @@ const RecipeDetails = ({ data }) => {
           <RecipeInfoContainer>
             <RecipeInfoTitle>difficulity</RecipeInfoTitle>
             <RecipeInfoValue>
-              {recipeInfo.difficulties[0].difficulty}
+              {recipeInfo.difficulties[0].difficulties}
             </RecipeInfoValue>
           </RecipeInfoContainer>
           <RecipeDetailsLine />
           <RecipeInfoContainer>
             <RecipeInfoTitle>diet</RecipeInfoTitle>
             <RecipeInfoValue>
-              {recipeInfo.diets[0] ? recipeInfo.diets[0].diet : "standard"}
+              {recipeInfo.diets[0] ? recipeInfo.diets[0].diets : "standard"}
             </RecipeInfoValue>
           </RecipeInfoContainer>
         </RecipeDetailsWrapper>

@@ -35,7 +35,7 @@ const CardLabel = ({ title, type, difficulty, time }) => {
   return (
     <CardLabelWrapper>
       <CardDetailsWrapper>
-        <CardDetails>{difficulty[0].difficulty}</CardDetails>
+        <CardDetails>{difficulty[0].difficulties}</CardDetails>
         <CardDetails>{type[0].types}</CardDetails>
         <CardDetails>{time} min</CardDetails>
       </CardDetailsWrapper>

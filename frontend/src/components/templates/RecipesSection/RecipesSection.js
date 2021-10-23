@@ -42,23 +42,6 @@ const RecipesSection = () => {
     }
   `)
 
-  // async function getRecipes() {
-  //   const datez = await fetch("http://localhost:1337/recipes", {
-  //     method: "GET",
-  //   })
-  //     .then(res => {
-  //       return res.json()
-  //     })
-  //     .then(res => {
-  //       console.log(res)
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  //   return datez
-  // }
-  // getRecipes()
-
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
   const info = useContext(StateContext)

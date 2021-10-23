@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import { StateContext } from "../../../context/StateContext"
 
 const FilterOptionText = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
@@ -13,23 +14,30 @@ const FilterOptionWrapper = styled.div`
 `
 
 export const FilterOption = ({ name, option = "", id }) => {
-  const getSpecificRecipes = async () => {
-    console.log(name)
-    await fetch(`http://localhost:1337/${name}`)
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+  const { info, setInfo } = useContext(StateContext)
+  // console.log(option)
+
+  const getSpecificRecipes = input => {
+    // setInfo("")
+    let currentKey = input.target.name
+    setInfo({ ...info, [input.target.name]: "jajko" })
+    console.log(info)
+
+    // await fetch(`http://localhost:1337/${name}`)
+    //   .then(res => {
+    //     return res.json()
+    //   })
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
   }
   return (
     <FilterOptionWrapper>
       <FilterOptionText
-        onClick={getSpecificRecipes}
+        onClick={e => getSpecificRecipes(e)}
         name={name}
         type="radio"
         id={`${option}-${id}`}

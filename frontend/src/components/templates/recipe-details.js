@@ -38,6 +38,7 @@ const RecipeDetails = ({ data }) => {
           content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
         />
         <link rel="canonical" href="http://localhost:8000/" />
+        
       </Helmet>
       <RecipeDetailsSection>
         <HeaderRecipeDetailsImg image={image} alt="Food header img" />

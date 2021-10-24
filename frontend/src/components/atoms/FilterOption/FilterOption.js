@@ -18,9 +18,7 @@ export const FilterOption = ({ name, option = "", id }) => {
   // console.log(option)
 
   const getSpecificRecipes = input => {
-    // setInfo("")
-    let currentKey = input.target.name
-    setInfo({ ...info, [input.target.name]: "jajko" })
+    setInfo({ ...info, [input.target.name]: option[0] })
     console.log(info)
 
     // await fetch(`http://localhost:1337/${name}`)

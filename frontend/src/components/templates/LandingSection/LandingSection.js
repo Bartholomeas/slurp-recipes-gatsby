@@ -11,7 +11,7 @@ import {
   ColoredText,
 } from "./LandingSection.styles"
 
-const LandingSection = ({ data }) => {
+const LandingSection = () => {
   return (
     <LandingWrapper>
       <TextWrapper>

@@ -17,22 +17,6 @@ const FilterWrapper = styled.form`
 `
 
 const FilterOptionsBody = ({ content }) => {
-  // const getSpecificRecipes = input => {
-  //   setInfo({ ...info, [input.target.name]: option[0] })
-  //   console.log(info)
-
-  //   // await fetch(`http://localhost:1337/${name}`)
-  //   //   .then(res => {
-  //   //     return res.json()
-  //   //   })
-  //   //   .then(res => {
-  //   //     console.log(res)
-  //   //   })
-  //   //   .catch(err => {
-  //   //     console.log(err)
-  //   //   })
-  // }
-
   return (
     <FilterWrapper>
       <FilterOptionHeader content={Object.keys(content[0])} />

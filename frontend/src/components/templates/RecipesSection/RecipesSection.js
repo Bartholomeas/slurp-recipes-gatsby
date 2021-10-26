@@ -44,9 +44,13 @@ const RecipesSection = () => {
 
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
-  const info = useContext(StateContext)
-  // console.log(recipes[0].difficulties[0].difficulties)
-  console.log(info)
+  const { info } = useContext(StateContext)
+  // console.log(info)
+
+  // console.log(info["diets"])
+
+  let filteredRecipes = []
+
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -59,6 +63,37 @@ const RecipesSection = () => {
           ) : (
             <p>We dont have any recipes.. :C</p>
           )} */}
+
+          {data ? (
+            recipes.map(recipe => {
+              // console.log(info)
+              // console.log(recipe)
+              // filteredRecipes.push(recipe)
+
+              console.log(recipe.title)
+
+              for (const key in info) {
+                // console.log(info[key])
+                if (info[key] === recipe[key][0][key]) {
+                  console.log("PASUJO")
+                }
+                // console.log(recipe[key][0][key])
+              }
+
+              // console.log(filteredRecipes)
+              // for (const key in info) {
+              //   if (info[key]) {
+              //     // console.log(info[key])
+              //   }
+              // }
+            })
+          ) : (
+            // recipes.map(recipe => {
+            //   console.log(...recipe["diets"])
+            //   return <Card key={recipe.id} payload={recipe} />
+            // })
+            <p>We dont have any recipes.. :C</p>
+          )}
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

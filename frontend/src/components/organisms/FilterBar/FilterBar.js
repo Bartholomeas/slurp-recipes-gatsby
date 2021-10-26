@@ -28,16 +28,6 @@ const FilterBar = ({ isOpen }) => {
       }
     }
   `)
-  // allStrapiRecipes(
-  //   filter: { types: { elemMatch: { types: { eq: "dinner" } } } }
-  // ) {
-  //   edges {
-  //     node {
-  //       title
-  //     }
-  //   }
-  // }
-  // console.log(data)
 
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes

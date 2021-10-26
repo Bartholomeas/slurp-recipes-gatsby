@@ -45,7 +45,8 @@ const RecipesSection = () => {
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
   const info = useContext(StateContext)
-
+  // console.log(recipes[0].difficulties[0].difficulties)
+  console.log(info)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -53,11 +54,11 @@ const RecipesSection = () => {
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          {data ? (
+          {/* {data ? (
             recipes.map(recipe => <Card key={recipe.id} payload={recipe} />)
           ) : (
             <p>We dont have any recipes.. :C</p>
-          )}
+          )} */}
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

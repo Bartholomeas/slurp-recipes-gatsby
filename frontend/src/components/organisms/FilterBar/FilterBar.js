@@ -26,18 +26,17 @@ const FilterBar = ({ isOpen }) => {
           diets
         }
       }
-
-      allStrapiRecipes(
-        filter: { types: { elemMatch: { types: { eq: "dinner" } } } }
-      ) {
-        edges {
-          node {
-            title
-          }
-        }
-      }
     }
   `)
+  // allStrapiRecipes(
+  //   filter: { types: { elemMatch: { types: { eq: "dinner" } } } }
+  // ) {
+  //   edges {
+  //     node {
+  //       title
+  //     }
+  //   }
+  // }
   // console.log(data)
 
   const diets = data.allStrapiDiets.nodes

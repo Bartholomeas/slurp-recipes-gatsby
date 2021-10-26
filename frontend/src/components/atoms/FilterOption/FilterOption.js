@@ -17,25 +17,10 @@ export const FilterOption = ({ name, option = "", id }) => {
   const { info, setInfo } = useContext(StateContext)
   // console.log(option)
 
-  const getSpecificRecipes = input => {
-    setInfo({ ...info, [input.target.name]: option[0] })
-    console.log(info)
-
-    // await fetch(`http://localhost:1337/${name}`)
-    //   .then(res => {
-    //     return res.json()
-    //   })
-    //   .then(res => {
-    //     console.log(res)
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
-  }
   return (
     <FilterOptionWrapper>
       <FilterOptionText
-        onClick={e => getSpecificRecipes(e)}
+        // onClick={e => getSpecificRecipes(e)}
         name={name}
         type="radio"
         id={`${option}-${id}`}

@@ -15,12 +15,15 @@ const FilterOptionWrapper = styled.div`
 
 export const FilterOption = ({ name, option = "", id }) => {
   const { info, setInfo } = useContext(StateContext)
-  // console.log(option)
+
+  const getSpecificRecipes = input => {
+    setInfo({ ...info, [input.target.name]: option[0] })
+  }
 
   return (
     <FilterOptionWrapper>
       <FilterOptionText
-        // onClick={e => getSpecificRecipes(e)}
+        onClick={e => getSpecificRecipes(e)}
         name={name}
         type="radio"
         id={`${option}-${id}`}

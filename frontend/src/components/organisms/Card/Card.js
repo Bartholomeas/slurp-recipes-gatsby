@@ -4,7 +4,13 @@ import CardLabel from "../../atoms/CardLabel/CardLabel"
 import { CardLink, CardWrapper, CardImg } from "./Card.styles"
 
 const Card = ({ payload }) => {
-  const { difficulties, img, time, title, types } = payload
+  const {
+    difficulties = "none",
+    img,
+    time = "0",
+    title = "none",
+    types = "none",
+  } = payload
   const image = getImage(img.localFile.childImageSharp)
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>

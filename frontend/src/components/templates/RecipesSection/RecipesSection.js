@@ -46,13 +46,8 @@ const RecipesSection = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { info } = useContext(StateContext)
 
-  if (info.diets || info.difficulties || info.types) {
-    console.log("diety sa true")
-  }
-  // console.log(info[1])
-
   let filteredRecipes = []
-
+  console.log(filteredRecipes)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -68,14 +63,15 @@ const RecipesSection = () => {
 
           {data ? (
             info.diets || info.difficulties || info.types ? (
-              recipes.filter(recipe => {
+              (filteredRecipes = recipes.filter(recipe => {
                 for (const key in info) {
                   if (info[key] === recipe[key][0][key]) {
                     filteredRecipes.push(recipe)
-                    console.log(filteredRecipes)
+                    console.log(recipe.id)
+                    return recipe
                   }
                 }
-              })
+              }))
             ) : (
               console.log("NIE MA INFO.DIETS")
             )

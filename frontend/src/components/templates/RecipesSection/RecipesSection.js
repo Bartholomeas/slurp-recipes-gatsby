@@ -47,7 +47,7 @@ const RecipesSection = () => {
   const { info } = useContext(StateContext)
 
   let filteredRecipes = []
-  console.log(filteredRecipes)
+  // console.log(filteredRecipes)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -63,15 +63,21 @@ const RecipesSection = () => {
 
           {data ? (
             info.diets || info.difficulties || info.types ? (
-              (filteredRecipes = recipes.filter(recipe => {
-                for (const key in info) {
-                  if (info[key] === recipe[key][0][key]) {
-                    filteredRecipes.push(recipe)
-                    console.log(recipe.id)
-                    return recipe
+              (filteredRecipes = recipes
+                .filter(recipe => {
+                  for (const key in info) {
+                    if (info[key] === recipe[key][0][key]) {
+                      filteredRecipes.push(recipe)
+                      return recipe
+                    }
                   }
-                }
-              }))
+                })
+                .map(filteredRecipe => {
+                  console.log(filteredRecipe)
+                  return (
+                    <Card key={filteredRecipe.id} payload={filteredRecipe} />
+                  )
+                }))
             ) : (
               console.log("NIE MA INFO.DIETS")
             )

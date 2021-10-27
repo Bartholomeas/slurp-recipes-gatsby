@@ -45,9 +45,11 @@ const RecipesSection = () => {
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
   const { info } = useContext(StateContext)
-  // console.log(info)
 
-  // console.log(info["diets"])
+  if (info.diets || info.difficulties || info.types) {
+    console.log("diety sa true")
+  }
+  // console.log(info[1])
 
   let filteredRecipes = []
 
@@ -65,28 +67,18 @@ const RecipesSection = () => {
           )} */}
 
           {data ? (
-            recipes.map(recipe => {
-              // console.log(info)
-              // console.log(recipe)
-              // filteredRecipes.push(recipe)
-
-              console.log(recipe.title)
-
-              for (const key in info) {
-                // console.log(info[key])
-                if (info[key] === recipe[key][0][key]) {
-                  console.log("PASUJO")
+            info.diets || info.difficulties || info.types ? (
+              recipes.filter(recipe => {
+                for (const key in info) {
+                  if (info[key] === recipe[key][0][key]) {
+                    filteredRecipes.push(recipe)
+                    console.log(filteredRecipes)
+                  }
                 }
-                // console.log(recipe[key][0][key])
-              }
-
-              // console.log(filteredRecipes)
-              // for (const key in info) {
-              //   if (info[key]) {
-              //     // console.log(info[key])
-              //   }
-              // }
-            })
+              })
+            ) : (
+              console.log("NIE MA INFO.DIETS")
+            )
           ) : (
             // recipes.map(recipe => {
             //   console.log(...recipe["diets"])

@@ -52,7 +52,6 @@ const RecipesSection = () => {
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
 
-  console.log(info)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -65,7 +64,6 @@ const RecipesSection = () => {
             info.diets || info.difficulties || info.types ? (
               (filteredRecipes = recipes
                 .filter(recipe => {
-                  filteredRecipes = []
                   for (const key in info) {
                     if (info[key] === recipe[key][0][key]) {
                       filteredRecipes.push(recipe)

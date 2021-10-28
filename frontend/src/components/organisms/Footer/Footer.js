@@ -1,6 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-
+import {
+  AiFillFacebook,
+  AiFillInstagram,
+  AiFillTwitterSquare,
+} from "react-icons/ai"
 const FooterWrapper = styled.footer`
   width: 100%;
   height: 8rem;
@@ -25,6 +29,25 @@ const FooterContainer = styled.div`
   padding: 0 2rem;
 `
 
+const FacebookIcon = styled(AiFillFacebook)`
+  margin-right: 1.4rem;
+  color: ${({ theme }) => theme.colors.darkerBase};
+  font-size: 2.6rem;
+  cursor: pointer;
+`
+const InstagramIcon = styled(AiFillInstagram)`
+  margin-right: 1.4rem;
+  color: ${({ theme }) => theme.colors.darkerBase};
+  font-size: 2.6rem;
+  cursor: pointer;
+`
+const TwitterIcon = styled(AiFillTwitterSquare)`
+  margin-right: 1.4rem;
+  color: ${({ theme }) => theme.colors.darkerBase};
+  font-size: 2.6rem;
+  cursor: pointer;
+`
+
 const FooterCopyright = styled.p`
   color: ${({ theme }) => theme.colors.darkGrey};
 
@@ -40,6 +63,9 @@ const Footer = () => {
     <FooterWrapper>
       <FooterContainer>
         <FooterCopyright>barth design {year}&copy; </FooterCopyright>
+        <FacebookIcon />
+        <InstagramIcon />
+        <TwitterIcon />
       </FooterContainer>
     </FooterWrapper>
   )

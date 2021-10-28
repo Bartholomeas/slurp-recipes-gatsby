@@ -25,6 +25,14 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
         <LinkContainer isOpen={isOpen}>
+          <ListButton
+            onClick={() => {
+              setIsActive(!isActive)
+              setIsOpen(false)
+            }}
+          >
+            <ListIcon />
+          </ListButton>
           <NavLink
             onClick={() => setIsOpen(false)}
             to="/"
@@ -46,16 +54,8 @@ const Navbar = () => {
           >
             contact
           </NavLink>
-          <ListButton
-            onClick={() => {
-              setIsActive(!isActive)
-              setIsOpen(false)
-            }}
-          >
-            <ListIcon />
-          </ListButton>
           <SignUpLink onClick={() => setIsOpen(false)} to="/tips">
-            Login / Register
+            Sign up
           </SignUpLink>
         </LinkContainer>
         <Converter setIsActive={setIsActive} isActive={isActive} />

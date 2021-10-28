@@ -70,9 +70,10 @@ export const NavLink = styled(Link)`
 `
 
 export const SignUpLink = styled(NavLink)`
-  padding: 0.2 0.4rem;
-  background-color: ${({ theme }) => theme.colors.baseColor};
-  color: ${({ theme }) => theme.colors.lightGrey};
+  display: block;
+  /* padding: 0 0 0 3rem; */
+  padding: 0 2rem;
+  /* color: ${({ theme }) => theme.colors.lightGrey}; */
   font-weight: bold;
 `
 
@@ -89,6 +90,7 @@ export const ListIcon = styled(RiFileList3Line)`
 export const ListButton = styled.button`
   position: relative;
   padding: 0 1rem;
+  margin-right: 1.6rem;
   background: none;
   border: none;
   z-index: 1000;

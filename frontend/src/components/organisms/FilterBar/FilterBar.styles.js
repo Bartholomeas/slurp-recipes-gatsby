@@ -24,7 +24,7 @@ export const FilterWrapper = styled.div`
 export const FilterHeader = styled.p`
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: bold;
   text-align: center;
 `

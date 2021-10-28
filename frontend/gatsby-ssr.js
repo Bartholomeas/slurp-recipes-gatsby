@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "./src/components/providers/Layout"
 import StateProvider from "./src/context/StateContext"
 
-const wrapPageElement = ({ element }) => {
+export const wrapPageElement = ({ element }) => {
   return (
     <StateProvider>
       <Layout>{element}</Layout>
@@ -10,7 +10,7 @@ const wrapPageElement = ({ element }) => {
   )
 }
 
-const wrapRootElement = ({ element }) => {
+export const wrapRootElement = ({ element }) => {
   return (
     <StateProvider>
       <Layout>{element}</Layout>

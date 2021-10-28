@@ -6,6 +6,7 @@ import {
   Logo,
   LinkContainer,
   NavLink,
+  SignUpLink,
   HamburgerBtn,
   ListIcon,
   ListButton,
@@ -53,6 +54,9 @@ const Navbar = () => {
           >
             <ListIcon />
           </ListButton>
+          <SignUpLink onClick={() => setIsOpen(false)} to="/tips">
+            Login / Register
+          </SignUpLink>
         </LinkContainer>
         <Converter setIsActive={setIsActive} isActive={isActive} />
       </NavContainer>

@@ -69,6 +69,13 @@ export const NavLink = styled(Link)`
   }
 `
 
+export const SignUpLink = styled(NavLink)`
+  padding: 0.2 0.4rem;
+  background-color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.lightGrey};
+  font-weight: bold;
+`
+
 export const Logo = styled.p`
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.darkerBase};

@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Button from "../../atoms/Button/Button"
 import {
@@ -18,7 +17,7 @@ const LandingSection = () => {
         <LandingText>
           Best tastes of your life with <ColoredText>our recipes</ColoredText>
         </LandingText>
-        <Button content="Send us recipe"></Button>
+        <Button href="/contact" content="Send us recipe"></Button>
         {/* <Button
           href="/contact"
           content={

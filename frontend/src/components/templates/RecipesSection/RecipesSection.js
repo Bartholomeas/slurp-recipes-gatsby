@@ -41,30 +41,31 @@ const RecipesSection = () => {
       }
     }
   `)
+  const initialState = {
+    diets: "",
+    difficulties: "",
+    types: "",
+  }
 
   const recipes = data.allStrapiRecipes.nodes
   const [isOpen, setIsOpen] = useState(false)
-  const { info } = useContext(StateContext)
-
+  const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
-  // console.log(filteredRecipes)
+
+  console.log(info)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
       <FiltersButton onClick={() => setIsOpen(!isOpen)} content="filters" />
+      <FiltersButton onClick={() => setInfo()} content="filters" />
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          {/* {data ? (
-            recipes.map(recipe => <Card key={recipe.id} payload={recipe} />)
-          ) : (
-            <p>We dont have any recipes.. :C</p>
-          )} */}
-
           {data ? (
             info.diets || info.difficulties || info.types ? (
               (filteredRecipes = recipes
                 .filter(recipe => {
+                  filteredRecipes = []
                   for (const key in info) {
                     if (info[key] === recipe[key][0][key]) {
                       filteredRecipes.push(recipe)
@@ -73,19 +74,16 @@ const RecipesSection = () => {
                   }
                 })
                 .map(filteredRecipe => {
-                  console.log(filteredRecipe)
                   return (
                     <Card key={filteredRecipe.id} payload={filteredRecipe} />
                   )
                 }))
             ) : (
-              console.log("NIE MA INFO.DIETS")
+              recipes.map(recipe => {
+                return <Card key={recipe.id} payload={recipe} />
+              })
             )
           ) : (
-            // recipes.map(recipe => {
-            //   console.log(...recipe["diets"])
-            //   return <Card key={recipe.id} payload={recipe} />
-            // })
             <p>We dont have any recipes.. :C</p>
           )}
         </CardsContainer>

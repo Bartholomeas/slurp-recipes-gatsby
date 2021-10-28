@@ -1,25 +1,25 @@
 import styled from "styled-components"
 
 export const FilterWrapper = styled.div`
-  grid-column:0/1
+  grid-column: 0/1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:100%;
+  height: 100%;
   width: 100%;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  opacity:${({ isOpen }) => (isOpen ? "1" : "0")};
-  max-height:${({ isOpen }) => (isOpen ? "800px" : "0px")};
-  transition:max-height .3s, opacity .1s;
-  
+  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+  max-height: ${({ isOpen }) => (isOpen ? "800px" : "0px")};
+  transition: max-height 0.3s, opacity 0.1s;
+
   @media only screen and (min-width: 768px) {
-    min-height: 100%;   
+    min-height: 100%;
     width: 15%;
     opacity: 1;
   }
-  `
+`
 
 export const FilterHeader = styled.p`
   margin-bottom: 2rem;

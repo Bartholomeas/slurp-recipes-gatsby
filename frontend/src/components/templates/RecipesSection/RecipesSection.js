@@ -10,6 +10,7 @@ import {
   CardsContainer,
 } from "./RecipesSection.styles"
 import { StateContext } from "../../../context/StateContext"
+import axios from "axios"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -41,16 +42,19 @@ const RecipesSection = () => {
       }
     }
   `)
-  const initialState = {
-    diets: "",
-    difficulties: "",
-    types: "",
-  }
 
-  const recipes = data.allStrapiRecipes.nodes
+  useEffect(async () => {
+    const fetchUrl = await fetch(`http://localhost:1337/recipes`)
+      .then(res => res.json())
+      .then(res => console.log(res))
+  }, [])
+
+  const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
+
+  console.log(info)
 
   return (
     <RecipesWrapper>
@@ -72,6 +76,7 @@ const RecipesSection = () => {
                   }
                 })
                 .map(filteredRecipe => {
+                  console.log(filteredRecipe["difficulties"])
                   return (
                     <Card key={filteredRecipe.id} payload={filteredRecipe} />
                   )

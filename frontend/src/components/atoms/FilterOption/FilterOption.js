@@ -23,9 +23,10 @@ export const FilterOption = ({ name, option = "", id }) => {
   return (
     <FilterOptionWrapper>
       <FilterOptionText
+        isChecker={false}
         onClick={e => getSpecificRecipes(e)}
         name={name}
-        type="checkbox"
+        type="radio"
         id={`${option}-${id}`}
       ></FilterOptionText>
       <FilterOptionLabel htmlFor={`${option}-${id}`}>

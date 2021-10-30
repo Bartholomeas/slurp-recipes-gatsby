@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   grid-column: 0/1;
@@ -38,5 +39,19 @@ export const FilterContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     align-items: flex-start;
+  }
+`
+
+export const ClearButton = styled.button`
+  padding: 0.8rem 1.4rem;
+  background-color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.lightFont};
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s background-color;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.darkerBase};
   }
 `

@@ -3,7 +3,8 @@ import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   grid-column: 0/1;
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  /* display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,6 @@ export const FilterWrapper = styled.div`
   transition: max-height 0.3s, opacity 0.1s;
 
   @media only screen and (min-width: 768px) {
-    display: flex;
     min-height: 100%;
     width: 15%;
     opacity: 1;

@@ -62,7 +62,7 @@ const RecipesSection = () => {
       <Header content="all recipes" />
       <FiltersButton
         onClick={() => {
-          setIsOpen(isOpen)
+          setIsOpen(!isOpen)
         }}
         content="filters"
       />

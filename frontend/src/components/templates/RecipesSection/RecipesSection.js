@@ -10,7 +10,6 @@ import {
   CardsContainer,
 } from "./RecipesSection.styles"
 import { StateContext } from "../../../context/StateContext"
-import axios from "axios"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -54,8 +53,6 @@ const RecipesSection = () => {
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
 
-  console.log(info)
-
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -76,7 +73,6 @@ const RecipesSection = () => {
                   }
                 })
                 .map(filteredRecipe => {
-                  console.log(filteredRecipe["difficulties"])
                   return (
                     <Card key={filteredRecipe.id} payload={filteredRecipe} />
                   )

@@ -69,7 +69,7 @@ export const NavLink = styled(Link)`
   }
 `
 
-export const SignUpLink = styled(NavLink)`
+export const SignInLink = styled(NavLink)`
   display: block;
   /* padding: 0 0 0 3rem; */
   padding: 0 2rem;

@@ -9,9 +9,12 @@ const initialState = {
 
 const StateProvider = ({ children }) => {
   const [info, setInfo] = useState(initialState)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   return (
-    <StateContext.Provider value={{ info, setInfo }}>
+    <StateContext.Provider
+      value={{ info, setInfo, isAuthenticated, setIsAuthenticated }}
+    >
       {children}
     </StateContext.Provider>
   )

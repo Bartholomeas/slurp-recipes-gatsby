@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
@@ -11,10 +11,13 @@ import {
   ListIcon,
   ListButton,
 } from "./Navbar.styles"
+import { StateContext } from "../../../context/StateContext"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
+  const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
+  let user = localStorage.getItem("user")
 
   return (
     <NavWrapper>
@@ -54,9 +57,13 @@ const Navbar = () => {
           >
             contact
           </NavLink>
-          <SignInLink onClick={() => setIsOpen(false)} to="/login">
-            Sign in
-          </SignInLink>
+          {isAuthenticated ? (
+            console.log(user.username)
+          ) : (
+            <SignInLink onClick={() => setIsOpen(false)} to="/login">
+              sign in
+            </SignInLink>
+          )}
         </LinkContainer>
         <Converter setIsActive={setIsActive} isActive={isActive} />
       </NavContainer>

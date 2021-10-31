@@ -35,17 +35,7 @@ export const LoginInput = styled.input`
 
 const LoginPanel = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
-  //   const setInputValues = () => {
-  //     const inputs = document.querySelectorAll("input")
-  //     localStorage.setItem(
-  //       "login",
-  //       JSON.stringify({
-  //         login: inputs[0].value,
-  //         password: inputs[1].value,
-  //       })
-  //     )
-  //   }
-  console.log(isAuthenticated)
+
   const authorizeUser = async () => {
     const inputs = document.querySelectorAll("input")
 
@@ -56,9 +46,12 @@ const LoginPanel = () => {
       })
       .then(data => {
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
+        localStorage.setItem("user", JSON.stringify(data.data.user))
+        console.log(data)
         setIsAuthenticated(true)
       })
       .catch(error => {
+        alert("Wrong password or login")
         setIsAuthenticated(false)
       })
   }

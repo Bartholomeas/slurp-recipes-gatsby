@@ -42,10 +42,14 @@ const RecipesSection = () => {
     }
   `)
 
-  useEffect(async () => {
-    const fetchUrl = await fetch(`http://localhost:1337/recipes`)
-      .then(res => res.json())
-      .then(res => console.log(res))
+  useEffect(() => {
+    const fetchUrl = async () => {
+      await fetch(`http://localhost:1337/recipes`)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+    fetchUrl()
   }, [])
 
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
@@ -56,12 +60,16 @@ const RecipesSection = () => {
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
-      <FiltersButton onClick={() => setIsOpen(!isOpen)} content="filters" />
-      <FiltersButton onClick={() => setInfo()} content="filters" />
+      <FiltersButton
+        onClick={() => {
+          setIsOpen(isOpen)
+        }}
+        content="filters"
+      />
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          {data ? (
+          {data || recipes ? (
             info.diets || info.difficulties || info.types ? (
               (filteredRecipes = recipes
                 .filter(recipe => {

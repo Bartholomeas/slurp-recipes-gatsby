@@ -3,11 +3,11 @@ import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   grid-column: 0/1;
-  display: flex;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 800px;
   width: 100%;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -16,6 +16,7 @@ export const FilterWrapper = styled.div`
   transition: max-height 0.3s, opacity 0.1s;
 
   @media only screen and (min-width: 768px) {
+    display: flex;
     min-height: 100%;
     width: 15%;
     opacity: 1;

@@ -17,7 +17,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
-  let user = localStorage.getItem("user")
 
   return (
     <NavWrapper>
@@ -57,8 +56,10 @@ const Navbar = () => {
           >
             contact
           </NavLink>
-          {isAuthenticated ? (
-            console.log(user.username)
+          {isAuthenticated.username ? (
+            <SignInLink to="/adminpanel">
+              welcome {isAuthenticated.username}
+            </SignInLink>
           ) : (
             <SignInLink onClick={() => setIsOpen(false)} to="/login">
               sign in

@@ -71,10 +71,9 @@ export const NavLink = styled(Link)`
 
 export const SignInLink = styled(NavLink)`
   display: block;
-  /* padding: 0 0 0 3rem; */
   padding: 0 2rem;
-  /* color: ${({ theme }) => theme.colors.lightGrey}; */
   font-weight: bold;
+  cursor: pointer;
 `
 
 export const Logo = styled.p`

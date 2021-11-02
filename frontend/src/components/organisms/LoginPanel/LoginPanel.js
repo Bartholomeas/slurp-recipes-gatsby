@@ -34,9 +34,11 @@ export const LoginInput = styled.input`
 `
 
 const LoginPanel = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
+  const { isAuthenticated, setIsAuthenticated, token, setToken } =
+    useContext(StateContext)
 
-  const authorizeUser = async () => {
+  const authorizeUser = async e => {
+    e.preventDefault()
     const inputs = document.querySelectorAll("input")
 
     const data = await axios
@@ -46,14 +48,15 @@ const LoginPanel = () => {
       })
       .then(data => {
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
-        localStorage.setItem("user", JSON.stringify(data.data.user))
         console.log(data)
-        setIsAuthenticated(true)
+        setIsAuthenticated(data.data.user)
+        setToken(data.data.jwt)
       })
       .catch(error => {
         alert("Wrong password or login")
-        setIsAuthenticated(false)
+        setIsAuthenticated({})
       })
+    console.log(isAuthenticated)
   }
 
   return (
@@ -68,8 +71,12 @@ const LoginPanel = () => {
           password
         </LoginLabel>
         <LoginInput type="password" name="password" id="password"></LoginInput>
+        <Button
+          type="submit"
+          content="Sign in"
+          onClick={e => authorizeUser(e)}
+        />
       </LoginForm>
-      <Button type="submit" content="Sign in" onClick={() => authorizeUser()} />
     </LoginPanelWrapper>
   )
 }

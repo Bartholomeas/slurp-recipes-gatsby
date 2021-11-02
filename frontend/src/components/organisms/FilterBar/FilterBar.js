@@ -47,7 +47,6 @@ const FilterBar = ({ isOpen }) => {
   const clearState = () => {
     setInfo(initialState)
   }
-  console.log(isOpen)
 
   return (
     <FilterWrapper isOpen={isOpen}>

@@ -23,9 +23,9 @@ import {
 
 const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
-  const image = getImage(
-    recipeInfo.img.localFile.childImageSharp.gatsbyImageData
-  )
+  const image = recipeInfo.img
+    ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
+    : null
   return (
     <>
       {" "}
@@ -51,7 +51,9 @@ const RecipeDetails = ({ data }) => {
           <RecipeInfoContainer>
             <RecipeInfoTitle>difficulity</RecipeInfoTitle>
             <RecipeInfoValue>
-              {recipeInfo.difficulties[0].difficulties}
+              {recipeInfo.difficulties[0]
+                ? recipeInfo.difficulties[0].difficulties
+                : "?"}
             </RecipeInfoValue>
           </RecipeInfoContainer>
           <RecipeDetailsLine />

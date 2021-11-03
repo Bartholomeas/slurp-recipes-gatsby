@@ -24,9 +24,13 @@
     "img": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["files", "images", "videos"],
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
       "plugin": "upload",
-      "required": true,
+      "required": false,
       "pluginOptions": {}
     },
     "preparation": {
@@ -48,6 +52,7 @@
       "dominant": true
     },
     "diets": {
+      "targetColumnName": "diets",
       "via": "recipes",
       "collection": "diet",
       "dominant": true

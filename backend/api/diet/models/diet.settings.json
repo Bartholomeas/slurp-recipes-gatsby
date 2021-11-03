@@ -17,6 +17,7 @@
     },
     "recipes": {
       "via": "diets",
+      "columnName": "diets",
       "collection": "recipes"
     }
   }

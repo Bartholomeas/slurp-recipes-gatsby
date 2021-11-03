@@ -14,7 +14,7 @@
   "attributes": {
     "difficulties": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "recipes": {
       "via": "difficulties",

@@ -56,6 +56,20 @@ const LoginPanel = () => {
         alert("Wrong password or login")
         setIsAuthenticated({})
       })
+    // await axios
+    //   .post("http://localhost:1337/recipes", {
+    //     body: {
+    //       title: "tytuuul",
+    //       time: "125",
+    //       preparation: "just prepare",
+    //       ingredients: "love ",
+    //     },
+    //     headers: {
+    //       authorization: `Bearer ${token}`,
+    //     },
+    //   })
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err))
     console.log(isAuthenticated)
   }
 

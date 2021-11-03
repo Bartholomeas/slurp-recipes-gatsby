@@ -11,7 +11,10 @@ const Card = ({ payload }) => {
     title = "none",
     types = "none",
   } = payload
-  const image = getImage(img.localFile.childImageSharp)
+  
+  console.log(img)
+  const image = img ? getImage(img.localFile.childImageSharp) : []
+
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>

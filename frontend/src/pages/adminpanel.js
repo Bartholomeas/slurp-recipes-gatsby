@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
 import styled from "styled-components"
 import axios from "axios"
 import { StateContext } from "../context/StateContext"
@@ -7,29 +7,29 @@ const AdminPanelWrapper = styled.div`
   display: flex;
   margin-top: 7rem;
 `
-
+const initialState = {
+  title: "",
+  time: "",
+  preparation: "",
+  ingredients: "",
+}
 const AdminPanel = () => {
-  const { token } = useContext(StateContext)
+  const [recipeInfo, setRecipeInfo] = useState(initialState)
 
   const uploadHandler = async e => {
     e.preventDefault()
-    // const token = JSON.parse(localStorage.getItem("token")).slice(1, -1)
-    // const token = JSON.parse(localStorage.getItem("token"))
-    // const token = JSON.parse(localStorage.getItem("token"))
-    // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NzA5NzI5LCJleHAiOjE2MzgzMDE3Mjl9.CGf7pe7mFGh7qvwTcB3gqYESnc__PjpJvGLAxxHUOGc",
+    const token = JSON.parse(localStorage.getItem("token"))
 
-    console.log(token)
+    const { title, time, preparation, ingredients } = recipeInfo
+
     await axios
       .post(
         "http://localhost:1337/recipes",
         {
-          title: "tytuuul",
-          time: "125",
-          preparation: "just prepare",
-          ingredients: "love ",
-          difficulties: {
-            difficulties: "hard",
-          },
+          title: title,
+          time: time,
+          preparation: preparation,
+          ingredients: ingredients,
         },
         {
           headers: {
@@ -41,20 +41,65 @@ const AdminPanel = () => {
       .catch(err => console.log(err))
   }
 
+  const updateInput = e => {
+    setRecipeInfo({ ...recipeInfo, [e.target.name]: e.target.value })
+    console.log(recipeInfo)
+  }
+
   return (
     <AdminPanelWrapper>
       <form>
-        <label name="title" htmlFor="title">
-          title
-        </label>
-        <input id="title" name="title" type="text" />
+        <div>
+          <label name="title" htmlFor="title">
+            title
+          </label>
+          <input
+            onChange={e => updateInput(e)}
+            id="title"
+            name="title"
+            type="text"
+          />
+        </div>
+        <div>
+          <label name="time" htmlFor="time">
+            time
+          </label>
+          <input
+            onChange={e => updateInput(e)}
+            id="time"
+            name="time"
+            type="number"
+          />
+        </div>
+        <div>
+          <label name="preparation" htmlFor="preparation">
+            preparation
+          </label>
+          <input
+            onChange={e => updateInput(e)}
+            id="preparation"
+            name="preparation"
+            type="text"
+          />
+        </div>
+        <div>
+          <label name="ingredients" htmlFor="ingredients">
+            ingredients
+          </label>
+          <input
+            onChange={e => updateInput(e)}
+            id="ingredients"
+            name="ingredients"
+            type="text"
+          />
+        </div>
         <button
           onClick={e => {
             uploadHandler(e)
           }}
           type="submit"
         >
-          submit
+          add recipe
         </button>
       </form>
     </AdminPanelWrapper>

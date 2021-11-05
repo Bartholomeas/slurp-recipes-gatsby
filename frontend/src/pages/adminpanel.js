@@ -93,6 +93,17 @@ const AdminPanel = () => {
             type="text"
           />
         </div>
+        <div>
+          <label name="image" htmlFor="image">
+            image
+          </label>
+          <input
+            onChange={e => updateInput(e)}
+            id="image"
+            name="image"
+            type="file"
+          />
+        </div>
         <button
           onClick={e => {
             uploadHandler(e)
@@ -107,3 +118,4 @@ const AdminPanel = () => {
 }
 
 export default AdminPanel
+  

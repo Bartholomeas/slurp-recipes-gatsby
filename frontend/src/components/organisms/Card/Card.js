@@ -6,19 +6,18 @@ import { CardLink, CardWrapper, CardImg } from "./Card.styles"
 const Card = ({ payload }) => {
   const {
     difficulties = "none",
-    img,
+    img = "",
     time = "0",
     title = "none",
     types = "none",
   } = payload
-  
-  console.log(img)
-  const image = img ? getImage(img.localFile.childImageSharp) : []
+
+  const image = img ? getImage(img.localFile.childImageSharp) : {}
 
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>
-        <CardImg image={image} alt="Food image" />
+        {image ? <CardImg image={image} alt="Food image" /> : null}
         <CardLabel
           type={types}
           difficulty={difficulties}

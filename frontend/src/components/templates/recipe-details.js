@@ -25,7 +25,7 @@ const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
-    : null
+    : {}
   return (
     <>
       {" "}

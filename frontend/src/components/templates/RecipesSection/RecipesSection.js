@@ -74,6 +74,7 @@ const RecipesSection = () => {
               (filteredRecipes = recipes
                 .filter(recipe => {
                   for (const key in info) {
+                    console.log(recipe)
                     if (info[key] === recipe[key][0][key]) {
                       filteredRecipes.push(recipe)
                       return recipe

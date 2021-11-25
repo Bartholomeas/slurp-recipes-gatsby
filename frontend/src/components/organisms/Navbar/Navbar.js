@@ -57,6 +57,7 @@ const Navbar = () => {
             contact
           </NavLink>
           {isAuthenticated.username ? (
+            let userName = JSON.parse(localStorage.getItem('user'))
             <SignInLink to="/adminpanel">
               welcome {isAuthenticated.username}
             </SignInLink>

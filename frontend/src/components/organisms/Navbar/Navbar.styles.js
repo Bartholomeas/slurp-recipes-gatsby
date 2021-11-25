@@ -9,6 +9,7 @@ export const NavWrapper = styled.nav`
   min-width: 100%;
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
+  transform: translateY(4rem);
   z-index: 10000;
 
   @media print {

@@ -4,11 +4,13 @@ import { GlobalStyles } from "../../styles/GlobalStyles"
 import { theme } from "../../styles/theme"
 import Navbar from "../organisms/Navbar/Navbar"
 import Footer from "../organisms/Footer/Footer"
+import UserNavbar from "../organisms/UserNavbar/UserNavbar"
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <UserNavbar />
       <Navbar />
       {children}
       <Footer />

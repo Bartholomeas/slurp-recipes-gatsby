@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
@@ -17,6 +17,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
+
+  useEffect(() => {
+    console.log("USEEFFET")
+    if (JSON.parse(localStorage.getItem("token"))) {
+      setIsAuthenticated(true)
+    } else {
+      setIsAuthenticated(false)
+    }
+  }, [])
+  console.log(isAuthenticated)
 
   return (
     <NavWrapper>
@@ -56,10 +66,9 @@ const Navbar = () => {
           >
             contact
           </NavLink>
-          {isAuthenticated.username ? (
-            let userName = JSON.parse(localStorage.getItem('user'))
+          {isAuthenticated ? (
             <SignInLink to="/adminpanel">
-              welcome {isAuthenticated.username}
+              welcome {JSON.parse(localStorage.getItem("user"))}
             </SignInLink>
           ) : (
             <SignInLink onClick={() => setIsOpen(false)} to="/login">

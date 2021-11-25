@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import axios from "axios"
 import Button from "../../atoms/Button/Button"
 import { StateContext } from "../../../context/StateContext"
@@ -13,12 +13,7 @@ import {
 const LoginPanel = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
 
-  useEffect(() => {
-    console.log("USEEFFET")
-    // JSON.parse(localStorage.getItem("token"))
-    //   ? setIsAuthenticated(true)
-    //   : setIsAuthenticated(false)
-  }, [])
+
 
   const authorizeUser = async e => {
     e.preventDefault()
@@ -32,12 +27,11 @@ const LoginPanel = () => {
       .then(data => {
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
         localStorage.setItem("user", JSON.stringify(data.data.user.username))
-        setIsAuthenticated(data.data.user)
-        console.log(isAuthenticated)
+        setIsAuthenticated(true)
       })
       .catch(error => {
         alert("Wrong password or login")
-        setIsAuthenticated({})
+        setIsAuthenticated(false)
       })
     console.log(isAuthenticated)
   }

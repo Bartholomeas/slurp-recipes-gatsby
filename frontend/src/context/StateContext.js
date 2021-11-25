@@ -9,7 +9,7 @@ const initialState = {
 
 const StateProvider = ({ children }) => {
   const [info, setInfo] = useState(initialState)
-  const [isAuthenticated, setIsAuthenticated] = useState({})
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   return (
     <StateContext.Provider

@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react"
-import UserNavbar from "../UserNavbar/UserNavbar"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
@@ -30,58 +29,56 @@ const Navbar = () => {
   console.log(isAuthenticated)
 
   return (
-    <>
-      <NavWrapper>
-        <NavContainer>
-          <Logo>s:urp</Logo>
-          <HamburgerBtn
-            aria-label="Open mobile menu"
-            onClick={() => setIsOpen(!isOpen)}
-          />
-          <LinkContainer isOpen={isOpen}>
-            <ListButton
-              onClick={() => {
-                setIsActive(!isActive)
-                setIsOpen(false)
-              }}
-            >
-              <ListIcon />
-            </ListButton>
-            <NavLink
-              onClick={() => setIsOpen(false)}
-              to="/"
-              activeStyle={{ color: "#A41A1A" }}
-            >
-              recipes
-            </NavLink>
-            <NavLink
-              onClick={() => setIsOpen(false)}
-              to="/tips"
-              activeStyle={{ color: "#A41A1A" }}
-            >
-              tips&tricks
-            </NavLink>
-            <NavLink
-              onClick={() => setIsOpen(false)}
-              to="/contact"
-              activeStyle={{ color: "#A41A1A" }}
-            >
-              contact
-            </NavLink>
-            {isAuthenticated ? (
-              <SignInLink to="/adminpanel">
-                welcome {JSON.parse(localStorage.getItem("user"))}
-              </SignInLink>
-            ) : (
-              <SignInLink onClick={() => setIsOpen(false)} to="/login">
-                sign in
-              </SignInLink>
-            )}
-          </LinkContainer>
-          <Converter setIsActive={setIsActive} isActive={isActive} />
-        </NavContainer>
-      </NavWrapper>
-    </>
+    <NavWrapper>
+      <NavContainer>
+        <Logo>s:urp</Logo>
+        <HamburgerBtn
+          aria-label="Open mobile menu"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+        <LinkContainer isOpen={isOpen}>
+          <ListButton
+            onClick={() => {
+              setIsActive(!isActive)
+              setIsOpen(false)
+            }}
+          >
+            <ListIcon />
+          </ListButton>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/"
+            activeStyle={{ color: "#A41A1A" }}
+          >
+            recipes
+          </NavLink>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/tips"
+            activeStyle={{ color: "#A41A1A" }}
+          >
+            tips&tricks
+          </NavLink>
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/contact"
+            activeStyle={{ color: "#A41A1A" }}
+          >
+            contact
+          </NavLink>
+          {isAuthenticated ? (
+            <SignInLink to="/adminpanel">
+              welcome {JSON.parse(localStorage.getItem("user"))}
+            </SignInLink>
+          ) : (
+            <SignInLink onClick={() => setIsOpen(false)} to="/login">
+              sign in
+            </SignInLink>
+          )}
+        </LinkContainer>
+        <Converter setIsActive={setIsActive} isActive={isActive} />
+      </NavContainer>
+    </NavWrapper>
   )
 }
 

@@ -6,27 +6,30 @@ import {
   Logo,
   LinkContainer,
   NavLink,
-  SignInLink,
+  UserButton,
   HamburgerBtn,
   ListIcon,
   ListButton,
 } from "./Navbar.styles"
 import { StateContext } from "../../../context/StateContext"
+import { FaUserCircle } from "react-icons/fa"
+import UserPanel from "../UserPanel/UserPanel"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isActive, setIsActive] = useState(false)
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false)
+  const [isConverterActive, setIsConverterActive] = useState(false)
+  const [isUserPanelActive, setIsUserPanelActive] = useState(false)
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
 
+  let userName = JSON.parse(localStorage.getItem("user"))
+
   useEffect(() => {
-    console.log("USEEFFET")
     if (JSON.parse(localStorage.getItem("token"))) {
       setIsAuthenticated(true)
     } else {
       setIsAuthenticated(false)
     }
   }, [])
-  console.log(isAuthenticated)
 
   return (
     <NavWrapper>
@@ -34,49 +37,76 @@ const Navbar = () => {
         <Logo>s:urp</Logo>
         <HamburgerBtn
           aria-label="Open mobile menu"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            setIsNavbarOpen(!isNavbarOpen)
+            setIsUserPanelActive(false)
+          }}
         />
-        <LinkContainer isOpen={isOpen}>
+        <LinkContainer isNavbarOpen={isNavbarOpen}>
           <ListButton
             onClick={() => {
-              setIsActive(!isActive)
-              setIsOpen(false)
+              setIsConverterActive(!isConverterActive)
+              setIsNavbarOpen(false)
             }}
           >
             <ListIcon />
           </ListButton>
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsNavbarOpen(false)}
             to="/"
             activeStyle={{ color: "#A41A1A" }}
           >
             recipes
           </NavLink>
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsNavbarOpen(false)}
             to="/tips"
             activeStyle={{ color: "#A41A1A" }}
           >
             tips&tricks
           </NavLink>
           <NavLink
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsNavbarOpen(false)}
             to="/contact"
             activeStyle={{ color: "#A41A1A" }}
           >
             contact
           </NavLink>
+
           {isAuthenticated ? (
-            <SignInLink to="/adminpanel">
-              welcome {JSON.parse(localStorage.getItem("user"))}
-            </SignInLink>
+            <UserButton
+              className="join-link"
+              onClick={() => {
+                {
+                  setIsUserPanelActive(!isUserPanelActive)
+                  setIsNavbarOpen(false)
+                }
+              }}
+            >
+              <FaUserCircle
+                className="join-icon"
+                onClick={() => setIsNavbarOpen(false)}
+              />{" "}
+              {userName}
+            </UserButton>
           ) : (
-            <SignInLink onClick={() => setIsOpen(false)} to="/login">
-              sign in
-            </SignInLink>
+            <NavLink
+              to="/login"
+              className="join-link"
+              onClick={() => setIsNavbarOpen(false)}
+            >
+              <FaUserCircle className="join-icon" /> join now
+            </NavLink>
           )}
         </LinkContainer>
-        <Converter setIsActive={setIsActive} isActive={isActive} />
+        <UserPanel
+          isUserPanelActive={isUserPanelActive}
+          setIsUserPanelActive={setIsUserPanelActive}
+        />
+        <Converter
+          setIsConverterActive={setIsConverterActive}
+          isConverterActive={isConverterActive}
+        />
       </NavContainer>
     </NavWrapper>
   )

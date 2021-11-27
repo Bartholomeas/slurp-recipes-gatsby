@@ -8,9 +8,12 @@ import {
   MeasureInfos,
 } from "./Converter.styles"
 
-const Converter = ({ setIsActive, isActive }) => {
+const Converter = ({ setIsConverterActive, isConverterActive }) => {
   return (
-    <ConverterWrapper onClick={() => setIsActive(false)} isActive={isActive}>
+    <ConverterWrapper
+      onClick={() => setIsConverterActive(false)}
+      isConverterActive={isConverterActive}
+    >
       <MeasuresContainer>
         <MeasureWrapper>
           <svg

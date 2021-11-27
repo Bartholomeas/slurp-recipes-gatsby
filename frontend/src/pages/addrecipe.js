@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import axios from "axios"
-import { StateContext } from "../context/StateContext"
 
-const AdminPanelWrapper = styled.div`
+const AddRecipePanelWrapper = styled.div`
   display: flex;
   margin-top: 7rem;
 `
@@ -13,7 +12,7 @@ const initialState = {
   preparation: "",
   ingredients: "",
 }
-const AdminPanel = () => {
+const AddRecipePanel = () => {
   const [recipeInfo, setRecipeInfo] = useState(initialState)
 
   const uploadHandler = async e => {
@@ -47,7 +46,7 @@ const AdminPanel = () => {
   }
 
   return (
-    <AdminPanelWrapper>
+    <AddRecipePanelWrapper>
       <form>
         <div>
           <label name="title" htmlFor="title">
@@ -113,8 +112,8 @@ const AdminPanel = () => {
           add recipe
         </button>
       </form>
-    </AdminPanelWrapper>
+    </AddRecipePanelWrapper>
   )
 }
 
-export default AdminPanel
+export default AddRecipePanel

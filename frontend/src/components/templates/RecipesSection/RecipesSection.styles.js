@@ -44,7 +44,6 @@ export const CardsContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 30rem;
     grid-gap: 3rem;
-    overflow-y: scroll;
     padding-bottom: 3rem;
   }
 `

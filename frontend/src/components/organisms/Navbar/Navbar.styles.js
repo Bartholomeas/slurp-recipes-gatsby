@@ -1,7 +1,20 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 import { AiOutlineMenu } from "react-icons/ai"
 import { RiFileList3Line } from "react-icons/ri"
+
+const joinLinkStyles = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.fontColor};
+  font-weight: bold;
+  font-size: 1.6rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.baseColor};
+  }
+`
 
 export const NavWrapper = styled.nav`
   position: fixed;
@@ -9,7 +22,6 @@ export const NavWrapper = styled.nav`
   min-width: 100%;
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  transform: translateY(4rem);
   z-index: 10000;
 
   @media print {
@@ -35,19 +47,33 @@ export const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+
+  & .join-icon {
+    /* position: absolute; */
+    /* left: -3rem; */
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  &.join-link {
+    ${joinLinkStyles}
+  }
 
   @media only screen and (max-width: 768px) {
     position: absolute;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     left: 0;
     top: 0;
     height: 100vh;
     width: 100%;
     padding: 4rem 0;
-    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100%")});
-    max-height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
+    transform: translateY(
+      ${({ isNavbarOpen }) => (isNavbarOpen ? "0" : "-100%")}
+    );
+    max-height: ${({ isNavbarOpen }) => (isNavbarOpen ? "100vh" : "0")};
     background-color: ${({ theme }) => theme.colors.lightGrey};
     transition: transform 0.3s, max-height 0.6s;
     overflow: hidden;
@@ -61,6 +87,10 @@ export const NavLink = styled(Link)`
   font-weight: 300;
   transition: color 0.3s;
 
+  &.join-link {
+    ${joinLinkStyles}
+  }
+
   &:not(:last-child) {
     margin-right: 2rem;
   }
@@ -69,12 +99,14 @@ export const NavLink = styled(Link)`
     color: ${({ theme }) => theme.colors.baseColor};
   }
 `
-
-export const SignInLink = styled(NavLink)`
-  display: block;
-  padding: 0 2rem;
-  font-weight: bold;
+export const UserButton = styled.button`
+  ${joinLinkStyles}
+  position: relative;
+  background: none;
+  border: none;
   cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
 `
 
 export const Logo = styled.p`

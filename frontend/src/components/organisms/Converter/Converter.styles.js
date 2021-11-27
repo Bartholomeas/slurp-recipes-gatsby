@@ -9,7 +9,9 @@ export const ConverterWrapper = styled.div`
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   box-shadow: 2px 12px 25px ${({ theme }) => theme.colors.shadow};
-  transform: translateY(${({ isActive }) => (isActive ? "0" : "-150%")});
+  transform: translateY(
+    ${({ isConverterActive }) => (isConverterActive ? "0" : "-150%")}
+  );
   transition: transform 0.6s ease-in-out;
   z-index: -15;
 

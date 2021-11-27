@@ -79,7 +79,9 @@ const RecipesSection = () => {
                       filteredRecipes.push(recipe)
                       return recipe
                     }
+                    return recipe
                   }
+                  return recipe
                 })
                 .map(filteredRecipe => {
                   return (

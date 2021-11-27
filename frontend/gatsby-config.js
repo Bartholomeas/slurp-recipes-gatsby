@@ -34,11 +34,5 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-apollo",
-    //   options: {
-    //     uri: "http://localhost:8000/__graphql",
-    //   },
-    // },
   ],
 }

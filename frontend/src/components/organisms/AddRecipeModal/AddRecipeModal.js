@@ -5,18 +5,29 @@ import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
 
 export const ModalBody = styled(Modal)`
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  min-height: 70vh;
-  min-width: 80%;
-  max-width: 500px;
-  padding: 2rem;
+  min-height: 400px;
+  /* max-width: 500px; */
+  margin-top: 3.4rem;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 0px 10px 10px 3px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
+
+  @media only screen and (min-width: 768px) {
+    min-height: 70vh;
+    width: 600px;
+  }
+`
+
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `
 
 export const ButtonWrapper = styled.div``
@@ -38,7 +49,18 @@ export const Button = styled.button`
 `
 // MODAL FORM
 
-export const ModalForm = styled.form``
+export const ModalForm = styled.form`
+  position: relative;
+  width: 100%;
+  height: 400px;
+  padding: 2rem;
+  overflow-y: scroll;
+
+  @media only screen and (min-width: 768px) {
+    overflow: auto;
+    height: auto;
+  }
+`
 
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
@@ -46,16 +68,25 @@ const AddRecipeModal = () => {
   return (
     <ModalBody
       appElement={document.getElementById("___gatsby")}
-      isOpen={isModalOpen}
+      isOpen={true}
       onRequestClose={closeModal}
     >
       <ModalForm>
-        <FormField id="title" name="title" label="title" />
-        <FormField id="time" name="time" label="time" />
+        <FormContainer>
+          <FormField width="70" id="title" name="title" label="title" />
+          <FormField width="25" id="time" name="time" label="time" />
+        </FormContainer>
         {/*  */}
-        <FormField id="diet" name="diet" label="diet" />
-        <FormField id="type" name="type" label="type" />
-        <FormField id="difficulty" name="difficulty" label="difficulty" />
+        <FormContainer>
+          <FormField width="30" id="diet" name="diet" label="diet" />
+          <FormField width="30" id="type" name="type" label="type" />
+          <FormField
+            width="30"
+            id="difficulty"
+            name="difficulty"
+            label="difficulty"
+          />
+        </FormContainer>
         {/*  */}
         <FormField
           id="preparation"
@@ -70,7 +101,13 @@ const AddRecipeModal = () => {
           type="textarea"
         />
         {/*  */}
-        <FormField id="image" name="image" label="image" type="file" />
+        <FormField
+          isImage={true}
+          id="image"
+          name="image"
+          label="image"
+          type="file"
+        />
 
         <ButtonWrapper>
           <Button>add recipe</Button>

@@ -10,7 +10,11 @@ const initialState = {
 const StateProvider = ({ children }) => {
   const [info, setInfo] = useState(initialState)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
   return (
     <StateContext.Provider
       value={{
@@ -18,6 +22,9 @@ const StateProvider = ({ children }) => {
         setInfo,
         isAuthenticated,
         setIsAuthenticated,
+        setIsModalOpen,
+        isModalOpen,
+        closeModal,
       }}
     >
       {children}

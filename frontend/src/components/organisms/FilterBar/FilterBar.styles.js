@@ -1,9 +1,7 @@
 import styled from "styled-components"
-import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   grid-column: 0/1;
-  /* display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; */
   display: flex;
   flex-direction: column;
   justify-content: center;

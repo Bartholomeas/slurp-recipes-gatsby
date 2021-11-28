@@ -8,7 +8,6 @@ import {
 } from "./FilterBar.styles"
 import SearchBar from "../../molecules/SearchBar/SearchBar"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
-import Button from "../../atoms/Button/Button"
 import { StateContext } from "../../../context/StateContext"
 
 const FilterBar = ({ isOpen }) => {

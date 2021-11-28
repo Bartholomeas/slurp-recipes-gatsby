@@ -69,28 +69,8 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
 `
-const ModalBackground = styled.div`
-  display: ${({ isModalActive }) => (isModalActive ? "block" : "none")};
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.3);
-`
-
-const Modal = styled.div`
-  display: ${({ isModalActive }) => (isModalActive ? "block" : "none")};
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  height: 800px;
-  width: 500px;
-  background-color: lightgrey;
-  transform: translate(-50%, -50%);
-`
 
 const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
-  const [isModalActive, toggleModalActive] = useState(false)
-
   const logoutHandler = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
@@ -98,34 +78,24 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
   }
 
   return (
-    <>
-      <ModalBackground isModalActive={isModalActive}>
-        <Modal></Modal>
-      </ModalBackground>
-      <Wrapper isUserPanelActive={isUserPanelActive}>
-        <NavbarLink className="user-panel-item" to="/addrecipe">
-          <FaPlusCircle
-            onClick={() => {
-              toggleModalActive(true)
-            }}
-            className="navbar-icon"
-          />
-          add recipe
-        </NavbarLink>
-        <NavbarLink className="user-panel-item" to="#">
-          <FaHeart className="navbar-icon" />
-          favorite
-        </NavbarLink>
-        <NavbarLink className="user-panel-item" to="#">
-          <FaCog className="navbar-icon" />
-          settings
-        </NavbarLink>
-        <Button onClick={() => logoutHandler()} className="user-panel-item">
-          <FaSignInAlt className="navbar-icon" />
-          logout
-        </Button>
-      </Wrapper>
-    </>
+    <Wrapper isUserPanelActive={isUserPanelActive}>
+      <NavbarLink className="user-panel-item" to="/addrecipe">
+        <FaPlusCircle className="navbar-icon" />
+        add recipe
+      </NavbarLink>
+      <NavbarLink className="user-panel-item" to="#">
+        <FaHeart className="navbar-icon" />
+        favorite
+      </NavbarLink>
+      <NavbarLink className="user-panel-item" to="#">
+        <FaCog className="navbar-icon" />
+        settings
+      </NavbarLink>
+      <Button onClick={() => logoutHandler()} className="user-panel-item">
+        <FaSignInAlt className="navbar-icon" />
+        logout
+      </Button>
+    </Wrapper>
   )
 }
 

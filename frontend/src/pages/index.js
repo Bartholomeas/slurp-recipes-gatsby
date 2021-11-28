@@ -1,7 +1,10 @@
 import React from "react"
+import { Helmet } from "react-helmet"
+import Modal from "react-modal"
 import LandingSection from "../components/templates/LandingSection/LandingSection"
 import RecipesSection from "../components/templates/RecipesSection/RecipesSection"
-import { Helmet } from "react-helmet"
+
+Modal.setAppElement(`#___gatsby`)
 
 const Home = () => {
   return (
@@ -22,6 +25,12 @@ const Home = () => {
           rel="stylesheet"
         />
       </Helmet>
+
+      <Modal isOpen={true}>
+        <h2>its modal</h2>
+        <p>its paragraph of modal</p>
+      </Modal>
+
       <LandingSection />
       <RecipesSection />
     </>

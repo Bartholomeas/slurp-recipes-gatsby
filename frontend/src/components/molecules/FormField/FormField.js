@@ -1,5 +1,16 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+const inputStyles = css`
+  padding: 1rem 1.2rem;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 3px 5px 10px ${({ theme }) => theme.colors.shadow};
+  /* box-shadow: ${({ isImage }) =>
+    isImage ? "none" : `3px 5px 10px ${({ theme }) => theme.colors.shadow}`}; */
+  background: ${({ isImage }) => (isImage ? "none" : "auto")};
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,18 +22,18 @@ const Wrapper = styled.div`
 `
 
 const Label = styled.label`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
 `
 
 const Input = styled.input`
-  padding: 1rem 1.2rem;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 3px 5px 10px ${({ theme }) => theme.colors.shadow};
-  background: ${({ isImage }) => (isImage ? "none" : "auto")};
-  background: inherit;
+  ${inputStyles}
+`
+
+const Textarea = styled.textarea`
+  ${inputStyles}
+  resize:vertical;
+  height: 150%;
 `
 
 const FormField = ({
@@ -30,6 +41,7 @@ const FormField = ({
   isImage = false,
   label,
   name,
+  textarea,
   type = "text",
   width = "100",
   ...props
@@ -37,7 +49,11 @@ const FormField = ({
   return (
     <Wrapper width={width}>
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} name={name} type={type}></Input>
+      {!textarea ? (
+        <Input id={id} name={name} type={type}></Input>
+      ) : (
+        <Textarea id={id} name={name}></Textarea>
+      )}
     </Wrapper>
   )
 }

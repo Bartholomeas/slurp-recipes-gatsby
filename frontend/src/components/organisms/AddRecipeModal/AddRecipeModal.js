@@ -6,10 +6,15 @@ import FormField from "../../molecules/FormField/FormField"
 
 export const ModalBody = styled(Modal)`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 50%;
   left: 50%;
+  height: 550px;
   min-height: 400px;
-  /* max-width: 500px; */
+  padding: 2rem 0;
   margin-top: 3.4rem;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.darkerGrey};
@@ -30,7 +35,10 @@ export const FormContainer = styled.div`
   width: 100%;
 `
 
-export const ButtonWrapper = styled.div``
+export const ButtonWrapper = styled.div`
+  align-self: end;
+  align-content: end;
+`
 
 export const Button = styled.button`
   padding: 1rem 2rem;
@@ -50,15 +58,17 @@ export const Button = styled.button`
 // MODAL FORM
 
 export const ModalForm = styled.form`
-  position: relative;
   width: 100%;
-  height: 400px;
+  height: 100%;
   padding: 2rem;
-  overflow-y: scroll;
 
+  @media only screen and (max-width: 320px) {
+    min-height: 400px;
+    overflow-y: scroll;
+  }
   @media only screen and (min-width: 768px) {
-    overflow: auto;
     height: auto;
+    overflow: auto;
   }
 `
 
@@ -74,33 +84,40 @@ const AddRecipeModal = () => {
       <ModalForm>
         <FormContainer>
           <FormField width="70" id="title" name="title" label="title" />
-          <FormField width="25" id="time" name="time" label="time" />
+          <FormField
+            width="25"
+            id="time"
+            name="time"
+            label="time"
+            type="number"
+          />
         </FormContainer>
-        {/*  */}
         <FormContainer>
-          <FormField width="30" id="diet" name="diet" label="diet" />
+          {/* <FormField width="30" id="diet" name="diet" label="diet" />
           <FormField width="30" id="type" name="type" label="type" />
           <FormField
             width="30"
             id="difficulty"
             name="difficulty"
             label="difficulty"
-          />
+          /> */}
+          <label for="diet">diet</label>
+          <select name="diet" id="diet"></select>
         </FormContainer>
-        {/*  */}
         <FormField
+          textarea={true}
           id="preparation"
           name="preparation"
           label="preparation"
           type="textarea"
         />
         <FormField
+          textarea={true}
           id="ingredients"
           name="ingredients"
           label="ingredients"
           type="textarea"
         />
-        {/*  */}
         <FormField
           isImage={true}
           id="image"
@@ -110,7 +127,7 @@ const AddRecipeModal = () => {
         />
 
         <ButtonWrapper>
-          <Button>add recipe</Button>
+          <Button style={{ marginRight: "1rem" }}>add recipe</Button>
           <Button closeBtn>close</Button>
         </ButtonWrapper>
       </ModalForm>

@@ -7,8 +7,6 @@ const inputStyles = css`
   border: none;
   border-radius: 8px;
   box-shadow: 3px 5px 10px ${({ theme }) => theme.colors.shadow};
-  /* box-shadow: ${({ isImage }) =>
-    isImage ? "none" : `3px 5px 10px ${({ theme }) => theme.colors.shadow}`}; */
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `
 
@@ -38,7 +36,6 @@ const Textarea = styled.textarea`
 
 const FormField = ({
   id,
-  isImage = false,
   label,
   name,
   textarea,

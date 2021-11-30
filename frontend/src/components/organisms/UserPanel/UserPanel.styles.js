@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
     width: 60%;
     padding: 0.6rem 1rem;
     margin-bottom: 1.8rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: ${({ theme }) => theme.colors.fontColor};
     transition: color 0.3s ease-in-out;
 

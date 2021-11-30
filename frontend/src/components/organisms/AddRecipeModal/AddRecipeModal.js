@@ -1,76 +1,16 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
-import Modal from "react-modal"
 import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
-
-export const ModalBody = styled(Modal)`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
-  left: 50%;
-  height: 550px;
-  min-height: 400px;
-  padding: 2rem 0;
-  margin-top: 3.4rem;
-  transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
-  color: ${({ theme }) => theme.colors.fontColor};
-  box-shadow: 0px 10px 10px 3px ${({ theme }) => theme.colors.shadow};
-  border-radius: 8px;
-
-  @media only screen and (min-width: 768px) {
-    min-height: 70vh;
-    width: 600px;
-  }
-`
-
-export const FormContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`
-
-export const ButtonWrapper = styled.div`
-  align-self: end;
-  align-content: end;
-`
-
-export const Button = styled.button`
-  padding: 1rem 2rem;
-  color: ${({ theme }) => theme.colors.lightFont};
-  background-color: ${({ closeBtn }) => (closeBtn ? "#AEAEAE" : "#A41A1A")};
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerBase};
-    transform: scale(1.05);
-  }
-`
-// MODAL FORM
-
-export const ModalForm = styled.form`
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-
-  @media only screen and (max-width: 320px) {
-    min-height: 400px;
-    overflow-y: scroll;
-  }
-  @media only screen and (min-width: 768px) {
-    height: auto;
-    overflow: auto;
-  }
-`
+import {
+  ModalBody,
+  ModalForm,
+  FormContainer,
+  SelectWrapper,
+  SelectLabel,
+  Select,
+  ButtonWrapper,
+  Button,
+} from "./AddRecipeModal.styles"
 
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
@@ -78,7 +18,7 @@ const AddRecipeModal = () => {
   return (
     <ModalBody
       appElement={document.getElementById("___gatsby")}
-      isOpen={true}
+      isOpen={isModalOpen}
       onRequestClose={closeModal}
     >
       <ModalForm>
@@ -93,17 +33,36 @@ const AddRecipeModal = () => {
           />
         </FormContainer>
         <FormContainer>
-          {/* <FormField width="30" id="diet" name="diet" label="diet" />
-          <FormField width="30" id="type" name="type" label="type" />
-          <FormField
-            width="30"
-            id="difficulty"
-            name="difficulty"
-            label="difficulty"
-          /> */}
-          <label for="diet">diet</label>
-          <select name="diet" id="diet"></select>
+          <SelectWrapper>
+            <SelectLabel htmlFor="diet">diet</SelectLabel>
+            <Select name="diet" id="diet">
+              <option value="vegetarian">vegetarian</option>
+              <option value="vegan">vegan</option>
+              <option value="lactose-free">lactose-free</option>
+            </Select>
+          </SelectWrapper>
+          <SelectWrapper>
+            <SelectLabel htmlFor="difficulty">difficulty</SelectLabel>
+            <Select name="difficulty" id="difficulty">
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
+              <option value="hard">hard</option>
+            </Select>
+          </SelectWrapper>
+          <SelectWrapper>
+            <SelectLabel htmlFor="type">type</SelectLabel>
+            <Select name="type" id="type">
+              <option value="breakfast">breakfast</option>
+              <option value="lunch">lunch</option>
+              <option value="dinner">dinner</option>
+              <option value="starter">starter</option>
+              <option value="dessert">dessert</option>
+              <option value="drink">drink</option>
+              <option value="soup">soup</option>
+            </Select>
+          </SelectWrapper>
         </FormContainer>
+
         <FormField
           textarea={true}
           id="preparation"
@@ -118,13 +77,7 @@ const AddRecipeModal = () => {
           label="ingredients"
           type="textarea"
         />
-        <FormField
-          isImage={true}
-          id="image"
-          name="image"
-          label="image"
-          type="file"
-        />
+        <FormField id="image" name="image" label="image" type="file" />
 
         <ButtonWrapper>
           <Button style={{ marginRight: "1rem" }}>add recipe</Button>

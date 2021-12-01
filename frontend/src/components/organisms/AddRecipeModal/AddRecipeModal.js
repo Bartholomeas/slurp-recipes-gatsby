@@ -1,4 +1,5 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
+import axios from "axios"
 import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
 import {
@@ -12,8 +13,62 @@ import {
   Button,
 } from "./AddRecipeModal.styles"
 
+const initialState = {
+  title: "",
+  time: "",
+  diet: "",
+  difficulty: "",
+  type: "",
+  preparation: "",
+  ingredients: "",
+}
+
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
+  const [recipeInfo, setRecipeInfo] = useState(initialState)
+  const { title, time, diet, difficulty, type, preparation, ingredients } =
+    recipeInfo
+
+  const uploadHandler = async e => {
+    e.preventDefault()
+    const token = JSON.parse(localStorage.getItem("token"))
+
+    await axios
+      .post(
+        "http://localhost:1337/recipes",
+        {
+          title: title,
+          time: time,
+          diet: diet,
+          difficulty: difficulty,
+          type: type,
+          preparation: preparation,
+          ingredients: ingredients,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err))
+    closeModal(e)
+  }
+
+  const updateInput = e => {
+    setRecipeInfo({ ...recipeInfo, [e.target.name]: e.target.value })
+    console.log(recipeInfo)
+  }
+
+  const updateSelect = e => {
+    const select = e.target
+    const selectValue = select.options[select.selectedIndex].value
+    setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
+    console.log(recipeInfo)
+  }
 
   return (
     <ModalBody
@@ -23,8 +78,15 @@ const AddRecipeModal = () => {
     >
       <ModalForm>
         <FormContainer>
-          <FormField width="70" id="title" name="title" label="title" />
           <FormField
+            onChange={updateInput}
+            width="70"
+            id="title"
+            name="title"
+            label="title"
+          />
+          <FormField
+            onChange={updateInput}
             width="25"
             id="time"
             name="time"
@@ -35,7 +97,7 @@ const AddRecipeModal = () => {
         <FormContainer>
           <SelectWrapper>
             <SelectLabel htmlFor="diet">diet</SelectLabel>
-            <Select name="diet" id="diet">
+            <Select onChange={e => updateSelect(e)} name="diet" id="diet">
               <option value="vegetarian">vegetarian</option>
               <option value="vegan">vegan</option>
               <option value="lactose-free">lactose-free</option>
@@ -43,7 +105,11 @@ const AddRecipeModal = () => {
           </SelectWrapper>
           <SelectWrapper>
             <SelectLabel htmlFor="difficulty">difficulty</SelectLabel>
-            <Select name="difficulty" id="difficulty">
+            <Select
+              onChange={e => updateSelect(e)}
+              name="difficulty"
+              id="difficulty"
+            >
               <option value="easy">easy</option>
               <option value="medium">medium</option>
               <option value="hard">hard</option>
@@ -51,7 +117,7 @@ const AddRecipeModal = () => {
           </SelectWrapper>
           <SelectWrapper>
             <SelectLabel htmlFor="type">type</SelectLabel>
-            <Select name="type" id="type">
+            <Select onChange={e => updateSelect(e)} name="type" id="type">
               <option value="breakfast">breakfast</option>
               <option value="lunch">lunch</option>
               <option value="dinner">dinner</option>
@@ -64,6 +130,7 @@ const AddRecipeModal = () => {
         </FormContainer>
 
         <FormField
+          onChange={updateInput}
           textarea={true}
           id="preparation"
           name="preparation"
@@ -71,6 +138,7 @@ const AddRecipeModal = () => {
           type="textarea"
         />
         <FormField
+          onChange={updateInput}
           textarea={true}
           id="ingredients"
           name="ingredients"
@@ -80,8 +148,15 @@ const AddRecipeModal = () => {
         <FormField id="image" name="image" label="image" type="file" />
 
         <ButtonWrapper>
-          <Button style={{ marginRight: "1rem" }}>add recipe</Button>
-          <Button closeBtn>close</Button>
+          <Button
+            onClick={e => uploadHandler(e)}
+            style={{ marginRight: "1rem" }}
+          >
+            add recipe
+          </Button>
+          <Button onClick={e => closeModal(e)} closeBtn>
+            close
+          </Button>
         </ButtonWrapper>
       </ModalForm>
     </ModalBody>

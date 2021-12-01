@@ -41,13 +41,19 @@ const FormField = ({
   textarea,
   type = "text",
   width = "100",
+  onChange,
   ...props
 }) => {
   return (
     <Wrapper width={width}>
       <Label htmlFor={id}>{label}</Label>
       {!textarea ? (
-        <Input id={id} name={name} type={type}></Input>
+        <Input
+          onChange={(e) => onChange(e)}
+          id={id}
+          name={name}
+          type={type}
+        ></Input>
       ) : (
         <Textarea id={id} name={name}></Textarea>
       )}

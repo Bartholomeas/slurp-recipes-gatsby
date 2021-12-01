@@ -12,7 +12,8 @@ const StateProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const closeModal = () => {
+  const closeModal = e => {
+    e.preventDefault()
     setIsModalOpen(false)
   }
   return (

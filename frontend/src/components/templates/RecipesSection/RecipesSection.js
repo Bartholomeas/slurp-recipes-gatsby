@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import axios from "axios"
 import Header from "../../atoms/Header/Header"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
@@ -44,10 +45,9 @@ const RecipesSection = () => {
 
   useEffect(() => {
     const fetchUrl = async () => {
-      await fetch(`http://localhost:1337/recipes`)
-        .then(res => res.json())
+      await axios
+        .get("http://localhost:1337/recipes")
         .then(res => console.log(res))
-        .catch(err => console.log(err))
     }
     fetchUrl()
   }, [])

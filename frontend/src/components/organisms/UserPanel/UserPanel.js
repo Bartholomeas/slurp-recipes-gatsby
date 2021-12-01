@@ -19,6 +19,7 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
     <Wrapper isUserPanelActive={isUserPanelActive}>
       <NavbarLink
         onClick={() => {
+          setIsUserPanelActive(!isUserPanelActive)
           setIsModalOpen(!isModalOpen)
         }}
         className="user-panel-item"

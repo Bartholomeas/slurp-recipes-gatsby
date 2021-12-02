@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const ButtonWrapper = styled.button`
-  position: relative;
+  width: ${({ isLong }) => (isLong ? "100%" : "auto")};
   padding: 1rem 1.4rem;
   border: none;
   border-radius: 6px;
@@ -11,9 +11,7 @@ const ButtonWrapper = styled.button`
   font-size: 2rem;
   font-weight: 500;
   font-family: "Raleway", sans-serif;
-  white-space: nowrap;
   cursor: pointer;
-  text-decoration: none;
   transition: background-color 0.3s;
 
   &:hover {
@@ -21,9 +19,9 @@ const ButtonWrapper = styled.button`
   }
 `
 
-const Button = ({ content, className, onClick }) => {
+const Button = ({ isLong = false, content, className, onClick }) => {
   return (
-    <ButtonWrapper onClick={onClick} className={className}>
+    <ButtonWrapper isLong={isLong} onClick={onClick} className={className}>
       {content}
     </ButtonWrapper>
   )

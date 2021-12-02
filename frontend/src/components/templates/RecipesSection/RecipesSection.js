@@ -43,14 +43,12 @@ const RecipesSection = () => {
     }
   `)
 
-  useEffect(() => {
-    const fetchUrl = async () => {
-      await axios
-        .get("http://localhost:1337/recipes")
-        .then(res => console.log(res))
-    }
-    fetchUrl()
-  }, [])
+  // useEffect(() => {
+  //   const fetchUrl = async () => {
+  //     await axios.get("http://localhost:1337/recipes")
+  //   }
+  //   fetchUrl()
+  // }, [])
 
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)

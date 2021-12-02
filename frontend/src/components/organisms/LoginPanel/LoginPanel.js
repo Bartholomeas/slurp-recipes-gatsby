@@ -7,10 +7,9 @@ import {
   LoginPanelWrapper,
   LoginHeader,
   LoginForm,
-  LoginLabel,
-  LoginInput,
   RegisterLink,
 } from "./LoginPanel.styles"
+import FormField from "../../molecules/FormField/FormField"
 
 const LoginPanel = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
@@ -25,6 +24,7 @@ const LoginPanel = () => {
         password: inputs[1].value,
       })
       .then(data => {
+        console.log(data)
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
         localStorage.setItem("user", JSON.stringify(data.data.user.username))
         setIsAuthenticated(true)
@@ -40,15 +40,15 @@ const LoginPanel = () => {
     <LoginPanelWrapper>
       <LoginHeader>log in.</LoginHeader>
       <LoginForm>
-        <LoginLabel label="login" htmlFor="login">
-          login
-        </LoginLabel>
-        <LoginInput name="login" id="login"></LoginInput>
-        <LoginLabel label="password" htmlFor="password">
-          password
-        </LoginLabel>
-        <LoginInput type="password" name="password" id="password"></LoginInput>
+        <FormField label="login" id="login" name="login" />
+        <FormField
+          type="password"
+          label="password"
+          id="password"
+          name="password"
+        />
         <Button
+          isLong
           type="submit"
           content="log in"
           onClick={e => authorizeUser(e)}

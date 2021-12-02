@@ -28,18 +28,6 @@ export const LoginForm = styled.form`
   flex-direction: column;
 `
 
-export const LoginLabel = styled.label`
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-  color: ${({ theme }) => theme.colors.fontColor};
-`
-
-export const LoginInput = styled.input`
-  padding: 1.4rem 1rem;
-  margin-bottom: 2rem;
-  border: 2px solid ${({ theme }) => theme.colors.darkerGrey};
-  border-radius: 6px;
-`
 export const RegisterLink = styled(Link)`
   text-decoration: none;
   margin-top: 2.2rem;

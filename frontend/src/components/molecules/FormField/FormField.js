@@ -7,7 +7,7 @@ const inputStyles = css`
   border: none;
   border-radius: 8px;
   /* box-shadow: 2px 3px 10px ${({ theme }) => theme.colors.shadow}; */
-  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+  border: 2px solid ${({ theme }) => theme.colors.darkerGrey};
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `
 
@@ -16,8 +16,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: ${({ width }) => (width ? `${width}%` : "10%")};
+  width: 100%;
   margin-bottom: 1.6rem;
+
+  @media only screen and (min-width: 768px) {
+    width: ${({ width }) => (width ? `${width}%` : "100%")};
+  }
 `
 
 const Label = styled.label`

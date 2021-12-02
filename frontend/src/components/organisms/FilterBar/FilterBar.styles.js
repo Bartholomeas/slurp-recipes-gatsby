@@ -43,10 +43,11 @@ export const FilterContainer = styled.div`
 
 export const ClearButton = styled.button`
   padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.baseColor};
   color: ${({ theme }) => theme.colors.lightFont};
   font-size: 1.4rem;
-  border: none;
   cursor: pointer;
   transition: 0.3s background-color;
 

@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   padding: 1rem 1.6rem;
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   box-shadow: 0 8px 8px ${({ theme }) => theme.colors.shadow};
-  border-radius: 8px;
+  border-radius: 6px;
   z-index: 1000;
 
   & .modal-body {

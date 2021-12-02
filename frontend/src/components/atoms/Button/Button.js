@@ -5,32 +5,19 @@ const ButtonWrapper = styled.button`
   position: relative;
   padding: 1rem 1.4rem;
   border: none;
-  background: none;
-  color: ${({ theme }) => theme.colors.fontColor};
+  border-radius: 6px;
+  color: ${({ theme }) => theme.colors.lightFont};
+  background-color: ${({ theme }) => theme.colors.baseColor};
   font-size: 2rem;
   font-weight: 500;
   font-family: "Raleway", sans-serif;
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
-
-  &::before {
-    content: "";
-    position: absolute;
-    height: 3px;
-    left: 0;
-    width: 100%;
-    bottom: 0;
-    background-color: ${({ theme }) => theme.colors.baseColor};
-    z-index: -1;
-    transition: height 0.3s;
-  }
+  transition: background-color 0.3s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.lightGrey};
-    &::before {
-      height: 100%;
-    }
+    background-color: ${({ theme }) => theme.colors.darkerBase};
   }
 `
 

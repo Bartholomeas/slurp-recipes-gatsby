@@ -17,7 +17,7 @@ export const ModalBody = styled(Modal)`
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 0px 10px 10px 3px ${({ theme }) => theme.colors.shadow};
-  border-radius: 8px;
+  border-radius: 6px;
 
   @media only screen and (min-width: 768px) {
     min-height: 70vh;

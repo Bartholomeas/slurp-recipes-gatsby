@@ -6,7 +6,8 @@ const inputStyles = css`
   width: 100%;
   border: none;
   border-radius: 8px;
-  box-shadow: 3px 5px 10px ${({ theme }) => theme.colors.shadow};
+  /* box-shadow: 2px 3px 10px ${({ theme }) => theme.colors.shadow}; */
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `
 
@@ -49,13 +50,13 @@ const FormField = ({
       <Label htmlFor={id}>{label}</Label>
       {!textarea ? (
         <Input
-          onChange={(e) => onChange(e)}
+          onChange={onChange ? onChange : null}
           id={id}
           name={name}
           type={type}
         ></Input>
       ) : (
-        <Textarea id={id} name={name}></Textarea>
+        <Textarea onChange={e => onChange(e)} id={id} name={name}></Textarea>
       )}
     </Wrapper>
   )

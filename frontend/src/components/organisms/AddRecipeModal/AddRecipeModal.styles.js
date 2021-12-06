@@ -88,5 +88,6 @@ export const Select = styled.select`
   width: 100%;
   border: none;
   border-radius: 8px;
-  box-shadow: 3px 5px 10px ${({ theme }) => theme.colors.shadow};
+  border: 2px solid ${({ theme }) => theme.colors.darkerGrey};
+  background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `

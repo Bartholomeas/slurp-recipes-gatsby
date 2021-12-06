@@ -6,7 +6,6 @@ const inputStyles = css`
   width: 100%;
   border: none;
   border-radius: 8px;
-  /* box-shadow: 2px 3px 10px ${({ theme }) => theme.colors.shadow}; */
   border: 2px solid ${({ theme }) => theme.colors.darkerGrey};
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `

@@ -13,13 +13,12 @@ import FormField from "../../molecules/FormField/FormField"
 
 const LoginPanel = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
-
   const authorizeUser = async e => {
     e.preventDefault()
     const inputs = document.querySelectorAll("input")
 
     await axios
-      .post("http://localhost:1337/auth/local", {
+      .post(`${process.env.GATSBY_STRAPI_URL}/auth/local`, {
         identifier: inputs[0].value,
         password: inputs[1].value,
       })

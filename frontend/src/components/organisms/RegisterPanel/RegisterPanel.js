@@ -55,7 +55,7 @@ const RegisterPanel = () => {
     }
     e.preventDefault()
     await axios
-      .post("http://localhost:1337/auth/local/register", {
+      .post(`${process.env.GATSBY_STRAPI_URL}auth/local/register`, {
         username: "testowe",
         email: "test@test.com",
         password: "testtest",

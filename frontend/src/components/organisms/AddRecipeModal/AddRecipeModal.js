@@ -26,8 +26,28 @@ const initialState = {
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
   const [recipeInfo, setRecipeInfo] = useState(initialState)
+  const [image, setImage] = useState()
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
+
+  const uploadImage = async e => {
+    e.preventDefault()
+    const formData = new FormData()
+    const token = JSON.parse(localStorage.getItem("token"))
+
+    formData.append("image", image)
+    console.log(formData)
+    console.log(image)
+
+    await axios
+      .post(`${process.env.GATSBY_STRAPI_URL}/upload`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
 
   const uploadHandler = async e => {
     e.preventDefault()
@@ -35,7 +55,7 @@ const AddRecipeModal = () => {
 
     await axios
       .post(
-        "http://localhost:1337/recipes",
+        `${process.env.GATSBY_STRAPI_URL}/recipes`,
         {
           title: title,
           time: time,
@@ -76,7 +96,11 @@ const AddRecipeModal = () => {
       isOpen={isModalOpen}
       onRequestClose={closeModal}
     >
-      <ModalForm>
+      <ModalForm
+        onSubmit={e => {
+          uploadImage(e)
+        }}
+      >
         <FormContainer>
           <FormField
             onChange={updateInput}
@@ -145,13 +169,18 @@ const AddRecipeModal = () => {
           label="ingredients"
           type="textarea"
         />
-        <FormField id="image" name="image" label="image" type="file" />
+        <FormField
+          onChange={e => {
+            setImage(e.target.files[0])
+          }}
+          id="image"
+          name="image"
+          label="image"
+          type="file"
+        />
 
         <ButtonWrapper>
-          <Button
-            onClick={e => uploadHandler(e)}
-            style={{ marginRight: "1rem" }}
-          >
+          <Button type="submit" style={{ marginRight: "1rem" }}>
             add recipe
           </Button>
           <Button onClick={e => closeModal(e)} closeBtn>

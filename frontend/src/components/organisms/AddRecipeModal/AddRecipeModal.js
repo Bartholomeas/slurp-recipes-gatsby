@@ -27,6 +27,7 @@ const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
+  const [recipeId, setRecipeId] = useState()
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
 
@@ -36,12 +37,16 @@ const AddRecipeModal = () => {
     const token = JSON.parse(localStorage.getItem("token"))
 
     formData.append("files", file)
+    formData.append("refId", recipeId)
+    formData.append("ref", "recipes")
+    formData.append("field", "img")
     console.log(formData)
 
     await axios
       .post(`${process.env.GATSBY_STRAPI_URL}/upload`, formData)
       .then(res => {
         const imageId = res.data[0].id
+        console.log(imageId)
       })
       .catch(err => console.log(err))
   }
@@ -70,8 +75,12 @@ const AddRecipeModal = () => {
       )
       .then(res => {
         console.log(res)
+        setRecipeId(res.data.id)
+        uploadImage(e)
+        // console.log()
       })
       .catch(err => console.log(err))
+
     closeModal(e)
   }
 
@@ -95,7 +104,7 @@ const AddRecipeModal = () => {
     >
       <ModalForm
         onSubmit={e => {
-          uploadImage(e)
+          uploadHandler(e)
         }}
       >
         <FormContainer>

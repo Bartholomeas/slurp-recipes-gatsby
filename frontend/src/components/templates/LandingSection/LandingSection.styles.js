@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { StaticImage } from "gatsby-plugin-image"
 
 export const LandingWrapper = styled.header`
   position: relative;
@@ -6,7 +7,6 @@ export const LandingWrapper = styled.header`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  // height: 93vh;
   height: clamp(700px, 93vh, 1920px);
   margin-top: 7rem;
 
@@ -58,7 +58,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%;
+  height: 100%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
@@ -77,4 +77,11 @@ export const ImageContainer = styled.div`
   @media only screen and (min-width: 768px) {
     width: 70%;
   }
+`
+
+export const LandingImage = styled(StaticImage)`
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  background-color: tomato;
 `

@@ -7,6 +7,7 @@ import {
   LandingText,
   ImageWrapper,
   ImageContainer,
+  LandingImage,
   ColoredText,
 } from "./LandingSection.styles"
 
@@ -31,14 +32,18 @@ const LandingSection = () => {
         ></Button> */}
       </TextWrapper>
       <ImageWrapper>
-        <ImageContainer>
-          <StaticImage
-            src="../../../../static/pizza.png"
-            placeholder="blurred"
-            alt="Pizza"
-            width={500}
-          />
-        </ImageContainer>
+        {/* <ImageContainer> */}
+        <StaticImage
+          src="../../../../static/landing.jpg"
+          placeholder="blurred"
+          alt="Pizza"
+        />
+        {/* <LandingImage
+          src="../../../../static/landing.jpg"
+          placeholder="blurred"
+          alt="Pizza"
+        /> */}
+        {/* </ImageContainer> */}
       </ImageWrapper>
     </LandingWrapper>
   )

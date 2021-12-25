@@ -43,18 +43,11 @@ const RecipesSection = () => {
     }
   `)
 
-  // useEffect(() => {
-  //   const fetchUrl = async () => {
-  //     await axios.get("http://localhost:1337/recipes")
-  //   }
-  //   fetchUrl()
-  // }, [])
-
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
-
+  console.log(recipes)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />
@@ -67,16 +60,17 @@ const RecipesSection = () => {
       <RecipesContainer>
         <FilterBar isOpen={isOpen} />
         <CardsContainer>
-          {data || recipes ? (
+          {recipes ? (
             info.diets || info.difficulties || info.types ? (
               (filteredRecipes = recipes
                 .filter(recipe => {
                   for (const key in info) {
+                    console.log(`INFO ${info}`)
                     console.log(recipe)
-                    if (info[key] === recipe[key][0][key]) {
-                      filteredRecipes.push(recipe)
-                      return recipe
-                    }
+                    // if (info[key] === recipe[key][0][key]) {
+                    //   filteredRecipes.push(recipe)
+                    //   return recipe
+                    // }
                     return recipe
                   }
                   return recipe

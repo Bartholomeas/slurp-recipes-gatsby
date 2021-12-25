@@ -58,13 +58,13 @@ const Navbar = () => {
           >
             recipes
           </NavLink>
-          <NavLink
+          {/* <NavLink
             onClick={() => setIsNavbarOpen(false)}
             to="/tips"
             activeStyle={{ color: "#A41A1A" }}
           >
             tips&tricks
-          </NavLink>
+          </NavLink> */}
           <NavLink
             onClick={() => setIsNavbarOpen(false)}
             to="/contact"

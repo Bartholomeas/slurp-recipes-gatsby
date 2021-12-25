@@ -26,10 +26,11 @@ export const RecipesContainer = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    height: 90vh;
+    /* min-height: 90vh; */
     padding: 0 2rem;
     margin-top: 8rem;
     grid-gap: 2rem;
+    min-height: 100vh;
   }
 `
 
@@ -37,7 +38,6 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
 
   @media only screen and (min-width: 768px) {
     display: grid;
@@ -45,6 +45,7 @@ export const CardsContainer = styled.div`
     grid-auto-rows: 30rem;
     grid-gap: 3rem;
     padding-bottom: 3rem;
+    min-height: 100vh;
   }
 `
 

@@ -102,7 +102,7 @@ const Contact = () => {
           <StaticImage
             src="../../static/contact.jpg"
             alt="Phone that is making photo of food"
-          />
+          />  
         </AboutUsSection>
         <ContactFormSection>
           <ContactForm />

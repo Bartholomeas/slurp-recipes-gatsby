@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "slurp-recipes",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
@@ -34,6 +34,8 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "babel-jest": "^27.4.5",
     "babel-plugin-styled-components": "^1.13.3",
     "babel-preset-gatsby": "^2.4.0",

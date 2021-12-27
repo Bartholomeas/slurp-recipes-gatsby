@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -34,8 +34,13 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "babel-jest": "^27.4.5",
     "babel-plugin-styled-components": "^1.13.3",
-    "prettier": "2.3.2"
+    "babel-preset-gatsby": "^2.4.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.5",
+    "prettier": "2.3.2",
+    "react-test-renderer": "^17.0.2"
   },
   "repository": {
     "type": "git",

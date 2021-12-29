@@ -1,17 +1,18 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
-import renderer from "react-test-renderer"
+import { render, screen, cleanup } from "@testing-library/react"
 
 import TestWrapper from "../../providers/TestWrapper"
 
 import FormField from "./FormField"
 
-it("should type correct text", () => {
+afterEach(cleanup)
+
+it("should render correct text", () => {
   render(
     <TestWrapper>
-      <FormField label="Tytul" />
+      <FormField />
     </TestWrapper>
   )
-  const linkElement = screen.getByText("Tytul")
+  const linkElement = screen.getByText("title")
   expect(linkElement)
 })

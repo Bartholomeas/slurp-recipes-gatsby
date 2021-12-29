@@ -34,8 +34,10 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "babel-jest": "^27.4.5",
     "babel-plugin-styled-components": "^1.13.3",
     "babel-preset-gatsby": "^2.4.0",

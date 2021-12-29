@@ -40,7 +40,7 @@ const Textarea = styled.textarea`
 
 const FormField = ({
   id,
-  label,
+  label = "title",
   name,
   textarea,
   type = "text",

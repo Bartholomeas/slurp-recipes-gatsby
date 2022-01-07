@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import axios from "axios"
 import Header from "../../atoms/Header/Header"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"

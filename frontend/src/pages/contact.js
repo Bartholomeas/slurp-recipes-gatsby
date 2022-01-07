@@ -6,9 +6,13 @@ import ContactForm from "../components/organisms/ContactForm/ContactForm"
 
 const ContactPageWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 7rem;
 `
 
 const AboutUsSection = styled.section`
@@ -19,7 +23,7 @@ const AboutUsSection = styled.section`
   justify-content: flex-start;
   width: 100%;
   min-height: 50vh;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   padding: 4rem 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
@@ -73,7 +77,14 @@ const ContactFormSection = styled.section`
   padding: 4rem 0;
 `
 
-const Contact = () => {
+const ContactLogo = styled.p`
+  font-size: 2em;
+  margin-bottom: 2rem;
+  color: ${({ theme }) => theme.colors.darkerBase};
+`
+
+const Contact = ({ data }) => {
+  console.log(data)
   return (
     <>
       <Helmet>
@@ -98,11 +109,12 @@ const Contact = () => {
               lobortis mauris, purus sed morbi mattis aenean. Neque interdum
               pellentesque molestie amet ac.
             </AboutUsText>
+            <ContactLogo>s:urp</ContactLogo>
           </AboutUsTextWrapper>
           <StaticImage
             src="../../static/contact.jpg"
             alt="Phone that is making photo of food"
-          />  
+          />
         </AboutUsSection>
         <ContactFormSection>
           <ContactForm />

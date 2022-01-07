@@ -109,7 +109,9 @@ export const UserButton = styled.button`
   transition: color 0.3s;
 `
 
-export const Logo = styled.p`
+// export const Logo = styled.a`
+export const Logo = styled(Link)`
+  text-decoration: none;
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.darkerBase};
 `

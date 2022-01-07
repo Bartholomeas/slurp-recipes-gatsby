@@ -32,7 +32,8 @@ const ContactItemsContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    align-items: flex-start;
+    /* justify-content: space-between; */
     width: 50%;
   }
 `
@@ -45,6 +46,9 @@ const ContactFormLabel = styled.label`
 
   @media only screen and (min-width: 768px) {
     margin: 0;
+    width: 20%;
+    text-align: right;
+    margin-right: 2rem;
   }
 `
 

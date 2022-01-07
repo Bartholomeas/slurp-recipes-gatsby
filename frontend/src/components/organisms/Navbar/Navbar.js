@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <NavContainer>
-        <Logo>s:urp</Logo>
+        <Logo to="/">s:urp</Logo>
         <HamburgerBtn
           aria-label="Open mobile menu"
           onClick={() => {
@@ -48,6 +48,7 @@ const Navbar = () => {
               setIsConverterActive(!isConverterActive)
               setIsNavbarOpen(false)
             }}
+            data-testid="converter-icon"
           >
             <ListIcon />
           </ListButton>

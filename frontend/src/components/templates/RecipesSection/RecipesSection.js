@@ -46,7 +46,6 @@ const RecipesSection = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
-  console.log(recipes)
   return (
     <RecipesWrapper>
       <Header content="all recipes" />

@@ -1,8 +1,10 @@
 export const theme = {
   colors: {
     baseColor: "#A41A1A",
-    darkerBase: "#690707",
+    darkerBase: "#671010",
     lighterBase: "#C93A3A",
+    secondaryColor: "#05571C",
+    lightSecondary: "#EDF5EF",
     fontColor: "#565656",
     lightGrey: "#F9F9F9",
     darkGrey: "#AEAEAE",

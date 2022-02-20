@@ -19,12 +19,12 @@ export const LandingWrapper = styled.header`
 `
 export const TextWrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
   padding: 0 4rem;
-  margin-bottom: 3rem;
-  height: 60%;
   color: ${({ theme }) => theme.colors.fontColor};
 
   @media only screen and (min-width: 768px) {
@@ -52,14 +52,14 @@ export const ColoredText = styled.span`
   display: block;
   color: ${({ theme }) => theme.colors.baseColor};
 `
-export const ImageWrapper = styled.div`
-  position: relative;
+export const FeaturedRecipesWrapper = styled.div`
+  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightSecondary};
 
   @media only screen and (min-width: 768px) {
     height: 100%;

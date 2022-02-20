@@ -5,10 +5,11 @@ import {
   LandingWrapper,
   TextWrapper,
   LandingText,
-  ImageWrapper,
-  ImageContainer,
+  FeaturedRecipesWrapper,
   ColoredText,
 } from "./LandingSection.styles"
+import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
+import CardLight from "../../organisms/CardLight/CardLight"
 
 const LandingSection = () => {
   return (
@@ -17,6 +18,20 @@ const LandingSection = () => {
         <LandingText>
           Best tastes of your life with <ColoredText>our recipes</ColoredText>
         </LandingText>
+        <StaticImage
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            backgroundSize: "cover",
+            zIndex: "-100",
+            opacity: "0.2",
+            backgroundAttachment: "fixed",
+          }}
+          src="../../../images/landing.jpg"
+          placeholder="blurred"
+          alt="Pizza"
+        />
         <Button href="/contact" content="Send us recipe"></Button>
         {/* <Button
           href="/contact"
@@ -30,8 +45,10 @@ const LandingSection = () => {
           }
         ></Button> */}
       </TextWrapper>
-      <ImageWrapper>
-        <StaticImage
+      <FeaturedRecipesWrapper>
+        <CardLight title="Chleb z serem" />
+
+        {/* <StaticImage
           style={{
             position: "absolute",
             height: "100%",
@@ -40,8 +57,8 @@ const LandingSection = () => {
           src="../../../images/landing.jpg"
           placeholder="blurred"
           alt="Pizza"
-        />
-      </ImageWrapper>
+        /> */}
+      </FeaturedRecipesWrapper>
     </LandingWrapper>
   )
 }

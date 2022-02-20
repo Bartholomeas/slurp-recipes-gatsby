@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: "s:urp recipes",
     description: "Best recipes for every occasion",
-    copyright: "copyright 2021 by s:urp",
+    copyright: "copyright 2022 by s:urp",
     contact: "slurprecipes@gmail.com",
   },
   plugins: [

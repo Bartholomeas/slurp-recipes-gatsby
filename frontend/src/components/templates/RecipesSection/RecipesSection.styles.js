@@ -42,7 +42,7 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 30rem;
+    /* grid-auto-rows: 30rem; */
     grid-gap: 3rem;
     padding-bottom: 3rem;
     min-height: 100vh;

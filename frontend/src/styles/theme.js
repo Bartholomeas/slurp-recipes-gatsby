@@ -5,6 +5,7 @@ export const theme = {
     lighterBase: "#C93A3A",
     secondaryColor: "#05571C",
     lightSecondary: "#EDF5EF",
+    offLightSecondary: "#D6E5DA",
     fontColor: "#565656",
     lightGrey: "#F9F9F9",
     darkGrey: "#AEAEAE",

@@ -56,7 +56,7 @@ const RecipesSection = () => {
         content="filters"
       />
       <RecipesContainer>
-        <FilterBar isOpen={isOpen} />
+        {/* <FilterBar isOpen={isOpen} /> */}
         <CardsContainer>
           {recipes ? (
             info.diets || info.difficulties || info.types ? (

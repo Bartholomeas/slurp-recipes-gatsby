@@ -6,15 +6,17 @@ export const LandingWrapper = styled.header`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: clamp(700px, 93vh, 1920px);
-  margin-top: 7rem;
+  /* height: 100vh; */
+  margin-top: 6rem;
+  overflow: hidden;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
+    height: clamp(700px, 93vh, 1920px);
+    max-width: 1980px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1980px;
   }
 `
 export const TextWrapper = styled.div`
@@ -23,17 +25,17 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   padding: 0 4rem;
-  color: ${({ theme }) => theme.colors.fontColor};
+  color: ${({ theme }) => theme.colors.lightGrey};
 
   @media only screen and (min-width: 768px) {
-    width: 50%;
+    width: 60%;
   }
 `
 export const LandingText = styled.h1`
   margin-bottom: 2rem;
-  font-size: 4rem;
+  font-size: 4.8rem;
   font-weight: 300;
   text-align: center;
 
@@ -50,19 +52,44 @@ export const LandingText = styled.h1`
 
 export const ColoredText = styled.span`
   display: block;
-  color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.lighterBase};
 `
 export const FeaturedRecipesWrapper = styled.div`
-  /* position: relative; */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 100%;
+  padding: 3rem;
   background-color: ${({ theme }) => theme.colors.lightSecondary};
+  box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {
     height: 100%;
-    width: 50%;
+    width: 40%;
+  }
+`
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+
+  @media only screen and (min-width: 768px) {
+    gap: 0rem;
+  }
+`
+
+export const FeaturedRecipesHeader = styled.h2`
+  margin-bottom: 2.4rem;
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  @media only screen and (min-width: 768px) {
+    font-size: 4rem;
+    margin-bottom: 0;
+    margin: 2rem 0;
   }
 `

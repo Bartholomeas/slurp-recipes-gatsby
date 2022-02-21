@@ -7,12 +7,12 @@ const CardLabelWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 7rem;
+  height: 100%;
   width: 100%;
-  padding: 0.6rem;
+  padding: 1.2rem;
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.baseColor};
-  color: ${({ theme }) => theme.colors.lightFont};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 const CardDetailsWrapper = styled.div`
   display: flex;
@@ -29,19 +29,20 @@ const CardLabelTitle = styled.p`
   font-size: 1.6rem;
   flex-grow: 1;
   font-weight: 700;
+  color: ${({ theme }) => theme.colors.darkerBase};
 `
 
 const CardLabel = ({ title, type, difficulty, time }) => {
   return (
     <CardLabelWrapper>
+      <CardLabelTitle>{title}</CardLabelTitle>
       <CardDetailsWrapper>
         <CardDetails>
           {difficulty[0] ? difficulty[0].difficulties : "?"}
         </CardDetails>
-        <CardDetails>{type[0]   ? type[0].types : "?"}</CardDetails>
+        <CardDetails>{type[0] ? type[0].types : "?"}</CardDetails>
         <CardDetails>{time} min</CardDetails>
       </CardDetailsWrapper>
-      <CardLabelTitle>{title.toLowerCase()}</CardLabelTitle>
     </CardLabelWrapper>
   )
 }

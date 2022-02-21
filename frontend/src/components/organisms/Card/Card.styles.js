@@ -5,9 +5,12 @@ import { GatsbyImage } from "gatsby-plugin-image"
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 350px;
   margin: 0 2rem 2rem 2rem;
   background-color: ${({ theme }) => theme.darkerBase};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  border-radius: 6px;
+  overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
 
@@ -25,7 +28,7 @@ export const CardWrapper = styled.div`
 export const CardImg = styled(GatsbyImage)`
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 100%;
 `
 
 export const CardLink = styled(Link)`

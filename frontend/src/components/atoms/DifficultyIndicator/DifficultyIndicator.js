@@ -16,12 +16,27 @@ export const DifficultyLevel = styled.span`
     isFilled ? theme.colors.darkerBase : "none"};
 `
 
-const DifficultyIndicator = () => {
+const DifficultyIndicator = ({ difficulty }) => {
+  // console.log(difficulty)
+
+  difficulty === "easy"
+    ? (difficulty = 1)
+    : difficulty === "medium"
+    ? (difficulty = 2)
+    : (difficulty = 3)
+  console.log(difficulty)
+
   return (
     <DifficultyWrapper>
-      <DifficultyLevel isFilled={true}></DifficultyLevel>
-      <DifficultyLevel isFilled={true}></DifficultyLevel>
-      <DifficultyLevel isFilled={false}></DifficultyLevel>
+      <DifficultyLevel
+        isFilled={difficulty >= 1 ? true : false}
+      ></DifficultyLevel>
+      <DifficultyLevel
+        isFilled={difficulty >= 2 ? true : false}
+      ></DifficultyLevel>
+      <DifficultyLevel
+        isFilled={difficulty === 3 ? true : false}
+      ></DifficultyLevel>
     </DifficultyWrapper>
   )
 }

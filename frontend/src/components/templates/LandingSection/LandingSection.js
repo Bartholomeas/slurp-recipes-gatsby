@@ -6,9 +6,10 @@ import {
   TextWrapper,
   LandingText,
   FeaturedRecipesWrapper,
+  FeaturedRecipesHeader,
+  CardsContainer,
   ColoredText,
 } from "./LandingSection.styles"
-import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
 import CardLight from "../../organisms/CardLight/CardLight"
 
 const LandingSection = () => {
@@ -25,7 +26,7 @@ const LandingSection = () => {
             width: "100%",
             backgroundSize: "cover",
             zIndex: "-100",
-            opacity: "0.2",
+            filter: "brightness(50%)",
             backgroundAttachment: "fixed",
           }}
           src="../../../images/landing.jpg"
@@ -39,25 +40,20 @@ const LandingSection = () => {
             <a
               style={{ textDecoration: "none", padding: "2rem" }}
               href="/contact"
-            >
-              Send us recipe!
+              >
+                Send us recipe!
             </a>
           }
         ></Button> */}
       </TextWrapper>
-      <FeaturedRecipesWrapper>
-        <CardLight title="Chleb z serem" />
 
-        {/* <StaticImage
-          style={{
-            position: "absolute",
-            height: "100%",
-            backgroundAttachment: "fixed",
-          }}
-          src="../../../images/landing.jpg"
-          placeholder="blurred"
-          alt="Pizza"
-        /> */}
+      <FeaturedRecipesWrapper>
+        <FeaturedRecipesHeader>Recipes of the day</FeaturedRecipesHeader>
+        <CardsContainer>
+          <CardLight difficulty="easy" title="Pasta alla arrabiata" />
+          <CardLight difficulty="medium" title="Chleb z serem" />
+          <CardLight difficulty="hard" title="Chleb z serem" />
+        </CardsContainer>
       </FeaturedRecipesWrapper>
     </LandingWrapper>
   )

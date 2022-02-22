@@ -38,33 +38,39 @@ const Textarea = styled.textarea`
   height: 150%;
 `
 
-const FormField = ({
-  id,
-  label = "title",
-  name,
-  textarea,
-  type = "text",
-  width = "100",
-  onChange,
-  ...props
-}) => {
-  const inputRef = useRef()
-
-  return (
-    <Wrapper width={width}>
-      <Label htmlFor={id}>{label}</Label>
-      {!textarea ? (
-        <Input
-          onChange={onChange ? onChange : null}
-          id={id}
-          name={name}
-          type={type}
-        ></Input>
-      ) : (
-        <Textarea onChange={e => onChange(e)} id={id} name={name}></Textarea>
-      )}
-    </Wrapper>
-  )
-}
+const FormField = React.forwardRef(
+  (
+    {
+      id,
+      label = "title",
+      name,
+      textarea,
+      type = "text",
+      width = "100",
+      onChange,
+      inputFunc,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <Wrapper width={width}>
+        <Label htmlFor={id}>{label}</Label>
+        {!textarea ? (
+          <Input
+            onChange={onChange ? onChange : null}
+            id={id}
+            name={name}
+            type={type}
+            ref={ref}
+            onKeyUp={inputFunc}
+          ></Input>
+        ) : (
+          <Textarea onChange={e => onChange(e)} id={id} name={name}></Textarea>
+        )}
+      </Wrapper>
+    )
+  }
+)
 
 export default FormField

@@ -12,7 +12,8 @@ export const CardWrapper = styled.div`
   ${flexColumn}
   align-items: flex-start;
   justify-content: space-evenly;
-  height: 400px;
+  /* height: 400px; */
+  height: 100%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.lightGrey};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
@@ -41,6 +42,7 @@ export const CardImg = styled(GatsbyImage)`
 export const CardLink = styled(Link)`
   text-decoration: none;
   width: 250px;
+  height: 400px;
 `
 export const CardInfoContainer = styled.div`
   ${flexColumn}

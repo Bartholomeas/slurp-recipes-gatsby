@@ -30,7 +30,8 @@ export const RecipesContainer = styled.div`
     padding: 0 2rem;
     margin-top: 8rem;
     grid-gap: 2rem;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    overflow-y: scroll;
   }
 `
 

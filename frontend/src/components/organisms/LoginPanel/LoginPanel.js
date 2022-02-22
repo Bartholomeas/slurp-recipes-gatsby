@@ -13,17 +13,15 @@ import FormField from "../../molecules/FormField/FormField"
 
 const LoginPanel = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
-  const inputs = document.querySelectorAll("input")
-  const inputsValue = useRef({})
-  console.log(inputsValue)
-  console.log(inputs)
+  const loginInput = React.createRef({})
+  const passwordInput = React.createRef({})
 
   const authorizeUser = async e => {
     e.preventDefault()
     await axios
       .post(`${process.env.GATSBY_STRAPI_URL}/auth/local`, {
-        identifier: inputs[0].value,
-        password: inputs[1].value,
+        identifier: loginInput.current.value,
+        password: passwordInput.current.value,
       })
       .then(data => {
         console.log(data)
@@ -38,22 +36,20 @@ const LoginPanel = () => {
       })
   }
 
+  const showInput = () => {
+    console.log(loginInput.current.value)
+  }
   return (
     <LoginPanelWrapper>
       <LoginHeader>log in.</LoginHeader>
       <LoginForm>
-        <FormField
-          label="login"
-          id="login"
-          name="login"
-          className="loginInput"
-        />
+        <FormField label="login" id="login" name="login" ref={loginInput} />
         <FormField
           type="password"
           label="password"
           id="password"
           name="password"
-          className="loginInput"
+          ref={passwordInput}
         />
         <Button
           isLong

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import DifficultyIndicator from "../DifficultyIndicator/DifficultyIndicator"
 
 const CardLabelWrapper = styled.div`
   position: relative;
@@ -9,39 +10,38 @@ const CardLabelWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 1.2rem;
-  text-align: center;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
 `
 const CardDetailsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 0.4rem;
   width: 100%;
+  background-color: tomato;
 `
 
 const CardDetails = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 `
 
 const CardLabelTitle = styled.p`
-  font-size: 1.6rem;
+  font-size: 3rem;
+  align-self: flex-start;
   flex-grow: 1;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.darkerBase};
 `
 
-const CardLabel = ({ title, type, difficulty, time }) => {
+const CardLabel = ({ title, type, time }) => {
+  console.log(...type)
   return (
     <CardLabelWrapper>
       <CardLabelTitle>{title}</CardLabelTitle>
       <CardDetailsWrapper>
-        <CardDetails>
-          {difficulty[0] ? difficulty[0].difficulties : "?"}
-        </CardDetails>
-        <CardDetails>{type[0] ? type[0].types : "?"}</CardDetails>
-        <CardDetails>{time} min</CardDetails>
+        <CardDetails>type: {type[0] ? type[0].types : "?"}</CardDetails>
+        <CardDetails>time: {time} min</CardDetails>
       </CardDetailsWrapper>
     </CardLabelWrapper>
   )

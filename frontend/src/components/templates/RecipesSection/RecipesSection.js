@@ -48,7 +48,6 @@ const RecipesSection = () => {
   let filteredRecipes = []
   return (
     <RecipesWrapper>
-      <Header content="all recipes" />
       <FiltersButton
         onClick={() => {
           setIsOpen(!isOpen)

@@ -7,8 +7,8 @@ export const DifficultyWrapper = styled.div`
   gap: 0.6rem;
 `
 export const DifficultyLevel = styled.span`
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   color: white;
   border: 2px solid ${({ theme }) => theme.colors.darkerBase};
   border-radius: 50%;
@@ -17,14 +17,11 @@ export const DifficultyLevel = styled.span`
 `
 
 const DifficultyIndicator = ({ difficulty }) => {
-  // console.log(difficulty)
-
   difficulty === "easy"
     ? (difficulty = 1)
     : difficulty === "medium"
     ? (difficulty = 2)
     : (difficulty = 3)
-  console.log(difficulty)
 
   return (
     <DifficultyWrapper>

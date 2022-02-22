@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled, { css } from "styled-components"
 
 const inputStyles = css`
@@ -48,6 +48,8 @@ const FormField = ({
   onChange,
   ...props
 }) => {
+  const inputRef = useRef()
+
   return (
     <Wrapper width={width}>
       <Label htmlFor={id}>{label}</Label>

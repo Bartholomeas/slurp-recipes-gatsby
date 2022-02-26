@@ -46,25 +46,22 @@ const RecipesSection = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { info, setInfo } = useContext(StateContext)
   let filteredRecipes = []
+  const filterBarHandler = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <RecipesWrapper>
-      <FiltersButton
-        onClick={() => {
-          setIsOpen(!isOpen)
-        }}
-        content="filters"
-      />
+      <FilterBar isOpen={isOpen} />
       <RecipesContainer>
-        {/* <FilterBar isOpen={isOpen} /> */}
-        <FilterIcon />
+        <FiltersButton>
+          <FilterIcon onClick={filterBarHandler} />
+        </FiltersButton>
         <CardsContainer>
           {recipes ? (
             info.diets || info.difficulties || info.types ? (
               (filteredRecipes = recipes
                 .filter(recipe => {
                   for (const key in info) {
-                    console.log(`INFO ${info}`)
-                    console.log(recipe)
                     // if (info[key] === recipe[key][0][key]) {
                     //   filteredRecipes.push(recipe)
                     //   return recipe

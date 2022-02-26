@@ -49,9 +49,7 @@ const FilterBar = ({ isOpen }) => {
 
   return (
     <FilterWrapper isOpen={isOpen}>
-      <FilterHeader>filters</FilterHeader>
       <FilterContainer>
-        <SearchBar />
         <FilterOptionsBody content={diets} />
         <FilterOptionsBody content={difficulties} />
         <FilterOptionsBody content={types} />

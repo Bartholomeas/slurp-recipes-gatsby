@@ -10,7 +10,6 @@ export const RecipesWrapper = styled.section`
   width: 100%;
   padding-top: 6rem;
   margin-bottom: 2rem;
-
   @media only screen and (min-width: 768px) {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,12 +17,12 @@ export const RecipesWrapper = styled.section`
   }
 `
 export const RecipesContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 4rem 0;
-
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
@@ -40,12 +39,10 @@ export const CardsContainer = styled.div`
   flex-direction: column;
   justify-items: center;
   gap: 3rem;
-  /* background-color: pink; */
   @media only screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 400px;
-    /* justify-items: space-evenly; */
     gap: 2rem;
     max-width: 1200px;
     padding-bottom: 3rem;
@@ -59,20 +56,25 @@ export const CardsContainer = styled.div`
   }
 `
 
-export const FiltersButton = styled(Button)`
-  margin-top: 3rem;
-
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-`
-
-export const FilterIcon = styled(BsFilterCircleFill)`
+export const FiltersButton = styled.button`
+  position: fixed;
+  /* align-self: flex-start; */
+  /* height: 100%; */
+  /* top: calc(100vh - 6rem); */
+  bottom: 2rem;
+  left: 2rem;
   color: ${({ theme }) => theme.colors.secondaryColor};
-  font-size: 5rem;
+  background: none;
+  border: none;
+  font-size: 4rem;
   cursor: pointer;
+  z-index: 1000;
 
   &:hover {
     transform: scale(0.95);
   }
+`
+
+export const FilterIcon = styled(BsFilterCircleFill)`
+  align-self: normal;
 `

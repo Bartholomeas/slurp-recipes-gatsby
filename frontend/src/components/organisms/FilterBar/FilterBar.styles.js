@@ -1,22 +1,29 @@
 import styled from "styled-components"
 
 export const FilterWrapper = styled.div`
-  grid-column: 0/1;
+  /* grid-column: 0/1; */
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 100vh;
   width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 7rem;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightSecondary};
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   max-height: ${({ isOpen }) => (isOpen ? "800px" : "0px")};
   transition: max-height 0.3s, opacity 0.1s;
+  overflow: hidden;
+  z-index: 200;
 
   @media only screen and (min-width: 768px) {
     min-height: 100%;
-    width: 15%;
+    width: 300px;
     opacity: 1;
   }
 `
@@ -35,6 +42,7 @@ export const FilterContainer = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  overflow-y: auto;
 
   @media only screen and (min-width: 768px) {
     align-items: flex-start;

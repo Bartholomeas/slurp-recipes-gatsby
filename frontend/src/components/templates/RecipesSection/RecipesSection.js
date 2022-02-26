@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Header from "../../atoms/Header/Header"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
 import {
@@ -8,6 +7,7 @@ import {
   RecipesWrapper,
   FiltersButton,
   CardsContainer,
+  FilterIcon,
 } from "./RecipesSection.styles"
 import { StateContext } from "../../../context/StateContext"
 
@@ -56,6 +56,7 @@ const RecipesSection = () => {
       />
       <RecipesContainer>
         {/* <FilterBar isOpen={isOpen} /> */}
+        <FilterIcon />
         <CardsContainer>
           {recipes ? (
             info.diets || info.difficulties || info.types ? (

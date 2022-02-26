@@ -15,7 +15,7 @@ export const RecipeDetailsSection = styled.section`
   align-items: center;
   height: 100%;
   width: 100%;
-  max-width: 1600px;
+  max-width: 900px;
   padding: 2rem;
   margin: 0 auto;
   margin-top: 7rem;
@@ -53,7 +53,7 @@ export const RecipeDetailsWrapper = styled.div`
   width: 100%;
   padding: 4rem;
   margin-bottom: 8rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightSecondary};
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -149,7 +149,7 @@ export const IngredientsContainer = styled.aside`
   width: 100%;
   padding: 0 2rem 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightSecondary};
   font-size: 0.8em;
 
   @media only screen and (min-width: 768px) {
@@ -204,6 +204,7 @@ export const IconsWrapper = styled.div`
   align-items: center;
   align-self: flex-end;
   margin: 2rem 0;
+  font-size: 3rem;
 
   @media print {
     display: none;

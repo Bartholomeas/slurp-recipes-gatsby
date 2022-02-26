@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { BsFilterCircleFill } from "react-icons/bs"
 import Button from "../../atoms/Button/Button"
 
 export const RecipesWrapper = styled.section`
@@ -30,8 +31,7 @@ export const RecipesContainer = styled.div`
     padding: 0 2rem;
     margin-top: 8rem;
     grid-gap: 2rem;
-    /* min-height: 100vh; */
-    overflow-y: scroll;
+    /* overflow-y: auto; */
   }
 `
 
@@ -44,6 +44,7 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 400px;
     /* justify-items: space-evenly; */
     gap: 2rem;
     max-width: 1200px;
@@ -53,6 +54,9 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 868px) {
     grid-template-columns: repeat(3, 1fr);
   }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 
 export const FiltersButton = styled(Button)`
@@ -60,5 +64,15 @@ export const FiltersButton = styled(Button)`
 
   @media only screen and (min-width: 768px) {
     display: none;
+  }
+`
+
+export const FilterIcon = styled(BsFilterCircleFill)`
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  font-size: 5rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.95);
   }
 `

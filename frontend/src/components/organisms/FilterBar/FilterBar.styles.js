@@ -1,29 +1,29 @@
 import styled from "styled-components"
 
 export const FilterWrapper = styled.div`
-  /* grid-column: 0/1; */
   position: fixed;
-  display: flex;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100%;
+  margin-top: 4rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 7rem;
-  padding: 2rem;
   background-color: ${({ theme }) => theme.colors.lightSecondary};
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-  max-height: ${({ isOpen }) => (isOpen ? "800px" : "0px")};
-  transition: max-height 0.3s, opacity 0.1s;
   overflow: hidden;
   z-index: 200;
-
   @media only screen and (min-width: 768px) {
+    position: relative;
+    display: flex;
     min-height: 100%;
     width: 300px;
+    left: 0;
+    top: 0;
+    transform: translate(0);
     opacity: 1;
   }
 `
@@ -40,12 +40,12 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 90%;
   width: 100%;
+  padding: 2rem 0;
   overflow-y: auto;
-
   @media only screen and (min-width: 768px) {
-    align-items: flex-start;
+    align-items: center;
   }
 `
 

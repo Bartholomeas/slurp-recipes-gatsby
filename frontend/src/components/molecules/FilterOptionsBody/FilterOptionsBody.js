@@ -7,12 +7,11 @@ const FilterWrapper = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  width: 30%;
   margin-bottom: 3rem;
-
   @media only screen and (min-width: 768px) {
-    align-items: flex-start;
+    width: 50%;
   }
 `
 

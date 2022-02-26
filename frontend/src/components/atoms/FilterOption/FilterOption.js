@@ -6,6 +6,7 @@ const FilterOptionText = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
 `
 const FilterOptionLabel = styled.label`
+  font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.fontColor};
 `
@@ -19,7 +20,6 @@ export const FilterOption = ({ name, option = "", id }) => {
   const getSpecificRecipes = input => {
     setInfo({ ...info, [input.target.name]: option[0] })
   }
-
   return (
     <FilterOptionWrapper>
       <FilterOptionText

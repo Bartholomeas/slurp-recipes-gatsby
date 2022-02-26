@@ -4,8 +4,8 @@ import styled from "styled-components"
 const FilterOptionHeaderText = styled.p`
   margin-bottom: 1rem;
   font-weight: bold;
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.baseColor};
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 export const FilterOptionHeader = ({ content }) => {

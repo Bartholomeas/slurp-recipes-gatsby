@@ -14,18 +14,27 @@ export const FilterWrapper = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.lightSecondary};
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+  border-radius: 6px;
   overflow: hidden;
   z-index: 200;
   @media only screen and (min-width: 768px) {
     position: relative;
     display: flex;
     min-height: 100%;
-    width: 300px;
+    max-width: 250px;
     left: 0;
     top: 0;
     transform: translate(0);
     opacity: 1;
   }
+
+  /* &::before {
+    content: "";
+    position: absolute;
+    background: gold;
+    height: 100%;
+    left: -2rem;
+  } */
 `
 
 export const FilterHeader = styled.p`
@@ -45,6 +54,7 @@ export const FilterContainer = styled.div`
   padding: 2rem 0;
   overflow-y: auto;
   @media only screen and (min-width: 768px) {
+    padding: 0;
     align-items: center;
   }
 `

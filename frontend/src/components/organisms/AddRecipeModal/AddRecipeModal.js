@@ -35,7 +35,7 @@ const AddRecipeModal = () => {
     e.preventDefault()
     const formData = new FormData()
     const token = JSON.parse(localStorage.getItem("token"))
-    
+
     formData.append("files", file)
     formData.append("refId", recipeId)
     formData.append("ref", "recipes")

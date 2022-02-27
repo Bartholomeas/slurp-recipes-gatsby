@@ -11,7 +11,7 @@ const FilterWrapper = styled.form`
   width: 30%;
   margin-bottom: 3rem;
   @media only screen and (min-width: 768px) {
-    width: 50%;
+    width: 70%;
   }
 `
 

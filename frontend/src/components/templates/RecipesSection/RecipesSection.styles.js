@@ -28,9 +28,9 @@ export const RecipesContainer = styled.div`
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    padding: 0 2rem;
+    padding: 0 1rem;
     margin-top: 4rem;
-    grid-gap: 2rem;
+    gap: 2rem;
     /* overflow-y: auto; */
   }
 `
@@ -45,14 +45,14 @@ export const CardsContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 400px;
     gap: 2rem;
-    /* max-width: 1400px; */
+    /* max-width: 1200px; */
     padding-bottom: 3rem;
     min-height: 100vh;
   }
   @media only screen and (min-width: 868px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1160px) {
     grid-template-columns: repeat(4, 1fr);
   }
 `
@@ -66,10 +66,13 @@ export const FiltersButton = styled.button`
   left: 2rem;
   color: ${({ theme }) => theme.colors.secondaryColor};
   background: none;
-  border: none;
+  border: none; 
   font-size: 4rem;
   cursor: pointer;
   z-index: 1000;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
 
   &:hover {
     transform: scale(0.95);

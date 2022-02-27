@@ -3,6 +3,8 @@ import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
+import Button from "../components/atoms/Button/Button"
+import axios from "axios"
 
 const ContactPageWrapper = styled.div`
   position: relative;
@@ -84,7 +86,20 @@ const ContactLogo = styled.p`
 `
 
 const Contact = ({ data }) => {
-  console.log(data)
+  const getImages = async () => {
+    const token = JSON.parse(localStorage.getItem("token"))
+
+    await axios
+      .get("http://localhost:1337/upload/files", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+  // console.log(data)
   return (
     <>
       <Helmet>
@@ -120,6 +135,7 @@ const Contact = ({ data }) => {
           <ContactForm />
         </ContactFormSection>
       </ContactPageWrapper>
+      <Button content="KLIKNIJ" onClick={() => getImages} />
     </>
   )
 }

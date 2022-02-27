@@ -15,7 +15,7 @@ export const CardWrapper = styled.div`
   /* height: 400px; */
   height: 100%;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.LIGHT};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
   overflow: hidden;
@@ -41,7 +41,7 @@ export const CardImg = styled(GatsbyImage)`
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  width: 250px;
+  width: 230px;
   height: 400px;
 `
 export const CardInfoContainer = styled.div`
@@ -51,7 +51,7 @@ export const CardInfoContainer = styled.div`
   padding: 1rem 1.6rem 2rem;
 `
 export const CardLabelTitle = styled.p`
-  font-size: 3rem;
+  font-size: 2.4rem;
   align-self: flex-start;
   flex-grow: 1;
   font-weight: 700;

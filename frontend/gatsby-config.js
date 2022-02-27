@@ -23,6 +23,7 @@ module.exports = {
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-testing",
+    "gatsby-source-mongodb",
 
     {
       resolve: `gatsby-source-strapi`,

@@ -57,7 +57,8 @@
     },
     "slug": {
       "type": "string",
-      "unique": true
+      "unique": false,
+      "default": "Generated automatically based on the title"
     }
   }
 }

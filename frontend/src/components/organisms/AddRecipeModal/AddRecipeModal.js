@@ -31,10 +31,10 @@ const AddRecipeModal = () => {
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
 
+  const token = JSON.parse(localStorage.getItem("token"))
   const uploadImage = async e => {
     e.preventDefault()
     const formData = new FormData()
-    const token = JSON.parse(localStorage.getItem("token"))
 
     formData.append("files", file)
     formData.append("refId", recipeId)
@@ -43,7 +43,7 @@ const AddRecipeModal = () => {
     console.log(formData)
 
     await axios
-      .post(`${process.env.GATSBY_STRAPI_URL}/upload`, formData)
+      .post(`${process.env.STRAPI_URL}/upload`, formData)
       .then(res => {
         const imageId = res.data[0].id
         console.log(imageId)
@@ -53,11 +53,10 @@ const AddRecipeModal = () => {
 
   const uploadHandler = async e => {
     e.preventDefault()
-    const token = JSON.parse(localStorage.getItem("token"))
 
     await axios
       .post(
-        `${process.env.GATSBY_STRAPI_URL}/recipes`,
+        `${process.env.STRAPI_URL}/recipes`,
         {
           title: title,
           time: time,

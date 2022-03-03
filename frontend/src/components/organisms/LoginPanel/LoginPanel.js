@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react"
+import React, { useContext } from "react"
 import axios from "axios"
 import Button from "../../atoms/Button/Button"
 import { navigate } from "gatsby"
@@ -12,14 +12,14 @@ import {
 import FormField from "../../molecules/FormField/FormField"
 
 const LoginPanel = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
+  const { setIsAuthenticated } = useContext(StateContext)
   const loginInput = React.createRef({})
   const passwordInput = React.createRef({})
 
   const authorizeUser = async e => {
     e.preventDefault()
     await axios
-      .post(`${process.env.GATSBY_STRAPI_URL}/auth/local`, {
+      .post(`${process.env.STRAPI_URL}/auth/local`, {
         identifier: loginInput.current.value,
         password: passwordInput.current.value,
       })
@@ -36,9 +36,6 @@ const LoginPanel = () => {
       })
   }
 
-  const showInput = () => {
-    console.log(loginInput.current.value)
-  }
   return (
     <LoginPanelWrapper>
       <LoginHeader>log in.</LoginHeader>

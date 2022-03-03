@@ -8,6 +8,7 @@ import {
   LoginHeader,
   LoginForm,
   RegisterLink,
+  ColoredText,
 } from "./LoginPanel.styles"
 import FormField from "../../molecules/FormField/FormField"
 
@@ -56,7 +57,7 @@ const LoginPanel = () => {
         />
       </LoginForm>
       <RegisterLink to="/register">
-        You dont have account? Register now.
+        You dont have account? <ColoredText>Register now.</ColoredText>
       </RegisterLink>
     </LoginPanelWrapper>
   )

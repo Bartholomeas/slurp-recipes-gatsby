@@ -23,6 +23,7 @@ export const RegisterForm = styled.form`
 
   @media only screen and (min-width: 768px) {
     width: 50%;
+    max-width: 500px;
   }
 `
 
@@ -32,6 +33,9 @@ export const RegisterLink = styled(Link)`
   text-decoration: none;
   margin-top: 2.2rem;
   color: ${({ theme }) => theme.colors.darkGrey};
+`
+export const ColoredText = styled.span`
+  color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 const RegisterPanel = () => {
@@ -103,7 +107,9 @@ const RegisterPanel = () => {
           isLong
         />
       </RegisterForm>
-      <RegisterLink to="/login">Dont have account? Log in.</RegisterLink>
+      <RegisterLink to="/login">
+        Dont have account? <ColoredText>Log in.</ColoredText>
+      </RegisterLink>
     </RegisterPanelWrapper>
   )
 }

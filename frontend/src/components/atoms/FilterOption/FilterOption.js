@@ -20,6 +20,7 @@ export const FilterOption = ({ name, option = "", id }) => {
   const getSpecificRecipes = input => {
     setInfo({ ...info, [input.target.name]: option[0] })
   }
+
   return (
     <FilterOptionWrapper>
       <FilterOptionText

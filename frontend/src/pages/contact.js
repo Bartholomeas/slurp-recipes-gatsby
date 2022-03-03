@@ -90,7 +90,7 @@ const Contact = ({ data }) => {
     const token = JSON.parse(localStorage.getItem("token"))
 
     await axios
-      .get("http://localhost:1337/upload/files", {
+      .get(`${process.env.STRAPI_URL}/upload/files`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

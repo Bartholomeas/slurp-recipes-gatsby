@@ -33,3 +33,6 @@ export const RegisterLink = styled(Link)`
   margin-top: 2.2rem;
   color: ${({ theme }) => theme.colors.darkGrey};
 `
+export const ColoredText = styled.span`
+  color: ${({ theme }) => theme.colors.secondaryColor};
+`

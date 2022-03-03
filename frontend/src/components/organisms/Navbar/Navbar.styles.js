@@ -23,6 +23,7 @@ export const NavWrapper = styled.nav`
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 10000;
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
 
   @media print {
     display: none;

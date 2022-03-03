@@ -44,11 +44,12 @@ const RecipesSection = () => {
 
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
-  const { info, setInfo } = useContext(StateContext)
+  const { info } = useContext(StateContext)
   let filteredRecipes = []
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
+  console.log(info)
   return (
     <RecipesWrapper>
       <FilterBar isOpen={isOpen} />
@@ -62,10 +63,12 @@ const RecipesSection = () => {
               (filteredRecipes = recipes
                 .filter(recipe => {
                   for (const key in info) {
-                    // if (info[key] === recipe[key][0][key]) {
-                    //   filteredRecipes.push(recipe)
-                    //   return recipe
-                    // }
+                    if (info[key] === recipe[key][0][key]) {
+                      console.log(recipe)
+
+                      filteredRecipes.push(recipe)
+                      return recipe
+                    }
                     return recipe
                   }
                   return recipe

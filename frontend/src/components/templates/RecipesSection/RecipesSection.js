@@ -44,12 +44,72 @@ const RecipesSection = () => {
 
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
+  const { filteredRecipes, setFilteredRecipes } = useContext(StateContext)
   const { info } = useContext(StateContext)
-  let filteredRecipes = []
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
-  console.log(info)
+  let uniqueArr = []
+  let checkedInfos = []
+
+  useEffect(() => {
+    if (info.diets || info.difficulties || info.types) {
+      for (const key in info) {
+        if (info[key] != "") {
+          checkedInfos.push(info[key])
+        }
+      }
+      console.log(checkedInfos)
+
+      // uniqueArr = recipes.filter(recipe => {
+      //   for (const key in info) {
+      //     // if (info[key] === recipe[key][0][key]) {
+      //     //   console.log(recipe)
+      //     // }
+
+      //     if (info[key] != "") {
+      //       if (info[key] === recipe[key][0][key]) {
+      //         console.log(recipe)
+      //         return recipe
+      //       }
+      //     }
+      //   }
+      // })
+    }
+    // for (const key in info) {
+    //   console.log(info[key])
+    // }
+    // if (info.diets) {
+    //   recipes.forEach(recipe => {
+    //     if (info["diets"] === recipe["diets"][0]["diets"]) {
+    //       // filteredRecipes.push(recipe)
+    //       setFilteredRecipes([...filteredRecipes, recipe])
+    //       console.log(filteredRecipes)
+    //     }
+    //   })
+    // }
+    // if (info.difficulties) {
+    //   recipes.forEach(recipe => {
+    //     if (
+    //       info["difficulties"] === recipe["difficulties"][0]["difficulties"]
+    //     ) {
+    //       setFilteredRecipes([...filteredRecipes, recipe])
+    //     }
+    //   })
+    // }
+    // if (info.types) {
+    //   recipes.forEach(recipe => {
+    //     if (info["types"] === recipe["types"][0]["types"]) {
+    //       setFilteredRecipes([...filteredRecipes, recipe])
+    //     }
+    //   })
+    // }
+  }, [info["diets"], info["difficulties"], info["types"]])
+  console.log(filteredRecipes)
+
+  // [info["diets"], info["difficulties"], info["types"]]
+  // return <Card key={recipe.id} payload={recipe} />
+
   return (
     <RecipesWrapper>
       <FilterBar isOpen={isOpen} />
@@ -58,34 +118,13 @@ const RecipesSection = () => {
           <FilterIcon onClick={filterBarHandler} />
         </FiltersButton>
         <CardsContainer>
-          {recipes ? (
-            info.diets || info.difficulties || info.types ? (
-              (filteredRecipes = recipes
-                .filter(recipe => {
-                  for (const key in info) {
-                    if (info[key] === recipe[key][0][key]) {
-                      console.log(recipe)
-
-                      filteredRecipes.push(recipe)
-                      return recipe
-                    }
-                    return recipe
-                  }
-                  return recipe
-                })
-                .map(filteredRecipe => {
-                  return (
-                    <Card key={filteredRecipe.id} payload={filteredRecipe} />
-                  )
-                }))
-            ) : (
-              recipes.map(recipe => {
+          {info.diets || info.difficulties || info.types
+            ? filteredRecipes.map(recipe => {
                 return <Card key={recipe.id} payload={recipe} />
               })
-            )
-          ) : (
-            <p>We dont have any recipes.. :C</p>
-          )}
+            : recipes.map(recipe => {
+                return <Card key={recipe.id} payload={recipe} />
+              })}
         </CardsContainer>
       </RecipesContainer>
     </RecipesWrapper>

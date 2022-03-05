@@ -45,65 +45,51 @@ const RecipesSection = () => {
   const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { filteredRecipes, setFilteredRecipes } = useContext(StateContext)
-  const { info } = useContext(StateContext)
+  const {
+    info,
+    info: { diets, difficulties, types },
+  } = useContext(StateContext)
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
-  let uniqueArr = []
   let checkedInfos = []
 
   useEffect(() => {
     if (info.diets || info.difficulties || info.types) {
       for (const key in info) {
         if (info[key] != "") {
-          checkedInfos.push(info[key])
+          checkedInfos.push(key)
         }
       }
       console.log(checkedInfos)
 
-      // uniqueArr = recipes.filter(recipe => {
-      //   for (const key in info) {
-      //     // if (info[key] === recipe[key][0][key]) {
-      //     //   console.log(recipe)
-      //     // }
-
-      //     if (info[key] != "") {
-      //       if (info[key] === recipe[key][0][key]) {
-      //         console.log(recipe)
-      //         return recipe
-      //       }
-      //     }
-      //   }
-      // })
+      // if (recipe[checked][0][checked] === info[checked]) {}
     }
-    // for (const key in info) {
-    //   console.log(info[key])
+    // if (
+    //   recipe[checkedInfos[0]][0][checkedInfos[0]] === info[checkedInfos[0]]
+    // ) {
+    //   console.log(recipe)
     // }
-    // if (info.diets) {
-    //   recipes.forEach(recipe => {
-    //     if (info["diets"] === recipe["diets"][0]["diets"]) {
-    //       // filteredRecipes.push(recipe)
-    //       setFilteredRecipes([...filteredRecipes, recipe])
-    //       console.log(filteredRecipes)
+
+    // checkedInfos.forEach(checked => {
+    //   console.log(`Info checked to jest ${info[checked]}`)
+    //   console.log(`TO JEST checked  to jest ${checked}`)
+    // })
+
+    // uniqueArr = recipes.filter(recipe => {
+    //   for (const key in info) {
+    //     // if (info[key] === recipe[key][0][key]) {
+    //     //   console.log(recipe)
+    //     // }
+
+    //     if (info[key] != "") {
+    //       if (info[key] === recipe[key][0][key]) {
+    //         console.log(recipe)
+    //         return recipe
+    //       }
     //     }
-    //   })
-    // }
-    // if (info.difficulties) {
-    //   recipes.forEach(recipe => {
-    //     if (
-    //       info["difficulties"] === recipe["difficulties"][0]["difficulties"]
-    //     ) {
-    //       setFilteredRecipes([...filteredRecipes, recipe])
-    //     }
-    //   })
-    // }
-    // if (info.types) {
-    //   recipes.forEach(recipe => {
-    //     if (info["types"] === recipe["types"][0]["types"]) {
-    //       setFilteredRecipes([...filteredRecipes, recipe])
-    //     }
-    //   })
-    // }
+    //   }
+    // })
   }, [info["diets"], info["difficulties"], info["types"]])
   console.log(filteredRecipes)
 

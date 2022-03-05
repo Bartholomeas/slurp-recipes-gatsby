@@ -44,7 +44,8 @@ const RecipesSection = () => {
 
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
-  // const { filteredRecipes, setFilteredRecipes } = useContext(StateContext)
+  const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
+
   const {
     info,
     info: { diets, difficulties, types },
@@ -68,27 +69,27 @@ const RecipesSection = () => {
         checkedInfos.forEach(checked => {
           if (recipe[checked][0][checked] === info[checked]) {
             filteredRecipes.push(recipe)
+            console.log(recipe)
+            setSearchedRecipes([...searchedRecipes, recipe])
           }
         })
       })
 
-      filteredRecipes.forEach((recipe, index, arr) => {
-        if (checkedInfos.length > 1) {
+      if (checkedInfos.length > 1) {
+        filteredRecipes.forEach((recipe, index, arr) => {
           const subtractValue = checkedInfos.length - 1
 
           if (index > 1) {
-            console.log(arr[index - subtractValue])
             if (recipe.id === arr[index - subtractValue].id) {
-              console.log("Eureka DZIAUA")
+              setSearchedRecipes([...searchedRecipes, recipe])
             }
           }
-        }
-      })
+        })
+      }
     }
-    console.log(filteredRecipes)
+    return searchedRecipes
   }, [diets, types, difficulties])
-
-  // [info["diets"], info["difficulties"], info["types"]]
+  // console.log(searchedRecipes)
   // return <Card key={recipe.id} payload={recipe} />
 
   return (
@@ -99,8 +100,8 @@ const RecipesSection = () => {
           <FilterIcon onClick={filterBarHandler} />
         </FiltersButton>
         <CardsContainer>
-          {info.diets || info.difficulties || info.types
-            ? filteredRecipes.map(recipe => {
+          {diets || difficulties || types
+            ? searchedRecipes.map(recipe => {
                 return <Card key={recipe.id} payload={recipe} />
               })
             : recipes.map(recipe => {

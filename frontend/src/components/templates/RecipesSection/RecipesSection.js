@@ -74,11 +74,14 @@ const RecipesSection = () => {
 
       filteredRecipes.forEach((recipe, index, arr) => {
         if (checkedInfos.length > 1) {
-          // console.log(arr[index - checkedInfos.length - 1])
           const subtractValue = checkedInfos.length - 1
-          const specifiedEl = arr[index - subtractValue]
-          console.log(specifiedEl)
-          // if (recipe.id === arr[index - checkedInfos.length - 1]) {}
+
+          if (index > 1) {
+            console.log(arr[index - subtractValue])
+            if (recipe.id === arr[index - subtractValue].id) {
+              console.log("Eureka DZIAUA")
+            }
+          }
         }
       })
     }

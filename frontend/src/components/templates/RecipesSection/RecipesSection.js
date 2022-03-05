@@ -42,56 +42,48 @@ const RecipesSection = () => {
     }
   `)
 
-  const [recipes, setRecipes] = useState(data.allStrapiRecipes.nodes)
+  const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
-  const { filteredRecipes, setFilteredRecipes } = useContext(StateContext)
+  // const { filteredRecipes, setFilteredRecipes } = useContext(StateContext)
   const {
     info,
     info: { diets, difficulties, types },
   } = useContext(StateContext)
+
+  let checkedInfos = []
+  let filteredRecipes = []
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
-  let checkedInfos = []
 
   useEffect(() => {
     if (info.diets || info.difficulties || info.types) {
       for (const key in info) {
-        if (info[key] != "") {
+        if (info[key] !== "") {
           checkedInfos.push(key)
         }
       }
-      console.log(checkedInfos)
 
-      // if (recipe[checked][0][checked] === info[checked]) {}
+      recipes.forEach(recipe => {
+        checkedInfos.forEach(checked => {
+          if (recipe[checked][0][checked] === info[checked]) {
+            filteredRecipes.push(recipe)
+          }
+        })
+      })
+
+      filteredRecipes.forEach((recipe, index, arr) => {
+        if (checkedInfos.length > 1) {
+          // console.log(arr[index - checkedInfos.length - 1])
+          const subtractValue = checkedInfos.length - 1
+          const specifiedEl = arr[index - subtractValue]
+          console.log(specifiedEl)
+          // if (recipe.id === arr[index - checkedInfos.length - 1]) {}
+        }
+      })
     }
-    // if (
-    //   recipe[checkedInfos[0]][0][checkedInfos[0]] === info[checkedInfos[0]]
-    // ) {
-    //   console.log(recipe)
-    // }
-
-    // checkedInfos.forEach(checked => {
-    //   console.log(`Info checked to jest ${info[checked]}`)
-    //   console.log(`TO JEST checked  to jest ${checked}`)
-    // })
-
-    // uniqueArr = recipes.filter(recipe => {
-    //   for (const key in info) {
-    //     // if (info[key] === recipe[key][0][key]) {
-    //     //   console.log(recipe)
-    //     // }
-
-    //     if (info[key] != "") {
-    //       if (info[key] === recipe[key][0][key]) {
-    //         console.log(recipe)
-    //         return recipe
-    //       }
-    //     }
-    //   }
-    // })
-  }, [info["diets"], info["difficulties"], info["types"]])
-  console.log(filteredRecipes)
+    console.log(filteredRecipes)
+  }, [diets, types, difficulties])
 
   // [info["diets"], info["difficulties"], info["types"]]
   // return <Card key={recipe.id} payload={recipe} />

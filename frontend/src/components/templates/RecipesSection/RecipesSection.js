@@ -44,8 +44,8 @@ const RecipesSection = () => {
 
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
-  const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
-
+  // const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
+  const [searchedRecipes, setSearchedRecipes] = useState([])
   const {
     info,
     info: { diets, difficulties, types },
@@ -53,6 +53,8 @@ const RecipesSection = () => {
 
   let checkedInfos = []
   let filteredRecipes = []
+  let testArr = []
+
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
@@ -65,31 +67,44 @@ const RecipesSection = () => {
         }
       }
 
-      recipes.forEach(recipe => {
-        checkedInfos.forEach(checked => {
-          if (recipe[checked][0][checked] === info[checked]) {
-            filteredRecipes.push(recipe)
-            console.log(recipe)
-            setSearchedRecipes([...searchedRecipes, recipe])
+      if (checkedInfos.length === 1) {
+        recipes.forEach(recipe => {
+          if (
+            recipe[checkedInfos[0]][0][checkedInfos[0]] ===
+            info[checkedInfos[0]]
+          ) {
+            setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
+            console.log(searchedRecipes)
           }
         })
-      })
+      }
 
       if (checkedInfos.length > 1) {
-        filteredRecipes.forEach((recipe, index, arr) => {
-          const subtractValue = checkedInfos.length - 1
-
+        recipes.forEach((recipe, index, arr) => {
+          let subtractValue = checkedInfos.length - 1
           if (index > 1) {
+            console.log(recipe)
+            console.log(arr)
+            // console.log(`recipe id ${recipe.id}`)
+            // console.log(`arr[id]  ${arr[index - subtractValue].id}`)
             if (recipe.id === arr[index - subtractValue].id) {
-              setSearchedRecipes([...searchedRecipes, recipe])
+              console.log("id elementow sa takie same")
+
+              setSearchedRecipes(searchedRecipes => [
+                ...searchedRecipes,
+                recipe,
+              ])
             }
           }
         })
       }
     }
-    return searchedRecipes
+
+    // return () => {
+    //   console.log("CLEANUP")
+    //   setSearchedRecipes([])
+    // }
   }, [diets, types, difficulties])
-  // console.log(searchedRecipes)
   // return <Card key={recipe.id} payload={recipe} />
 
   return (
@@ -100,7 +115,7 @@ const RecipesSection = () => {
           <FilterIcon onClick={filterBarHandler} />
         </FiltersButton>
         <CardsContainer>
-          {diets || difficulties || types
+          {info.diets || info.difficulties || info.types
             ? searchedRecipes.map(recipe => {
                 return <Card key={recipe.id} payload={recipe} />
               })

@@ -35,7 +35,7 @@ const FilterBar = ({ isOpen }) => {
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes
 
-  const { setInfo } = useContext(StateContext)
+  const { setInfo, setSearchedRecipes } = useContext(StateContext)
 
   const initialState = {
     diets: "",
@@ -53,7 +53,14 @@ const FilterBar = ({ isOpen }) => {
         <FilterOptionsBody content={diets} />
         <FilterOptionsBody content={difficulties} />
         <FilterOptionsBody content={types} />
-        <ClearButton onClick={() => clearState()}>Clear filters</ClearButton>
+        <ClearButton
+          onClick={() => {
+            clearState()
+            setSearchedRecipes([])
+          }}
+        >
+          Clear filters
+        </ClearButton>
       </FilterContainer>
     </FilterWrapper>
   )

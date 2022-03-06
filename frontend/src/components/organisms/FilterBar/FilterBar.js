@@ -43,7 +43,14 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
     types: "",
   }
 
+  const clearAllRadioButtons = async () => {
+    await document.querySelectorAll("input[type='radio").forEach(input => {
+      input.checked = false
+    })
+  }
+
   const clearState = () => {
+    clearAllRadioButtons()
     setInfo(initialState)
     clearFiltering()
     setSearchedRecipes([])

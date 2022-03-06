@@ -44,25 +44,29 @@ const RecipesSection = () => {
 
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
-  // const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
-  const [searchedRecipes, setSearchedRecipes] = useState([])
+  const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
+  // const [searchedRecipes, setSearchedRecipes] = useState([])
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const {
     info,
     info: { diets, difficulties, types },
   } = useContext(StateContext)
 
-  // const filteredRecipes = []
   let checkedInfos = []
-  let sideArr = []
 
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
   }
 
+  const clearFiltering = () => {
+    checkedInfos = []
+    setFilteredRecipes([])
+  }
+
   const checkRecipeTruthy = (recipe, idx) => {
     const infoKey = checkedInfos[idx - 1]
     if (recipe[infoKey][0][infoKey] === info[infoKey]) {
+      console.log(recipe[infoKey][0][infoKey])
       return true
     } else {
       return false
@@ -92,7 +96,6 @@ const RecipesSection = () => {
       if (checkedInfos.length > 1) {
         filteredRecipes.forEach((recipe, index, arr) => {
           let subtractValue = checkedInfos.length - 1
-          console.log(recipe.diets[0].diets)
           if (checkRecipeTruthy(recipe, checkedInfos.length)) {
             setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
           }
@@ -126,13 +129,13 @@ const RecipesSection = () => {
     return () => {
       console.log("CLEANUP")
       setSearchedRecipes([])
-      checkedInfos = []
+      // checkedInfos = []
     }
   }, [diets, types, difficulties])
   // return <Card key={recipe.id} payload={recipe} />
   return (
     <RecipesWrapper>
-      <FilterBar isOpen={isOpen} />
+      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
       <RecipesContainer>
         <FiltersButton>
           <FilterIcon onClick={filterBarHandler} />

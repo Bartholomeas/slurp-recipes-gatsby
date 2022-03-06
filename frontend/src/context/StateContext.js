@@ -12,6 +12,7 @@ const StateProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchedRecipes, setSearchedRecipes] = useState([])
+
   const closeModal = e => {
     e.preventDefault()
     setIsModalOpen(false)

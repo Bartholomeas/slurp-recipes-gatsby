@@ -46,17 +46,27 @@ const RecipesSection = () => {
   const [isOpen, setIsOpen] = useState(false)
   // const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
   const [searchedRecipes, setSearchedRecipes] = useState([])
+  const [filteredRecipes, setFilteredRecipes] = useState([])
   const {
     info,
     info: { diets, difficulties, types },
   } = useContext(StateContext)
 
+  // const filteredRecipes = []
   let checkedInfos = []
-  let filteredRecipes = []
-  let testArr = []
+  let sideArr = []
 
   const filterBarHandler = () => {
     setIsOpen(!isOpen)
+  }
+
+  const checkRecipeTruthy = (recipe, idx) => {
+    const infoKey = checkedInfos[idx - 1]
+    if (recipe[infoKey][0][infoKey] === info[infoKey]) {
+      return true
+    } else {
+      return false
+    }
   }
 
   useEffect(() => {
@@ -73,40 +83,53 @@ const RecipesSection = () => {
             recipe[checkedInfos[0]][0][checkedInfos[0]] ===
             info[checkedInfos[0]]
           ) {
+            setFilteredRecipes(filteredRecipes => [...filteredRecipes, recipe])
             setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
-            console.log(searchedRecipes)
           }
         })
       }
 
       if (checkedInfos.length > 1) {
-        recipes.forEach((recipe, index, arr) => {
+        filteredRecipes.forEach((recipe, index, arr) => {
           let subtractValue = checkedInfos.length - 1
-          if (index > 1) {
-            console.log(recipe)
-            console.log(arr)
-            // console.log(`recipe id ${recipe.id}`)
-            // console.log(`arr[id]  ${arr[index - subtractValue].id}`)
-            if (recipe.id === arr[index - subtractValue].id) {
-              console.log("id elementow sa takie same")
-
-              setSearchedRecipes(searchedRecipes => [
-                ...searchedRecipes,
-                recipe,
-              ])
-            }
+          console.log(recipe.diets[0].diets)
+          if (checkRecipeTruthy(recipe, checkedInfos.length)) {
+            setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
           }
         })
       }
+      // if (checkedInfos.length > 1) {
+      //   filteredRecipes.forEach((recipe, index, arr) => {
+      //     let subtractValue = checkedInfos.length - 1
+      //     // consolea.log(checkedInfos.length)
+      //     console.log(sideArr)
+      //     console.log(arr)
+      //     // console.log(arr[index - checkedInfos.length])
+      //     if (index > 0) {
+      //       console.log(arr)
+      //       console.log(`recipe id ${recipe.title}`)
+      //       console.log(`arr id ${arr[index - subtractValue].title}`)
+      //       // console.log(`arr[id]  ${arr[index - subtractValue].id}`)
+      //       // if (recipe.id === arr[index - subtractValue].id) {
+      //       if (recipe.title === arr[index - 1].title) {
+      //         console.log("id elementow sa takie same")
+      //         setSearchedRecipes(searchedRecipes => [
+      //           ...searchedRecipes,
+      //           recipe,
+      //         ])
+      //       }
+      //     }
+      //   })
+      // }
     }
 
-    // return () => {
-    //   console.log("CLEANUP")
-    //   setSearchedRecipes([])
-    // }
+    return () => {
+      console.log("CLEANUP")
+      setSearchedRecipes([])
+      checkedInfos = []
+    }
   }, [diets, types, difficulties])
   // return <Card key={recipe.id} payload={recipe} />
-
   return (
     <RecipesWrapper>
       <FilterBar isOpen={isOpen} />

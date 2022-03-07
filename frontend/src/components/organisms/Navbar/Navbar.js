@@ -12,7 +12,9 @@ import {
   ListButton,
 } from "./Navbar.styles"
 import { StateContext } from "../../../context/StateContext"
-import { FaUserCircle } from "react-icons/fa"
+// import { FaUserCircle } from "react-icons/fa"
+import { FiLogIn } from "react-icons/fi"
+
 import UserPanel from "../UserPanel/UserPanel"
 
 const Navbar = () => {
@@ -78,7 +80,7 @@ const Navbar = () => {
                 }
               }}
             >
-              <FaUserCircle
+              <FiLogIn
                 className="join-icon"
                 onClick={() => setIsNavbarOpen(false)}
               />{" "}
@@ -90,7 +92,7 @@ const Navbar = () => {
               className="join-link"
               onClick={() => setIsNavbarOpen(false)}
             >
-              <FaUserCircle className="join-icon" /> join now
+              <FiLogIn className="join-icon" /> join now
             </NavLink>
           )}
         </LinkContainer>

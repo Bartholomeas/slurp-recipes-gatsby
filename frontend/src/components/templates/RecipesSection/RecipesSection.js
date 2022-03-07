@@ -65,8 +65,8 @@ const RecipesSection = () => {
 
   const checkRecipeTruthy = (recipe, idx) => {
     const infoKey = checkedInfos[idx - 1]
+
     if (recipe[infoKey][0][infoKey] === info[infoKey]) {
-      console.log(recipe[infoKey][0][infoKey])
       return true
     } else {
       return false
@@ -94,45 +94,22 @@ const RecipesSection = () => {
       }
 
       if (checkedInfos.length > 1) {
-        filteredRecipes.forEach((recipe, index, arr) => {
-          let subtractValue = checkedInfos.length - 1
+        filteredRecipes.forEach(recipe => {
           if (checkRecipeTruthy(recipe, checkedInfos.length)) {
+            console.log(recipe)
+            setSearchedRecipes([])
             setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
           }
         })
       }
-      // if (checkedInfos.length > 1) {
-      //   filteredRecipes.forEach((recipe, index, arr) => {
-      //     let subtractValue = checkedInfos.length - 1
-      //     // consolea.log(checkedInfos.length)
-      //     console.log(sideArr)
-      //     console.log(arr)
-      //     // console.log(arr[index - checkedInfos.length])
-      //     if (index > 0) {
-      //       console.log(arr)
-      //       console.log(`recipe id ${recipe.title}`)
-      //       console.log(`arr id ${arr[index - subtractValue].title}`)
-      //       // console.log(`arr[id]  ${arr[index - subtractValue].id}`)
-      //       // if (recipe.id === arr[index - subtractValue].id) {
-      //       if (recipe.title === arr[index - 1].title) {
-      //         console.log("id elementow sa takie same")
-      //         setSearchedRecipes(searchedRecipes => [
-      //           ...searchedRecipes,
-      //           recipe,
-      //         ])
-      //       }
-      //     }
-      //   })
-      // }
     }
 
     return () => {
       console.log("CLEANUP")
       setSearchedRecipes([])
-      // checkedInfos = []
     }
   }, [diets, types, difficulties])
-  // return <Card key={recipe.id} payload={recipe} />
+
   return (
     <RecipesWrapper>
       <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />

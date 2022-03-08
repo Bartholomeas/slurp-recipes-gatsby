@@ -111,6 +111,12 @@ const Contact = ({ data }) => {
           content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
         />
         <link rel="canonical" href="http://localhost:8000/contact" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       <ContactPageWrapper>
         <AboutUsSection>

@@ -44,16 +44,16 @@ export const NavContainer = styled.div`
   }
 `
 
-export const LinkContainer = styled.div`
+export const LinkContainer = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 2.4rem;
+  list-style: none;
 
   & .join-icon {
-    /* position: absolute; */
-    /* left: -3rem; */
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-right: 1rem;
   }
 
@@ -71,17 +71,49 @@ export const LinkContainer = styled.div`
     height: 100vh;
     width: 100%;
     padding: 4rem 0;
-    transform: translateY(
-      ${({ isNavbarOpen }) => (isNavbarOpen ? "0" : "-100%")}
-    );
-    max-height: ${({ isNavbarOpen }) => (isNavbarOpen ? "100vh" : "0")};
+    transform: scale(${({ isNavbarOpen }) => (isNavbarOpen ? "1" : "0")});
+    transform-origin: top;
     background-color: ${({ theme }) => theme.colors.lightGrey};
-    transition: transform 0.3s, max-height 0.6s;
+    transition: transform 0.3s;
     overflow: hidden;
     z-index: -10;
   } ;
 `
+export const NavListItem = styled.li`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: ${({ theme }) => theme.colors.baseColor};
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover&::before {
+    transform: scale(1);
+  }
+
+  @media only screen and(min-width:768px) {
+    width: auto;
+  }
+`
+
 export const NavLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.6rem;
   text-decoration: none;
@@ -92,12 +124,8 @@ export const NavLink = styled(Link)`
     ${joinLinkStyles}
   }
 
-  &:not(:last-child) {
-    margin-right: 2rem;
-  }
-
   &:hover {
-    color: ${({ theme }) => theme.colors.baseColor};
+    /* color: ${({ theme }) => theme.colors.baseColor}; */
   }
 `
 export const UserButton = styled.button`
@@ -110,7 +138,6 @@ export const UserButton = styled.button`
   transition: color 0.3s;
 `
 
-// export const Logo = styled.a`
 export const Logo = styled(Link)`
   text-decoration: none;
   font-size: 3rem;

@@ -7,12 +7,13 @@ export const ConverterWrapper = styled.div`
   top: 7rem;
   right: 0;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
-  box-shadow: 2px 12px 25px ${({ theme }) => theme.colors.shadow};
-  transform: translateY(
-    ${({ isConverterActive }) => (isConverterActive ? "0" : "-150%")}
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+  box-shadow: 3px 4px 10px -3px ${({ theme }) => theme.colors.shadow};
+  transform: scale(
+    ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );
-  transition: transform 0.6s ease-in-out;
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out;
   z-index: -15;
 
   @media only screen and (min-width: 768px) {

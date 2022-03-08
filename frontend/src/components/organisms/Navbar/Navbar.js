@@ -10,11 +10,10 @@ import {
   HamburgerBtn,
   ListIcon,
   ListButton,
+  NavListItem,
 } from "./Navbar.styles"
 import { StateContext } from "../../../context/StateContext"
-// import { FaUserCircle } from "react-icons/fa"
 import { FiLogIn } from "react-icons/fi"
-
 import UserPanel from "../UserPanel/UserPanel"
 
 const Navbar = () => {
@@ -45,56 +44,63 @@ const Navbar = () => {
           }}
         />
         <LinkContainer isNavbarOpen={isNavbarOpen}>
-          <ListButton
-            onClick={() => {
-              setIsConverterActive(!isConverterActive)
-              setIsNavbarOpen(false)
-            }}
-            data-testid="converter-icon"
-          >
-            <ListIcon />
-          </ListButton>
-          <NavLink
-            onClick={() => setIsNavbarOpen(false)}
-            to="/"
-            activeStyle={{ color: "#A41A1A" }}
-          >
-            recipes
-          </NavLink>
-
-          <NavLink
-            onClick={() => setIsNavbarOpen(false)}
-            to="/contact"
-            activeStyle={{ color: "#A41A1A" }}
-          >
-            contact
-          </NavLink>
-
-          {isAuthenticated ? (
-            <UserButton
-              className="join-link"
+          <NavListItem>
+            <ListButton
               onClick={() => {
-                {
-                  setIsUserPanelActive(!isUserPanelActive)
-                  setIsNavbarOpen(false)
-                }
+                setIsConverterActive(!isConverterActive)
+                setIsNavbarOpen(false)
               }}
+              data-testid="converter-icon"
             >
-              <FiLogIn
-                className="join-icon"
-                onClick={() => setIsNavbarOpen(false)}
-              />{" "}
-              {userName}
-            </UserButton>
-          ) : (
+              <ListIcon />
+            </ListButton>
+          </NavListItem>
+          <NavListItem>
             <NavLink
-              to="/login"
-              className="join-link"
               onClick={() => setIsNavbarOpen(false)}
+              to="/"
+              activeStyle={{ color: "#A41A1A" }}
             >
-              <FiLogIn className="join-icon" /> join now
+              recipes
             </NavLink>
-          )}
+          </NavListItem>
+
+          <NavListItem>
+            <NavLink
+              onClick={() => setIsNavbarOpen(false)}
+              to="/contact"
+              activeStyle={{ color: "#A41A1A" }}
+            >
+              contact
+            </NavLink>
+          </NavListItem>
+          <NavListItem>
+            {isAuthenticated ? (
+              <UserButton
+                className="join-link"
+                onClick={() => {
+                  {
+                    setIsUserPanelActive(!isUserPanelActive)
+                    setIsNavbarOpen(false)
+                  }
+                }}
+              >
+                <FiLogIn
+                  className="join-icon"
+                  onClick={() => setIsNavbarOpen(false)}
+                />{" "}
+                {userName}
+              </UserButton>
+            ) : (
+              <NavLink
+                to="/login"
+                className="join-link"
+                onClick={() => setIsNavbarOpen(false)}
+              >
+                <FiLogIn className="join-icon" /> join now
+              </NavLink>
+            )}
+          </NavListItem>
         </LinkContainer>
         <UserPanel
           isUserPanelActive={isUserPanelActive}

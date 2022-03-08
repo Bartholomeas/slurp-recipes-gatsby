@@ -3,18 +3,9 @@ import Layout from "./src/components/providers/Layout"
 import StateProvider from "./src/context/StateContext"
 
 export const wrapPageElement = ({ element }) => {
-  return (
-    <StateProvider>
-      <Layout>{element}</Layout>
-    </StateProvider>
-  )
+  return <Layout>{element}</Layout>
 }
 
 export const wrapRootElement = ({ element }) => {
-  return (
-    <StateProvider>
-      <Layout>{element}</Layout>
-    </StateProvider>
-  )
+  return <StateProvider>{element}</StateProvider>
 }
-

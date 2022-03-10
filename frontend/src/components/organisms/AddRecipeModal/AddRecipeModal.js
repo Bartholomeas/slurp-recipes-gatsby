@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import axios from "axios"
 import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
@@ -30,9 +30,15 @@ const AddRecipeModal = () => {
   const [recipeId, setRecipeId] = useState()
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
+  const token = ""
 
   const windowGlobal = typeof window !== "undefined" && window
-  const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
+  useEffect(() => {
+    if (windowGlobal !== "undefined") {
+      JSON.parse(windowGlobal.localStorage.getItem("token"))
+    }
+  }, [])
+
   const uploadImage = async e => {
     e.preventDefault()
     const formData = new FormData()
@@ -96,10 +102,12 @@ const AddRecipeModal = () => {
     console.log(recipeInfo)
   }
 
+  if (windowGlobal !== "undefined") {
+  }
   return (
+    // (windowGlobal !== "undefined" ? "ebe" : null)
     <ModalBody
-      // if(window !== "undefined"){}
-      appElement={document.getElementById("___gatsby")}
+      appElement={window ? document.getElementById("___gatsby") : null}
       isOpen={isModalOpen}
       onRequestClose={closeModal}
     >

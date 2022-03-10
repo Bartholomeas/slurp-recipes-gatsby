@@ -44,9 +44,11 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
   }
 
   const clearAllRadioButtons = async () => {
-    await document.querySelectorAll("input[type='radio").forEach(input => {
-      input.checked = false
-    })
+    if (window !== "undefined") {
+      await document.querySelectorAll("input[type='radio").forEach(input => {
+        input.checked = false
+      })
+    }
   }
 
   const clearState = () => {

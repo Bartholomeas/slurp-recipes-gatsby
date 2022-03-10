@@ -107,7 +107,11 @@ const AddRecipeModal = () => {
   return (
     // (windowGlobal !== "undefined" ? "ebe" : null)
     <ModalBody
-      appElement={window ? document.getElementById("___gatsby") : null}
+      appElement={
+        typeof window !== "undefined"
+          ? document.getElementById("___gatsby")
+          : null
+      }
       isOpen={isModalOpen}
       onRequestClose={closeModal}
     >

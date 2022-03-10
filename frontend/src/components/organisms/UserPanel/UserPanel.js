@@ -9,9 +9,10 @@ import { StateContext } from "../../../context/StateContext"
 const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
   const { isModalOpen, setIsModalOpen } = useContext(StateContext)
 
+  const windowGlobal = typeof window !== "undefined" && window
   const logoutHandler = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
+    windowGlobal.localStorage.removeItem("token")
+    windowGlobal.localStorage.removeItem("user")
     window.location.reload()
   }
 

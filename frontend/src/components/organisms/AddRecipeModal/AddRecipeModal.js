@@ -31,7 +31,8 @@ const AddRecipeModal = () => {
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
 
-  const token = JSON.parse(localStorage.getItem("token"))
+  const windowGlobal = typeof window !== "undefined" && window
+  const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
   const uploadImage = async e => {
     e.preventDefault()
     const formData = new FormData()
@@ -97,6 +98,7 @@ const AddRecipeModal = () => {
 
   return (
     <ModalBody
+      // if(window !== "undefined"){}
       appElement={document.getElementById("___gatsby")}
       isOpen={isModalOpen}
       onRequestClose={closeModal}

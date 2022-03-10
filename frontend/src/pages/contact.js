@@ -86,8 +86,10 @@ const ContactLogo = styled.p`
 `
 
 const Contact = ({ data }) => {
+  const windowGlobal = typeof window !== "undefined" && window
+
   const getImages = async () => {
-    const token = JSON.parse(localStorage.getItem("token"))
+    const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
 
     await axios
       .get(`${process.env.STRAPI_URL}/upload/files`, {

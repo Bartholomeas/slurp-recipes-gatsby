@@ -21,8 +21,11 @@ const Navbar = () => {
   const [isConverterActive, setIsConverterActive] = useState(false)
   const [isUserPanelActive, setIsUserPanelActive] = useState(false)
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
+  const windowGlobal = typeof window !== "undefined" && window
 
-  let userName = JSON.parse(localStorage.getItem("user"))
+  let userName = windowGlobal
+    ? JSON.parse(windowGlobal.localStorage.getItem("user"))
+    : null
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("token"))) {

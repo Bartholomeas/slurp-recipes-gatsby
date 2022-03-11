@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Button from "../../atoms/Button/Button"
 import {
@@ -11,8 +11,33 @@ import {
   ColoredText,
 } from "./LandingSection.styles"
 import CardLight from "../../organisms/CardLight/CardLight"
+import axios from "axios"
 
 const LandingSection = () => {
+  const [featuredRecipes, setFeaturedRecipes] = useState([])
+
+  const windowGlobal = typeof window !== "undefined" && window
+
+  useEffect(() => {
+    const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
+    const getRecipesOfTheDay = async () => {
+      await axios
+        .get(`${process.env.STRAPI_URL}/recipes`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(({ data }) => {
+          for (let i = 0; i < 3; i++) {
+            // console.log(data[i]["difficulties"][0]["difficulties"])
+            setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
+          }
+        })
+    }
+    getRecipesOfTheDay()
+    return () => setFeaturedRecipes([])
+  }, [])
+  console.log(featuredRecipes)
   return (
     <LandingWrapper>
       <TextWrapper>
@@ -33,26 +58,37 @@ const LandingSection = () => {
           placeholder="blurred"
           alt="Pizza"
         />
-        <Button href="/contact" content="Send us recipe"></Button>
-        {/* <Button
+        {/* <Button href="/contact" content="Send us recipe"></Button> */}
+        <Button
           href="/contact"
           content={
             <a
-              style={{ textDecoration: "none", padding: "2rem" }}
+              style={{
+                textDecoration: "none",
+                padding: "2rem",
+                color: "white",
+              }}
               href="/contact"
-              >
-                Send us recipe!
+            >
+              Send us recipe!
             </a>
           }
-        ></Button> */}
+        ></Button>
       </TextWrapper>
 
       <FeaturedRecipesWrapper>
         <FeaturedRecipesHeader>Recipes of the day</FeaturedRecipesHeader>
         <CardsContainer>
-          <CardLight difficulty="easy" title="Pasta alla arrabiata" />
-          <CardLight difficulty="medium" title="Chleb z serem" />
-          <CardLight difficulty="hard" title="Chleb z serem" />
+          {featuredRecipes.map(recipe => {
+            return (
+              <CardLight
+                difficulty={recipe.difficulties[0].difficulties}
+                title={recipe.title}
+              />
+            )
+          })}
+          {/* <CardLight difficulty="medium" title="Chleb z serem" />
+          <CardLight difficulty="hard" title="Chleb z serem" /> */}{" "}
         </CardsContainer>
       </FeaturedRecipesWrapper>
     </LandingWrapper>

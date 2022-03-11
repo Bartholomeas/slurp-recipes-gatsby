@@ -14,6 +14,7 @@ import {
 } from "./Navbar.styles"
 import { StateContext } from "../../../context/StateContext"
 import { FiLogIn } from "react-icons/fi"
+import { BiUserCircle } from "react-icons/bi"
 import UserPanel from "../UserPanel/UserPanel"
 
 const Navbar = () => {
@@ -88,7 +89,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                <FiLogIn
+                <BiUserCircle
                   className="join-icon"
                   onClick={() => setIsNavbarOpen(false)}
                 />{" "}

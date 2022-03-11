@@ -7,7 +7,6 @@ const iconStyles = css`
 
 export const Wrapper = styled.div`
   position: absolute;
-  display: ${({ isUserPanelActive }) => (isUserPanelActive ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -19,6 +18,11 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   box-shadow: 0 8px 8px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
+  transform: scale(
+    ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
+  );
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out;
   z-index: 1000;
 
   & .modal-body {

@@ -2,6 +2,11 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import styled from "styled-components"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
+import { Link } from "gatsby"
+
+const CardLink = styled(Link)`
+  text-decoration: none;
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -58,30 +63,31 @@ const ImageContainer = styled.div`
   background-color: tomato;
   overflow: hidden;
 `
-
 const CardLight = ({ title, difficulty }) => {
   return (
-    <Wrapper>
-      <TextContainer>
-        <Title>{title}</Title>
-        <DifficultyIndicator difficulty={difficulty} />
-        <Button>check →</Button>
-      </TextContainer>
+    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+      <Wrapper>
+        <TextContainer>
+          <Title>{title}</Title>
+          <DifficultyIndicator difficulty={difficulty} />
+          <Button>check →</Button>
+        </TextContainer>
 
-      <ImageContainer>
-        <StaticImage
-          style={{
-            height: "100%",
-            width: "100%",
-            backgroundSize: "cover",
-            backgroundAttachment: "fixed",
-          }}
-          src="../../../images/landing2.jpg"
-          placeholder="blurred"
-          alt="Featured recipe photo"
-        />
-      </ImageContainer>
-    </Wrapper>
+        <ImageContainer>
+          <StaticImage
+            style={{
+              height: "100%",
+              width: "100%",
+              backgroundSize: "cover",
+              backgroundAttachment: "fixed",
+            }}
+            src="../../../images/landing2.jpg"
+            placeholder="blurred"
+            alt="Featured recipe photo"
+          />
+        </ImageContainer>
+      </Wrapper>
+    </CardLink>
   )
 }
 

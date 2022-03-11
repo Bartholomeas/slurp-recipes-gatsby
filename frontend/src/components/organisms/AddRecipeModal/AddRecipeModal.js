@@ -30,14 +30,9 @@ const AddRecipeModal = () => {
   const [recipeId, setRecipeId] = useState()
   const { title, time, diet, difficulty, type, preparation, ingredients } =
     recipeInfo
-  const token = ""
 
   const windowGlobal = typeof window !== "undefined" && window
-  useEffect(() => {
-    if (windowGlobal !== "undefined") {
-      JSON.parse(windowGlobal.localStorage.getItem("token"))
-    }
-  }, [])
+  const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
 
   const uploadImage = async e => {
     e.preventDefault()

@@ -1,12 +1,6 @@
 import React, { useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import {
-  FilterWrapper,
-  FilterHeader,
-  FilterContainer,
-  ClearButton,
-} from "./FilterBar.styles"
-import SearchBar from "../../molecules/SearchBar/SearchBar"
+import { FilterWrapper, FilterContainer, ClearButton } from "./FilterBar.styles"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 import { StateContext } from "../../../context/StateContext"
 

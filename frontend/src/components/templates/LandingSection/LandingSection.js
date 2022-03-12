@@ -80,8 +80,10 @@ const LandingSection = () => {
         <FeaturedRecipesHeader>Recipes of the day</FeaturedRecipesHeader>
         <CardsContainer>
           {featuredRecipes.map(recipe => {
+            // console.log(recipe)
             return (
               <CardLight
+                key={recipe.id}
                 difficulty={recipe.difficulties[0].difficulties}
                 title={recipe.title}
               />

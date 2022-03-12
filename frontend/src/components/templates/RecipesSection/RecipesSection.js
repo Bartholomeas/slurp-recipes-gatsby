@@ -62,7 +62,7 @@ const RecipesSection = () => {
     checkedInfos = []
     setFilteredRecipes([])
   }
-
+  
   const checkRecipeTruthy = (recipe, idx) => {
     const infoKey = checkedInfos[idx - 1]
 

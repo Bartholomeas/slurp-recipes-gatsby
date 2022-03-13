@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import {
   CardLink,
   Wrapper,
@@ -21,7 +21,7 @@ const CardLight = ({ title, difficulty }) => {
         </TextContainer>
 
         <ImageContainer>
-          <StaticImage
+          <GatsbyImage
             style={{
               height: "100%",
               width: "100%",
@@ -29,6 +29,7 @@ const CardLight = ({ title, difficulty }) => {
               backgroundAttachment: "fixed",
             }}
             src="../../../images/landing2.jpg"
+            // src="../../../images/landing2.jpg"
             placeholder="blurred"
             alt="Featured recipe photo"
           />

@@ -29,7 +29,7 @@ const LandingSection = () => {
         })
         .then(({ data }) => {
           for (let i = 0; i < 3; i++) {
-            // console.log(data[i]["difficulties"][0]["difficulties"])
+            console.log(data[i]["img"]["_id"])
             setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
           }
         })
@@ -73,7 +73,7 @@ const LandingSection = () => {
               Send us recipe!
             </a>
           }
-        ></Button>
+        />
       </TextWrapper>
 
       <FeaturedRecipesWrapper>
@@ -89,8 +89,6 @@ const LandingSection = () => {
               />
             )
           })}
-          {/* <CardLight difficulty="medium" title="Chleb z serem" />
-          <CardLight difficulty="hard" title="Chleb z serem" /> */}{" "}
         </CardsContainer>
       </FeaturedRecipesWrapper>
     </LandingWrapper>

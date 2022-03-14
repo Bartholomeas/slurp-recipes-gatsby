@@ -1,9 +1,6 @@
 import { Link } from "gatsby"
 import styled from "styled-components"
-
-export const CardLink = styled(Link)`
-  text-decoration: none;
-`
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,6 +8,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 150px;
+  width: 100%;
   max-width: 500px;
   background-color: ${({ theme }) => theme.colors.offLightSecondary};
   border-radius: 6px;
@@ -37,18 +35,20 @@ export const Title = styled.p`
   font-weight: 700;
   color: ${({ theme }) => theme.colors.darkerBase};
 `
-
+export const CardLink = styled(Link)`
+  padding: 1rem 0;
+  text-decoration: none;
+  align-self: flex-end;
+  margin-right: 2rem;
+`
 export const Button = styled.button`
   color: ${({ theme }) => theme.colors.darkerBase};
-  padding: 1rem 0;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
   border: none;
   background: none;
   cursor: pointer;
-  align-self: flex-end;
-  margin-right: 2rem;
 
   &:hover {
     color: ${({ theme }) => theme.colors.baseColor};
@@ -57,6 +57,10 @@ export const Button = styled.button`
 export const ImageContainer = styled.div`
   height: 100%;
   width: 40%;
-  background-color: tomato;
   overflow: hidden;
+`
+
+export const CardImage = styled(GatsbyImage)`
+  width: 100%;
+  height: 100%;
 `

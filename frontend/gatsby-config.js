@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL,
+        apiURL: process.env.STRAPI_URL,
         collectionTypes: ["recipes", "difficulties", "types", "diets"],
         queryLimit: 1000, // Defaults to 100
       },
@@ -36,7 +36,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/static/`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "strapiRecipes",
+        imagePath: "path.to.image",
       },
     },
   ],

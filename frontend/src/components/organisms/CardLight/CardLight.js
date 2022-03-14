@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 import {
   CardLink,
   Wrapper,
@@ -7,35 +7,45 @@ import {
   Title,
   Button,
   ImageContainer,
+  CardImage,
 } from "./CardLight.styles"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
 
-const CardLight = ({ title, difficulty }) => {
-  return (
-    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
-      <Wrapper>
-        <TextContainer>
-          <Title>{title}</Title>
-          <DifficultyIndicator difficulty={difficulty} />
-          <Button>check →</Button>
-        </TextContainer>
+const CardLight = ({ payload }) => {
+  const { title = "?", difficulties = "easy", img = "" } = payload
 
-        <ImageContainer>
-          <GatsbyImage
+  const image = img ? getImage(img.localFile.childImageSharp) : {}
+  return (
+    <Wrapper>
+      <TextContainer>
+        <Title>{title}</Title>
+        <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} />
+        <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+          <Button>check →</Button>
+        </CardLink>
+      </TextContainer>
+
+      <ImageContainer>
+        <CardImage
+          image={image}
+          alt="Featured recipe photo"
+          placeholder="blurred"
+        ></CardImage>
+        {/* <CardImage
             style={{
               height: "100%",
               width: "100%",
               backgroundSize: "cover",
               backgroundAttachment: "fixed",
             }}
-            src="../../../images/landing2.jpg"
+            image={image}
+            src={image}
             // src="../../../images/landing2.jpg"
             placeholder="blurred"
             alt="Featured recipe photo"
-          />
-        </ImageContainer>
-      </Wrapper>
-    </CardLink>
+          /> */}
+      </ImageContainer>
+    </Wrapper>
   )
 }
 

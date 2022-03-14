@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Button from "../../atoms/Button/Button"
 import {
@@ -14,30 +15,53 @@ import CardLight from "../../organisms/CardLight/CardLight"
 import axios from "axios"
 
 const LandingSection = () => {
+  const {
+    allStrapiRecipes: { nodes: recipes },
+  } = useStaticQuery(graphql`
+    query GetFeaturedRecipes {
+      allStrapiRecipes(limit: 3) {
+        nodes {
+          id
+          difficulties {
+            difficulties
+          }
+          title
+          img {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 300, placeholder: BLURRED)
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  console.log(recipes)
+
   const [featuredRecipes, setFeaturedRecipes] = useState([])
 
-  const windowGlobal = typeof window !== "undefined" && window
+  // const windowGlobal = typeof window !== "undefined" && window
+  // useEffect(() => {
+  //   const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
+  //   const getRecipesOfTheDay = async () => {
+  //     await axios
+  //       .get(`${process.env.STRAPI_URL}/recipes`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //       .then(({ data }) => {
+  //         for (let i = 0; i < 3; i++) {
+  //           // console.log(recipes[i]["img"]["url"])
+  //           setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
+  //         }
+  //       })
+  //   }
+  //   getRecipesOfTheDay()
+  //   return () => setFeaturedRecipes([])
+  // }, [])
 
-  useEffect(() => {
-    const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
-    const getRecipesOfTheDay = async () => {
-      await axios
-        .get(`${process.env.STRAPI_URL}/recipes`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(({ data }) => {
-          for (let i = 0; i < 3; i++) {
-            console.log(data[i]["img"]["_id"])
-            setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
-          }
-        })
-    }
-    getRecipesOfTheDay()
-    return () => setFeaturedRecipes([])
-  }, [])
-  console.log(featuredRecipes)
   return (
     <LandingWrapper>
       <TextWrapper>
@@ -79,15 +103,8 @@ const LandingSection = () => {
       <FeaturedRecipesWrapper>
         <FeaturedRecipesHeader>Recipes of the day</FeaturedRecipesHeader>
         <CardsContainer>
-          {featuredRecipes.map(recipe => {
-            // console.log(recipe)
-            return (
-              <CardLight
-                key={recipe.id}
-                difficulty={recipe.difficulties[0].difficulties}
-                title={recipe.title}
-              />
-            )
+          {recipes.map(recipe => {
+            return <CardLight payload={recipe} key={recipe.id} />
           })}
         </CardsContainer>
       </FeaturedRecipesWrapper>

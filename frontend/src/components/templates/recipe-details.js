@@ -2,23 +2,34 @@ import React from "react"
 import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { Helmet } from "react-helmet"
+// import {
+//   RecipeDetailsSection,
+//   HeaderRecipeDetailsImg,
+//   RecipeDetailsHeader,
+//   RecipeDetailsWrapper,
+//   RecipeInfoContainer,
+//   RecipeInfoTitle,
+//   RecipeInfoValue,
+//   RecipeDetailsLine,
+//   PreparationsWrapper,
+//   IngredientsContainer,
+//   PreparationContainer,
+//   PreparationsHeader,
+//   IconsWrapper,
+//   FacebookIcon,
+//   ShareIcon,
+//   PrinterIcon,
+// } from "./recipe-details-styles"
 import {
-  RecipeDetailsSection,
-  HeaderRecipeDetailsImg,
-  RecipeDetailsHeader,
-  RecipeDetailsWrapper,
-  RecipeInfoContainer,
-  RecipeInfoTitle,
-  RecipeInfoValue,
-  RecipeDetailsLine,
-  PreparationsWrapper,
-  IngredientsContainer,
-  PreparationContainer,
-  PreparationsHeader,
-  IconsWrapper,
-  FacebookIcon,
-  ShareIcon,
-  PrinterIcon,
+  Wrapper,
+  GeneralContainer,
+  RecipeHeader,
+  RecipeImage,
+  ContentContainer,
+  InfoBox,
+  InfoCategory,
+  InfoValue,
+  InfoBoxes,
 } from "./recipe-details-styles"
 
 const RecipeDetails = ({ data }) => {
@@ -26,6 +37,8 @@ const RecipeDetails = ({ data }) => {
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
     : {}
+
+  console.log(recipeInfo)
   return (
     <>
       <Helmet>
@@ -44,7 +57,40 @@ const RecipeDetails = ({ data }) => {
           rel="stylesheet"
         />
       </Helmet>{" "}
-      <RecipeDetailsSection>
+      <Wrapper>
+        <GeneralContainer>
+          <RecipeImage image={image} alt="Food header img" />
+          <ContentContainer>
+            <RecipeHeader>{recipeInfo.title}</RecipeHeader>
+
+            <InfoBoxes>
+              <InfoBox>
+                <InfoCategory>diet</InfoCategory>
+                <InfoValue>
+                  {recipeInfo.diets[0] ? recipeInfo.diets[0].diets : "balanced"}
+                </InfoValue>
+              </InfoBox>
+              <InfoBox>
+                <InfoCategory>difficulty</InfoCategory>
+                <InfoValue>
+                  {recipeInfo.difficulties[0]
+                    ? recipeInfo.difficulties[0].difficulties
+                    : "?"}
+                </InfoValue>
+              </InfoBox>
+              <InfoBox>
+                <InfoCategory>time</InfoCategory>
+                <InfoValue>{recipeInfo.time}min</InfoValue>
+              </InfoBox>
+              <InfoBox>
+                <InfoCategory>calories</InfoCategory>
+                <InfoValue> {parseInt(Math.random() * 1000)}kcal</InfoValue>
+              </InfoBox>
+            </InfoBoxes>
+          </ContentContainer>
+        </GeneralContainer>
+      </Wrapper>
+      {/* <RecipeDetailsSection>
         <RecipeDetailsWrapper>
           <HeaderRecipeDetailsImg image={image} alt="Food header img" />
           <RecipeDetailsHeader content={recipeInfo.title}></RecipeDetailsHeader>
@@ -74,8 +120,8 @@ const RecipeDetails = ({ data }) => {
           <IngredientsContainer>
             <PreparationsHeader>ingredients</PreparationsHeader>
             {/* {recipeInfo.ingredients.split("-")} */}
-            {recipeInfo.ingredients}
-          </IngredientsContainer>
+      {/* {recipeInfo.ingredients} */}
+      {/* </IngredientsContainer>
           <PreparationContainer>
             <PreparationsHeader>preparation</PreparationsHeader>
             {recipeInfo.preparation}
@@ -86,7 +132,7 @@ const RecipeDetails = ({ data }) => {
           <ShareIcon />
           <PrinterIcon onClick={() => window.print()} />
         </IconsWrapper>
-      </RecipeDetailsSection>
+      </RecipeDetailsSection> */}
     </>
   )
 }

@@ -37,8 +37,8 @@ export const LandingText = styled.h1`
   margin-bottom: 2rem;
   font-size: 4.8rem;
   font-weight: 300;
-  text-align: center;
-
+  text-align: left;
+  max-width: 800px;
   @media only screen and (min-width: 576px) {
     font-size: 5.4rem;
   }
@@ -52,7 +52,8 @@ export const LandingText = styled.h1`
 
 export const ColoredText = styled.span`
   display: block;
-  color: ${({ theme }) => theme.colors.lighterBase};
+  /* color: ${({ theme }) => theme.colors.lighterBase}; */
+  color: ${({ theme }) => theme.colors.baseColor};
 `
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;

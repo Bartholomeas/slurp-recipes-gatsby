@@ -45,9 +45,9 @@ const RecipeDetails = ({ data }) => {
         />
       </Helmet>{" "}
       <RecipeDetailsSection>
-        <HeaderRecipeDetailsImg image={image} alt="Food header img" />
-        <RecipeDetailsHeader content={recipeInfo.title}></RecipeDetailsHeader>
         <RecipeDetailsWrapper>
+          <HeaderRecipeDetailsImg image={image} alt="Food header img" />
+          <RecipeDetailsHeader content={recipeInfo.title}></RecipeDetailsHeader>
           <RecipeInfoContainer>
             <RecipeInfoTitle>cook time</RecipeInfoTitle>
             <RecipeInfoValue>~{recipeInfo.time} min</RecipeInfoValue>

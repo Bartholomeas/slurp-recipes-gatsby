@@ -75,7 +75,7 @@ const LandingSection = () => {
             width: "100%",
             backgroundSize: "cover",
             zIndex: "-100",
-            filter: "brightness(50%)",
+            filter: "brightness(20%)",
             backgroundAttachment: "fixed",
           }}
           src="../../../images/landing.jpg"

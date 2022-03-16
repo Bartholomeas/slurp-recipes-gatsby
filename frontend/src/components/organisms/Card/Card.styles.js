@@ -46,7 +46,7 @@ export const CardInfoContainer = styled.div`
   ${flexColumn}
   height: 100%;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.lightSecondary};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   padding: 1rem 1.6rem 2rem;
 `
 export const CardLabelTitle = styled.p`
@@ -84,7 +84,7 @@ export const Circle = styled.span`
 `
 
 export const RecipeTime = styled.p`
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.secondaryColor};
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
 `

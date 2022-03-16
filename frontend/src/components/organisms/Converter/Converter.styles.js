@@ -19,6 +19,7 @@ export const ConverterWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     height: 300px;
     width: 400px;
+    right: 2rem;
   }
 `
 

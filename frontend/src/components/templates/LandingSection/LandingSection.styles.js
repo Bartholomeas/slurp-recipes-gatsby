@@ -52,7 +52,7 @@ export const LandingText = styled.h1`
 
 export const ColoredText = styled.span`
   display: block;
-  /* color: ${({ theme }) => theme.colors.lighterBase}; */
+
   color: ${({ theme }) => theme.colors.baseColor};
 `
 export const FeaturedRecipesWrapper = styled.div`
@@ -63,7 +63,7 @@ export const FeaturedRecipesWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 3rem;
-  background-color: ${({ theme }) => theme.colors.lightSecondary};
+  background-color: ${({ theme }) => theme.colors.greenish};
   box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {

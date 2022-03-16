@@ -9,7 +9,7 @@ export const LoginPanelWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 3rem 0;
-  /* background-color: ${({ theme }) => theme.colors.darkerGrey}; */
+  /* background-color: ${({ theme }) => theme.colors.darkGrey}; */
 
   @media only screen and (min-width: 768px) {
     max-width: 30%;

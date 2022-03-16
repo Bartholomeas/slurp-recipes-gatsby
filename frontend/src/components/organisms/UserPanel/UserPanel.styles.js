@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 200px;
   padding: 1rem 1.6rem;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   box-shadow: 0 8px 8px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
   transform: scale(

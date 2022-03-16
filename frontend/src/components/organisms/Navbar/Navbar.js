@@ -63,7 +63,7 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/"
-              activeStyle={{ color: "#A41A1A" }}
+              activeStyle={{ color: "#FA7835" }}
             >
               recipes
             </NavLink>
@@ -73,7 +73,7 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/contact"
-              activeStyle={{ color: "#A41A1A" }}
+              activeStyle={{ color: "#FA7835" }}
             >
               contact
             </NavLink>

@@ -12,7 +12,7 @@ export const FilterWrapper = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.colors.lightSecondary};
+  background-color: ${({ theme }) => theme.colors.greenish};
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   border-radius: 6px;
   overflow: hidden;
@@ -63,13 +63,13 @@ export const ClearButton = styled.button`
   padding: 0.8rem 1.4rem;
   border: none;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.baseColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   color: ${({ theme }) => theme.colors.lightFont};
   font-size: 1.4rem;
   cursor: pointer;
   transition: 0.3s background-color;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerBase};
+    background-color: ${({ theme }) => theme.colors.baseColor};
   }
 `

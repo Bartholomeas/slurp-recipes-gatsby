@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   height: 150px;
   width: 100%;
   max-width: 500px;
-  background-color: ${({ theme }) => theme.colors.offLightSecondary};
+  background-color: ${({ theme }) => theme.colors.offGreenish};
   border-radius: 6px;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   gap: 2rem;
@@ -42,7 +42,7 @@ export const CardLink = styled(Link)`
   margin-right: 2rem;
 `
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.secondarySupport};
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -51,7 +51,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.baseColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
   }
 `
 export const ImageContainer = styled.div`

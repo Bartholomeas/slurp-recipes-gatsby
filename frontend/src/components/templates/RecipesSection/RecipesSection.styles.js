@@ -48,8 +48,10 @@ export const CardsContainer = styled.div`
     grid-template-rows: 400px;
     gap: 2rem;
     padding-bottom: 3rem;
-    min-height: 100vh;
-    overflow-y: auto;
+    padding-right: 1rem;
+    /* height:50vh */
+    /* min-height: 100vh; */
+    overflow-y: scroll;
   }
   @media only screen and (min-width: 960px) {
     grid-template-columns: repeat(3, 1fr);

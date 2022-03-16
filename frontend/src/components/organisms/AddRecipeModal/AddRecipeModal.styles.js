@@ -14,7 +14,7 @@ export const ModalBody = styled(Modal)`
   padding: 2rem 0;
   margin-top: 3.4rem;
   transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
@@ -41,7 +41,8 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.button`
   padding: 1rem 2rem;
   color: ${({ theme }) => theme.colors.lightFont};
-  background-color: ${({ closeBtn }) => (closeBtn ? "#AEAEAE" : "#A41A1A")};
+  background-color: ${({ closeBtn, theme }) =>
+    closeBtn ? theme.colors.grey : theme.colors.secondaryColor};
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -88,6 +89,6 @@ export const Select = styled.select`
   width: 100%;
   border: none;
   border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.colors.darkerGrey};
+  border: 2px solid ${({ theme }) => theme.colors.grey};
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `

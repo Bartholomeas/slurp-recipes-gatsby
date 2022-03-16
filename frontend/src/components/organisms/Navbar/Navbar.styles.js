@@ -123,10 +123,6 @@ export const NavLink = styled(Link)`
   &.join-link {
     ${joinLinkStyles}
   }
-
-  &:hover {
-    /* color: ${({ theme }) => theme.colors.baseColor}; */
-  }
 `
 export const UserButton = styled.button`
   ${joinLinkStyles}

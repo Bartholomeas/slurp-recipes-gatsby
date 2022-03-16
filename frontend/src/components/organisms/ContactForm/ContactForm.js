@@ -55,7 +55,7 @@ const ContactFormLabel = styled.label`
 const ContactFormInput = styled.input`
   height: 3rem;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   border: none;
 
   @media only screen and (min-width: 768px) {
@@ -65,7 +65,7 @@ const ContactFormInput = styled.input`
 const ContactFormTextarea = styled.textarea`
   height: 8rem;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   border: none;
   resize: vertical;
 

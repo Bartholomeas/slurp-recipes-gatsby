@@ -33,7 +33,7 @@ export const GeneralContainer = styled.div`
   max-width: 950px;
   height: auto;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.offLightSecondary};
+  background-color: ${({ theme }) => theme.colors.offGreenish};
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;

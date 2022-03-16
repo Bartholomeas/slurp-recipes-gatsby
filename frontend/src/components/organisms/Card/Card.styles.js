@@ -12,10 +12,8 @@ export const CardWrapper = styled.div`
   ${flexColumn}
   align-items: flex-start;
   justify-content: space-evenly;
-  /* height: 400px; */
   height: 100%;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.LIGHT};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
   overflow: hidden;
@@ -48,6 +46,7 @@ export const CardInfoContainer = styled.div`
   ${flexColumn}
   height: 100%;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.lightSecondary};
   padding: 1rem 1.6rem 2rem;
 `
 export const CardLabelTitle = styled.p`
@@ -55,7 +54,7 @@ export const CardLabelTitle = styled.p`
   align-self: flex-start;
   flex-grow: 1;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 
 export const CardInfoHeaderContainer = styled.div`

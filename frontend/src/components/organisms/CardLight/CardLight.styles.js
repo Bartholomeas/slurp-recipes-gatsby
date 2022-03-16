@@ -33,7 +33,7 @@ export const TextContainer = styled.div`
 export const Title = styled.p`
   font-size: 2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 export const CardLink = styled(Link)`
   padding: 1rem 0;

@@ -9,11 +9,14 @@ export const RecipesWrapper = styled.section`
   align-items: center;
   width: 100%;
   padding-top: 6rem;
+  background-color: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.colors.white};
   margin-bottom: 2rem;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    max-width: 1200px;
+    justify-content: center;
+    max-width: 1600px;
     margin: 0 auto;
   }
 `
@@ -22,16 +25,15 @@ export const RecipesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   padding: 4rem 0;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
     padding: 0 1rem;
     margin-top: 4rem;
     gap: 2rem;
-    /* overflow-y: auto; */
+    overflow-y: auto;
   }
 `
 
@@ -45,28 +47,28 @@ export const CardsContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 400px;
     gap: 2rem;
-    /* max-width: 1200px; */
     padding-bottom: 3rem;
     min-height: 100vh;
+    overflow-y: auto;
   }
-  @media only screen and (min-width: 868px) {
+  @media only screen and (min-width: 960px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media only screen and (min-width: 1160px) {
+  @media only screen and (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
+  }
+  @media only screen and (min-width: 1600px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 `
 
 export const FiltersButton = styled.button`
   position: fixed;
-  /* align-self: flex-start; */
-  /* height: 100%; */
-  /* top: calc(100vh - 6rem); */
   bottom: 2rem;
   left: 2rem;
   color: ${({ theme }) => theme.colors.secondaryColor};
   background: none;
-  border: none; 
+  border: none;
   font-size: 4rem;
   cursor: pointer;
   z-index: 1000;

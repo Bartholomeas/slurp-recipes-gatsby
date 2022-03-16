@@ -10,10 +10,10 @@ export const DifficultyLevel = styled.span`
   width: 1.6rem;
   height: 1.6rem;
   color: white;
-  border: 2px solid ${({ theme }) => theme.colors.darkerBase};
+  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 50%;
   background-color: ${({ isFilled }) =>
-    isFilled ? theme.colors.darkerBase : "none"};
+    isFilled ? theme.colors.secondaryColor : "none"};
 `
 
 const DifficultyIndicator = ({ difficulty }) => {

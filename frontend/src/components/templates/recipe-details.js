@@ -30,6 +30,7 @@ import {
   InfoCategory,
   InfoValue,
   InfoBoxes,
+  PreparationContainer,
 } from "./recipe-details-styles"
 
 const RecipeDetails = ({ data }) => {
@@ -58,6 +59,7 @@ const RecipeDetails = ({ data }) => {
         />
       </Helmet>{" "}
       <Wrapper>
+      
         <GeneralContainer>
           <RecipeImage image={image} alt="Food header img" />
           <ContentContainer>
@@ -89,6 +91,8 @@ const RecipeDetails = ({ data }) => {
             </InfoBoxes>
           </ContentContainer>
         </GeneralContainer>
+
+        <PreparationContainer></PreparationContainer>
       </Wrapper>
       {/* <RecipeDetailsSection>
         <RecipeDetailsWrapper>

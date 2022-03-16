@@ -21,7 +21,7 @@ export const FilterWrapper = styled.div`
     position: relative;
     display: flex;
     min-height: 100%;
-    max-width: 250px;
+    max-width: 200px;
     left: 0;
     top: 0;
     transform: translate(0);

@@ -36,6 +36,7 @@ import {
   StepList,
   StepListItem,
   IngredientsBox,
+  IngredientsHeader,
   IngredientsList,
   IngredientsItem,
 } from "./recipe-details-styles"
@@ -143,7 +144,7 @@ const RecipeDetails = ({ data }) => {
             </StepList>
           </PreparationContainer>
           <IngredientsBox>
-            <PrepHeader>Ingredients</PrepHeader>
+            <IngredientsHeader>Ingredients</IngredientsHeader>
             <IngredientsList>
               <IngredientsItem>
                 Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
@@ -158,6 +159,9 @@ const RecipeDetails = ({ data }) => {
               <IngredientsItem>
                 Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
                 urna fermentum blandit rutrum.{" "}
+              </IngredientsItem>
+              <IngredientsItem>
+                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
               </IngredientsItem>
               <IngredientsItem>
                 Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate

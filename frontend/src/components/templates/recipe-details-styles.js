@@ -42,6 +42,7 @@ export const GeneralContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    justify-content: space-between;
     padding: 0;
     max-height: 500px;
     overflow: hidden;
@@ -68,8 +69,9 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
-  padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.offGreenish};
+  width: 100%;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.greenish};
   border-radius: 6px;
   @media only screen and (min-width: 768px) {
     width: 40%;
@@ -77,15 +79,18 @@ export const ContentContainer = styled.div`
 `
 
 export const RecipeHeader = styled.h2`
-  font-size: 4rem;
+  font-size: 3.2rem;
   color: ${({ theme }) => theme.colors.fontColor};
+  @media only screen and (min-width: 768px) {
+    font-size: 4rem;
+  }
 `
 
 export const InfoBoxes = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
-  gap: 2rem;
+  padding: 1rem 0;
+  gap: 1rem;
   padding-bottom: 3rem;
 `
 export const InfoBox = styled.div`
@@ -106,8 +111,11 @@ export const InfoValue = styled.p`
 export const RecipeWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column-reverse;
   gap: 1rem;
-  /* background-color: skyblue; */
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 export const PreparationContainer = styled.div`
@@ -126,7 +134,7 @@ export const PreparationContainer = styled.div`
 `
 export const PrepHeader = styled.h3`
   font-size: 3.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 export const StepList = styled.ol`
@@ -144,26 +152,37 @@ export const StepListItem = styled.li`
   }
 `
 export const IngredientsBox = styled.div`
-  position: sticky;
+  position: static;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  top: 10rem;
-  width: 35%;
-  height: 500px;
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  top: 8rem;
+  font-size: 1.4rem;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.lightPrimary};
+  background-color: ${({ theme }) => theme.colors.offGreenish};
+  overflow-y: scroll;
+  @media only screen and (min-width: 768px) {
+    position: sticky;
+    width: 35%;
+  }
 `
-
+export const IngredientsHeader = styled.h3`
+  font-size: 2.4rem;
+  margin-top: 2rem;
+  color: ${({ theme }) => theme.colors.secondaryColor};
+`
 export const IngredientsList = styled.ul`
   width: 90%;
-  padding: 2rem;
+  height: 100%;
+  padding: 2rem 1.6rem;
   list-style: none;
   list-style-position: inside;
 `
 export const IngredientsItem = styled.li`
-  margin-bottom: 1.6rem;
+  margin-bottom: 0.8rem;
   &:before {
     content: "🍔";
     margin-left: -20px;

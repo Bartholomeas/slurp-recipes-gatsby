@@ -50,7 +50,7 @@ export const Button = styled.button`
   transition: background-color 0.3s, transform 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerBase};
+    background-color: ${({ theme }) => theme.colors.darkerPrimary};
     transform: scale(1.05);
   }
 `

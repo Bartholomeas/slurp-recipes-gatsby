@@ -31,19 +31,19 @@ const FooterContainer = styled.div`
 
 const FacebookIcon = styled(AiFillFacebook)`
   margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
   font-size: 2.6rem;
   cursor: pointer;
 `
 const InstagramIcon = styled(AiFillInstagram)`
   margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
   font-size: 2.6rem;
   cursor: pointer;
 `
 const TwitterIcon = styled(AiFillTwitterSquare)`
   margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
   font-size: 2.6rem;
   cursor: pointer;
 `

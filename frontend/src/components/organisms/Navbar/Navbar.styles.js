@@ -12,7 +12,7 @@ const joinLinkStyles = css`
   font-size: 1.6rem;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.baseColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `
 
@@ -94,7 +94,7 @@ export const NavListItem = styled.li`
     content: "";
     width: 100%;
     height: 3px;
-    background-color: ${({ theme }) => theme.colors.baseColor};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
     bottom: 0;
     transform: scale(0);
     transform-origin: left;
@@ -139,11 +139,11 @@ export const UserButton = styled.button`
 export const Logo = styled(Link)`
   text-decoration: none;
   font-size: 3rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 
 export const ListIcon = styled(RiFileList3Line)`
-  color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
   font-size: 2rem;
   cursor: pointer;
 `

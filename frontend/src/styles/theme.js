@@ -1,10 +1,8 @@
 export const theme = {
   colors: {
-    // baseColor: "#A41A1A",
-    baseColor: "#FFB901",
-    darkerBase: "#F2B61A",
-    // darkerBase: "#671010",
-    // lighterBase: "#C93A3A",
+    primaryColor: "#FFB901",
+    lightPrimary: "#FEEECA",
+    darkerPrimary: "#F2B61A",
     secondaryColor: "#399685",
     secondarySupport: "#1F6946",
     greenish: "#EEF6F1",

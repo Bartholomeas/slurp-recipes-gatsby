@@ -53,7 +53,7 @@ const AboutUsTextWrapper = styled.div`
 const AboutUsHeader = styled.h1`
   margin-bottom: 2rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
   font-size: 4rem;
 
   @media only screen and (min-width: 768px) {
@@ -82,7 +82,7 @@ const ContactFormSection = styled.section`
 const ContactLogo = styled.p`
   font-size: 2em;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 
 const Contact = ({ data }) => {

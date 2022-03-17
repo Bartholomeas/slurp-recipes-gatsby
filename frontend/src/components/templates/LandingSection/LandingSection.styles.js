@@ -54,7 +54,7 @@ export const LandingText = styled.h1`
 export const ColoredText = styled.span`
   display: block;
 
-  color: ${({ theme }) => theme.colors.baseColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
 `
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;

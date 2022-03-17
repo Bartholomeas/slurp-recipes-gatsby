@@ -50,7 +50,7 @@ export const MeasureInfos = styled.div`
 
 export const MeasureTitle = styled.p`
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 export const MeasureValue = styled.p`
   align-self: end;

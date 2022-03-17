@@ -73,6 +73,6 @@ export const ClearButton = styled.button`
   transition: 0.3s background-color;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.baseColor};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
   }
 `

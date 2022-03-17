@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.baseColor};
+      color: ${({ theme }) => theme.colors.primaryColor};
       transform: scale(1.01);
     }
     @media only screen and (min-width: 768px) {

@@ -45,7 +45,7 @@ export const GeneralContainer = styled.div`
     padding: 0;
     max-height: 500px;
     overflow: hidden;
-  } ;
+  }
 `
 
 export const RecipeImage = styled(GatsbyImage)`
@@ -71,6 +71,9 @@ export const ContentContainer = styled.div`
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.offGreenish};
   border-radius: 6px;
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+  }
 `
 
 export const RecipeHeader = styled.h2`
@@ -99,39 +102,71 @@ export const InfoValue = styled.p`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.secondaryColor};
 `
+
+export const RecipeWrapper = styled.div`
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  /* background-color: skyblue; */
+`
+
 export const PreparationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  align-self: flex-start;
   min-height: 50vh;
   padding: 2rem;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.lightGrey};
+  @media only screen and (min-width: 768px) {
+    width: 65%;
+  }
 `
 export const PrepHeader = styled.h3`
   font-size: 3.2rem;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 export const StepList = styled.ol`
-  /* list-style: none; */
-  padding: 2rem;
-  font-size: 1.6rem;
-  /* list-style-position: inside; */
   list-style: upper-roman inside;
+  font-size: 1.6rem;
 `
 export const StepListItem = styled.li`
+  color: ${({ theme }) => theme.colors.fontColor};
+  margin-bottom: 2.4rem;
   &::marker {
-    font-size: 5rem;
+    font-size: 4rem;
     list-style-type: none;
-    color: ${({ theme }) => theme.colors.darkerBase};
+    line-height: 1.2rem;
+    color: ${({ theme }) => theme.colors.darkerPrimary};
   }
+`
+export const IngredientsBox = styled.div`
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 10rem;
+  width: 35%;
+  height: 500px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.lightPrimary};
+`
+
+export const IngredientsList = styled.ul`
+  width: 90%;
+  padding: 2rem;
+  list-style: none;
+  list-style-position: inside;
+`
+export const IngredientsItem = styled.li`
+  margin-bottom: 1.6rem;
   &:before {
-    /* content: "🍔"; */
+    content: "🍔";
     margin-left: -20px;
     margin-right: 10px;
   }
 `
-export const ItemNumber = styled.span``

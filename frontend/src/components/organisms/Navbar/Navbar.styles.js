@@ -18,9 +18,11 @@ const joinLinkStyles = css`
 
 export const NavWrapper = styled.nav`
   position: fixed;
+  font-family: "Poppins", sans-serif;
   top: 0;
   min-width: 100%;
   height: 7rem;
+
   background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 10000;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
@@ -117,7 +119,7 @@ export const NavLink = styled(Link)`
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.6rem;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 700;
   transition: color 0.3s;
 
   &.join-link {

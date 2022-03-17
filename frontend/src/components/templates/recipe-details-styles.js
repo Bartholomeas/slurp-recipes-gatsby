@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
   AiFillFacebook,
@@ -6,17 +6,22 @@ import {
   AiFillPrinter,
 } from "react-icons/ai"
 
+const maxWidth = css`
+  max-width: 900px;
+`
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: gold; */
   min-height: 200vh;
+  padding: 1rem;
   width: 100%;
+  gap: 1rem;
   padding-top: 7rem;
   @media only screen and (min-width: 768px) {
-    max-width: 1200px;
+    ${maxWidth}
     height: 200vh;
     padding: 6rem 2rem 4rem;
     margin-top: 7rem;
@@ -29,15 +34,15 @@ export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 900px;
   height: auto;
+  gap: 1rem;
+  width: 100%;
+  ${maxWidth}
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.offGreenish};
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 3rem;
+    padding: 0;
     max-height: 500px;
     overflow: hidden;
   } ;
@@ -48,6 +53,7 @@ export const RecipeImage = styled(GatsbyImage)`
   aspect-ratio: 1/1;
   object-fit: cover;
   background-size: cover;
+  background-position: fixed;
   border-radius: 6px;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
 
@@ -61,7 +67,10 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 2rem 0;
+  height: 100%;
+  padding: 2rem;
+  background-color: ${({ theme }) => theme.colors.offGreenish};
+  border-radius: 6px;
 `
 
 export const RecipeHeader = styled.h2`
@@ -90,4 +99,39 @@ export const InfoValue = styled.p`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.secondaryColor};
 `
-export const PreparationContainer = styled.div``
+export const PreparationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 50vh;
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+`
+export const PrepHeader = styled.h3`
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+  color: ${({ theme }) => theme.colors.darkerBase};
+`
+export const StepList = styled.ol`
+  /* list-style: none; */
+  padding: 2rem;
+  font-size: 1.6rem;
+  /* list-style-position: inside; */
+  list-style: upper-roman inside;
+`
+export const StepListItem = styled.li`
+  &::marker {
+    font-size: 5rem;
+    list-style-type: none;
+    color: ${({ theme }) => theme.colors.darkerBase};
+  }
+  &:before {
+    /* content: "🍔"; */
+    margin-left: -20px;
+    margin-right: 10px;
+  }
+`
+export const ItemNumber = styled.span``

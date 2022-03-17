@@ -46,11 +46,12 @@ export const CardsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 350px;
-    align-items: center;
     gap: 2rem;
     width: 100%;
-    padding-bottom: 3rem;
+    height: 100vh;
+    /* padding-bottom: 3rem; */
     padding-right: 1rem;
+    padding: 0.2rem 0 2rem 1rem;
     /* overflow-y: scroll; */
   }
   @media only screen and (min-width: 1015px) {

@@ -16,11 +16,11 @@ export const CardWrapper = styled.div`
   width: 100%;
   padding: 0.8rem;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
-  background-color: ${({ theme }) => theme.colors.greenish};
 
   &:hover {
     transform: scale(0.98);
@@ -37,6 +37,7 @@ export const CardImg = styled(GatsbyImage)`
   background-size: cover;
   background-position: center;
   height: 60%;
+  border-radius: 6px 6px 0 0;
 `
 
 export const CardLink = styled(Link)`

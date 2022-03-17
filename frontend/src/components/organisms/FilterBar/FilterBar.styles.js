@@ -2,20 +2,23 @@ import styled from "styled-components"
 
 export const FilterWrapper = styled.div`
   position: fixed;
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
   height: 100vh;
   width: 100%;
   margin-top: 4rem;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+    scale(${({ isOpen }) => (isOpen ? "1" : "0")});
+  transform-origin: left bottom;
   background-color: ${({ theme }) => theme.colors.greenish};
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   border-radius: 6px;
   overflow: hidden;
+  transition: transform 0.2s ease-in;
   z-index: 200;
   @media only screen and (min-width: 768px) {
     position: relative;

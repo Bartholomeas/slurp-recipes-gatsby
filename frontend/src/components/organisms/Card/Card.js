@@ -41,10 +41,10 @@ const Card = ({ payload }) => {
           </CardInfoHeaderContainer>
 
           <CardInfoBottomContainer>
-            <RecipeTime>
+            {/* <RecipeTime>
               <TimeIcon />
               {time}min
-            </RecipeTime>
+            </RecipeTime> */}
             <DifficultyIndicator
               difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
             />

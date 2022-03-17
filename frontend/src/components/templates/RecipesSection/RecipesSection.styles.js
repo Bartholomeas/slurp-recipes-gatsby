@@ -9,13 +9,14 @@ export const RecipesWrapper = styled.section`
   align-items: center;
   width: 100%;
   padding-top: 6rem;
-  background-color: rgb(255, 255, 255);
-  background-color: ${({ theme }) => theme.colors.white};
   margin-bottom: 2rem;
+  background-color: ${({ theme }) => theme.colors.white};
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
+    justify-content: flex-start;
     justify-content: center;
+    width: auto;
     max-width: 1600px;
     margin: 0 auto;
   }
@@ -25,7 +26,6 @@ export const RecipesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 100%; */
   padding: 4rem 0;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -45,18 +45,18 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 400px;
+    grid-template-rows: 350px;
+    align-items: center;
     gap: 2rem;
+    width: 100%;
     padding-bottom: 3rem;
     padding-right: 1rem;
-    /* height:50vh */
-    /* min-height: 100vh; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
   }
-  @media only screen and (min-width: 960px) {
+  @media only screen and (min-width: 1015px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
   }
   @media only screen and (min-width: 1600px) {

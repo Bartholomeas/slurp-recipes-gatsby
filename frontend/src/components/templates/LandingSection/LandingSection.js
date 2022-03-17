@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Button from "../../atoms/Button/Button"
+import SearchBar from "../../molecules/SearchBar/SearchBar"
 import {
   LandingWrapper,
   TextWrapper,
@@ -74,30 +75,15 @@ const LandingSection = () => {
             height: "100%",
             width: "100%",
             backgroundSize: "cover",
-            zIndex: "-100",
+            zIndex: "-10",
             filter: "brightness(20%)",
             backgroundAttachment: "fixed",
           }}
           src="../../../images/landing.jpg"
           placeholder="blurred"
-          alt="Pizza"
+          alt="Pancakes with syrup"
         />
-        {/* <Button href="/contact" content="Send us recipe"></Button> */}
-        <Button
-          href="/contact"
-          content={
-            <a
-              style={{
-                textDecoration: "none",
-                padding: "2rem",
-                color: "white",
-              }}
-              href="/contact"
-            >
-              Send us recipe!
-            </a>
-          }
-        />
+        <SearchBar />
       </TextWrapper>
 
       <FeaturedRecipesWrapper>

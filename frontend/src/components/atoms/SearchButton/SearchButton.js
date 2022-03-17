@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const SearchIcon = styled(AiOutlineKey)`
   font-size: 2rem;
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 const Button = styled.button`
   position: relative;
@@ -12,7 +12,14 @@ const Button = styled.button`
   padding: 0 1rem;
   border: none;
   background: none;
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  border-radius: 0 6px 6px 0;
+  transition: background-color 0.3s;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.darkerBase};
+  }
 `
 
 export const SearchButton = () => {

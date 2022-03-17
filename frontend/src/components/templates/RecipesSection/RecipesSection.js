@@ -45,7 +45,6 @@ const RecipesSection = () => {
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
-  // const [searchedRecipes, setSearchedRecipes] = useState([])
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const {
     info,
@@ -62,7 +61,7 @@ const RecipesSection = () => {
     checkedInfos = []
     setFilteredRecipes([])
   }
-  
+
   const checkRecipeTruthy = (recipe, idx) => {
     const infoKey = checkedInfos[idx - 1]
 
@@ -96,7 +95,6 @@ const RecipesSection = () => {
       if (checkedInfos.length > 1) {
         filteredRecipes.forEach(recipe => {
           if (checkRecipeTruthy(recipe, checkedInfos.length)) {
-            console.log(recipe)
             setSearchedRecipes([])
             setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
           }
@@ -105,7 +103,6 @@ const RecipesSection = () => {
     }
 
     return () => {
-      console.log("CLEANUP")
       setSearchedRecipes([])
     }
   }, [diets, types, difficulties])

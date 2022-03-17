@@ -10,10 +10,11 @@ export const Wrapper = styled.div`
   height: 150px;
   width: 100%;
   max-width: 500px;
+  padding: 0.8rem;
   background-color: ${({ theme }) => theme.colors.offGreenish};
   border-radius: 6px;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
-  gap: 2rem;
+  /* gap: 2rem; */
   overflow: hidden;
   transition: transform 0.3s;
 
@@ -28,7 +29,9 @@ export const TextContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 60%;
-  padding: 0.8rem 0rem;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.greenish};
 `
 export const Title = styled.p`
   font-size: 2rem;

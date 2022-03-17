@@ -14,14 +14,16 @@ export const CardWrapper = styled.div`
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  padding: 0.8rem;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
+  background-color: ${({ theme }) => theme.colors.greenish};
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(0.98);
   }
 
   @media only screen and (min-width: 768px) {
@@ -34,23 +36,23 @@ export const CardWrapper = styled.div`
 export const CardImg = styled(GatsbyImage)`
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 60%;
 `
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  width: 230px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
 `
 export const CardInfoContainer = styled.div`
   ${flexColumn}
-  height: 100%;
+  height: 40%;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.white};
   padding: 1rem 1.6rem 2rem;
 `
 export const CardLabelTitle = styled.p`
-  font-size: 2.4rem;
+  font-size: 2rem;
   align-self: flex-start;
   flex-grow: 1;
   font-weight: 700;
@@ -67,6 +69,7 @@ export const CardInfoBottomContainer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
+  border-radius: 6px;
 `
 export const CardRecipeInfos = styled.p`
   display: flex;

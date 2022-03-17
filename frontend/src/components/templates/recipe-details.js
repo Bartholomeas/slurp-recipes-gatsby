@@ -91,7 +91,7 @@ const RecipeDetails = ({ data }) => {
             </InfoBoxes>
           </ContentContainer>
         </GeneralContainer>
-
+ 
         <PreparationContainer></PreparationContainer>
       </Wrapper>
       {/* <RecipeDetailsSection>

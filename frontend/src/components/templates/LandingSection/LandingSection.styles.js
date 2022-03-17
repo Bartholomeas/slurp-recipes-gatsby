@@ -6,7 +6,6 @@ export const LandingWrapper = styled.header`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* height: 100vh; */
   margin-top: 6rem;
   overflow: hidden;
 
@@ -20,14 +19,16 @@ export const LandingWrapper = styled.header`
   }
 `
 export const TextWrapper = styled.div`
-  display: flex;
   position: relative;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 0 4rem;
+  gap: 3rem;
   color: ${({ theme }) => theme.colors.lightGrey};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {
     width: 60%;

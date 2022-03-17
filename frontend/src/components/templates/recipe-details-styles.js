@@ -7,21 +7,21 @@ import {
 } from "react-icons/ai"
 
 export const Wrapper = styled.div`
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: gold;
+  align-items: center;
+  /* background-color: gold; */
   min-height: 200vh;
   width: 100%;
   padding-top: 7rem;
   @media only screen and (min-width: 768px) {
     max-width: 1200px;
     height: 200vh;
-    /* left: 10rem; */
-    /* left:-50%; */
-    transform:translateX(50%)
-    padding-top: 10rem;
+    padding: 6rem 2rem 4rem;
+    margin-top: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `
 
@@ -30,7 +30,7 @@ export const GeneralContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 950px;
+  max-width: 900px;
   height: auto;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.offGreenish};

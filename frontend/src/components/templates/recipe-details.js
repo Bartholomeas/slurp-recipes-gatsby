@@ -144,6 +144,7 @@ const RecipeDetails = ({ data }) => {
             </StepList>
           </PreparationContainer>
           <IngredientsBox>
+            {/* <i fill="gold" src="../../images/burger-solid.svg"></i> */}
             <IngredientsHeader>Ingredients</IngredientsHeader>
             <IngredientsList>
               <IngredientsItem>

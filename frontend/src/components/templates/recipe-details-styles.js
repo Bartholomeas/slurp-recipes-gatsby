@@ -133,8 +133,8 @@ export const PreparationContainer = styled.div`
   }
 `
 export const PrepHeader = styled.h3`
-  font-size: 3.2rem;
-  margin-bottom: 1.6rem;
+  font-size: 4rem;
+  margin: 2.4rem 0;
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 export const StepList = styled.ol`
@@ -164,6 +164,7 @@ export const IngredientsBox = styled.div`
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.offGreenish};
   overflow-y: scroll;
+
   @media only screen and (min-width: 768px) {
     position: sticky;
     width: 35%;
@@ -182,9 +183,12 @@ export const IngredientsList = styled.ul`
   list-style-position: inside;
 `
 export const IngredientsItem = styled.li`
-  margin-bottom: 0.8rem;
-  &:before {
+  position: relative;
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  &::before {
     content: "🍔";
+    position: absolute;
     margin-left: -20px;
     margin-right: 10px;
   }

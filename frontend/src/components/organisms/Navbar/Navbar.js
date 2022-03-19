@@ -8,13 +8,12 @@ import {
   NavLink,
   UserButton,
   HamburgerBtn,
-  ListIcon,
   ListButton,
   NavListItem,
 } from "./Navbar.styles"
 import { StateContext } from "../../../context/StateContext"
 import { FiLogIn } from "react-icons/fi"
-import { BiUserCircle } from "react-icons/bi"
+import { BiUserCircle, BiRepost } from "react-icons/bi"
 import UserPanel from "../UserPanel/UserPanel"
 
 const Navbar = () => {
@@ -56,7 +55,8 @@ const Navbar = () => {
               }}
               data-testid="converter-icon"
             >
-              <ListIcon />
+              <BiRepost style={{ fontSize: "2.4rem" }} />
+              converter
             </ListButton>
           </NavListItem>
           <NavListItem>

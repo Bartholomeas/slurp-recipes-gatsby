@@ -10,7 +10,6 @@ export const ConverterWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
-
   transform: scale(
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );

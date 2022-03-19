@@ -110,7 +110,7 @@ const AddRecipeModal = () => {
       isOpen={isModalOpen}
       onRequestClose={closeModal}
     >
-      {/* <ModalHeader>Add recipe</ModalHeader> */}
+      <ModalHeader>Add recipe</ModalHeader>
       <ModalForm
         onSubmit={e => {
           uploadHandler(e)

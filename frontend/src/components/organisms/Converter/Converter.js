@@ -15,7 +15,9 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       isConverterActive={isConverterActive}
     >
       <MeasuresContainer>
-        <MeasureWrapper>
+        
+      </MeasuresContainer>
+      {/* <MeasureWrapper>
           <svg
             width="20"
             height="13"
@@ -90,8 +92,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
             <MeasureValue>~1/2ml</MeasureValue>
             <MeasureValue>~1/2g</MeasureValue>
           </MeasureInfos>
-        </MeasureWrapper>
-      </MeasuresContainer>
+        </MeasureWrapper> */}
     </ConverterWrapper>
   )
 }

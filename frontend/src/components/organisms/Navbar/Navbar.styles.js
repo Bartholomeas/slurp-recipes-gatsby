@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 import { AiOutlineMenu } from "react-icons/ai"
-import { RiFileList3Line } from "react-icons/ri"
 
 const joinLinkStyles = css`
   display: flex;
@@ -15,6 +14,19 @@ const joinLinkStyles = css`
     color: ${({ theme }) => theme.colors.primaryColor};
   }
 `
+const navLinkStyles = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.fontColor};
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+`
 
 export const NavWrapper = styled.nav`
   position: fixed;
@@ -22,7 +34,6 @@ export const NavWrapper = styled.nav`
   top: 0;
   min-width: 100%;
   height: 7rem;
-
   background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 10000;
   box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.shadow};
@@ -74,7 +85,7 @@ export const LinkContainer = styled.ul`
     width: 100%;
     padding: 4rem 0;
     transform: scale(${({ isNavbarOpen }) => (isNavbarOpen ? "1" : "0")});
-    transform-origin: top;
+    transform-origin: top right;
     background-color: ${({ theme }) => theme.colors.lightGrey};
     transition: transform 0.3s;
     overflow: hidden;
@@ -110,18 +121,7 @@ export const NavListItem = styled.li`
 `
 
 export const NavLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  color: ${({ theme }) => theme.colors.fontColor};
-  font-size: 1.6rem;
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.3s;
-
+  ${navLinkStyles}
   &.join-link {
     ${joinLinkStyles}
   }
@@ -142,21 +142,16 @@ export const Logo = styled(Link)`
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 
-export const ListIcon = styled(RiFileList3Line)`
-  color: ${({ theme }) => theme.colors.primaryColor};
-  font-size: 2rem;
-  cursor: pointer;
-`
 export const ListButton = styled.button`
-  position: relative;
-  padding: 0 1rem;
-  margin-right: 1.6rem;
+  ${navLinkStyles}
+  gap:.6rem;
   background: none;
   border: none;
   z-index: 1000;
+  cursor: pointer;
 
-  &:hover ${ListIcon} {
-    transform: scale(1.2);
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `
 

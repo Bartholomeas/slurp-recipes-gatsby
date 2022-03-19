@@ -41,32 +41,34 @@ const Textarea = styled.textarea`
 const FormField = React.forwardRef(
   (
     {
-      id,
-      label = "title",
-      name,
-      textarea,
+      nameId = "",
+      content = "",
+      textarea = false,
       type = "text",
       width = "100",
       onChange,
       inputFunc,
-      placeholder,
     },
     ref
   ) => {
     return (
       <Wrapper width={width}>
-        <Label htmlFor={id}>{label}</Label>
+        <Label htmlFor={nameId}>{content}</Label>
         {!textarea ? (
           <Input
             onChange={onChange ? onChange : null}
-            id={id}
-            name={name}
+            id={nameId}
+            name={nameId}
             type={type}
             ref={ref}
             onKeyUp={inputFunc}
           ></Input>
         ) : (
-          <Textarea onChange={e => onChange(e)} id={id} name={name}></Textarea>
+          <Textarea
+            onChange={e => onChange(e)}
+            id={nameId}
+            name={nameId}
+          ></Textarea>
         )}
       </Wrapper>
     )

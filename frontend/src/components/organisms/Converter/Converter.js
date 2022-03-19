@@ -1,21 +1,22 @@
 import React from "react"
+import FormField from "../../molecules/FormField/FormField"
+import SelectField from "../../molecules/SelectField/SelectField"
 import {
   ConverterWrapper,
   MeasuresContainer,
-  MeasureWrapper,
-  MeasureTitle,
-  MeasureValue,
-  MeasureInfos,
+  ConverterHeader,
 } from "./Converter.styles"
 
 const Converter = ({ setIsConverterActive, isConverterActive }) => {
   return (
     <ConverterWrapper
-      onClick={() => setIsConverterActive(false)}
+      // onClick={() => setIsConverterActive(false)}
       isConverterActive={isConverterActive}
     >
+      <ConverterHeader>Konwertuj miary</ConverterHeader>
       <MeasuresContainer>
-        
+        <FormField nameId="wartosc" content="wartość" width="70" />
+        <SelectField nameId="symbol" width="30" values={["g", "dag", "ml"]} />
       </MeasuresContainer>
       {/* <MeasureWrapper>
           <svg

@@ -28,32 +28,14 @@ export const ConverterWrapper = styled.div`
 export const MeasuresContainer = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: space-between;
+  align-items: flex-start;
+  padding: 2rem 0;
+  gap: 1rem;
   height: 100%;
   width: 100%;
+  /* background-color: pink; */
 `
-
-export const MeasureWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem 0;
+export const ConverterHeader = styled.h2`
+  font-weight: 300;
 `
-
-export const MeasureInfos = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  width: 90%;
-`
-
-export const MeasureTitle = styled.p`
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
-`
-export const MeasureValue = styled.p`
-  align-self: end;
-`
+  

@@ -13,6 +13,7 @@ import {
   ButtonWrapper,
   Button,
 } from "./AddRecipeModal.styles"
+import SelectField from "../../molecules/SelectField/SelectField"
 
 const initialState = {
   title: "",
@@ -120,35 +121,48 @@ const AddRecipeModal = () => {
           <FormField
             onChange={updateInput}
             width="70"
-            id="title"
-            name="title"
-            label="title"
+            nameId="title"
+            content="tytuł"
           />
           <FormField
+            content="czas"
             onChange={updateInput}
             width="25"
-            id="time"
-            name="time"
-            label="time"
+            nameId="time"
             type="number"
           />
         </FormContainer>
         <FormContainer>
-          <SelectWrapper>
+          <SelectField
+            nameId="diet"
+            content="dieta"
+            onChange={updateSelect}
+            values={["vegetarian", "vegan", "lactose-free"]}
+          />
+          <SelectField
+            nameId="difficulty"
+            content="trudność"
+            onChange={updateSelect}
+            values={["łatwe", "średnie", "trudne"]}
+          />
+          <SelectField
+            nameId="posiłek"
+            content="dieta"
+            onChange={updateSelect}
+            values={["śniadanie", "lunch", "obiad", "deser", "napój"]}
+          />
+
+          {/* <SelectWrapper>
             <SelectLabel htmlFor="diet">diet</SelectLabel>
             <Select onChange={e => updateSelect(e)} name="diet" id="diet">
               <option value="vegetarian">vegetarian</option>
               <option value="vegan">vegan</option>
               <option value="lactose-free">lactose-free</option>
             </Select>
-          </SelectWrapper>
-          <SelectWrapper>
+          </SelectWrapper> */}
+          {/* <SelectWrapper>
             <SelectLabel htmlFor="difficulty">difficulty</SelectLabel>
-            <Select
-              onChange={e => updateSelect(e)}
-              name="difficulty"
-              id="difficulty"
-            >
+            <Select onChange={e => updateSelect(e)} nameId="difficulty">
               <option value="easy">easy</option>
               <option value="medium">medium</option>
               <option value="hard">hard</option>
@@ -165,34 +179,30 @@ const AddRecipeModal = () => {
               <option value="drink">drink</option>
               <option value="soup">soup</option>
             </Select>
-          </SelectWrapper>
+          </SelectWrapper> */}
         </FormContainer>
 
         <FormField
+          content="przygotowanie"
           onChange={updateInput}
           textarea={true}
-          id="preparation"
-          name="preparation"
-          label="preparation"
+          nameId="preparation"
           type="textarea"
-          placeholder="Separate next steps with */*"
         />
         <FormField
+          content="składniki"
           onChange={updateInput}
           textarea={true}
-          id="ingredients"
-          name="ingredients"
-          label="ingredients"
+          nameId="ingredients"
           type="textarea"
         />
 
         <FormField
+          content="zdjęcie"
           onChange={e => {
             setFile(e.target.files[0])
           }}
-          id="image"
-          name="image"
-          label="image"
+          nameId="image"
           type="file"
         />
 

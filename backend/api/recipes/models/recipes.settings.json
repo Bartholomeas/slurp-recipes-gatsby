@@ -31,14 +31,6 @@
       "required": false,
       "pluginOptions": {}
     },
-    "preparation": {
-      "type": "text",
-      "required": true
-    },
-    "ingredients": {
-      "type": "richtext",
-      "required": true
-    },
     "types": {
       "collection": "type",
       "via": "recipes",
@@ -59,6 +51,18 @@
       "type": "string",
       "unique": false,
       "default": "Generated automatically based on the title"
+    },
+    "preparation": {
+      "type": "richtext",
+      "required": true
+    },
+    "uuid": {
+      "type": "uid",
+      "targetField": "slug"
+    },
+    "ingredients": {
+      "type": "text",
+      "required": true
     }
   }
 }

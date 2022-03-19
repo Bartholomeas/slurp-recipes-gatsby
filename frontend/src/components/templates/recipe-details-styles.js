@@ -56,7 +56,6 @@ export const RecipeImage = styled(GatsbyImage)`
   background-size: cover;
   background-position: fixed;
   border-radius: 6px;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {
     width: auto;
@@ -138,12 +137,14 @@ export const PrepHeader = styled.h3`
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 export const StepList = styled.ol`
+  width: 100%;
   list-style: upper-roman inside;
   font-size: 1.6rem;
+  line-height: 2.4rem;
 `
 export const StepListItem = styled.li`
   color: ${({ theme }) => theme.colors.fontColor};
-  margin-bottom: 2.4rem;
+  padding: 2.4rem 0;
   &::marker {
     font-size: 4rem;
     list-style-type: none;

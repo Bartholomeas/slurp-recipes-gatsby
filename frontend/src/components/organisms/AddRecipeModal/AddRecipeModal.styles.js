@@ -9,7 +9,8 @@ export const ModalBody = styled(Modal)`
   align-items: center;
   top: 50%;
   left: 50%;
-  height: 550px;
+  /* height: 550px; */
+  height: calc(100% - 7rem);
   min-height: 400px;
   padding: 2rem 0;
   margin-top: 3.4rem;
@@ -18,11 +19,20 @@ export const ModalBody = styled(Modal)`
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
+  z-index: 100000;
 
   @media only screen and (min-width: 768px) {
-    min-height: 70vh;
+    /* height: 550px; */
+    max-height: 75vh;
     width: 600px;
   }
+`
+export const ModalHeader = styled.h2`
+  align-self: flex-start;
+  margin-left: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: ${({ theme }) => theme.colors.fontColor};
+  padding: 1rem 0;
 `
 
 export const FormContainer = styled.div`

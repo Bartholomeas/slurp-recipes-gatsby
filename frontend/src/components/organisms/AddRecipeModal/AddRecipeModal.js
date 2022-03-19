@@ -4,6 +4,7 @@ import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
 import {
   ModalBody,
+  ModalHeader,
   ModalForm,
   FormContainer,
   SelectWrapper,
@@ -100,7 +101,6 @@ const AddRecipeModal = () => {
   if (windowGlobal !== "undefined") {
   }
   return (
-    // (windowGlobal !== "undefined" ? "ebe" : null)
     <ModalBody
       appElement={
         typeof window !== "undefined"
@@ -110,6 +110,7 @@ const AddRecipeModal = () => {
       isOpen={isModalOpen}
       onRequestClose={closeModal}
     >
+      {/* <ModalHeader>Add recipe</ModalHeader> */}
       <ModalForm
         onSubmit={e => {
           uploadHandler(e)
@@ -174,6 +175,7 @@ const AddRecipeModal = () => {
           name="preparation"
           label="preparation"
           type="textarea"
+          placeholder="Separate next steps with */*"
         />
         <FormField
           onChange={updateInput}

@@ -15,7 +15,7 @@ export const CardWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 0.8rem;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 6px;
   overflow: hidden;

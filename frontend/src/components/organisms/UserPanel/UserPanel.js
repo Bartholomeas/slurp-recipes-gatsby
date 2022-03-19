@@ -17,7 +17,12 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
   }
 
   return (
-    <Wrapper isUserPanelActive={isUserPanelActive}>
+    <Wrapper
+      onClick={e => {
+        setIsUserPanelActive(!isUserPanelActive)
+      }}
+      isUserPanelActive={isUserPanelActive}
+    >
       <NavbarLink
         onClick={() => {
           setIsUserPanelActive(!isUserPanelActive)

@@ -8,11 +8,13 @@ export const ConverterWrapper = styled.div`
   right: 0;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 3px 4px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
+  border-radius: 6px;
+
   transform: scale(
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );
-  transform-origin: top;
+  transform-origin: top right;
   transition: transform 0.3s ease-in-out;
   z-index: -15;
 
@@ -20,6 +22,7 @@ export const ConverterWrapper = styled.div`
     height: 300px;
     width: 400px;
     right: 2rem;
+    transform-origin: top left;
   }
 `
 

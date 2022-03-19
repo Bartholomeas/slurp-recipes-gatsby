@@ -15,13 +15,14 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 200px;
   padding: 1rem 1.6rem;
+  margin-right: 1rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0 8px 8px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
   transform: scale(
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
   );
-  transform-origin: top;
+  transform-origin: top right;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 

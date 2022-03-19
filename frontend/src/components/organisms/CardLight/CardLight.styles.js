@@ -13,8 +13,8 @@ export const Wrapper = styled.div`
   padding: 0.8rem;
   background-color: ${({ theme }) => theme.colors.offGreenish};
   border-radius: 6px;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
-  /* gap: 2rem; */
+
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   overflow: hidden;
   transition: transform 0.3s;
 

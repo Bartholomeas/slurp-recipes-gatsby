@@ -25,7 +25,7 @@ export const NavWrapper = styled.nav`
 
   background-color: ${({ theme }) => theme.colors.lightGrey};
   z-index: 10000;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.shadow};
 
   @media print {
     display: none;
@@ -65,7 +65,7 @@ export const LinkContainer = styled.ul`
 
   @media only screen and (max-width: 768px) {
     position: absolute;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-evenly;
     align-items: center;
     left: 0;

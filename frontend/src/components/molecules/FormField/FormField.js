@@ -49,7 +49,7 @@ const FormField = React.forwardRef(
       width = "100",
       onChange,
       inputFunc,
-      ...props
+      placeholder,
     },
     ref
   ) => {

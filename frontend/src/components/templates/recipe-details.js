@@ -22,6 +22,7 @@ import {
   IngredientsList,
   IngredientsItem,
 } from "./recipe-details-styles"
+import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 
 const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
@@ -98,31 +99,11 @@ const RecipeDetails = ({ data }) => {
                   <IngredientsItem key={idx}>{step.trim()}</IngredientsItem>
                 )
               })}
-
-              {/* <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-              </IngredientsItem>
-              <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-                urna fermentum blandit rutrum.{" "}
-              </IngredientsItem>
-              <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-              </IngredientsItem>
-              <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-                urna fermentum blandit rutrum.{" "}
-              </IngredientsItem>
-              <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-              </IngredientsItem>
-              <IngredientsItem>
-                Vestibulum non sodales purus, a imperdiet nisi. Donec vulputate
-              </IngredientsItem> */}
             </IngredientsList>
           </IngredientsBox>
         </RecipeWrapper>
       </Wrapper>
+      <AddRecipeModal />
     </>
   )
 }

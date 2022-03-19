@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   padding-top: 7rem;
   @media only screen and (min-width: 768px) {
     ${maxWidth}
-    height: 200vh;
+    height:100vh;
     padding: 6rem 2rem 4rem;
     margin-top: 7rem;
     left: 50%;
@@ -45,7 +45,6 @@ export const GeneralContainer = styled.div`
     justify-content: space-between;
     padding: 0;
     max-height: 500px;
-    overflow: hidden;
   }
 `
 

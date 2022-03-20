@@ -19,8 +19,9 @@ export const SelectLabel = styled.label`
   margin-bottom: 1rem;
 `
 export const Select = styled.select`
-  padding: 1rem 1.2rem;
   width: 100%;
+  height: 5rem;
+  padding: 1rem 1.2rem;
   border: none;
   border-radius: 6px;
   border: 2px solid ${({ theme }) => theme.colors.grey};

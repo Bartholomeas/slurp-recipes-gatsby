@@ -56,7 +56,7 @@ const Navbar = () => {
               data-testid="converter-icon"
             >
               <BiRepost style={{ fontSize: "2.4rem" }} />
-              converter
+              konwerter
             </ListButton>
           </NavListItem>
           <NavListItem>
@@ -65,7 +65,7 @@ const Navbar = () => {
               to="/"
               activeStyle={{ color: "#F2B61A" }}
             >
-              recipes
+              przepisy
             </NavLink>
           </NavListItem>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
               to="/contact"
               activeStyle={{ color: "#F2B61A" }}
             >
-              contact
+              kontakt
             </NavLink>
           </NavListItem>
           <NavListItem>
@@ -101,7 +101,7 @@ const Navbar = () => {
                 className="join-link"
                 onClick={() => setIsNavbarOpen(false)}
               >
-                <FiLogIn className="join-icon" /> join now
+                <FiLogIn className="join-icon" /> Dołącz
               </NavLink>
             )}
           </NavListItem>

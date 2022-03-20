@@ -24,6 +24,7 @@ const navLinkStyles = css`
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.6rem;
   text-decoration: none;
+  text-transform: capitalize;
   font-weight: 700;
   transition: color 0.3s;
 `

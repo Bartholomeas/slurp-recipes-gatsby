@@ -2,8 +2,9 @@ import React from "react"
 import styled, { css } from "styled-components"
 
 const inputStyles = css`
-  padding: 1rem 1.2rem;
   width: 100%;
+  height: 5rem;
+  padding: 1rem 1.2rem;
   border: none;
   border-radius: 8px;
   border: 2px solid ${({ theme }) => theme.colors.grey};

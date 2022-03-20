@@ -32,19 +32,19 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
         to="#"
       >
         <FaPlusCircle className="navbar-icon" />
-        add recipe
+        Dodaj przepis
       </NavbarLink>
       <NavbarLink className="user-panel-item" to="#">
         <FaHeart className="navbar-icon" />
-        favorite
+        Ulubione
       </NavbarLink>
       <NavbarLink className="user-panel-item" to="#">
         <FaCog className="navbar-icon" />
-        settings
+        Ustawienia
       </NavbarLink>
       <Button onClick={() => logoutHandler()} className="user-panel-item">
         <FaSignInAlt className="navbar-icon" />
-        logout
+        Wyloguj
       </Button>
     </Wrapper>
   )

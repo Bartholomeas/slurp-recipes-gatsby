@@ -17,9 +17,9 @@ export const DifficultyLevel = styled.span`
 `
 
 const DifficultyIndicator = ({ difficulty }) => {
-  difficulty === "easy"
+  difficulty === "łatwe"
     ? (difficulty = 1)
-    : difficulty === "medium"
+    : difficulty === "średnie"
     ? (difficulty = 2)
     : (difficulty = 3)
 

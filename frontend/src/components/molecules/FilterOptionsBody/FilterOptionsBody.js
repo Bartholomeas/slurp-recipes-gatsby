@@ -15,7 +15,8 @@ const FilterWrapper = styled.form`
   }
 `
 
-const FilterOptionsBody = ({ content }) => {
+const FilterOptionsBody = ({ content, ...props }) => {
+  console.log(props[0])
   return (
     <FilterWrapper>
       <FilterOptionHeader content={Object.keys(content[0])} />

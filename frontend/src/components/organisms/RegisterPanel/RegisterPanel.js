@@ -70,7 +70,7 @@ const RegisterPanel = () => {
 
   return (
     <RegisterPanelWrapper>
-      <RegisterHeader>register.</RegisterHeader>
+      <RegisterHeader>Zarejestruj się.</RegisterHeader>
       <RegisterForm>
         <FormField
           onChange={e => updateInput(e)}
@@ -108,7 +108,7 @@ const RegisterPanel = () => {
         />
       </RegisterForm>
       <RegisterLink to="/login">
-        Dont have account? <ColoredText>Log in.</ColoredText>
+        Masz konto? <ColoredText>Zaloguj się.</ColoredText>
       </RegisterLink>
     </RegisterPanelWrapper>
   )

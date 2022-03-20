@@ -39,7 +39,7 @@ const LoginPanel = () => {
 
   return (
     <LoginPanelWrapper>
-      <LoginHeader>log in.</LoginHeader>
+      <LoginHeader>Zaloguj się.</LoginHeader>
       <LoginForm>
         <FormField label="login" id="login" name="login" ref={loginInput} />
         <FormField
@@ -57,7 +57,7 @@ const LoginPanel = () => {
         />
       </LoginForm>
       <RegisterLink to="/register">
-        You dont have account? <ColoredText>Register now.</ColoredText>
+        Nie masz konta? <ColoredText>Zarejestruj się.</ColoredText>
       </RegisterLink>
     </LoginPanelWrapper>
   )

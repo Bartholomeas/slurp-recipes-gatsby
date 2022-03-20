@@ -55,15 +55,15 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
   return (
     <FilterWrapper isOpen={isOpen}>
       <FilterContainer>
-        <FilterOptionsBody content={diets} />
-        <FilterOptionsBody content={difficulties} />
-        <FilterOptionsBody content={types} />
+        <FilterOptionsBody props={diets} content={diets} />
+        <FilterOptionsBody props={difficulties} content={difficulties} />
+        <FilterOptionsBody props={types} content={types} />
         <ClearButton
           onClick={() => {
             clearState()
           }}
         >
-          Clear filters
+          Wyczyść
         </ClearButton>
       </FilterContainer>
     </FilterWrapper>

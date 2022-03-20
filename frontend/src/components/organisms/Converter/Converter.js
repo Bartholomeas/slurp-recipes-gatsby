@@ -16,7 +16,12 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       <ConverterHeader>Konwertuj miary</ConverterHeader>
       <MeasuresContainer>
         <FormField nameId="wartosc" content="wartość" width="70" />
-        <SelectField nameId="symbol" width="30" values={["g", "dag", "ml"]} />
+        <SelectField
+          nameId="symbol"
+          content="symbol"
+          width="30"
+          values={["g", "dag", "ml"]}
+        />
       </MeasuresContainer>
       {/* <MeasureWrapper>
           <svg

@@ -137,7 +137,7 @@ const AddRecipeModal = () => {
             nameId="diet"
             content="dieta"
             onChange={updateSelect}
-            values={["vegetarian", "vegan", "lactose-free"]}
+            values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
           />
           <SelectField
             nameId="difficulty"
@@ -146,40 +146,11 @@ const AddRecipeModal = () => {
             values={["łatwe", "średnie", "trudne"]}
           />
           <SelectField
-            nameId="posiłek"
+            nameId="diet"
             content="dieta"
             onChange={updateSelect}
             values={["śniadanie", "lunch", "obiad", "deser", "napój"]}
           />
-
-          {/* <SelectWrapper>
-            <SelectLabel htmlFor="diet">diet</SelectLabel>
-            <Select onChange={e => updateSelect(e)} name="diet" id="diet">
-              <option value="vegetarian">vegetarian</option>
-              <option value="vegan">vegan</option>
-              <option value="lactose-free">lactose-free</option>
-            </Select>
-          </SelectWrapper> */}
-          {/* <SelectWrapper>
-            <SelectLabel htmlFor="difficulty">difficulty</SelectLabel>
-            <Select onChange={e => updateSelect(e)} nameId="difficulty">
-              <option value="easy">easy</option>
-              <option value="medium">medium</option>
-              <option value="hard">hard</option>
-            </Select>
-          </SelectWrapper>
-          <SelectWrapper>
-            <SelectLabel htmlFor="type">type</SelectLabel>
-            <Select onChange={e => updateSelect(e)} name="type" id="type">
-              <option value="breakfast">breakfast</option>
-              <option value="lunch">lunch</option>
-              <option value="dinner">dinner</option>
-              <option value="starter">starter</option>
-              <option value="dessert">dessert</option>
-              <option value="drink">drink</option>
-              <option value="soup">soup</option>
-            </Select>
-          </SelectWrapper> */}
         </FormContainer>
 
         <FormField

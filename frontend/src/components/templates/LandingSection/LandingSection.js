@@ -87,7 +87,7 @@ const LandingSection = () => {
       </TextWrapper>
 
       <FeaturedRecipesWrapper>
-        <FeaturedRecipesHeader>Recipes of the day</FeaturedRecipesHeader>
+        <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
         <CardsContainer>
           {recipes.map(recipe => {
             return <CardLight payload={recipe} key={recipe.id} />

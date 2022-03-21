@@ -28,6 +28,7 @@ export const FilterWrapper = styled.div`
     left: 0;
     top: 0;
     transform: translate(0);
+    z-index: 0;
     opacity: 1;
   }
 

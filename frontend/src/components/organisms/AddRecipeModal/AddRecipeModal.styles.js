@@ -9,28 +9,30 @@ export const ModalBody = styled(Modal)`
   align-items: center;
   top: 50%;
   left: 50%;
-  /* height: 550px; */
   height: calc(100% - 7rem);
-  min-height: 400px;
-  padding: 2rem 0;
+  padding: 4rem 0;
   margin-top: 3.4rem;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border-radius: 6px;
-  z-index: 100000;
+  overflow-y: scroll;
+  z-index: 1000;
 
   @media only screen and (min-width: 768px) {
-    /* height: 550px; */
-    max-height: 75vh;
+    height: auto;
+    padding: 2rem 0;
+    height: auto;
     width: 600px;
   }
 `
 export const ModalHeader = styled.h2`
+  position: relative;
   align-self: flex-start;
   margin-left: 2rem;
   font-family: "Poppins", sans-serif;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.fontColor};
   padding: 1rem 0;
 `
@@ -39,7 +41,7 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
 `
 
@@ -54,10 +56,9 @@ export const Button = styled.button`
   background-color: ${({ closeBtn, theme }) =>
     closeBtn ? theme.colors.grey : theme.colors.secondaryColor};
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+  border-radius: 6px;
   transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.darkerPrimary};
@@ -79,26 +80,4 @@ export const ModalForm = styled.form`
     height: auto;
     overflow: auto;
   }
-`
-
-export const SelectWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 1.6rem;
-`
-
-export const SelectLabel = styled.label`
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-`
-export const Select = styled.select`
-  padding: 1rem 1.2rem;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.colors.grey};
-  background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `

@@ -50,7 +50,6 @@ const RecipesSection = () => {
     info,
     info: { diets, difficulties, types },
   } = useContext(StateContext)
-
   let checkedInfos = []
 
   const filterBarHandler = () => {

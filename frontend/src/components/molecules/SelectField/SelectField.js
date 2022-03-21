@@ -34,13 +34,13 @@ const SelectField = ({
   content = "",
   nameId = "",
   width = "100",
-  onChange = false,
+  onChange = () => {},
   ...values
 }) => {
   return (
     <SelectWrapper width={width}>
       <SelectLabel htmlFor={nameId}>{content}</SelectLabel>
-      <Select onChange={e => onChange(e) || null} name={nameId} id={nameId}>
+      <Select onChange={(e => onChange(e)) || null} name={nameId} id={nameId}>
         {values.values.map((value, idx) => {
           return (
             <option value={value} key={value + idx}>

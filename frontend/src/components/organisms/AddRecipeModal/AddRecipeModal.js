@@ -7,9 +7,6 @@ import {
   ModalHeader,
   ModalForm,
   FormContainer,
-  SelectWrapper,
-  SelectLabel,
-  Select,
   ButtonWrapper,
   Button,
 } from "./AddRecipeModal.styles"
@@ -179,10 +176,10 @@ const AddRecipeModal = () => {
 
         <ButtonWrapper>
           <Button type="submit" style={{ marginRight: "1rem" }}>
-            add recipe
+            Dodaj przepis
           </Button>
           <Button onClick={e => closeModal(e)} closeBtn>
-            close
+            Anuluj
           </Button>
         </ButtonWrapper>
       </ModalForm>

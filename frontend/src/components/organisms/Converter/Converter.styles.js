@@ -66,3 +66,11 @@ export const ConvertedValuesBox = styled.div`
   background-color: ${({ theme }) => theme.colors.greenish};
   font-size: 1.6rem;
 `
+export const ConvertedValue = styled.p`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.6rem;
+`

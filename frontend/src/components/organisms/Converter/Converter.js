@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import FormField from "../../molecules/FormField/FormField"
 import SelectField from "../../molecules/SelectField/SelectField"
 import {
@@ -8,12 +8,19 @@ import {
   TopContainer,
   ConvertedValuesBox,
   ConvertedContainer,
+  ConvertedValue,
 } from "./Converter.styles"
 import { FaUtensilSpoon } from "react-icons/fa"
 import { GiSpoon } from "react-icons/gi"
 import { BsCupFill } from "react-icons/bs"
 
 const Converter = ({ setIsConverterActive, isConverterActive }) => {
+  const [convertedValues, setConvertedValues] = useState({
+    product: "mąka pszenna",
+    symbol: "g",
+    value: "",
+  })
+
   const cup = {
     g: {
       "mąka pszenna": 150,
@@ -66,17 +73,23 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
     clearTimeout(timer)
     timer = setTimeout(() => {
       console.log(e.target.value)
+      setConvertedValues(prevState => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }))
     }, 500)
-
-    // console.log(e.target.value)
   }
+
   const getSelectValue = e => {
-    console.log(e.target.options[e.target.options.selectedIndex].innerText)
+    setConvertedValues(prevState => ({
+      ...prevState,
+      [e.target.name]:
+        e.target.options[e.target.options.selectedIndex].innerText,
+    }))
   }
-
-  const calculateConvertedValue = ((symbol, value) => {
-    // console.log(teaspoon.g["kasza manna"])
-  })()
+  const calculateConvertedValue = (convertedValues => {
+    console.log(convertedValues)
+  })(convertedValues)
 
   return (
     <ConverterWrapper
@@ -86,12 +99,23 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       <ConverterHeader>Konwertuj miary</ConverterHeader>
       <MeasuresContainer>
         <TopContainer>
-          <FormField
-            inputFunc={e => getInputValue(e)}
-            nameId="wartosc"
-            content="wartość"
-            type="number"
+          <SelectField
+            onChange={e => getSelectValue(e)}
+            nameId="product"
+            content="produkt"
             width="70"
+            values={[
+              "mąka pszenna",
+              "mąka ziemniaczana",
+              "cukier kryształ",
+              "cukier puder",
+              "kakao",
+              "bułka tarta",
+              "kasza manna",
+              "sól",
+              "olej",
+              "mleko",
+            ]}
           />
           <SelectField
             onChange={e => getSelectValue(e)}
@@ -101,29 +125,28 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
             values={["g", "dag", "ml"]}
           />
         </TopContainer>
-        <SelectField
-          onChange={e => getSelectValue(e)}
-          nameId="product"
-          content="produkt"
-          values={[
-            "mąka pszenna",
-            "mąka ziemniaczana",
-            "cukier kryształ",
-            "cukier puder",
-            "kakao",
-            "bułka tarta",
-            "kasza manna",
-            "sól",
-            "olej",
-            "mleko",
-          ]}
+        <FormField
+          inputFunc={e => getInputValue(e)}
+          nameId="value"
+          content="wartość"
+          type="number"
         />
+
         <ConvertedContainer>
           <p>300g mąki pszennej to około:</p>
           <ConvertedValuesBox>
-            <GiSpoon />
-            <BsCupFill />
-            <FaUtensilSpoon />
+            <ConvertedValue>
+              ewrtgfz
+              <GiSpoon />
+            </ConvertedValue>
+            <ConvertedValue>
+              asdasd
+              <BsCupFill />
+            </ConvertedValue>
+            <ConvertedValue>
+              dsafgbv
+              <FaUtensilSpoon />
+            </ConvertedValue>
           </ConvertedValuesBox>
         </ConvertedContainer>
       </MeasuresContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import FormField from "../../molecules/FormField/FormField"
 import SelectField from "../../molecules/SelectField/SelectField"
 import {
@@ -17,10 +17,18 @@ import { BsCupFill } from "react-icons/bs"
 const Converter = ({ setIsConverterActive, isConverterActive }) => {
   const initialState = { product: "mąka pszenna", symbol: "g", value: "" }
   const [dataToConvert, setDataToConvert] = useState(initialState)
+  const [convertedValues, setConvertedValues] = useState({
+    cup: "",
+    spoon: "",
+    teaspoon: "",
+  })
+
   let timer
   let cup, spoon, teaspoon
+
   const measures = [
     (cup = {
+      cup: "cup",
       g: {
         "mąka pszenna": 150,
         "mąka ziemniaczana": 150,
@@ -36,6 +44,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       ml: 250,
     }),
     (spoon = {
+      spoon: "spoon",
       g: {
         "mąka pszenna": 9,
         "mąka ziemniaczana": 9,
@@ -51,6 +60,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       ml: 15,
     }),
     (teaspoon = {
+      teaspoon: "teaspoon",
       g: {
         "mąka pszenna": 3,
         "mąka ziemniaczana": 3,
@@ -75,7 +85,6 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         [e.target.name]: e.target.value,
       }))
     }, 500)
-    console.log(dataToConvert)
   }
 
   const setSelectValue = e => {
@@ -85,13 +94,39 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         e.target.options[e.target.options.selectedIndex].innerText,
     }))
   }
-  const calculateConvertedValue = (({ product, symbol, value }) => {
-    measures.forEach(measure => {
-      console.log(
-        parseFloat(dataToConvert.value / measure[symbol][product]).toFixed(1)
-      )
-    })
-  })(dataToConvert)
+
+  useEffect(() => {
+    const calculateConvertedValue = (({
+      product = "",
+      symbol = "",
+      value = "",
+    }) => {
+      if (symbol === "dag") {
+        measures.forEach(measure => {
+          console.log(
+            parseFloat(
+              ((dataToConvert.value * 10) / measure["g"][product]).toFixed(1)
+            )
+          )
+        })
+      } else {
+        measures.forEach((measure, idx) => {
+          setConvertedValues(prevState => ({
+            ...prevState,
+            cup: [
+              parseFloat(
+                dataToConvert.value / measure[symbol][product]
+              ).toFixed(1),
+            ],
+          }))
+          console.log(convertedValues)
+          // console.log(
+          //   parseFloat(dataToConvert.value / measure[symbol][product]).toFixed(1)
+          // )
+        })
+      }
+    })(dataToConvert)
+  }, [dataToConvert])
 
   return (
     <ConverterWrapper
@@ -143,15 +178,15 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
           </p>
           <ConvertedValuesBox>
             <ConvertedValue>
-              asdasd
+              {convertedValues.cup}
               <BsCupFill />
             </ConvertedValue>
             <ConvertedValue>
-              dsafgbv
+              {convertedValues.spoon}
               <FaUtensilSpoon />
             </ConvertedValue>
             <ConvertedValue>
-              ewrtgfz
+              {convertedValues.teaspoon}
               <GiSpoon />
             </ConvertedValue>
           </ConvertedValuesBox>

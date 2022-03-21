@@ -41,7 +41,12 @@ const SelectField = ({
   return (
     <SelectWrapper width={width}>
       <SelectLabel htmlFor={nameId}>{content}</SelectLabel>
-      <Select onChange={(e => onChange(e)) || null} name={nameId} id={nameId}>
+      <Select
+        defaultValue="mąka pszenna"
+        onChange={(e => onChange(e)) || null}
+        name={nameId}
+        id={nameId}
+      >
         {values.values.map((value, idx) => {
           return (
             <option style={{ color: "black" }} value={value} key={value + idx}>

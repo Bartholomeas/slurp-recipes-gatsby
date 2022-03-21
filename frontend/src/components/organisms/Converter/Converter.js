@@ -15,81 +15,83 @@ import { GiSpoon } from "react-icons/gi"
 import { BsCupFill } from "react-icons/bs"
 
 const Converter = ({ setIsConverterActive, isConverterActive }) => {
-  const [convertedValues, setConvertedValues] = useState({
-    product: "mąka pszenna",
-    symbol: "g",
-    value: "",
-  })
-
-  const cup = {
-    g: {
-      "mąka pszenna": 150,
-      "mąka ziemniaczana": 150,
-      "cukier kryształ": 250,
-      "cukier puder": 250,
-      kakao: 100,
-      "bułka tarta": 150,
-      "kasza manna": 250,
-      sól: 150,
-      olej: 200,
-      mleko: 200,
-    },
-    ml: 250,
-  }
-  const spoon = {
-    g: {
-      "mąka pszenna": 9,
-      "mąka ziemniaczana": 9,
-      "cukier kryształ": 15,
-      "cukier puder": 9,
-      kakao: 6,
-      "bułka tarta": 9,
-      "kasza manna": 15,
-      sól: 9,
-      olej: 15,
-      mleko: 15,
-    },
-    ml: 15,
-  }
-  const teaspoon = {
-    g: {
-      "mąka pszenna": 3,
-      "mąka ziemniaczana": 3,
-      "cukier kryształ": 5,
-      "cukier puder": 3,
-      kakao: 2,
-      "bułka tarta": 3,
-      "kasza manna": 5,
-      sól: 3,
-      olej: 4,
-      mleko: 5,
-    },
-    ml: 5,
-  }
-
+  const initialState = { product: "mąka pszenna", symbol: "g", value: "" }
+  const [dataToConvert, setDataToConvert] = useState(initialState)
   let timer
+  let cup, spoon, teaspoon
+  const measures = [
+    (cup = {
+      g: {
+        "mąka pszenna": 150,
+        "mąka ziemniaczana": 150,
+        "cukier kryształ": 250,
+        "cukier puder": 250,
+        kakao: 100,
+        "bułka tarta": 150,
+        "kasza manna": 250,
+        sól: 150,
+        olej: 200,
+        mleko: 200,
+      },
+      ml: 250,
+    }),
+    (spoon = {
+      g: {
+        "mąka pszenna": 9,
+        "mąka ziemniaczana": 9,
+        "cukier kryształ": 15,
+        "cukier puder": 9,
+        kakao: 6,
+        "bułka tarta": 9,
+        "kasza manna": 15,
+        sól: 9,
+        olej: 15,
+        mleko: 15,
+      },
+      ml: 15,
+    }),
+    (teaspoon = {
+      g: {
+        "mąka pszenna": 3,
+        "mąka ziemniaczana": 3,
+        "cukier kryształ": 5,
+        "cukier puder": 3,
+        kakao: 2,
+        "bułka tarta": 3,
+        "kasza manna": 5,
+        sól: 3,
+        olej: 4,
+        mleko: 5,
+      },
+      ml: 5,
+    }),
+  ]
 
-  const getInputValue = e => {
+  const setInputValue = e => {
     clearTimeout(timer)
     timer = setTimeout(() => {
-      console.log(e.target.value)
-      setConvertedValues(prevState => ({
+      setDataToConvert(prevState => ({
         ...prevState,
         [e.target.name]: e.target.value,
       }))
     }, 500)
+    console.log(dataToConvert)
   }
 
-  const getSelectValue = e => {
-    setConvertedValues(prevState => ({
+  const setSelectValue = e => {
+    setDataToConvert(prevState => ({
       ...prevState,
       [e.target.name]:
         e.target.options[e.target.options.selectedIndex].innerText,
     }))
   }
-  const calculateConvertedValue = (convertedValues => {
-    console.log(convertedValues)
-  })(convertedValues)
+  const calculateConvertedValue = (({ product, symbol, value }) => {
+    measures.forEach(measure => {
+      console.log(
+        parseFloat(dataToConvert.value / measure[symbol][product]).toFixed(1)
+      )
+    })
+  })(dataToConvert)
 
   return (
     <ConverterWrapper
@@ -100,7 +102,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       <MeasuresContainer>
         <TopContainer>
           <SelectField
-            onChange={e => getSelectValue(e)}
+            onChange={e => setSelectValue(e)}
             nameId="product"
             content="produkt"
             width="70"
@@ -118,7 +120,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
             ]}
           />
           <SelectField
-            onChange={e => getSelectValue(e)}
+            onChange={e => setSelectValue(e)}
             nameId="symbol"
             content="miara"
             width="30"
@@ -126,19 +128,20 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
           />
         </TopContainer>
         <FormField
-          inputFunc={e => getInputValue(e)}
+          inputFunc={e => setInputValue(e)}
           nameId="value"
           content="wartość"
           type="number"
         />
 
         <ConvertedContainer>
-          <p>300g mąki pszennej to około:</p>
+          <p>
+            {dataToConvert.value
+              ? ` ${dataToConvert.value}
+          ${dataToConvert.symbol} ${dataToConvert.product} to około: `
+              : "Wprowadź dane"}
+          </p>
           <ConvertedValuesBox>
-            <ConvertedValue>
-              ewrtgfz
-              <GiSpoon />
-            </ConvertedValue>
             <ConvertedValue>
               asdasd
               <BsCupFill />
@@ -147,10 +150,14 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
               dsafgbv
               <FaUtensilSpoon />
             </ConvertedValue>
+            <ConvertedValue>
+              ewrtgfz
+              <GiSpoon />
+            </ConvertedValue>
           </ConvertedValuesBox>
         </ConvertedContainer>
       </MeasuresContainer>
-      <button>Wyczyść</button>
+      <button onClick={() => setDataToConvert([])}>Wyczyść</button>
     </ConverterWrapper>
   )
 }

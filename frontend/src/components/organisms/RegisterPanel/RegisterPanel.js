@@ -20,7 +20,7 @@ export const RegisterHeader = styled.p`
 `
 export const RegisterForm = styled.form`
   width: 100%;
-
+  
   @media only screen and (min-width: 768px) {
     width: 50%;
     max-width: 500px;
@@ -103,7 +103,7 @@ const RegisterPanel = () => {
         <Button
           onClick={e => registerUser(e)}
           type="submit"
-          content="register"
+          content="Zarejestruj"
           isLong
         />
       </RegisterForm>

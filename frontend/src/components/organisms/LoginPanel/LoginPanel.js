@@ -52,7 +52,7 @@ const LoginPanel = () => {
         <Button
           isLong
           type="submit"
-          content="log in"
+          content="Zaloguj się"
           onClick={e => authorizeUser(e)}
         />
       </LoginForm>

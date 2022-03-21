@@ -25,7 +25,8 @@ export const Select = styled.select`
   border: none;
   border-radius: 6px;
   border: 2px solid ${({ theme }) => theme.colors.grey};
-  background: ${({ isImage }) => (isImage ? "none" : "auto")};
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.fontColor};
   font-family: "Playfair Display", serif;
   cursor: pointer;
 `
@@ -43,7 +44,7 @@ const SelectField = ({
       <Select onChange={(e => onChange(e)) || null} name={nameId} id={nameId}>
         {values.values.map((value, idx) => {
           return (
-            <option value={value} key={value + idx}>
+            <option style={{ color: "black" }} value={value} key={value + idx}>
               {value}
             </option>
           )

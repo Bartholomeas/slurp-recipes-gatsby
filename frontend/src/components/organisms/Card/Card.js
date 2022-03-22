@@ -10,8 +10,6 @@ import {
   Circle,
   CardLabelTitle,
   CardInfoBottomContainer,
-  RecipeTime,
-  TimeIcon,
 } from "./Card.styles"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
 
@@ -19,7 +17,6 @@ const Card = ({ payload }) => {
   const {
     difficulties: difficulty = "none",
     img = "",
-    time = "0",
     title = "none",
     diets = "none",
     types: type = "none",
@@ -41,10 +38,6 @@ const Card = ({ payload }) => {
           </CardInfoHeaderContainer>
 
           <CardInfoBottomContainer>
-            {/* <RecipeTime>
-              <TimeIcon />
-              {time}min
-            </RecipeTime> */}
             <DifficultyIndicator
               difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
             />

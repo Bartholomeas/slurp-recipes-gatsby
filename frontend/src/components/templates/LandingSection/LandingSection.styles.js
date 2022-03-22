@@ -23,7 +23,7 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
   padding: 0 4rem;
   gap: 3rem;
@@ -44,10 +44,10 @@ export const LandingText = styled.h1`
     font-size: 5.4rem;
   }
   @media only screen and (min-width: 768px) {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   @media only screen and (min-width: 1600px) {
-    font-size: 9rem;
+    font-size: 7rem;
   }
 `
 

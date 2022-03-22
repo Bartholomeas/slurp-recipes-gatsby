@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { AiOutlineFieldTime } from "react-icons/ai"
 
 const flexColumn = css`
   display: flex;
@@ -91,7 +90,4 @@ export const RecipeTime = styled.p`
   color: ${({ theme }) => theme.colors.secondaryColor};
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
-`
-export const TimeIcon = styled(AiOutlineFieldTime)`
-  margin-right: 0.8rem;
 `

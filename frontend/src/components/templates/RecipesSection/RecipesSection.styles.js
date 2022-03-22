@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { BsFilterCircleFill } from "react-icons/bs"
-import Button from "../../atoms/Button/Button"
 
 export const RecipesWrapper = styled.section`
   display: flex;

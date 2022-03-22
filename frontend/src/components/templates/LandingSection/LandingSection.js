@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Button from "../../atoms/Button/Button"
 import SearchBar from "../../molecules/SearchBar/SearchBar"
 import {
   LandingWrapper,
@@ -13,7 +12,6 @@ import {
   ColoredText,
 } from "./LandingSection.styles"
 import CardLight from "../../organisms/CardLight/CardLight"
-import axios from "axios"
 
 const LandingSection = () => {
   const {
@@ -38,9 +36,6 @@ const LandingSection = () => {
       }
     }
   `)
-  console.log(recipes)
-
-  const [featuredRecipes, setFeaturedRecipes] = useState([])
 
   // const windowGlobal = typeof window !== "undefined" && window
   // useEffect(() => {
@@ -67,7 +62,7 @@ const LandingSection = () => {
     <LandingWrapper>
       <TextWrapper>
         <LandingText>
-          Best tastes of your life with <ColoredText>our recipes</ColoredText>
+          Najlepsze smaki tylko z <ColoredText>naszymi przepisami</ColoredText>
         </LandingText>
         <StaticImage
           style={{
@@ -78,6 +73,7 @@ const LandingSection = () => {
             zIndex: "-10",
             filter: "brightness(20%)",
             backgroundAttachment: "fixed",
+            alignSelf: "center",
           }}
           src="../../../images/landing.jpg"
           placeholder="blurred"

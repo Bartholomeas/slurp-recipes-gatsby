@@ -28,7 +28,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
 
   const measures = [
     (cup = {
-      cup: "cup",
+      name: "cup",
       g: {
         "mąka pszenna": 150,
         "mąka ziemniaczana": 150,
@@ -44,7 +44,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       ml: 250,
     }),
     (spoon = {
-      spoon: "spoon",
+      name: "spoon",
       g: {
         "mąka pszenna": 9,
         "mąka ziemniaczana": 9,
@@ -60,7 +60,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
       ml: 15,
     }),
     (teaspoon = {
-      teaspoon: "teaspoon",
+      name: "teaspoon",
       g: {
         "mąka pszenna": 3,
         "mąka ziemniaczana": 3,
@@ -103,26 +103,31 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
     }) => {
       if (symbol === "dag") {
         measures.forEach(measure => {
-          console.log(
-            parseFloat(
-              ((dataToConvert.value * 10) / measure["g"][product]).toFixed(1)
-            )
-          )
-        })
-      } else {
-        measures.forEach((measure, idx) => {
           setConvertedValues(prevState => ({
             ...prevState,
-            cup: [
+            [measure.name]: [
               parseFloat(
-                dataToConvert.value / measure[symbol][product]
-              ).toFixed(1),
+                ((dataToConvert.value * 10) / measure["g"][product]).toFixed(1)
+              ),
             ],
           }))
-          console.log(convertedValues)
+
           // console.log(
-          //   parseFloat(dataToConvert.value / measure[symbol][product]).toFixed(1)
+          //   parseFloat(
+          //     ((dataToConvert.value * 10) / measure["g"][product]).toFixed(1)
+          //   )
           // )
+        })
+      } else {
+        measures.forEach(measure => {
+          setConvertedValues(prevState => ({
+            ...prevState,
+            [measure.name]: [
+              parseFloat(
+                (dataToConvert.value / measure[symbol][product]).toFixed(1)
+              ),
+            ],
+          }))
         })
       }
     })(dataToConvert)
@@ -178,21 +183,21 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
           </p>
           <ConvertedValuesBox>
             <ConvertedValue>
-              {convertedValues.cup}
+              {convertedValues.cup} szklanki
               <BsCupFill />
             </ConvertedValue>
             <ConvertedValue>
-              {convertedValues.spoon}
+              {convertedValues.spoon} łyżki
               <FaUtensilSpoon />
             </ConvertedValue>
             <ConvertedValue>
-              {convertedValues.teaspoon}
+              {convertedValues.teaspoon} łyżeczki
               <GiSpoon />
             </ConvertedValue>
           </ConvertedValuesBox>
         </ConvertedContainer>
       </MeasuresContainer>
-      <button onClick={() => setDataToConvert([])}>Wyczyść</button>
+      <button onClick={() => setDataToConvert(initialState)}>Wyczyść</button>
     </ConverterWrapper>
   )
 }

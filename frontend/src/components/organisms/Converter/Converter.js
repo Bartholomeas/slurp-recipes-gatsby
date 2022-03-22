@@ -111,12 +111,15 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
               ),
             ],
           }))
-
-          // console.log(
-          //   parseFloat(
-          //     ((dataToConvert.value * 10) / measure["g"][product]).toFixed(1)
-          //   )
-          // )
+        })
+      } else if (symbol === "ml") {
+        measures.forEach(measure => {
+          setConvertedValues(prevState => ({
+            ...prevState,
+            [measure.name]: [
+              parseFloat((dataToConvert.value / measure.ml).toFixed(1)),
+            ],
+          }))
         })
       } else {
         measures.forEach(measure => {

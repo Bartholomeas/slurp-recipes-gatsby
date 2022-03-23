@@ -7,17 +7,13 @@ import {
 } from "react-icons/ai"
 
 const IconStyles = css`
-  margin-right: 1.4rem;
   color: ${({ theme }) => theme.colors.darkGrey};
-  font-size: 2.6rem;
+  font-size: 3.2rem;
   cursor: pointer;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primaryColor};
-  }
 `
 
 const FooterWrapper = styled.footer`
+  position: relative;
   width: 100%;
   height: auto;
   bottom: 0;
@@ -59,7 +55,6 @@ const LocationBox = styled.div`
   }
 `
 const LocationHeader = styled.h3`
-  /* color: ${({ theme }) => theme.colors.darkerPrimary}; */
   color: ${({ theme }) => theme.colors.darkGrey};
 `
 const LocationTextBox = styled.div``
@@ -88,6 +83,7 @@ const FooterCopyright = styled.p`
 const IconBox = styled.div`
   display: flex;
   align-items: center;
+  gap: 2rem;
 `
 
 const Footer = () => {

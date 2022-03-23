@@ -13,8 +13,8 @@ const ContactPageWrapper = styled.div`
   align-items: center;
   min-height: 100vh;
   max-width: 1200px;
-  gap:1rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 2rem 2rem 1rem 2rem;
   margin: 0 auto;
   /* width: 100%; */
   margin-top: 7rem;
@@ -84,7 +84,7 @@ const ContactFormSection = styled.section`
 
 const ContactLogo = styled.p`
   font-size: 2em;
-  margin-bottom: 2rem;  
+  margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 

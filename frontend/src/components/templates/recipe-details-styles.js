@@ -10,6 +10,47 @@ const maxWidth = css`
   max-width: 900px;
 `
 
+const IconsStyle = css`
+  /* position: absolute; */
+  right: -5rem;
+  top: 50%;
+  font-size: 5rem;
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  z-index: 10000;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.darkerSecondary};
+  }
+`
+
+export const IconsContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 0;
+  width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+  }
+`
+
+export const FacebookIcon = styled(AiFillFacebook)`
+  ${IconsStyle}
+`
+export const ShareIcon = styled(AiOutlineShareAlt)`
+  ${IconsStyle}
+`
+export const PrintIcon = styled(AiFillPrinter)`
+  ${IconsStyle}
+`
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -20,9 +61,10 @@ export const Wrapper = styled.div`
   width: 100%;
   gap: 1rem;
   padding-top: 7rem;
+
   @media only screen and (min-width: 768px) {
-    ${maxWidth}
-    height:100vh;
+    ${maxWidth};
+    height: 200vh;
     padding: 6rem 2rem 4rem;
     margin-top: 7rem;
     left: 50%;

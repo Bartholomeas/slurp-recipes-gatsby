@@ -3,6 +3,10 @@ import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { Helmet } from "react-helmet"
 import {
+  IconsContainer,
+  FacebookIcon,
+  ShareIcon,
+  PrintIcon,
   Wrapper,
   GeneralContainer,
   RecipeHeader,
@@ -103,6 +107,11 @@ const RecipeDetails = ({ data }) => {
           </IngredientsBox>
         </RecipeWrapper>
       </Wrapper>
+      <IconsContainer>
+        <FacebookIcon />
+        <ShareIcon />
+        <PrintIcon onClick={() => window.print()} />
+      </IconsContainer>
       <AddRecipeModal />
     </>
   )

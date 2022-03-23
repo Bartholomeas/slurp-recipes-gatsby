@@ -9,7 +9,8 @@ const Heading = styled.h1`
   font-weight: bold;
   margin: 4rem 0;
   color: ${({ theme }) => theme.colors.darkerPrimary};
-
+  color: ${({ theme }) => theme.colors.white};
+  
   &::after {
     content: "";
     position: absolute;
@@ -26,11 +27,9 @@ const Heading = styled.h1`
   }
 `
 
-const Header = ({ content }) => {
+const Header = ({ children }) => {
   return (
-    <>
-      <Heading>{content.toLowerCase()}</Heading>
-    </>
+      <Heading>{children}</Heading>
   )
 }
 

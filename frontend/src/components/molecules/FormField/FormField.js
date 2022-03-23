@@ -47,7 +47,7 @@ const FormField = React.forwardRef(
       textarea = false,
       type = "text",
       width = "100",
-      onChange,
+      onChange = () => {},
       inputFunc,
     },
     ref
@@ -57,19 +57,15 @@ const FormField = React.forwardRef(
         <Label htmlFor={nameId}>{content}</Label>
         {!textarea ? (
           <Input
-            onChange={onChange ? onChange : null}
+            onChange={onChange}
             id={nameId}
             name={nameId}
             type={type}
             ref={ref}
             onKeyUp={inputFunc}
-          ></Input>
+          />
         ) : (
-          <Textarea
-            onChange={e => onChange(e)}
-            id={nameId}
-            name={nameId}
-          ></Textarea>
+          <Textarea onChange={e => onChange(e)} id={nameId} name={nameId} />
         )}
       </Wrapper>
     )

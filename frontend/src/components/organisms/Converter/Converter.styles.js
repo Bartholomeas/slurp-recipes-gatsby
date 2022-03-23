@@ -14,11 +14,11 @@ export const ConverterWrapper = styled.div`
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );
   transform-origin: top right;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   z-index: -15;
 
   @media only screen and (min-width: 768px) {
-    /* height: 300px; */
+    height: auto;
     width: 400px;
     right: 2rem;
     transform-origin: top left;
@@ -31,7 +31,7 @@ export const MeasuresContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 2rem 0;
-  /* gap: 1rem; */
+
   height: 100%;
   width: 100%;
 `
@@ -47,12 +47,14 @@ export const ConvertedContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 50%;
+  background-color: pink;
   border-radius: 6px;
+`
+export const ConvertedInfo = styled.p`
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.secondaryColor};
-
-  & p {
-    padding: 1rem;
-  }
+  border-radius: 6px;
 `
 
 export const ConvertedValuesBox = styled.div`
@@ -60,6 +62,7 @@ export const ConvertedValuesBox = styled.div`
   flex-direction: column;
   gap: 2rem;
   width: 100%;
+  height: 100%;
   padding: 2rem 1rem;
   border-radius: 6px;
   color: ${({ theme }) => theme.colors.secondarySupport};

@@ -3,26 +3,24 @@ import styled from "styled-components"
 
 const ButtonWrapper = styled.button`
   width: ${({ isLong }) => (isLong ? "100%" : "auto")};
-  padding: 1rem 1.4rem;
-  border: none;
-  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  background: none;
+  border: 2px solid ${({ theme }) => theme.colors.primaryColor};
   color: ${({ theme }) => theme.colors.lightFont};
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: "Raleway", sans-serif;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  transition: 0.3s background-color;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondarySupport};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
   }
 `
 
-const Button = ({ isLong = false, content, className, onClick }) => {
+const Button = ({ children, isLong = false, className, onClick }) => {
   return (
     <ButtonWrapper isLong={isLong} onClick={onClick} className={className}>
-      {content}
+      {children}
     </ButtonWrapper>
   )
 }

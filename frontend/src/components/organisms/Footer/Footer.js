@@ -1,51 +1,80 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import {
   AiFillFacebook,
   AiFillInstagram,
   AiFillTwitterSquare,
 } from "react-icons/ai"
+
+const IconStyles = css`
+  margin-right: 1.4rem;
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-size: 2.6rem;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryColor};
+  }
+`
+
 const FooterWrapper = styled.footer`
   width: 100%;
-  height: 8rem;
+  height: auto;
   bottom: 0;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  color: ${({ theme }) => theme.colors.fontColor};
+  background-color: ${({ theme }) => theme.colors.fontColor};
 
   @media print {
     position: absolute;
-    height: 3rem;
     bottom: 0;
   }
 `
 
 const FooterContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
   height: 100%;
-  max-width: 1600px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
   margin: 0 auto;
-  padding: 0 2rem;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+`
+const LocationBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-end;
+    text-align: right;
+  }
+`
+const LocationHeader = styled.h3`
+  /* color: ${({ theme }) => theme.colors.darkerPrimary}; */
+  color: ${({ theme }) => theme.colors.darkGrey};
+`
+const LocationTextBox = styled.div``
+const LocationText = styled.p`
+  color: ${({ theme }) => theme.colors.darkGrey};
 `
 
 const FacebookIcon = styled(AiFillFacebook)`
-  margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
-  font-size: 2.6rem;
-  cursor: pointer;
+  ${IconStyles}
 `
 const InstagramIcon = styled(AiFillInstagram)`
-  margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
-  font-size: 2.6rem;
-  cursor: pointer;
+  ${IconStyles}
 `
 const TwitterIcon = styled(AiFillTwitterSquare)`
-  margin-right: 1.4rem;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
-  font-size: 2.6rem;
-  cursor: pointer;
+  ${IconStyles}
 `
 
 const FooterCopyright = styled.p`
@@ -56,6 +85,11 @@ const FooterCopyright = styled.p`
   }
 `
 
+const IconBox = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Footer = () => {
   const year = new Date().getFullYear()
 
@@ -63,9 +97,20 @@ const Footer = () => {
     <FooterWrapper>
       <FooterContainer>
         <FooterCopyright>barth design {year}&copy; </FooterCopyright>
-        <FacebookIcon />
-        <InstagramIcon />
-        <TwitterIcon />
+        <IconBox>
+          <FacebookIcon />
+          <InstagramIcon />
+          <TwitterIcon />
+        </IconBox>
+        <LocationBox>
+          <LocationHeader>Dane kontaktowe:</LocationHeader>
+          <LocationTextBox>
+            <LocationText>Bazylea 21-370</LocationText>
+            <LocationText>ul. Mariusza Pudzianowskiego 13/37</LocationText>
+            <LocationText>kontakt@slurp.pl</LocationText>
+            <LocationText>+48 623 456 789</LocationText>
+          </LocationTextBox>
+        </LocationBox>
       </FooterContainer>
     </FooterWrapper>
   )

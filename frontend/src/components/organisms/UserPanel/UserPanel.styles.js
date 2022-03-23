@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
   );
   transform-origin: top right;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   z-index: 1000;
 
   & .modal-body {

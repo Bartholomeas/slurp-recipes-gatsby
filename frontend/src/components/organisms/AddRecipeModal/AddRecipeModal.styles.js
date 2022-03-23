@@ -57,7 +57,7 @@ export const Button = styled.button`
     closeBtn ? theme.colors.grey : theme.colors.secondaryColor};
   border: none;
   border-radius: 6px;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.2s, transform 0.2s;
   cursor: pointer;
 
   &:hover {

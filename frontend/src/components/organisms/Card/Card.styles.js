@@ -19,7 +19,7 @@ export const CardWrapper = styled.div`
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.2s;
 
   &:hover {
     transform: scale(0.98);

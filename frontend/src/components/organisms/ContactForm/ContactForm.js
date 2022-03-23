@@ -3,6 +3,7 @@ import emailjs from "emailjs-com"
 import styled from "styled-components"
 import Header from "../../atoms/Header/Header"
 import Button from "../../atoms/Button/Button"
+import FormField from "../../molecules/FormField/FormField"
 
 const ContactWrapper = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const ContactWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
+  padding: 0 2rem;
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 const ContactFormBody = styled.form`
@@ -19,65 +24,23 @@ const ContactFormBody = styled.form`
   justify-content: center;
   align-items: center;
   width: 100%;
-`
-
-const ContactItemsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0 2rem;
-  margin-bottom: 3rem;
 
   @media only screen and (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
-    /* justify-content: space-between; */
-    width: 50%;
   }
+  max-width: 500px;
 `
 
-const ContactFormLabel = styled.label`
-  color: ${({ theme }) => theme.colors.fontColor};
-  font-size: 2.6rem;
-  align-content: flex-end;
-  margin-bottom: 1.6rem;
-
-  @media only screen and (min-width: 768px) {
-    margin: 0;
-    width: 20%;
-    text-align: right;
-    margin-right: 2rem;
-  }
-`
-
-const ContactFormInput = styled.input`
-  height: 3rem;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
-  border: none;
-
-  @media only screen and (min-width: 768px) {
-    width: 60%;
-  }
-`
-const ContactFormTextarea = styled.textarea`
-  height: 8rem;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
-  border: none;
-  resize: vertical;
-
-  @media only screen and (min-width: 768px) {
-    width: 60%;
-  }
+const Statement = styled.p`
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  font-size: 1.6rem;
+  padding: 2rem;
 `
 
 const ContactForm = () => {
+  let statement = ""
+
   const sendEmail = e => {
     e.preventDefault()
-
     emailjs
       .sendForm(
         "gmail",
@@ -87,6 +50,7 @@ const ContactForm = () => {
       )
       .then(
         result => {
+          return (statement = "Pomyślnie wysłano wiadomość")
           console.log(result.text)
         },
         error => {
@@ -97,21 +61,15 @@ const ContactForm = () => {
 
   return (
     <ContactWrapper>
-      <Header content="send recipe to us!" />
+      <Header>Send recipe to us</Header>
       <ContactFormBody onSubmit={sendEmail}>
-        <ContactItemsContainer>
-          <ContactFormLabel htmlFor="email">your e-mail</ContactFormLabel>
-          <ContactFormInput id="email" type="email" name="from_name" />
-        </ContactItemsContainer>
-        <ContactItemsContainer>
-          <ContactFormLabel htmlFor="title">title</ContactFormLabel>
-          <ContactFormInput id="title" type="title  " name="title" />
-        </ContactItemsContainer>
-        <ContactItemsContainer>
-          <ContactFormLabel htmlFzr="message">message</ContactFormLabel>
-          <ContactFormTextarea id="message" name="message" />
-        </ContactItemsContainer>
-        <Button content="send" type="submit" value="Send" />
+        <FormField nameId="from_name" content="Twój email" type="email" />
+        <FormField nameId="title" content="Tytuł" />
+        <FormField textarea={true} nameId="message" content="Wiadomość" />
+        <Button isLong type="submit" value="send">
+          Wyślij
+        </Button>
+        <Statement>{statement}</Statement>
       </ContactFormBody>
     </ContactWrapper>
   )

@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
   box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   overflow: hidden;
-  transition: transform 0.3s;
+  transition: transform 0.2s;
 
   &:hover {
     transform: scale(0.98);

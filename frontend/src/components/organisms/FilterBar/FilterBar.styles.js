@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   position: fixed;
@@ -31,14 +32,6 @@ export const FilterWrapper = styled.div`
     z-index: 0;
     opacity: 1;
   }
-
-  /* &::before {
-    content: "";
-    position: absolute;
-    background: gold;
-    height: 100%;
-    left: -2rem;
-  } */
 `
 
 export const FilterHeader = styled.p`
@@ -63,17 +56,4 @@ export const FilterContainer = styled.div`
   }
 `
 
-export const ClearButton = styled.button`
-  padding: 0.8rem 1.4rem;
-  border: none;
-  border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
-  color: ${({ theme }) => theme.colors.lightFont};
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: 0.3s background-color;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryColor};
-  }
-`
+export const ClearButton = styled(Button)``

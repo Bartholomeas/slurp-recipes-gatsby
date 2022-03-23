@@ -7,13 +7,16 @@ import Button from "../components/atoms/Button/Button"
 import axios from "axios"
 
 const ContactPageWrapper = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100%;
+  max-width: 1200px;
+  gap:1rem;
+  padding: 2rem;
+  margin: 0 auto;
+  /* width: 100%; */
   margin-top: 7rem;
 `
 
@@ -25,8 +28,8 @@ const AboutUsSection = styled.section`
   justify-content: flex-start;
   width: 100%;
   min-height: 50vh;
-  /* max-width: 1600px; */
-  padding: 4rem 2rem;
+  border-radius: 6px;
+  overflow: hidden;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
   @media only screen and (min-width: 768px) {
@@ -39,6 +42,7 @@ const AboutUsTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem;
   width: 100%;
 
   @media only screen and (min-width: 768px) {
@@ -64,7 +68,7 @@ const AboutUsHeader = styled.h1`
 const AboutUsText = styled.p`
   width: 100%;
   color: ${({ theme }) => theme.colors.fontColor};
-  text-align: center;
+  text-align: left;
   margin-bottom: 4rem;
   font-size: 2rem;
   @media only screen and (min-width: 768px) {
@@ -76,12 +80,11 @@ const AboutUsText = styled.p`
 const ContactFormSection = styled.section`
   min-height: 60vh;
   width: 100%;
-  padding: 4rem 0;
 `
 
 const ContactLogo = styled.p`
   font-size: 2em;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem;  
   color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 
@@ -123,7 +126,7 @@ const Contact = ({ data }) => {
       <ContactPageWrapper>
         <AboutUsSection>
           <AboutUsTextWrapper>
-            <AboutUsHeader>who we are?</AboutUsHeader>
+            <AboutUsHeader>Trochę o nas</AboutUsHeader>
             <AboutUsText>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem a a
               suspendisse egestas pharetra, nibh nisi sagittis. Magnis accumsan
@@ -143,7 +146,9 @@ const Contact = ({ data }) => {
           <ContactForm />
         </ContactFormSection>
       </ContactPageWrapper>
-      <Button content="KLIKNIJ" onClick={() => getImages} />
+      {/* <Button content="KLIKNIJ" onClick={() => getImages}>
+        Kliknij
+      </Button> */}
     </>
   )
 }

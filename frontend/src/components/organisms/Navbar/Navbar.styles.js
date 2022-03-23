@@ -88,7 +88,7 @@ export const LinkContainer = styled.ul`
     transform: scale(${({ isNavbarOpen }) => (isNavbarOpen ? "1" : "0")});
     transform-origin: top right;
     background-color: ${({ theme }) => theme.colors.lightGrey};
-    transition: transform 0.3s;
+    transition: transform 0.2s;
     overflow: hidden;
     z-index: -10;
   } ;
@@ -110,7 +110,7 @@ export const NavListItem = styled.li`
     bottom: 0;
     transform: scale(0);
     transform-origin: left;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
   &:hover&::before {
     transform: scale(1);

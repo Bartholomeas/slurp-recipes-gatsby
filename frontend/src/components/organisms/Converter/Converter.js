@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import FormField from "../../molecules/FormField/FormField"
 import SelectField from "../../molecules/SelectField/SelectField"
+import Button from "../../atoms/Button/Button"
 import {
   ConverterWrapper,
   MeasuresContainer,
+  ConvertedInfo,
   ConverterHeader,
   TopContainer,
   ConvertedValuesBox,
@@ -178,12 +180,12 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         />
 
         <ConvertedContainer>
-          <p>
+          <ConvertedInfo>
             {dataToConvert.value
               ? ` ${dataToConvert.value}
           ${dataToConvert.symbol} ${dataToConvert.product} to około: `
               : "Wprowadź dane"}
-          </p>
+          </ConvertedInfo>
           <ConvertedValuesBox>
             <ConvertedValue>
               {convertedValues.cup} szklanki
@@ -200,7 +202,9 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
           </ConvertedValuesBox>
         </ConvertedContainer>
       </MeasuresContainer>
-      <button onClick={() => setDataToConvert(initialState)}>Wyczyść</button>
+      <Button isLong onClick={() => setDataToConvert(initialState)}>
+        Wyczyść
+      </Button>
     </ConverterWrapper>
   )
 }

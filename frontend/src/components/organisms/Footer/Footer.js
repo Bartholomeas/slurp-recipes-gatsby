@@ -18,10 +18,11 @@ const FooterWrapper = styled.footer`
   height: auto;
   bottom: 0;
   background-color: ${({ theme }) => theme.colors.fontColor};
-
+  @media only screen and (min-width: 768px) {
+    height: 15rem;
+  }
   @media print {
-    position: absolute;
-    bottom: 0;
+    display: none;
   }
 `
 
@@ -74,10 +75,6 @@ const TwitterIcon = styled(AiFillTwitterSquare)`
 
 const FooterCopyright = styled.p`
   color: ${({ theme }) => theme.colors.darkGrey};
-
-  @media print {
-    font-size: 1.2rem;
-  }
 `
 
 const IconBox = styled.div`

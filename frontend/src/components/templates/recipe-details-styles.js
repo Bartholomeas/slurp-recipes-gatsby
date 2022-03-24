@@ -39,6 +39,10 @@ export const IconsContainer = styled.div`
     position: absolute;
     flex-direction: column;
   }
+
+  @media print {
+    display: none;
+  }
 `
 
 export const FacebookIcon = styled(AiFillFacebook)`
@@ -56,19 +60,27 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 200vh;
-  padding: 1rem;
-  width: 100%;
+  justify-content: flex-start;
   gap: 1rem;
+  min-height: 200vh;
+  width: 100%;
+  padding: 1rem;
   padding-top: 7rem;
 
   @media only screen and (min-width: 768px) {
     ${maxWidth};
-    height: 200vh;
-    padding: 6rem 2rem 4rem;
     margin-top: 7rem;
     left: 50%;
     transform: translateX(-50%);
+  }
+  @page {
+    size: A4;
+  }
+
+  @media print {
+    padding: 0;
+    margin-top: 0;
+    max-width: 100%;
   }
 `
 
@@ -76,8 +88,8 @@ export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: auto;
   gap: 1rem;
+  height: auto;
   width: 100%;
   ${maxWidth}
   border-radius: 6px;
@@ -85,12 +97,22 @@ export const GeneralContainer = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    padding: 0;
+    height: 500px;
     max-height: 500px;
+    padding: 0;
+  }
+
+  @media print {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 300px;
+    max-height: 300px;
+    padding: 0;
   }
 `
 
 export const RecipeImage = styled(GatsbyImage)`
+  height: 100%;
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -99,8 +121,12 @@ export const RecipeImage = styled(GatsbyImage)`
   border-radius: 6px;
 
   @media only screen and (min-width: 768px) {
-    width: auto;
-    height: 100%;
+    width: 60%;
+  }
+
+  @media print {
+    width: 60%;
+    height: 300px;
   }
 `
 
@@ -108,13 +134,20 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
-  padding: 1.6rem;
+  padding: 2.4rem;
   background-color: ${({ theme }) => theme.colors.greenish};
   border-radius: 6px;
+
   @media only screen and (min-width: 768px) {
     width: 40%;
+  }
+
+  @media print {
+    width: 40%;
+    height: 300px;
   }
 `
 
@@ -124,6 +157,9 @@ export const RecipeHeader = styled.h2`
   @media only screen and (min-width: 768px) {
     font-size: 4rem;
   }
+  @media print {
+    font-size: 3rem;
+  }
 `
 
 export const InfoBoxes = styled.div`
@@ -132,6 +168,10 @@ export const InfoBoxes = styled.div`
   padding: 1rem 0;
   gap: 1rem;
   padding-bottom: 3rem;
+
+  @media print {
+    font-size: 1.6rem;
+  }
 `
 export const InfoBox = styled.div`
   display: flex;
@@ -146,6 +186,10 @@ export const InfoValue = styled.p`
   font-size: 2.8rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.secondaryColor};
+
+  @media print {
+    font-size: 1.6rem;
+  }
 `
 
 export const RecipeWrapper = styled.div`
@@ -153,7 +197,12 @@ export const RecipeWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
+
   @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  @media print {
     flex-direction: row;
   }
 `
@@ -171,17 +220,26 @@ export const PreparationContainer = styled.div`
   @media only screen and (min-width: 768px) {
     width: 65%;
   }
+  @media print {
+    width: 70%;
+  }
 `
 export const PrepHeader = styled.h3`
   font-size: 4rem;
   margin: 2.4rem 0;
   color: ${({ theme }) => theme.colors.darkerPrimary};
+  @media print {
+    font-size: 2.4rem;
+  }
 `
 export const StepList = styled.ol`
   width: 100%;
   list-style: upper-roman inside;
   font-size: 1.6rem;
   line-height: 2.4rem;
+  @media print {
+    font-size: 1.2rem;
+  }
 `
 export const StepListItem = styled.li`
   color: ${({ theme }) => theme.colors.fontColor};
@@ -191,6 +249,10 @@ export const StepListItem = styled.li`
     list-style-type: none;
     line-height: 1.2rem;
     color: ${({ theme }) => theme.colors.darkerPrimary};
+
+    @media print {
+      font-size: 2rem;
+    }
   }
 `
 export const IngredientsBox = styled.div`
@@ -211,6 +273,13 @@ export const IngredientsBox = styled.div`
     position: sticky;
     width: 35%;
   }
+
+  @media print {
+    position: static;
+    width: 30%;
+    height: auto;
+    font-size: 1.2rem;
+  }
 `
 export const IngredientsHeader = styled.h3`
   font-size: 2.4rem;
@@ -223,6 +292,10 @@ export const IngredientsList = styled.ul`
   padding: 2rem 1.6rem;
   list-style: none;
   list-style-position: inside;
+
+  @media print {
+    /* display: flex; */
+  }
 `
 export const IngredientsItem = styled.li`
   position: relative;
@@ -233,5 +306,9 @@ export const IngredientsItem = styled.li`
     position: absolute;
     margin-left: -20px;
     margin-right: 10px;
+  }
+  @media print {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 `

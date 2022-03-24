@@ -34,7 +34,6 @@ const RecipeDetails = ({ data }) => {
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
     : {}
 
-  console.log(recipeInfo.preparation.split("*/*"))
   return (
     <>
       <Helmet>
@@ -52,10 +51,11 @@ const RecipeDetails = ({ data }) => {
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap"
           rel="stylesheet"
         />
-      </Helmet>{" "}
+      </Helmet>
       <Wrapper>
         <GeneralContainer>
           <RecipeImage image={image} alt="Food header img" />
+
           <ContentContainer>
             <RecipeHeader>{recipeInfo.title}</RecipeHeader>
 

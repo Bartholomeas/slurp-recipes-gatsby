@@ -83,6 +83,11 @@ const RecipeDetails = ({ data }) => {
                 <InfoValue> {parseInt(Math.random() * 1000)}kcal</InfoValue>
               </InfoBox>
             </InfoBoxes>
+            <IconsContainer>
+              <FacebookIcon />
+              <ShareIcon />
+              <PrintIcon onClick={() => window.print()} />
+            </IconsContainer>
           </ContentContainer>
         </GeneralContainer>
 
@@ -107,11 +112,7 @@ const RecipeDetails = ({ data }) => {
           </IngredientsBox>
         </RecipeWrapper>
       </Wrapper>
-      <IconsContainer>
-        <FacebookIcon />
-        <ShareIcon />
-        <PrintIcon onClick={() => window.print()} />
-      </IconsContainer>
+
       <AddRecipeModal />
     </>
   )

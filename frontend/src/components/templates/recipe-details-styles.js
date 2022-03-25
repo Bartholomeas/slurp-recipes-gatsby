@@ -14,9 +14,9 @@ const IconsStyle = css`
   /* position: absolute; */
   right: -5rem;
   top: 50%;
-  font-size: 5rem;
+  font-size: 4rem;
   color: ${({ theme }) => theme.colors.secondaryColor};
-  z-index: 10000;
+  /* z-index: 10000; */
   cursor: pointer;
 
   &:hover {
@@ -25,19 +25,21 @@ const IconsStyle = css`
 `
 
 export const IconsContainer = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 3rem;
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
   width: 100%;
 
   @media only screen and (min-width: 768px) {
-    display: none;
-    position: absolute;
-    flex-direction: column;
+    /* position: absolute; */
+    /* flex-direction: column; */
+    /* align-self: flex-end; */
+    gap: 1rem;
+    width: auto;
   }
 
   @media print {
@@ -79,8 +81,10 @@ export const Wrapper = styled.div`
 
   @media print {
     padding: 0;
-    margin-top: 0;
+    margin-top: 1rem;
     max-width: 100%;
+    height: auto;
+    min-height: auto;
   }
 `
 
@@ -230,6 +234,7 @@ export const PrepHeader = styled.h3`
   color: ${({ theme }) => theme.colors.darkerPrimary};
   @media print {
     font-size: 2.4rem;
+    margin: 0;
   }
 `
 export const StepList = styled.ol`
@@ -272,6 +277,10 @@ export const IngredientsBox = styled.div`
   @media only screen and (min-width: 768px) {
     position: sticky;
     width: 35%;
+
+    @media print {
+      overflow-y: visible;
+    }
   }
 
   @media print {

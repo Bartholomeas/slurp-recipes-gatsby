@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import ErrorText from "../../atoms/ErrorText/ErrorText"
+
 const inputStyles = css`
   width: 100%;
   height: 5rem;
@@ -77,9 +78,9 @@ const FormField = React.forwardRef(
             name={nameId}
           />
         )}
-        {/* {isError ? (
+        {isError ? (
           <ErrorText>{`Niepoprawne: ${errorInfo.toLowerCase()}`}</ErrorText>
-        ) : null} */}
+        ) : null}
       </Wrapper>
     )
   }

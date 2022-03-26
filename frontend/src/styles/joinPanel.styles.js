@@ -27,6 +27,9 @@ export const JoinForm = styled.form`
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
+
+  @media only screen and (min-width: 768px) {
+  }
 `
 export const JoinLink = styled(Link)`
   text-decoration: none;
@@ -37,6 +40,8 @@ export const ColoredText = styled.span`
   color: ${({ theme }) => theme.colors.secondaryColor};
 `
 export const PasswordInfoText = styled.p`
+  display: flex;
+  align-items: flex-start;
   color: ${({ theme }) => theme.colors.darkGrey};
   font-size: 1.6rem;
   margin-bottom: 1.6rem;

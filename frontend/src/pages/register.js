@@ -7,7 +7,7 @@ const RegisterWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   margin-top: 7rem;
   background-color: ${({ theme }) => theme.colors.greenish};
 

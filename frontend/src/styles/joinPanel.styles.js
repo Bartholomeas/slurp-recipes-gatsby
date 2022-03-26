@@ -20,19 +20,24 @@ export const JoinPanelWrapper = styled.div`
 `
 export const JoinHeader = styled.p`
   font-weight: 300;
-  font-size: 4rem;
-  margin-bottom: 3rem;
+  font-size: 3.2rem;
   color: ${({ theme }) => theme.colors.fontColor};
 `
 export const JoinForm = styled.form`
   display: flex;
   flex-direction: column;
+  padding-top: 2rem;
 `
 export const JoinLink = styled(Link)`
   text-decoration: none;
-  margin-top: 2.2rem;
+  /* margin-top: 0.8rem; */
   color: ${({ theme }) => theme.colors.darkGrey};
 `
 export const ColoredText = styled.span`
   color: ${({ theme }) => theme.colors.secondaryColor};
+`
+export const PasswordInfoText = styled.p`
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
 `

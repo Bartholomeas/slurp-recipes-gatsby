@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { navigate } from "gatsby"
 import FormField from "../../molecules/FormField/FormField"
 import Button from "../../atoms/Button/Button"
 import {
@@ -8,6 +9,7 @@ import {
   JoinForm,
   JoinLink,
   ColoredText,
+  PasswordInfoText,
 } from "../../../styles/joinPanel.styles"
 
 const RegisterPanel = () => {
@@ -20,7 +22,6 @@ const RegisterPanel = () => {
 
   const updateInput = e => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value })
-    console.log(registerInfo)
   }
 
   const registerUser = async e => {
@@ -32,14 +33,40 @@ const RegisterPanel = () => {
     }
     e.preventDefault()
     await axios
-      .post(`${process.env.STRAPI_URL}/auth/local/register`, {
-        username: "testowe",
-        email: "test@test.com",
-        password: "testtest",
-      })
+      .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
+
+  const emailInput = document.querySelector("#email")
+  const passwordInput = document.querySelector("#password")
+  const confirmPasswordInput = document.querySelector("#confirm_password")
+  const mailRegex = new RegExp(
+    "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
+  )
+  const passwordRegex = new RegExp("(?=.*[A-Z])(?=.*[a-z])(?=.*?[0-9])")
+
+  const validateForm = (() => {
+    // const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}")
+    if (emailInput && mailRegex.test(emailInput.value)) {
+      console.log("jest gut")
+    }
+
+    if (passwordInput && passwordRegex.test(passwordInput.value)) {
+      if (passwordInput.value === confirmPasswordInput.value) {
+        console.log("Dziaua haslo")
+        console.log(passwordInput.value, confirmPasswordInput.value)
+      } else {
+        console.log("Hasla nie pasują")
+        return false
+      }
+    } else {
+      console.log("Haslo za krotkie")
+      return false
+    }
+
+    return true
+  })()
 
   return (
     <JoinPanelWrapper>
@@ -68,6 +95,10 @@ const RegisterPanel = () => {
           type="password"
           content="Powtórz hasło"
         />
+        <PasswordInfoText>
+          Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną
+          cyfrę i wielką literę
+        </PasswordInfoText>
 
         <Button onClick={e => registerUser(e)} type="submit" isLong>
           Zarejestruj

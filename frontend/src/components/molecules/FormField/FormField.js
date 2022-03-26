@@ -1,13 +1,15 @@
 import React from "react"
 import styled, { css } from "styled-components"
-
+import ErrorText from "../../atoms/ErrorText/ErrorText"
 const inputStyles = css`
   width: 100%;
   height: 5rem;
   padding: 1rem 1.2rem;
   border: none;
   border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.colors.grey};
+  border: 2px solid
+    ${({ isError, theme }) =>
+      isError ? theme.colors.errorColor : theme.colors.grey};
   background: ${({ isImage }) => (isImage ? "none" : "auto")};
 `
 
@@ -45,6 +47,8 @@ const FormField = React.forwardRef(
       nameId = "",
       content = "",
       textarea = false,
+      isError = false,
+      errorInfo = content,
       type = "text",
       width = "100",
       onChange = () => {},
@@ -57,6 +61,7 @@ const FormField = React.forwardRef(
         <Label htmlFor={nameId}>{content}</Label>
         {!textarea ? (
           <Input
+            isError={isError}
             onChange={onChange}
             id={nameId}
             name={nameId}
@@ -65,8 +70,16 @@ const FormField = React.forwardRef(
             onKeyUp={inputFunc}
           />
         ) : (
-          <Textarea onChange={e => onChange(e)} id={nameId} name={nameId} />
+          <Textarea
+            isError={isError}
+            onChange={e => onChange(e)}
+            id={nameId}
+            name={nameId}
+          />
         )}
+        {/* {isError ? (
+          <ErrorText>{`Niepoprawne: ${errorInfo.toLowerCase()}`}</ErrorText>
+        ) : null} */}
       </Wrapper>
     )
   }

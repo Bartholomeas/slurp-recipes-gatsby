@@ -1,34 +1,34 @@
-import styled from "styled-components"
 import { Link } from "gatsby"
+import styled from "styled-components"
 
-export const LoginPanelWrapper = styled.div`
+export const JoinPanelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  height: 100%;
+  height: auto;
   width: 100%;
-  padding: 3rem 0;
-  /* background-color: ${({ theme }) => theme.colors.darkGrey}; */
+  padding: 3rem;
+  border-radius: 6px;
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  background-color: ${({ theme }) => theme.colors.white};
 
   @media only screen and (min-width: 768px) {
-    max-width: 30%;
-    margin-right: 3rem;
+    height: auto;
+    max-width: 600px;
   }
 `
-export const LoginHeader = styled.p`
+export const JoinHeader = styled.p`
   font-weight: 300;
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: 3rem;
   color: ${({ theme }) => theme.colors.fontColor};
 `
-
-export const LoginForm = styled.form`
+export const JoinForm = styled.form`
   display: flex;
   flex-direction: column;
 `
-
-export const RegisterLink = styled(Link)`
+export const JoinLink = styled(Link)`
   text-decoration: none;
   margin-top: 2.2rem;
   color: ${({ theme }) => theme.colors.darkGrey};

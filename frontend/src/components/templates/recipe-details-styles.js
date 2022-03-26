@@ -277,10 +277,12 @@ export const IngredientsBox = styled.div`
   @media only screen and (min-width: 768px) {
     position: sticky;
     width: 35%;
+  }
 
-    @media print {
-      overflow-y: visible;
-    }
+  @media print {
+    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   @media print {
@@ -301,10 +303,6 @@ export const IngredientsList = styled.ul`
   padding: 2rem 1.6rem;
   list-style: none;
   list-style-position: inside;
-
-  @media print {
-    /* display: flex; */
-  }
 `
 export const IngredientsItem = styled.li`
   position: relative;

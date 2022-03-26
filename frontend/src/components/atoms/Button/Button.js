@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const ButtonWrapper = styled.button`
   width: ${({ isLong }) => (isLong ? "100%" : "auto")};
-  padding: 0.8rem 1.6rem;
+  padding: 1.6rem;
   background: none;
   border: 2px solid ${({ theme }) => theme.colors.primaryColor};
   color: ${({ theme }) => theme.colors.lightFont};

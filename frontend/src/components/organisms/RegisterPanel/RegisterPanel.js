@@ -1,42 +1,14 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
 import axios from "axios"
 import FormField from "../../molecules/FormField/FormField"
 import Button from "../../atoms/Button/Button"
-
-export const RegisterPanelWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`
-export const RegisterHeader = styled.p`
-  font-weight: 300;
-  font-size: 5rem;
-  margin-bottom: 3rem;
-  color: ${({ theme }) => theme.colors.fontColor};
-`
-export const RegisterForm = styled.form`
-  width: 100%;
-  
-  @media only screen and (min-width: 768px) {
-    width: 50%;
-    max-width: 500px;
-  }
-`
-
-export const RegisterLabel = styled.label``
-export const RegisterInput = styled.input``
-export const RegisterLink = styled(Link)`
-  text-decoration: none;
-  margin-top: 2.2rem;
-  color: ${({ theme }) => theme.colors.darkGrey};
-`
-export const ColoredText = styled.span`
-  color: ${({ theme }) => theme.colors.secondaryColor};
-`
+import {
+  JoinPanelWrapper,
+  JoinHeader,
+  JoinForm,
+  JoinLink,
+  ColoredText,
+} from "../../../styles/joinPanel.styles"
 
 const RegisterPanel = () => {
   const [registerInfo, setRegisterInfo] = useState({
@@ -48,6 +20,7 @@ const RegisterPanel = () => {
 
   const updateInput = e => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value })
+    console.log(registerInfo)
   }
 
   const registerUser = async e => {
@@ -59,7 +32,7 @@ const RegisterPanel = () => {
     }
     e.preventDefault()
     await axios
-      .post(`${process.env.STRAPI_URL}auth/local/register`, {
+      .post(`${process.env.STRAPI_URL}/auth/local/register`, {
         username: "testowe",
         email: "test@test.com",
         password: "testtest",
@@ -69,48 +42,41 @@ const RegisterPanel = () => {
   }
 
   return (
-    <RegisterPanelWrapper>
-      <RegisterHeader>Zarejestruj się.</RegisterHeader>
-      <RegisterForm>
+    <JoinPanelWrapper>
+      <JoinHeader>Zarejestruj się.</JoinHeader>
+      <JoinForm>
         <FormField
           onChange={e => updateInput(e)}
-          label="username"
-          id="username"
-          name="username"
+          nameId="username"
+          content="Nazwa użytkownika"
         />
         <FormField
           onChange={e => updateInput(e)}
-          label="e-mail"
-          id="register"
+          nameId="email"
           type="email"
-          name="email"
+          content="E-mail"
         />
         <FormField
           onChange={e => updateInput(e)}
-          label="password"
-          id="password"
+          nameId="password"
           type="password"
-          name="password"
+          content="Hasło"
         />
         <FormField
           onChange={e => updateInput(e)}
-          label="confirm password"
-          id="confirm_password"
+          nameId="confirm_password"
           type="password"
-          name="confirm_password"
+          content="Powtórz hasło"
         />
 
-        <Button
-          onClick={e => registerUser(e)}
-          type="submit"
-          content="Zarejestruj"
-          isLong
-        />
-      </RegisterForm>
-      <RegisterLink to="/login">
+        <Button onClick={e => registerUser(e)} type="submit" isLong>
+          Zarejestruj
+        </Button>
+      </JoinForm>
+      <JoinLink to="/login">
         Masz konto? <ColoredText>Zaloguj się.</ColoredText>
-      </RegisterLink>
-    </RegisterPanelWrapper>
+      </JoinLink>
+    </JoinPanelWrapper>
   )
 }
 

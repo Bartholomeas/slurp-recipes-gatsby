@@ -7,10 +7,13 @@ const RegisterWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 50vh;
-  width: 100%;
-  padding: 3rem;
+  height: 90vh;
   margin-top: 7rem;
+  background-color: ${({ theme }) => theme.colors.greenish};
+
+  @media only screen and (min-width: 768px) {
+    padding: 3rem;
+  }
 `
 
 const Register = () => {

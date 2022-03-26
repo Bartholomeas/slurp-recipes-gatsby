@@ -3,13 +3,14 @@ import axios from "axios"
 import Button from "../../atoms/Button/Button"
 import { navigate } from "gatsby"
 import { StateContext } from "../../../context/StateContext"
+
 import {
-  LoginPanelWrapper,
-  LoginHeader,
-  LoginForm,
-  RegisterLink,
+  JoinPanelWrapper,
+  JoinHeader,
+  JoinForm,
+  JoinLink,
   ColoredText,
-} from "./LoginPanel.styles"
+} from "../../../styles/joinPanel.styles"
 import FormField from "../../molecules/FormField/FormField"
 
 const LoginPanel = () => {
@@ -38,28 +39,24 @@ const LoginPanel = () => {
   }
 
   return (
-    <LoginPanelWrapper>
-      <LoginHeader>Zaloguj się.</LoginHeader>
-      <LoginForm>
-        <FormField label="login" id="login" name="login" ref={loginInput} />
+    <JoinPanelWrapper>
+      <JoinHeader>Zaloguj się.</JoinHeader>
+      <JoinForm>
+        <FormField nameId="login" content="Login" ref={loginInput} />
         <FormField
+          nameId="password"
           type="password"
-          label="password"
-          id="password"
-          name="password"
+          content="Hasło"
           ref={passwordInput}
         />
-        <Button
-          isLong
-          type="submit"
-          content="Zaloguj się"
-          onClick={e => authorizeUser(e)}
-        />
-      </LoginForm>
-      <RegisterLink to="/register">
+        <Button isLong type="submit" onClick={e => authorizeUser(e)}>
+          Zaloguj się
+        </Button>
+      </JoinForm>
+      <JoinLink to="/register">
         Nie masz konta? <ColoredText>Zarejestruj się.</ColoredText>
-      </RegisterLink>
-    </LoginPanelWrapper>
+      </JoinLink>
+    </JoinPanelWrapper>
   )
 }
 

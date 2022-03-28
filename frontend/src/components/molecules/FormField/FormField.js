@@ -48,7 +48,6 @@ const FormField = React.forwardRef(
     {
       nameId = "",
       content = "",
-      className = "",
       textarea = false,
       isError = false,
       errorInfo = content,
@@ -64,7 +63,6 @@ const FormField = React.forwardRef(
         <Label htmlFor={nameId}>{content}</Label>
         {!textarea ? (
           <Input
-            className={className}
             isError={isError}
             onChange={onChange}
             id={nameId}

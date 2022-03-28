@@ -21,7 +21,7 @@ const RegisterPanel = () => {
     confirm_password: "",
   })
   const [errorMessage, setErrorMessage] = useState("")
-  const [isValidityCorrect, setIsValidityCorrect] = useState(true)
+  const [isValid, setIsValid] = useState(true)
 
   const mailRegex = new RegExp(
     "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
@@ -46,43 +46,50 @@ const RegisterPanel = () => {
   let errorInput = ""
   let errorInputsArray = []
 
-  const setErrorStatus = inputName => {
-    errorInput = document.querySelector(`input[id='${inputName}']`)
-    errorInput.classList.add("invalid")
-    errorInputsArray.push(errorInput)
-    console.log(errorInputsArray)
+  const setErrorStatus = (inputName, remove = false) => {
+    if (remove === true) {
+      document
+        .querySelector(`input[id='${inputName}']`)
+        .classList.remove("invalid")
+
+      console.log("ebe")
+    } else {
+      errorInput = document.querySelector(`input[id='${inputName}']`)
+      errorInput.classList.add("invalid")
+      errorInput.setAttribute("className", "invalid")
+      errorInputsArray.push(errorInput)
+      console.log(errorInputsArray)
+    }
   }
 
   // Walidacja formularza
   const validateForm = e => {
     e.preventDefault()
-    // errorInputsArray = []
+    errorInputsArray = []
 
     // Walidacja nazwy uzytkownika
     if (registerInfo["username"] != "") {
       console.log("username jest poprawny")
-      console.log(errorInputsArray)
-
-      setIsValidityCorrect(true)
+      setErrorStatus("username", true)
+      setIsValid(true)
     } else {
       setErrorStatus("username")
-      setIsValidityCorrect(false)
-      // return false
+      setIsValid(false)
     }
 
     // Walidacja email
     if (mailRegex.test(registerInfo["email"])) {
-      console.log("Email spełnia warunki")
-      setIsValidityCorrect(true)
+      setErrorStatus("email", true)
+      setIsValid(true)
     } else {
       setErrorStatus("email")
-      // return false
     }
     // Walidacja hasła
     if (passwordRegex.test(registerInfo["confirm_password"])) {
       if (registerInfo["password"] === registerInfo["confirm_password"]) {
-        console.log("Hasła są zgodne")
-        setIsValidityCorrect(true)
+        setErrorStatus("password", true)
+        setErrorStatus("confirm_password", true)
+        setIsValid(true)
       } else {
         setErrorStatus("password")
         setErrorStatus("confirm_password")
@@ -94,13 +101,13 @@ const RegisterPanel = () => {
       setErrorStatus("password")
       setErrorStatus("confirm_password")
       setErrorMessage("Hasło za krótkie, musi mieć conajmniej 8 znaków")
-      setIsValidityCorrect(false)
+      setIsValid(false)
       return false
     } else {
       setErrorStatus("password")
       setErrorStatus("confirm_password")
       setErrorMessage("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
-      setIsValidityCorrect(false)
+      setIsValid(false)
       return false
     }
 
@@ -121,7 +128,6 @@ const RegisterPanel = () => {
           content="Nazwa użytkownika"
         />
         <FormField
-          className="invalid"
           onChange={e => updateInput(e)}
           nameId="email"
           type="email"
@@ -144,7 +150,7 @@ const RegisterPanel = () => {
           Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną cyfrę
           i wielką literę
         </PasswordInfoText>
-        {!isValidityCorrect ? <ErrorText>{errorMessage}</ErrorText> : null}
+        {!isValid ? <ErrorText>{errorMessage}</ErrorText> : null}
         <Button onClick={e => validateForm(e)} type="button" isLong>
           SPROBOJ SE
         </Button>

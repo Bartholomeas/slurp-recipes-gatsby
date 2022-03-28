@@ -20,6 +20,9 @@ const RegisterPanel = () => {
     password: "",
     confirm_password: "",
   })
+  const [errorMessage, setErrorMessage] = useState("")
+  const [isValidityCorrect, setIsValidityCorrect] = useState(true)
+
   const mailRegex = new RegExp(
     "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
   )
@@ -33,42 +36,38 @@ const RegisterPanel = () => {
 
   // Wysłanie zapytania z rejestracją
   const registerUser = async e => {
+    e.preventDefault()
     if (
       registerInfo.password === registerInfo.confirm_password &&
       registerInfo.password !== ""
     ) {
       console.log("PASUJO ZE HEJ")
     }
-    e.preventDefault()
     await axios
       .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
 
-  const errorInputs = []
-  let errorInput = true
-
-  errorInput = document.querySelector("input[id='username']")
+  let errorInput = ""
 
   // Walidacja formularza
-  const validateForm = (() => {
+  const validateForm = e => {
+    e.preventDefault()
+    errorInput = document.querySelector("input[id='username']")
+
     if (errorInput) {
-      errorInput.style.border = "1px solid red"
+      errorInput.classList.add("invalid")
     }
-    // console.log(errorInput)
-    // if (errorInput) {
-    //   console.log(errorInput)
-    // }
 
     // Walidacja email
     if (mailRegex.test(registerInfo["email"])) {
       console.log("Email spełnia warunki")
     } else {
       // return false
-      errorInput = document.querySelector("input[id='email']").style.border =
-        "1px solid red"
-      console.log(errorInput)
+      // errorInput = document.querySelector("input[id='email']")
+      // errorInput.style.border = "1px solid red"
+      console.log("mail")
     }
 
     // Walidacja hasła
@@ -81,13 +80,15 @@ const RegisterPanel = () => {
       }
     } else if (registerInfo["password"].length < 8) {
       console.log("Haslo za krotkie")
+      setErrorMessage("Hasło za krótkie, musi mieć conajmniej 8 znaków")
+      setIsValidityCorrect(false)
       return false
     } else {
       console.log("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
     }
 
     return true
-  })()
+  }
 
   return (
     <JoinPanelWrapper>
@@ -125,7 +126,7 @@ const RegisterPanel = () => {
           Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną
           cyfrę i wielką literę
         </PasswordInfoText>
-        {!validateForm ? <ErrorText>{`Niepoprawne: `}</ErrorText> : null}
+        {!isValidityCorrect ? <ErrorText>{errorMessage}</ErrorText> : null}
         <Button onClick={e => validateForm(e)} type="button" isLong>
           SPROBOJ SE
         </Button>

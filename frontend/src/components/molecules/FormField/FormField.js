@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 1.6rem;
 
+  & .invalid {
+    border: 1px solid ${({ theme }) => theme.colors.errorColor};
+  }
+
   @media only screen and (min-width: 768px) {
     width: ${({ width }) => (width ? `${width}%` : "100%")};
   }

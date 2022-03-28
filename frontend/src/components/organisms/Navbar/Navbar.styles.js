@@ -63,7 +63,7 @@ export const LinkContainer = styled.ul`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 2.4rem;
+  /* gap: 1.4rem; */
   list-style: none;
 
   & .join-icon {

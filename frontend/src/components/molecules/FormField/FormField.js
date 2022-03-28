@@ -8,10 +8,7 @@ const inputStyles = css`
   padding: 1rem 1.2rem;
   border: none;
   border-radius: 8px;
-  border: 2px solid
-    ${({ isError, theme }) =>
-      isError ? theme.colors.errorColor : theme.colors.grey};
-  background: ${({ isImage }) => (isImage ? "none" : "auto")};
+  border: 2px solid ${({ theme }) => theme.colors.grey};
 `
 
 const Wrapper = styled.div`
@@ -23,7 +20,7 @@ const Wrapper = styled.div`
   margin-bottom: 1.6rem;
 
   & .invalid {
-    border: 1px solid ${({ theme }) => theme.colors.errorColor};
+    border: 2px solid ${({ theme }) => theme.colors.errorColor};
   }
 
   @media only screen and (min-width: 768px) {

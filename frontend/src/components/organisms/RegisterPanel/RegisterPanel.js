@@ -50,43 +50,71 @@ const RegisterPanel = () => {
   }
 
   let errorInput = ""
+  let errorInputsArray = []
+
+  const setErrorStatus = inputName => {
+    errorInput = document.querySelector(`input[id='${inputName}']`)
+    errorInput.classList.add("invalid")
+    errorInputsArray.push(errorInput)
+    console.log(errorInputsArray)
+    return
+  }
 
   // Walidacja formularza
   const validateForm = e => {
     e.preventDefault()
-    errorInput = document.querySelector("input[id='username']")
+    errorInputsArray = []
 
-    if (errorInput) {
-      errorInput.classList.add("invalid")
+    // console.log(errorInputsArray[1])
+
+    // Walidacja nazwy uzytkownika
+    if (registerInfo["username"] === "") {
+      setErrorStatus("username")
+      setIsValidityCorrect(false)
+      // return false
+    } else {
+      setIsValidityCorrect(true)
     }
 
     // Walidacja email
     if (mailRegex.test(registerInfo["email"])) {
       console.log("Email spełnia warunki")
+      setIsValidityCorrect(true)
     } else {
-      // return false
-      // errorInput = document.querySelector("input[id='email']")
-      // errorInput.style.border = "1px solid red"
-      console.log("mail")
+      setErrorStatus("email")
     }
-
     // Walidacja hasła
     if (passwordRegex.test(registerInfo["confirm_password"])) {
       if (registerInfo["password"] === registerInfo["confirm_password"]) {
         console.log("Hasła są zgodne")
+        setIsValidityCorrect(true)
       } else {
-        console.log("Hasla nie pasują")
+        setErrorStatus("password")
+        setErrorStatus("confirm_password")
+        setErrorMessage("Hasła się różnią")
         return false
       }
     } else if (registerInfo["password"].length < 8) {
       console.log("Haslo za krotkie")
+      setErrorStatus("password")
+      setErrorStatus("confirm_password")
       setErrorMessage("Hasło za krótkie, musi mieć conajmniej 8 znaków")
       setIsValidityCorrect(false)
       return false
     } else {
-      console.log("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
+      setErrorStatus("password")
+      setErrorStatus("confirm_password")
+      setErrorMessage("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
+      setIsValidityCorrect(false)
+      return false
+
+      // return false
     }
 
+    errorInputsArray.forEach(input => {
+      input.classList.remove("invalid")
+    })
+    errorInputsArray = []
     return true
   }
 
@@ -96,27 +124,23 @@ const RegisterPanel = () => {
       <JoinForm>
         <FormField
           onChange={e => updateInput(e)}
-          isError={false}
           nameId="username"
           content="Nazwa użytkownika"
         />
         <FormField
           onChange={e => updateInput(e)}
-          isError={false}
           nameId="email"
           type="email"
           content="E-mail"
         />
         <FormField
           onChange={e => updateInput(e)}
-          isError={false}
           nameId="password"
           type="password"
           content="Hasło"
         />
         <FormField
           onChange={e => updateInput(e)}
-          isError={false}
           nameId="confirm_password"
           type="password"
           content="Powtórz hasło"

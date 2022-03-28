@@ -31,18 +31,12 @@ const RegisterPanel = () => {
   // Aktualizacja stanu inputów
   const updateInput = e => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value })
-    console.log(e.target.name)
   }
 
   // Wysłanie zapytania z rejestracją
   const registerUser = async e => {
     e.preventDefault()
-    if (
-      registerInfo.password === registerInfo.confirm_password &&
-      registerInfo.password !== ""
-    ) {
-      console.log("PASUJO ZE HEJ")
-    }
+
     await axios
       .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
       .then(res => console.log(res))
@@ -57,23 +51,23 @@ const RegisterPanel = () => {
     errorInput.classList.add("invalid")
     errorInputsArray.push(errorInput)
     console.log(errorInputsArray)
-    return
   }
 
   // Walidacja formularza
   const validateForm = e => {
     e.preventDefault()
-    errorInputsArray = []
-
-    // console.log(errorInputsArray[1])
+    // errorInputsArray = []
 
     // Walidacja nazwy uzytkownika
-    if (registerInfo["username"] === "") {
+    if (registerInfo["username"] != "") {
+      console.log("username jest poprawny")
+      console.log(errorInputsArray)
+
+      setIsValidityCorrect(true)
+    } else {
       setErrorStatus("username")
       setIsValidityCorrect(false)
       // return false
-    } else {
-      setIsValidityCorrect(true)
     }
 
     // Walidacja email
@@ -82,6 +76,7 @@ const RegisterPanel = () => {
       setIsValidityCorrect(true)
     } else {
       setErrorStatus("email")
+      // return false
     }
     // Walidacja hasła
     if (passwordRegex.test(registerInfo["confirm_password"])) {
@@ -107,14 +102,12 @@ const RegisterPanel = () => {
       setErrorMessage("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
       setIsValidityCorrect(false)
       return false
-
-      // return false
     }
 
-    errorInputsArray.forEach(input => {
-      input.classList.remove("invalid")
-    })
-    errorInputsArray = []
+    // errorInputsArray.forEach(input => {
+    //   input.classList.remove("invalid")
+    // })
+    // errorInputsArray = []
     return true
   }
 
@@ -128,6 +121,7 @@ const RegisterPanel = () => {
           content="Nazwa użytkownika"
         />
         <FormField
+          className="invalid"
           onChange={e => updateInput(e)}
           nameId="email"
           type="email"
@@ -147,8 +141,8 @@ const RegisterPanel = () => {
         />
         <PasswordInfoText>
           <QuestionIcon style={{ marginRight: "1rem" }} />
-          Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną
-          cyfrę i wielką literę
+          Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną cyfrę
+          i wielką literę
         </PasswordInfoText>
         {!isValidityCorrect ? <ErrorText>{errorMessage}</ErrorText> : null}
         <Button onClick={e => validateForm(e)} type="button" isLong>

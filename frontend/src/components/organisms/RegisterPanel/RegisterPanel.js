@@ -58,7 +58,6 @@ const RegisterPanel = () => {
       errorInput.classList.add("invalid")
       errorInput.setAttribute("className", "invalid")
       errorInputsArray.push(errorInput)
-      console.log(errorInputsArray)
     }
   }
 
@@ -69,31 +68,32 @@ const RegisterPanel = () => {
 
     // Walidacja nazwy uzytkownika
     if (registerInfo["username"] != "") {
-      console.log("username jest poprawny")
       setErrorStatus("username", true)
       setIsValid(true)
     } else {
       setErrorStatus("username")
+      setErrorMessage("Nazwa użytkownika nie może być pusta")
       setIsValid(false)
     }
 
     // Walidacja email
     if (mailRegex.test(registerInfo["email"])) {
       setErrorStatus("email", true)
-      setIsValid(true)
     } else {
       setErrorStatus("email")
+      setErrorMessage("Adres e-mail niepoprawny")
+      setIsValid(false)
     }
     // Walidacja hasła
     if (passwordRegex.test(registerInfo["confirm_password"])) {
       if (registerInfo["password"] === registerInfo["confirm_password"]) {
         setErrorStatus("password", true)
         setErrorStatus("confirm_password", true)
-        setIsValid(true)
       } else {
         setErrorStatus("password")
         setErrorStatus("confirm_password")
-        setErrorMessage("Hasła się różnią")
+        setErrorMessage("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
+        setIsValid(false)
         return false
       }
     } else if (registerInfo["password"].length < 8) {
@@ -106,15 +106,11 @@ const RegisterPanel = () => {
     } else {
       setErrorStatus("password")
       setErrorStatus("confirm_password")
-      setErrorMessage("Hasło musi zawierać conajmniej 1 cyfrę i duza literę")
+      setErrorMessage("Hasła się różnią")
       setIsValid(false)
       return false
     }
 
-    // errorInputsArray.forEach(input => {
-    //   input.classList.remove("invalid")
-    // })
-    // errorInputsArray = []
     return true
   }
 

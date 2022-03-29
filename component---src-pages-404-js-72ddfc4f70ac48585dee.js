@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslurp_recipes=self.webpackChunkslurp_recipes||[]).push([[883],{9616:function(e,r,n){n.r(r);var u=n(7294);r.default=function(){return u.createElement("div",null,"There is no food. :( 404 error only")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-72ddfc4f70ac48585dee.js.map

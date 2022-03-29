@@ -9,6 +9,7 @@ require("dotenv").config({
 })
 
 module.exports = {
+  pathPrefix: "/slurp-recipes-gatsby",
   siteMetadata: {
     title: "s:urp recipes",
     description: "Best recipes for every occasion",

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import FormField from "../../molecules/FormField/FormField"
 import Button from "../../atoms/Button/Button"
+import NotificationPopup from "../../organisms/NotificationPopup/NotificationPopup"
 import {
   JoinPanelWrapper,
   JoinHeader,
@@ -33,37 +34,9 @@ const RegisterPanel = () => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value })
   }
 
-  // Wysłanie zapytania z rejestracją
-  const registerUser = async e => {
-    e.preventDefault()
-
-    await axios
-      .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
-
-  let errorInput = ""
-  let errorInputsArray = []
-
-  const setErrorStatus = (inputName, remove = false) => {
-    if (remove === true) {
-      document
-        .querySelector(`input[id='${inputName}']`)
-        .classList.remove("invalid")
-
-      console.log("ebe")
-    } else {
-      errorInput = document.querySelector(`input[id='${inputName}']`)
-      errorInput.classList.add("invalid")
-      errorInput.setAttribute("className", "invalid")
-      errorInputsArray.push(errorInput)
-    }
-  }
-
   // Walidacja formularza
-  const validateForm = e => {
-    e.preventDefault()
+  const validateForm = () => {
+    // e.preventDefault()
     errorInputsArray = []
 
     // Walidacja nazwy uzytkownika
@@ -111,7 +84,40 @@ const RegisterPanel = () => {
       return false
     }
 
-    return true
+    return
+  }
+
+  // Wysłanie zapytania z rejestracją
+  const registerUser = async e => {
+    e.preventDefault()
+
+    validateForm()
+    if (isValid) {
+      await axios
+        .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    } else {
+      console.log("Jest false nie wysyla requesta")
+    }
+  }
+
+  let errorInput = ""
+  let errorInputsArray = []
+
+  const setErrorStatus = (inputName, remove = false) => {
+    if (remove === true) {
+      document
+        .querySelector(`input[id='${inputName}']`)
+        .classList.remove("invalid")
+
+      console.log("ebe")
+    } else {
+      errorInput = document.querySelector(`input[id='${inputName}']`)
+      errorInput.classList.add("invalid")
+      errorInput.setAttribute("className", "invalid")
+      errorInputsArray.push(errorInput)
+    }
   }
 
   return (
@@ -147,16 +153,15 @@ const RegisterPanel = () => {
           i wielką literę
         </PasswordInfoText>
         {!isValid ? <ErrorText>{errorMessage}</ErrorText> : null}
-        <Button onClick={e => validateForm(e)} type="button" isLong>
-          SPROBOJ SE
-        </Button>
-        {/* <Button onClick={e => registerUser(e)} type="submit" isLong>
+
+        <Button onClick={e => registerUser(e)} type="submit" isLong>
           Zarejestruj
-        </Button> */}
+        </Button>
       </JoinForm>
       <JoinLink to="/login">
         Masz konto? <ColoredText>Zaloguj się.</ColoredText>
       </JoinLink>
+      <NotificationPopup></NotificationPopup>
     </JoinPanelWrapper>
   )
 }

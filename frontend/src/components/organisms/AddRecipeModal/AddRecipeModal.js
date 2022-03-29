@@ -31,7 +31,9 @@ const AddRecipeModal = () => {
     recipeInfo
 
   const windowGlobal = typeof window !== "undefined" && window
-  const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
+  const token = windowGlobal
+    ? JSON.parse(windowGlobal.localStorage.getItem("token"))
+    : null
 
   const uploadImage = async e => {
     e.preventDefault()

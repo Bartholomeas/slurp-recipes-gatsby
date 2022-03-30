@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 export const JoinPanelWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -12,6 +13,7 @@ export const JoinPanelWrapper = styled.div`
   border-radius: 6px;
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   background-color: ${({ theme }) => theme.colors.white};
+  overflow: hidden;
 
   @media only screen and (min-width: 768px) {
     height: auto;
@@ -33,7 +35,6 @@ export const JoinForm = styled.form`
 `
 export const JoinLink = styled(Link)`
   text-decoration: none;
-  /* margin-top: 0.8rem; */
   color: ${({ theme }) => theme.colors.darkGrey};
 `
 export const ColoredText = styled.span`

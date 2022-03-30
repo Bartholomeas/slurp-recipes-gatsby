@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { navigate } from "gatsby"
 import FormField from "../../molecules/FormField/FormField"
 import Button from "../../atoms/Button/Button"
 import NotificationPopup from "../../organisms/NotificationPopup/NotificationPopup"
@@ -23,11 +24,20 @@ const RegisterPanel = () => {
   })
   const [errorMessage, setErrorMessage] = useState("")
   const [isValid, setIsValid] = useState(true)
+  const [isPopupActive, setIsPopupActive] = useState(false)
 
   const mailRegex = new RegExp(
     "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
   )
   const passwordRegex = new RegExp("(?=.*[A-Z])(?=.*[a-z])(?=.*?[0-9])")
+
+  const togglePopup = () => {
+    setIsPopupActive(!isPopupActive)
+
+    setTimeout(() => {
+      navigate(`/login`)
+    }, 3000)
+  }
 
   // Aktualizacja stanu inputów
   const updateInput = e => {
@@ -95,7 +105,10 @@ const RegisterPanel = () => {
     if (isValid) {
       await axios
         .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
-        .then(res => console.log(res))
+        .then(res => {
+          togglePopup()
+          console.log(res)
+        })
         .catch(err => console.log(err))
     } else {
       console.log("Jest false nie wysyla requesta")
@@ -161,7 +174,10 @@ const RegisterPanel = () => {
       <JoinLink to="/login">
         Masz konto? <ColoredText>Zaloguj się.</ColoredText>
       </JoinLink>
-      <NotificationPopup></NotificationPopup>
+      <NotificationPopup onClick={togglePopup} isActive={isPopupActive}>
+        Gratulacje, rejestracja przebiegła pomyślnie, zostaniesz przeniesiony na
+        stronę logowania
+      </NotificationPopup>
     </JoinPanelWrapper>
   )
 }

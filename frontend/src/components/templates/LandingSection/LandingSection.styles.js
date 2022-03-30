@@ -39,7 +39,7 @@ export const LandingText = styled.h1`
   font-size: 4.8rem;
   font-weight: 300;
   text-align: left;
-  max-width: 800px;
+  max-width: 600px;
   @media only screen and (min-width: 576px) {
     font-size: 5.4rem;
   }

@@ -14,11 +14,22 @@ import FormField from "../../molecules/FormField/FormField"
 import ErrorText from "../../atoms/ErrorText/ErrorText"
 
 const LoginPanel = () => {
-  const [errorStatus, setErrorStatus] = useState(false)
+  const [isValid, setIsValid] = useState(true)
   const { setIsAuthenticated } = useContext(StateContext)
   const loginInput = React.createRef({})
   const passwordInput = React.createRef({})
-
+  let errorInput
+  const setErrorStatus = (inputName, remove = false) => {
+    if (remove === true) {
+      document
+        .querySelector(`input[id='${inputName}']`)
+        .classList.remove("invalid")
+    } else {
+      errorInput = document.querySelector(`input[id='${inputName}']`)
+      errorInput.classList.add("invalid")
+      errorInput.setAttribute("className", "invalid")
+    }
+  }
   const authorizeUser = async e => {
     e.preventDefault()
     await axios
@@ -35,8 +46,9 @@ const LoginPanel = () => {
       })
       .catch(error => {
         // alert(error)
-        setErrorStatus(true)
-        console.log(errorStatus)
+        setErrorStatus("login")
+        setErrorStatus("password")
+        setIsValid(false)
         setIsAuthenticated(false)
       })
   }
@@ -44,21 +56,15 @@ const LoginPanel = () => {
   return (
     <JoinPanelWrapper>
       <JoinHeader>Zaloguj się.</JoinHeader>
-      {errorStatus ? <ErrorText>Niepoprawny login lub hasło</ErrorText> : null}
       <JoinForm>
-        <FormField
-          nameId="login"
-          content="Login"
-          isError={errorStatus}
-          ref={loginInput}
-        />
+        <FormField nameId="login" content="Login" ref={loginInput} />
         <FormField
           nameId="password"
           type="password"
           content="Hasło"
-          isError={errorStatus}
           ref={passwordInput}
         />
+        {!isValid ? <ErrorText>Niepoprawny login lub hasło</ErrorText> : null}
         <Button isLong type="submit" onClick={e => authorizeUser(e)}>
           Zaloguj się
         </Button>

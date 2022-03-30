@@ -79,7 +79,7 @@ const LandingSection = () => {
           placeholder="blurred"
           alt="Pancakes with syrup"
         />
-        <SearchBar />
+        {/* <SearchBar /> */}
       </TextWrapper>
 
       <FeaturedRecipesWrapper>

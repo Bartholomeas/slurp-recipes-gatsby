@@ -110,8 +110,6 @@ const RegisterPanel = () => {
           console.log(res)
         })
         .catch(err => console.log(err))
-    } else {
-      console.log("Jest false nie wysyla requesta")
     }
   }
 
@@ -123,8 +121,6 @@ const RegisterPanel = () => {
       document
         .querySelector(`input[id='${inputName}']`)
         .classList.remove("invalid")
-
-      console.log("ebe")
     } else {
       errorInput = document.querySelector(`input[id='${inputName}']`)
       errorInput.classList.add("invalid")

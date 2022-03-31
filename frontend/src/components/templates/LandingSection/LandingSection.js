@@ -1,13 +1,14 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, getImage } from "gatsby-plugin-image"
-import { BgImage } from "gbimage-bridge"
-import BackgroundImage from "gatsby-background-image"
-// import SearchBar from "../../molecules/SearchBar/SearchBar"
 import {
   LandingWrapper,
+  LandingImg,
   TextWrapper,
   LandingText,
+  LandingHeader,
+  TriangleBox,
+  PlatesBox,
   FeaturedRecipesWrapper,
   FeaturedRecipesHeader,
   CardsContainer,
@@ -63,50 +64,88 @@ const LandingSection = () => {
       }
     }
   `)
-  console.log(backgroundLandingImage)
-  // const image = getImage(backgroundLandingImage)
-  // const bgImage = convertToBgImage(image)
 
   const pluginImage = getImage(backgroundLandingImage)
 
-  // const windowGlobal = typeof window !== "undefined" && window
-  // useEffect(() => {
-  //   const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
-  //   const getRecipesOfTheDay = async () => {
-  //     await axios
-  //       .get(`${process.env.STRAPI_URL}/recipes`, {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //       .then(({ data }) => {
-  //         for (let i = 0; i < 3; i++) {
-  //           // console.log(recipes[i]["img"]["url"])
-  //           setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
-  //         }
-  //       })
-  //   }
-  //   getRecipesOfTheDay()
-  //   return () => setFeaturedRecipes([])
-  // }, [])
-
   return (
-    <LandingWrapper>
-      {/* <BackgroundImage Tag="section" {...bgImage} preserveStackingContext>
-        Test
-      </BackgroundImage> */}
-      <BgImage image={pluginImage}>TEST</BgImage>
-      <TextWrapper>
-        <LandingText>
-          <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
+    <LandingImg image={pluginImage}>
+      <LandingWrapper>
+        <TextWrapper>
+          <LandingHeader>
+            <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
+          </LandingHeader>
           <p>
             Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
-            najsmaczniejszym dniem! Nie pozwólmy zapanować dietetycznej nudzie w
-            naszym życiu.
+            najsmaczniejszym dniem, precz z żywieniową nudą!
           </p>
-        </LandingText>
+        </TextWrapper>
+        <TriangleBox>
+          <PlatesBox>
+            {" "}
+            <StaticImage
+              style={{
+                // position: "absolute",
+                maxHeight: "300px",
+                // height: "200px",
+                width: "200px",
+                backgroundSize: "cover",
+                zIndex: "10",
+                alignSelf: "center",
+              }}
+              src="../../../images/landingPlate1.png"
+              placeholder="blurred"
+              alt="Plate with dish"
+            />
+            <StaticImage
+              style={{
+                // position: "absolute",
+                maxHeight: "300px",
+                // height: "200px",
+                width: "200px",
+                backgroundSize: "cover",
+                zIndex: "10",
+                alignSelf: "center",
+              }}
+              src="../../../images/landingPlate2.png"
+              placeholder="blurred"
+              alt="Plate with dish"
+            />
+            <StaticImage
+              style={{
+                // position: "absolute",
+                maxHeight: "300px",
+                // height: "200px",
+                width: "200px",
+                backgroundSize: "cover",
+                zIndex: "10",
+                alignSelf: "center",
+              }}
+              src="../../../images/landingPlate3.png"
+              placeholder="blurred"
+              alt="Plate with dish"
+            />
+          </PlatesBox>
+        </TriangleBox>
 
-        {/* <StaticImage
+        {/* <FeaturedRecipesWrapper>
+          <p>To jest test</p>
+        </FeaturedRecipesWrapper> */}
+        {/* <FeaturedRecipesWrapper>
+        <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
+        <CardsContainer>
+        {recipes.map(recipe => {
+          return <CardLight payload={recipe} key={recipe.id} />
+        })}
+        </CardsContainer>
+      </FeaturedRecipesWrapper> */}
+      </LandingWrapper>
+    </LandingImg>
+  )
+}
+export default LandingSection
+
+{
+  /* <StaticImage
           style={{
             position: "absolute",
             height: "100%",
@@ -120,19 +159,29 @@ const LandingSection = () => {
           src="../../../images/landingMarble.jpg"
           placeholder="blurred"
           alt="Marble background"
-        /> */}
-        {/* <SearchBar /> */}
-      </TextWrapper>
-
-      {/* <FeaturedRecipesWrapper>
-        <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
-        <CardsContainer>
-          {recipes.map(recipe => {
-            return <CardLight payload={recipe} key={recipe.id} />
-          })}
-        </CardsContainer>
-      </FeaturedRecipesWrapper> */}
-    </LandingWrapper>
-  )
+        /> */
 }
-export default LandingSection
+{
+  /* <SearchBar /> */
+}
+
+// const windowGlobal = typeof window !== "undefined" && window
+// useEffect(() => {
+//   const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
+//   const getRecipesOfTheDay = async () => {
+//     await axios
+//       .get(`${process.env.STRAPI_URL}/recipes`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       })
+//       .then(({ data }) => {
+//         for (let i = 0; i < 3; i++) {
+//           // console.log(recipes[i]["img"]["url"])
+//           setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
+//         }
+//       })
+//   }
+//   getRecipesOfTheDay()
+//   return () => setFeaturedRecipes([])
+// }, [])

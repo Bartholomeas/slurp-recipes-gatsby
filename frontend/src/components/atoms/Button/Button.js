@@ -8,6 +8,7 @@ const ButtonWrapper = styled.button`
   background: none;
   border: 2px solid ${({ theme }) => theme.colors.primaryColor};
   color: ${({ theme }) => theme.colors.lightFont};
+  background-color: rgba(0, 0, 0, 0.09);
   border-radius: 6px;
   font-size: 1.4rem;
   transition: 0.3s background-color;

@@ -146,9 +146,6 @@ const Contact = ({ data }) => {
           <ContactForm />
         </ContactFormSection>
       </ContactPageWrapper>
-      {/* <Button content="KLIKNIJ" onClick={() => getImages}>
-        Kliknij
-      </Button> */}
     </>
   )
 }

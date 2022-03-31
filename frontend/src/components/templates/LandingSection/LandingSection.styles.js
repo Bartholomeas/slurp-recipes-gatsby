@@ -27,7 +27,7 @@ export const TextWrapper = styled.div`
   height: 100vh;
   padding: 0 4rem;
   gap: 3rem;
-  color: ${({ theme }) => theme.colors.lightGrey};
+  color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {
@@ -40,6 +40,10 @@ export const LandingText = styled.h1`
   font-weight: 300;
   text-align: left;
   max-width: 600px;
+  & p {
+    font-size: 2.4rem;
+  }
+
   @media only screen and (min-width: 576px) {
     font-size: 5.4rem;
   }
@@ -51,11 +55,6 @@ export const LandingText = styled.h1`
   }
 `
 
-export const ColoredText = styled.span`
-  display: block;
-
-  color: ${({ theme }) => theme.colors.primaryColor};
-`
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;
   flex-direction: column;

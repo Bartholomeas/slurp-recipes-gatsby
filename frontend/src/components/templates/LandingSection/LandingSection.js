@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import SearchBar from "../../molecules/SearchBar/SearchBar"
+import { StaticImage, getImage } from "gatsby-plugin-image"
+import { BgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
+// import SearchBar from "../../molecules/SearchBar/SearchBar"
 import {
   LandingWrapper,
   TextWrapper,
@@ -9,13 +11,27 @@ import {
   FeaturedRecipesWrapper,
   FeaturedRecipesHeader,
   CardsContainer,
-  ColoredText,
 } from "./LandingSection.styles"
 import CardLight from "../../organisms/CardLight/CardLight"
 
 const LandingSection = () => {
+  // const { backgroundImage } = useStaticQuery(graphql`
+  //   query GetBgImage {
+  //     file(relativePath: { eq: "landingMarble.jpg" }) {
+  //       id
+  //       childImageSharp {
+  //         gatsbyImageData(
+  //           width: 1950
+  //           webpOptions: { quality: 70 }
+  //           quality: 50
+  //         )
+  //       }
+  //     }
+  //   }
+  // `)
   const {
     allStrapiRecipes: { nodes: recipes },
+    backgroundLandingImage,
   } = useStaticQuery(graphql`
     query GetFeaturedRecipes {
       allStrapiRecipes(limit: 3) {
@@ -34,8 +50,24 @@ const LandingSection = () => {
           }
         }
       }
+
+      backgroundLandingImage: file(relativePath: { eq: "landingMarble.jpg" }) {
+        id
+        childImageSharp {
+          gatsbyImageData(
+            width: 1950
+            webpOptions: { quality: 70 }
+            quality: 50
+          )
+        }
+      }
     }
   `)
+  console.log(backgroundLandingImage)
+  // const image = getImage(backgroundLandingImage)
+  // const bgImage = convertToBgImage(image)
+
+  const pluginImage = getImage(backgroundLandingImage)
 
   // const windowGlobal = typeof window !== "undefined" && window
   // useEffect(() => {
@@ -60,36 +92,46 @@ const LandingSection = () => {
 
   return (
     <LandingWrapper>
+      {/* <BackgroundImage Tag="section" {...bgImage} preserveStackingContext>
+        Test
+      </BackgroundImage> */}
+      <BgImage image={pluginImage}>TEST</BgImage>
       <TextWrapper>
         <LandingText>
-          Najlepsze smaki tylko z <ColoredText>naszymi przepisami</ColoredText>
+          <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
+          <p>
+            Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
+            najsmaczniejszym dniem! Nie pozwólmy zapanować dietetycznej nudzie w
+            naszym życiu.
+          </p>
         </LandingText>
-        <StaticImage
+
+        {/* <StaticImage
           style={{
             position: "absolute",
             height: "100%",
             width: "100%",
             backgroundSize: "cover",
             zIndex: "-10",
-            filter: "brightness(20%)",
+            // filter: "brightness(20%)",
             backgroundAttachment: "fixed",
             alignSelf: "center",
           }}
-          src="../../../images/landing.jpg"
+          src="../../../images/landingMarble.jpg"
           placeholder="blurred"
-          alt="Pancakes with syrup"
-        />
+          alt="Marble background"
+        /> */}
         {/* <SearchBar /> */}
       </TextWrapper>
 
-      <FeaturedRecipesWrapper>
+      {/* <FeaturedRecipesWrapper>
         <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
         <CardsContainer>
           {recipes.map(recipe => {
             return <CardLight payload={recipe} key={recipe.id} />
           })}
         </CardsContainer>
-      </FeaturedRecipesWrapper>
+      </FeaturedRecipesWrapper> */}
     </LandingWrapper>
   )
 }

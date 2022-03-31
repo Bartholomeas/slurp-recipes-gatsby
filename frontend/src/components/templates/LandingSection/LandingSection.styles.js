@@ -14,7 +14,7 @@ export const LandingWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 100vh;
   max-width: 1600px;
   margin-top: 6rem;
@@ -84,6 +84,11 @@ export const TriangleBox = styled.div`
   border-bottom: 300px solid ${({ theme }) => theme.colors.greenish};
   border-left: 300px solid transparent;
   /* z-index: 1000; */
+
+  @media only screen and (min-width: 768px) {
+    border-bottom: 300px solid purple;
+    border-left: 600px solid transparent;
+  }
 `
 
 export const PlatesBox = styled.div`
@@ -91,12 +96,17 @@ export const PlatesBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  top: 50%;
+  width: 100%;
   right: 0;
-  bottom: 0;
   /* bottom: -10rem; */
   gap: 2rem;
   transform: rotate(-45deg);
+
+  @media only screen and (min-width: 768px) {
+    bottom: 0;
+    top: 10%;
+    right: -40%;
+  }
 `
 
 export const FeaturedRecipesWrapper = styled.div`

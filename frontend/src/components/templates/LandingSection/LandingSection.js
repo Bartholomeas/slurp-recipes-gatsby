@@ -85,7 +85,7 @@ const LandingSection = () => {
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "300px",
+                maxHeight: "200px",
                 // height: "200px",
                 width: "200px",
                 backgroundSize: "cover",
@@ -99,7 +99,7 @@ const LandingSection = () => {
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "300px",
+                maxHeight: "200px",
                 // height: "200px",
                 width: "200px",
                 backgroundSize: "cover",
@@ -113,7 +113,7 @@ const LandingSection = () => {
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "300px",
+                maxHeight: "200px",
                 // height: "200px",
                 width: "200px",
                 backgroundSize: "cover",

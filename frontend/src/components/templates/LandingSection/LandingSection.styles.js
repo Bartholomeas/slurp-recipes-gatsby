@@ -1,61 +1,126 @@
 import styled from "styled-components"
+import { BgImage } from "gbimage-bridge"
+
+export const LandingImg = styled(BgImage)`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-size: cover;
+`
 
 export const LandingWrapper = styled.header`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  height: 100vh;
+  max-width: 1600px;
   margin-top: 6rem;
+  gap: 3rem;
+  padding: 0 2rem;
   overflow: hidden;
 
   @media only screen and (min-width: 768px) {
+    display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     height: clamp(700px, 93vh, 1920px);
-    max-width: 1980px;
+    width: 100%;
+    max-width: 1200px;
     left: 50%;
     transform: translateX(-50%);
   }
 `
+
 export const TextWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  height: 100vh;
-  padding: 0 4rem;
-  gap: 3rem;
-  color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  /* height: 100vh; */
+  width: 100%;
+  max-width: 500px;
+  padding: 4rem 0;
+  color: ${({ theme }) => theme.colors.fontColor};
+  background: none;
+  text-align: left;
+  z-index: 1000;
 
+  & p {
+    /* font-size: 1.6rem; */
+  }
   @media only screen and (min-width: 768px) {
     width: 60%;
   }
 `
-export const LandingText = styled.h1`
+
+export const SiteLogo = styled.p`
+  color: ${({ theme }) => theme.colors.darkerPrimary};
+  font-weight: bold;
+  font-size: 3.2rem;
+  padding: 2rem 0;
+`
+
+export const LandingHeader = styled.h1`
   margin-bottom: 2rem;
-  font-size: 4.8rem;
+  font-size: 4rem;
   font-weight: 300;
-  text-align: left;
   max-width: 600px;
+
   @media only screen and (min-width: 576px) {
-    font-size: 5.4rem;
+    font-size: 4.8rem;
   }
   @media only screen and (min-width: 768px) {
-    font-size: 6rem;
+    font-size: 5.6rem;
   }
   @media only screen and (min-width: 1600px) {
-    font-size: 7rem;
+    font-size: 6.4rem;
   }
 `
 
-export const ColoredText = styled.span`
-  display: block;
+// export const TriangleBox = styled.div`
+//   position: relative;
+//   right: 0;
+//   bottom: 0;
+//   align-self: flex-end;
+//   /* border-bottom: 300px solid red; */
+//   border-bottom: 300px solid ${({ theme }) => theme.colors.greenish};
+//   border-bottom: 300px solid purple;
+//   border-left: 300px solid transparent;
+//   /* z-index: 1000; */
 
-  color: ${({ theme }) => theme.colors.primaryColor};
+//   @media only screen and (min-width: 768px) {
+//     border-bottom: 400px solid purple;
+//     border-left: 400px solid transparent;
+//   }
+// `
+export const PlatesWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  height: 100%;
+  /* background-color: pink; */
 `
+export const PlatesBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  gap: 2rem;
+  /* background-color: pink; */
+
+  @media only screen and (min-width: 768px) {
+    transform: rotate(-65deg);
+    gap: 5rem;
+    /* width: 60%; */
+    widh: 100%;
+  }
+`
+
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;
   flex-direction: column;

@@ -46,7 +46,11 @@ const AddRecipeModal = () => {
     console.log(formData)
 
     await axios
-      .post(`${process.env.STRAPI_URL}/upload`, formData)
+      .post(`${process.env.STRAPI_URL}/upload`, formData,   {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(res => {
         const imageId = res.data[0].id
         console.log(imageId)
@@ -56,10 +60,11 @@ const AddRecipeModal = () => {
 
   const uploadHandler = async e => {
     e.preventDefault()
-
+    
     await axios
       .post(
         `${process.env.STRAPI_URL}/recipes`,
+
         {
           title: title,
           time: time,

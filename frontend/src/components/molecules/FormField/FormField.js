@@ -49,7 +49,6 @@ const FormField = React.forwardRef(
       nameId = "",
       content = "",
       textarea = false,
-      isError = false,
       errorInfo = content,
       type = "text",
       width = "100",
@@ -63,7 +62,6 @@ const FormField = React.forwardRef(
         <Label htmlFor={nameId}>{content}</Label>
         {!textarea ? (
           <Input
-            isError={isError}
             onChange={onChange}
             id={nameId}
             name={nameId}
@@ -72,16 +70,8 @@ const FormField = React.forwardRef(
             onKeyUp={inputFunc}
           />
         ) : (
-          <Textarea
-            isError={isError}
-            onChange={e => onChange(e)}
-            id={nameId}
-            name={nameId}
-          />
+          <Textarea onChange={e => onChange(e)} id={nameId} name={nameId} />
         )}
-        {isError ? (
-          <ErrorText>{`Niepoprawne: ${errorInfo.toLowerCase()}`}</ErrorText>
-        ) : null}
       </Wrapper>
     )
   }

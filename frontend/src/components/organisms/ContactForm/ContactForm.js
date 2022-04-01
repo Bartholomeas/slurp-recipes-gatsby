@@ -51,7 +51,7 @@ const ContactFormBody = styled.form`
   padding: 2rem 2rem 0 2rem;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.darkerSecondary};
-
+  color: ${({ theme }) => theme.colors.lightGrey};
   @media only screen and (min-width: 768px) {
     height: 100%;
     max-width: 500px;
@@ -67,6 +67,10 @@ const Statement = styled.p`
   color: ${({ theme }) => theme.colors.secondaryColor};
   font-size: 1.6rem;
   padding: 2rem;
+`
+
+const FormButton = styled(Button)`
+  color: ${({ theme }) => theme.colors.lightGrey};
 `
 
 const ContactForm = () => {
@@ -100,9 +104,9 @@ const ContactForm = () => {
           <FormField nameId="from_name" content="Twój email" type="email" />
           <FormField nameId="title" content="Tytuł" />
           <FormField textarea={true} nameId="message" content="Wiadomość" />
-          <Button isLong type="submit" value="send">
+          <FormButton isLong type="submit" value="send">
             Wyślij
-          </Button>
+          </FormButton>
           <Statement>{statement}</Statement>
         </ContactFormBody>
         <FastfoodIcon />

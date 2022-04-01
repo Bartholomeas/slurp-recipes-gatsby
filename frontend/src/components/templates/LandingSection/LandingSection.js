@@ -5,9 +5,10 @@ import {
   LandingWrapper,
   LandingImg,
   TextWrapper,
-  LandingText,
+  SiteLogo,
   LandingHeader,
   TriangleBox,
+  PlatesWrapper,
   PlatesBox,
   FeaturedRecipesWrapper,
   FeaturedRecipesHeader,
@@ -78,16 +79,16 @@ const LandingSection = () => {
             Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
             najsmaczniejszym dniem, precz z żywieniową nudą!
           </p>
+          <SiteLogo>Slurp Recipes</SiteLogo>
         </TextWrapper>
-        <TriangleBox>
+        <PlatesWrapper>
           <PlatesBox>
-            {" "}
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "200px",
+                // maxHeight: "200px",
                 // height: "200px",
-                width: "200px",
+                width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
                 alignSelf: "center",
@@ -99,9 +100,9 @@ const LandingSection = () => {
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "200px",
+                // maxHeight: "200px",
                 // height: "200px",
-                width: "200px",
+                width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
                 alignSelf: "center",
@@ -113,9 +114,9 @@ const LandingSection = () => {
             <StaticImage
               style={{
                 // position: "absolute",
-                maxHeight: "200px",
+                // maxHeight: "200px",
                 // height: "200px",
-                width: "200px",
+                width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
                 alignSelf: "center",
@@ -125,8 +126,7 @@ const LandingSection = () => {
               alt="Plate with dish"
             />
           </PlatesBox>
-        </TriangleBox>
-
+        </PlatesWrapper>
         {/* <FeaturedRecipesWrapper>
           <p>To jest test</p>
         </FeaturedRecipesWrapper> */}

@@ -9,6 +9,7 @@ export const theme = {
     greenish: "#EEF6F1",
     offGreenish: "#D6E5DB",
     fontColor: "#313131",
+    fontLighter: "#636363",
     errorColor: "rgb(230, 39, 25)",
     lightGrey: "#F9F9F9",
     grey: "#DDDDDD",

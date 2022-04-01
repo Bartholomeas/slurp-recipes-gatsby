@@ -75,7 +75,7 @@ const LandingSection = () => {
           <LandingHeader>
             <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
           </LandingHeader>
-          <p>
+          <p> 
             Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
             najsmaczniejszym dniem, precz z żywieniową nudą!
           </p>

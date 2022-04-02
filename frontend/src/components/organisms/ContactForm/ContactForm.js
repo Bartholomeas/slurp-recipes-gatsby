@@ -85,15 +85,11 @@ const ContactForm = () => {
         e.target,
         "user_YtL1kdHkWKGLr0UtEhpBK"
       )
-      .then(
-        result => {
-          return (statement = "Pomyślnie wysłano wiadomość")
-          console.log(result.text)
-        },
-        error => {
-          console.log(error.text)
-        }
-      )
+      .then(result => {
+        return (statement = "Pomyślnie wysłano wiadomość")
+        console.log(result.text)
+      })
+      .catch(err => console.log(err))
   }
 
   return (

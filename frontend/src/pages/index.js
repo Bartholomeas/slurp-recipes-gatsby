@@ -9,8 +9,8 @@ const Home = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <html lang="en" />
-        <title>Top Recipes by s:urp</title>
+        <html lang="pl" />
+        <title>Siorb przepisy 🍔</title>
         <meta
           name="description"
           content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
@@ -23,9 +23,9 @@ const Home = () => {
           rel="stylesheet"
         />
       </Helmet>
+      {/* <AddRecipeModal /> */}
       <LandingSection />
       <RecipesSection />
-      <AddRecipeModal />
     </>
   )
 }

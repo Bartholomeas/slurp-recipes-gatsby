@@ -18,7 +18,7 @@ export const LandingWrapper = styled.header`
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1200px;
   margin-top: 6rem;
   gap: 3rem;
   padding: 0 2rem;

@@ -84,20 +84,6 @@ const LandingSection = () => {
           <div style={{ width: "300px" }}>
             <Logo />
           </div>
-
-          {/* <StaticImage
-            style={{
-              // position: "absolute",
-              // maxHeight: "200px",
-              height: "300px",
-              backgroundSize: "cover",
-              zIndex: "10",
-              alignSelf: "center",
-            }}
-            src="../../../images/logo.svg"
-            placeholder="blurred"
-            alt="Plate with dish"
-          /> */}
         </TextWrapper>
         <PlatesWrapper>
           <PlatesBox>

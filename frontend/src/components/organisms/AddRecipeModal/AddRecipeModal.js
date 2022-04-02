@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import axios from "axios"
 import { StateContext } from "../../../context/StateContext"
 import FormField from "../../molecules/FormField/FormField"
@@ -46,7 +46,7 @@ const AddRecipeModal = () => {
     console.log(formData)
 
     await axios
-      .post(`${process.env.STRAPI_URL}/upload`, formData,   {
+      .post(`${process.env.STRAPI_URL}/upload`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -60,7 +60,7 @@ const AddRecipeModal = () => {
 
   const uploadHandler = async e => {
     e.preventDefault()
-    
+
     await axios
       .post(
         `${process.env.STRAPI_URL}/recipes`,
@@ -114,6 +114,12 @@ const AddRecipeModal = () => {
       }
       isOpen={isModalOpen}
       onRequestClose={closeModal}
+      style={{
+        overlay: {
+          zIndex: 100,
+          backgroundColor: "rgba(70, 70, 70, 0.5)",
+        },
+      }}
     >
       <ModalHeader>Add recipe</ModalHeader>
       <ModalForm

@@ -20,14 +20,16 @@ const LoginPanel = () => {
   const passwordInput = React.createRef({})
   let errorInput
   const setErrorStatus = (inputName, remove = false) => {
-    if (remove === true) {
-      document
-        .querySelector(`input[id='${inputName}']`)
-        .classList.remove("invalid")
-    } else {
-      errorInput = document.querySelector(`input[id='${inputName}']`)
-      errorInput.classList.add("invalid")
-      errorInput.setAttribute("className", "invalid")
+    if (typeof window !== "undefined") {
+      if (remove === true) {
+        document
+          .querySelector(`input[id='${inputName}']`)
+          .classList.remove("invalid")
+      } else {
+        errorInput = document.querySelector(`input[id='${inputName}']`)
+        errorInput.classList.add("invalid")
+        errorInput.setAttribute("className", "invalid")
+      }
     }
   }
   const authorizeUser = async e => {

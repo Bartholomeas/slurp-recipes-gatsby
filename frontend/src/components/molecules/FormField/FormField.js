@@ -1,6 +1,5 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import ErrorText from "../../atoms/ErrorText/ErrorText"
 
 const inputStyles = css`
   width: 100%;

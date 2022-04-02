@@ -16,7 +16,8 @@ export const LandingWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   max-width: 1600px;
   margin-top: 6rem;
   gap: 3rem;
@@ -24,13 +25,10 @@ export const LandingWrapper = styled.header`
   overflow: hidden;
 
   @media only screen and (min-width: 768px) {
-    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    height: clamp(700px, 93vh, 1920px);
-    width: 100%;
-    max-width: 1200px;
+    height: clamp(700px, 93vh, 1080px);
+    max-height: 100vh;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -41,20 +39,22 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* height: 100vh; */
   width: 100%;
   max-width: 500px;
-  padding: 4rem 0;
+  gap: 3rem;
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   text-align: left;
   z-index: 1000;
-
+  & strong {
+    color: ${({ theme }) => theme.colors.secondaryColor};
+  }
   & p {
     /* font-size: 1.6rem; */
+    color: ${({ theme }) => theme.colors.fontLighter};
   }
   @media only screen and (min-width: 768px) {
-    width: 60%;
+    width: 40%;
   }
 `
 
@@ -66,7 +66,7 @@ export const SiteLogo = styled.p`
 `
 
 export const LandingHeader = styled.h1`
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   font-size: 4rem;
   font-weight: 300;
   max-width: 600px;
@@ -98,26 +98,33 @@ export const LandingHeader = styled.h1`
 //     border-left: 400px solid transparent;
 //   }
 // `
+
 export const PlatesWrapper = styled.div`
   position: relative;
-  width: 50%;
-  height: 100%;
-  /* background-color: pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  height: 400px;
+
+  @media only screen and (min-width: 768px) {
+    width: 60%;
+  }
 `
 export const PlatesBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: auto;
-  height: 100%;
+  width: 100vw;
+  /* height: 100%; */
   gap: 2rem;
+  transform: rotate(-65deg);
   /* background-color: pink; */
 
   @media only screen and (min-width: 768px) {
-    transform: rotate(-65deg);
     gap: 5rem;
-    /* width: 60%; */
-    widh: 100%;
+    width: 100%;
   }
 `
 

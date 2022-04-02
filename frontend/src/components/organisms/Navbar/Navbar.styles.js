@@ -35,9 +35,9 @@ export const NavWrapper = styled.nav`
   top: 0;
   min-width: 100%;
   height: 7rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.white};
   z-index: 10000;
-  box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.shadow};
+  /* box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.shadow}; */
 
   @media print {
     display: none;
@@ -137,10 +137,13 @@ export const UserButton = styled.button`
   transition: color 0.3s;
 `
 
-export const Logo = styled(Link)`
-  text-decoration: none;
-  font-size: 3rem;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+export const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 2rem; */
+  width: 10rem;
+  /* background-color: pink; */
 `
 
 export const ListButton = styled.button`

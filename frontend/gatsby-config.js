@@ -11,10 +11,10 @@ require("dotenv").config({
 module.exports = {
   pathPrefix: "/slurp-recipes-gatsby",
   siteMetadata: {
-    title: "s:urp recipes",
-    description: "Best recipes for every occasion",
+    title: "Siorb przepisy",
+    description: "Najlepsze przepisy na każdą okazję",
     copyright: "copyright 2022 by s:urp",
-    contact: "slurprecipes@gmail.com",
+    contact: "kontakt@siorb.com",
   },
   plugins: [
     "gatsby-plugin-image",
@@ -46,6 +46,14 @@ module.exports = {
       options: {
         nodeType: "strapiRecipes",
         imagePath: "path.to.image",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
       },
     },
   ],

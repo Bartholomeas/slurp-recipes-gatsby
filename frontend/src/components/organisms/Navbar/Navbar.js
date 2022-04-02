@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react"
+import { Link } from "gatsby"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
   NavWrapper,
-  Logo,
   LinkContainer,
+  LogoLink,
   NavLink,
   UserButton,
   HamburgerBtn,
@@ -15,6 +16,7 @@ import { StateContext } from "../../../context/StateContext"
 import { FiLogIn } from "react-icons/fi"
 import { BiUserCircle, BiRepost } from "react-icons/bi"
 import UserPanel from "../UserPanel/UserPanel"
+import Logo from "../../atoms/Logo/Logo"
 
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false)
@@ -38,7 +40,9 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <NavContainer>
-        <Logo to="/">s:urp</Logo>
+        <LogoLink style={{ height: "100px" }} to="/">
+          <Logo style={{ height: "100%" }} />
+        </LogoLink>
         <HamburgerBtn
           aria-label="Open mobile menu"
           onClick={() => {

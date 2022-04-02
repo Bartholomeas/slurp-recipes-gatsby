@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
 import Button from "../components/atoms/Button/Button"
 import axios from "axios"
+import Logo from "../components/atoms/Logo/Logo"
 
 const ContactPageWrapper = styled.div`
   display: flex;
@@ -56,8 +57,8 @@ const AboutUsTextWrapper = styled.div`
 
 const AboutUsHeader = styled.h1`
   margin-bottom: 2rem;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.secondaryColor};
   font-size: 4rem;
 
   @media only screen and (min-width: 768px) {
@@ -80,12 +81,6 @@ const AboutUsText = styled.p`
 const ContactFormSection = styled.section`
   min-height: 60vh;
   width: 100%;
-`
-
-const ContactLogo = styled.p`
-  font-size: 2em;
-  margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
 `
 
 const Contact = ({ data }) => {
@@ -135,7 +130,9 @@ const Contact = ({ data }) => {
               lobortis mauris, purus sed morbi mattis aenean. Neque interdum
               pellentesque molestie amet ac.
             </AboutUsText>
-            <ContactLogo>s:urp</ContactLogo>
+            <div style={{ height: "300px" }}>
+              <Logo />
+            </div>
           </AboutUsTextWrapper>
           <StaticImage
             src="../../static/contact.jpg"

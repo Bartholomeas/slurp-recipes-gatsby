@@ -15,6 +15,7 @@ import {
   CardsContainer,
 } from "./LandingSection.styles"
 import CardLight from "../../organisms/CardLight/CardLight"
+import Logo from "../../atoms/Logo/Logo"
 
 const LandingSection = () => {
   // const { backgroundImage } = useStaticQuery(graphql`
@@ -75,11 +76,28 @@ const LandingSection = () => {
           <LandingHeader>
             <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
           </LandingHeader>
-          <p> 
+          <p>
             Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
             najsmaczniejszym dniem, precz z żywieniową nudą!
           </p>
-          <SiteLogo>Slurp Recipes</SiteLogo>
+
+          <div style={{ width: "300px" }}>
+            <Logo />
+          </div>
+
+          {/* <StaticImage
+            style={{
+              // position: "absolute",
+              // maxHeight: "200px",
+              height: "300px",
+              backgroundSize: "cover",
+              zIndex: "10",
+              alignSelf: "center",
+            }}
+            src="../../../images/logo.svg"
+            placeholder="blurred"
+            alt="Plate with dish"
+          /> */}
         </TextWrapper>
         <PlatesWrapper>
           <PlatesBox>

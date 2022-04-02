@@ -17,7 +17,6 @@ export const LandingWrapper = styled.header`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* height: auto; */
   width: 100%;
   max-width: 1600px;
   margin-top: 6rem;
@@ -26,14 +25,10 @@ export const LandingWrapper = styled.header`
   overflow: hidden;
 
   @media only screen and (min-width: 768px) {
-    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     height: clamp(700px, 93vh, 1080px);
     max-height: 100vh;
-    width: 100%;
-    max-width: 1200px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -43,16 +38,14 @@ export const TextWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* height: 100vh; */
+  align-items: flex-start;
   width: 100%;
   max-width: 500px;
-  /* padding: 4rem 0; */
+  gap: 3rem;
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   text-align: left;
   z-index: 1000;
-  /* background-color: tomato; */
   & strong {
     color: ${({ theme }) => theme.colors.secondaryColor};
   }
@@ -73,7 +66,7 @@ export const SiteLogo = styled.p`
 `
 
 export const LandingHeader = styled.h1`
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   font-size: 4rem;
   font-weight: 300;
   max-width: 600px;

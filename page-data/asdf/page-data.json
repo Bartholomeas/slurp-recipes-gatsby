@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-components-templates-recipe-details-js",
+    "path": "/asdf",
+    "result": {"data":{"strapiRecipes":{"id":"Recipes_6244c480317ccd0016d98b5b","title":"asdf","ingredients":"dsafg","preparation":"sdfg","time":1234,"types":[],"img":null,"diets":[],"difficulties":[]}},"pageContext":{"slug":"asdf"}},
+    "staticQueryHashes": []}

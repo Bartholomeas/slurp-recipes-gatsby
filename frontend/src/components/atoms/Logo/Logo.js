@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import LogoIcon from "../../../../static/logo.svg"
-// import LogoIcon from "../../../images/logo.svg"
+// import LogoIcon from "../../../../static/logo.svg"
+import LogoIcon from "../../../images/logo.svg"
 const LogoImg = styled.img`
   /* height: 13rem; */
   height: 100%;

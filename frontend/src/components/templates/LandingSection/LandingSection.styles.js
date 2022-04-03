@@ -1,5 +1,14 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { BgImage } from "gbimage-bridge"
+
+const wiggle = keyframes`
+from {
+  transform:scale(1) rotate(-2deg);
+}
+to{
+  transform:scale(0.9);
+
+}`
 
 export const LandingImg = styled(BgImage)`
   position: absolute;
@@ -9,6 +18,10 @@ export const LandingImg = styled(BgImage)`
   left: 0;
   z-index: 10;
   background-size: cover;
+`
+export const LandingLogoWrapper = styled.div`
+  width: 300px;
+  animation: 3s ${wiggle} infinite alternate-reverse;
 `
 
 export const LandingWrapper = styled.header`
@@ -82,22 +95,7 @@ export const LandingHeader = styled.h1`
   }
 `
 
-// export const TriangleBox = styled.div`
-//   position: relative;
-//   right: 0;
-//   bottom: 0;
-//   align-self: flex-end;
-//   /* border-bottom: 300px solid red; */
-//   border-bottom: 300px solid ${({ theme }) => theme.colors.greenish};
-//   border-bottom: 300px solid purple;
-//   border-left: 300px solid transparent;
-//   /* z-index: 1000; */
 
-//   @media only screen and (min-width: 768px) {
-//     border-bottom: 400px solid purple;
-//     border-left: 400px solid transparent;
-//   }
-// `
 
 export const PlatesWrapper = styled.div`
   position: relative;

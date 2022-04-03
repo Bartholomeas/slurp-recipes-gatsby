@@ -32,7 +32,7 @@ const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
-    : ""
+    : null
 
   return (
     <>
@@ -54,7 +54,7 @@ const RecipeDetails = ({ data }) => {
       </Helmet>
       <Wrapper>
         <GeneralContainer>
-          <RecipeImage image={image} alt="Food header img" />
+          <RecipeImage image={null} alt="Food header img" />
 
           <ContentContainer>
             <RecipeHeader>{recipeInfo.title}</RecipeHeader>

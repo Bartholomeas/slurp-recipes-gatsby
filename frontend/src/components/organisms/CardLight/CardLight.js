@@ -14,7 +14,7 @@ import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndic
 const CardLight = ({ payload }) => {
   const { title = "?", difficulties = "easy", img = "" } = payload
 
-  const image = img ? getImage(img.localFile.childImageSharp) : {}
+  const image = img ? getImage(img.localFile.childImageSharp) : null
   return (
     <Wrapper>
       <TextContainer>

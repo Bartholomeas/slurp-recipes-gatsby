@@ -50,7 +50,7 @@ const RegisterPanel = () => {
     errorInputsArray = []
 
     // Walidacja nazwy uzytkownika
-    if (registerInfo["username"] != "") {
+    if (registerInfo["username"] !== "") {
       setErrorStatus("username", true)
       setIsValid(true)
     } else {

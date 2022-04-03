@@ -21,6 +21,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Navbar />
+      <AddRecipeModal />
       <Wrapper>{children}</Wrapper>
       <Footer />
     </ThemeProvider>

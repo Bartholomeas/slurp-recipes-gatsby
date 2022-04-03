@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react"
-import { Link } from "gatsby"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
@@ -67,7 +66,7 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/"
-              activeStyle={{ color: "#F2B61A" }}
+              activeStyle={{ color: "#F2B61A", fontWeight: "700" }}
             >
               przepisy
             </NavLink>
@@ -77,7 +76,7 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/contact"
-              activeStyle={{ color: "#F2B61A" }}
+              activeStyle={{ color: "#F2B61A", fontWeight: "700" }}
             >
               kontakt
             </NavLink>

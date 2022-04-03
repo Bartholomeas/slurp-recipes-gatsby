@@ -25,7 +25,7 @@ const navLinkStyles = css`
   font-size: 1.6rem;
   text-decoration: none;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 500;
   transition: color 0.3s;
 `
 
@@ -37,7 +37,6 @@ export const NavWrapper = styled.nav`
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 10000;
-  /* box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.shadow}; */
 
   @media print {
     display: none;

@@ -5,11 +5,10 @@ const LogoImg = styled.img`
   height: 100%;
   width: 100%;
 `
-
 const Logo = () => {
   return (
     <>
-      <LogoImg src={`../logo.svg`} />
+      <LogoImg src={`../../../../static/logo.svg`} />
     </>
   )
 }

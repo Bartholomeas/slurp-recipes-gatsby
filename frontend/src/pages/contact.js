@@ -6,6 +6,7 @@ import ContactForm from "../components/organisms/ContactForm/ContactForm"
 import Button from "../components/atoms/Button/Button"
 import axios from "axios"
 import Logo from "../components/atoms/Logo/Logo"
+import AddRecipeModal from "../components/organisms/AddRecipeModal/AddRecipeModal"
 
 const ContactPageWrapper = styled.div`
   display: flex;
@@ -118,6 +119,7 @@ const Contact = ({ data }) => {
           rel="stylesheet"
         />
       </Helmet>
+
       <ContactPageWrapper>
         <AboutUsSection>
           <AboutUsTextWrapper>

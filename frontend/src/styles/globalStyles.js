@@ -15,7 +15,6 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
-        font-family: Raleway, sans-serif;
         font-family: "Playfair Display", serif;
     }
 `

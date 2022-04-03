@@ -25,7 +25,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /react_router_dom/,
+            test: /gatsby-image.server.tsx/,
             use: loaders.null(),
           },
         ],

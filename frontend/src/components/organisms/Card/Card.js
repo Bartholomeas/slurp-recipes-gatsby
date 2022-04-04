@@ -21,7 +21,7 @@ const Card = ({ payload }) => {
     diets = "none",
     types: type = "none",
   } = payload
-  const image = img ? getImage(img.localFile.childImageSharp) : null
+  const image = img ? getImage(img.localFile) : null
 
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>

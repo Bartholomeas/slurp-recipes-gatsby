@@ -39,7 +39,7 @@ const RecipeDetails = ({ data }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
-        <title>s:urp {recipeInfo.title}</title>
+        <title>Siorb {recipeInfo.title}</title>
         <meta
           name="description"
           content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
@@ -54,7 +54,7 @@ const RecipeDetails = ({ data }) => {
       </Helmet>
       <Wrapper>
         <GeneralContainer>
-          <RecipeImage image={null} alt="Food header img" />
+          <RecipeImage image={image} alt="Food header img" />
 
           <ContentContainer>
             <RecipeHeader>{recipeInfo.title}</RecipeHeader>

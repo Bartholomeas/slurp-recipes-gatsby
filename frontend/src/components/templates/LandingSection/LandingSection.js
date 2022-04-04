@@ -71,7 +71,7 @@ const LandingSection = () => {
   return (
     <LandingImg image={pluginImage}>
       <LandingWrapper>
-        <StaticImage
+        {/* <StaticImage
           style={{
             // position: "absolute",
             // maxHeight: "200px",
@@ -81,10 +81,10 @@ const LandingSection = () => {
             zIndex: "10",
             alignSelf: "center",
           }}
-          src="pluginImage"
+          src={pluginImage}
           placeholder="blurred"
           alt="Plate with dish"
-        />
+        /> */}
         <TextWrapper>
           <LandingHeader>
             <strong> Przepisy</strong> idealnie skrojone na każdą okazję.

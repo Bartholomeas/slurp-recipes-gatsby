@@ -30,7 +30,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_URL,
         collectionTypes: ["recipes", "difficulties", "types", "diets"],
-        queryLimit: 1000, // Defaults to 100
+        queryLimit: 10000, // Defaults to 100
       },
     },
     {

@@ -33,7 +33,11 @@ const RecipesSection = () => {
           img {
             localFile {
               childImageSharp {
-                gatsbyImageData(width: 300)
+                gatsbyImageData(
+                  width: 300
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }

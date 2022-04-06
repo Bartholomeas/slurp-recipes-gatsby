@@ -264,12 +264,13 @@ export const IngredientsBox = styled.div`
   position: static;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   min-height: 300px;
   max-height: 500px;
   top: 8rem;
   font-size: 1.4rem;
+  padding: 0 2.4rem;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.offGreenish};
   overflow-y: scroll;

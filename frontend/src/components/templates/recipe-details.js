@@ -42,7 +42,7 @@ const RecipeDetails = ({ data }) => {
         <title>Siorb {recipeInfo.title}</title>
         <meta
           name="description"
-          content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
+          content="Przepisy, które pokocha cała rodzina!"
         />
         <link rel="canonical" href="http://localhost:8000/contact" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,13 +61,13 @@ const RecipeDetails = ({ data }) => {
 
             <InfoBoxes>
               <InfoBox>
-                <InfoCategory>diet</InfoCategory>
+                <InfoCategory>dieta</InfoCategory>
                 <InfoValue>
                   {recipeInfo.diets[0] ? recipeInfo.diets[0].diets : "balanced"}
                 </InfoValue>
               </InfoBox>
               <InfoBox>
-                <InfoCategory>difficulty</InfoCategory>
+                <InfoCategory>trudność</InfoCategory>
                 <InfoValue>
                   {recipeInfo.difficulties[0]
                     ? recipeInfo.difficulties[0].difficulties
@@ -75,11 +75,11 @@ const RecipeDetails = ({ data }) => {
                 </InfoValue>
               </InfoBox>
               <InfoBox>
-                <InfoCategory>time</InfoCategory>
+                <InfoCategory>czas przygotowania</InfoCategory>
                 <InfoValue>{recipeInfo.time}min</InfoValue>
               </InfoBox>
               <InfoBox>
-                <InfoCategory>calories</InfoCategory>
+                <InfoCategory>kalorie</InfoCategory>
                 <InfoValue> {parseInt(Math.random() * 1000)}kcal</InfoValue>
               </InfoBox>
             </InfoBoxes>
@@ -93,7 +93,7 @@ const RecipeDetails = ({ data }) => {
 
         <RecipeWrapper>
           <PreparationContainer>
-            <PrepHeader>Preparation</PrepHeader>
+            <PrepHeader>Przygotowanie</PrepHeader>
             <StepList>
               {recipeInfo.preparation.split("*/*").map((step, idx) => {
                 return <StepListItem key={idx}>{step.trim()}</StepListItem>
@@ -101,7 +101,7 @@ const RecipeDetails = ({ data }) => {
             </StepList>
           </PreparationContainer>
           <IngredientsBox>
-            <IngredientsHeader>Ingredients</IngredientsHeader>
+            <IngredientsHeader>Składniki</IngredientsHeader>
             <IngredientsList>
               {recipeInfo.ingredients.split("*/*").map((step, idx) => {
                 return (

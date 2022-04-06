@@ -1,19 +1,28 @@
 import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import Button from "../../atoms/Button/Button"
 const flexColumn = css`
   display: flex;
   flex-direction: column;
 `
+const heartStyles = css`
+  position: absolute;
+  text-decoration: none;
+  top: 1rem;
+  right: 1rem;
+  font-size: 3rem;
+`
 
 export const CardWrapper = styled.div`
   ${flexColumn}
+  position:relative;
   align-items: flex-start;
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
-  padding: 0.8rem;
+  /* padding: 0.8rem; */
   box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 6px;
@@ -90,4 +99,20 @@ export const RecipeTime = styled.p`
   color: ${({ theme }) => theme.colors.secondaryColor};
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
+`
+export const DetailsButton = styled(Button)``
+
+export const FavouriteButton = styled.button`
+  background: none;
+  cursor: pointer;
+`
+
+export const HeartFilled = styled(AiFillHeart)`
+  ${heartStyles};
+  display: none;
+  fill: ${({ theme }) => theme.colors.errorColor};
+`
+export const HeartEmpty = styled(AiOutlineHeart)`
+  ${heartStyles};
+  fill: ${({ theme }) => theme.colors.white};
 `

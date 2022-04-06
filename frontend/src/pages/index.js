@@ -12,7 +12,7 @@ const Home = () => {
         <title>Siorb przepisy 🍔</title>
         <meta
           name="description"
-          content="Best recipes that will be loved by everyone of your family, friends, kids or animals!"
+          content="Przepisy, które pokocha cała rodzina!"
         />
         <link rel="canonical" href="http://localhost:8000/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

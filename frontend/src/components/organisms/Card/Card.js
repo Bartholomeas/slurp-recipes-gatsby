@@ -10,6 +10,10 @@ import {
   Circle,
   CardLabelTitle,
   CardInfoBottomContainer,
+  HeartFilled,
+  HeartEmpty,
+  FavouriteButton,
+  DetailsButton,
 } from "./Card.styles"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
 
@@ -27,6 +31,10 @@ const Card = ({ payload }) => {
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>
         {image ? <CardImg image={image} alt="Food image" /> : null}
+        <FavouriteButton>
+          <HeartEmpty />
+          <HeartFilled />
+        </FavouriteButton>
         <CardInfoContainer>
           <CardInfoHeaderContainer>
             <CardRecipeInfos>

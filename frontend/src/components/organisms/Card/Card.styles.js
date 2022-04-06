@@ -22,12 +22,10 @@ export const CardWrapper = styled.div`
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
-  /* padding: 0.8rem; */
   box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 6px;
   overflow: hidden;
-  cursor: pointer;
   transition: transform 0.2s;
 
   &:hover {
@@ -50,8 +48,17 @@ export const CardImg = styled(GatsbyImage)`
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  width: 250px;
-  height: 350px;
+  color: ${({ theme }) => theme.colors.secondarySupport};
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  border: none;
+  background: none;
+  padding: 2rem 0 0 2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryColor};
+  }
 `
 export const CardInfoContainer = styled.div`
   ${flexColumn}
@@ -77,6 +84,7 @@ export const CardInfoBottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  height: auto;
   width: 100%;
   border-radius: 6px;
 `
@@ -100,16 +108,30 @@ export const RecipeTime = styled.p`
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
 `
-export const DetailsButton = styled(Button)``
+export const DetailsButton = styled.button`
+  color: ${({ theme }) => theme.colors.secondarySupport};
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.secondaryColor};
+  }
+`
 
 export const FavouriteButton = styled.button`
+  width: 100%;
   background: none;
+  border: none;
   cursor: pointer;
 `
 
 export const HeartFilled = styled(AiFillHeart)`
   ${heartStyles};
-  display: none;
+  /* display: none; */
   fill: ${({ theme }) => theme.colors.errorColor};
 `
 export const HeartEmpty = styled(AiOutlineHeart)`

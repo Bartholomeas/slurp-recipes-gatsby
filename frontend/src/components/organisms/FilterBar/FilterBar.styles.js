@@ -16,7 +16,10 @@ export const FilterWrapper = styled.div`
   transform: translate(-50%, -50%)
     scale(${({ isOpen }) => (isOpen ? "1" : "0")});
   transform-origin: left bottom;
-  background-color: ${({ theme }) => theme.colors.greenish};
+  /* background-color: ${({ theme }) => theme.colors.greenish}; */
+  background-color: ${({ theme }) => theme.colors.white};
+  /* box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow}; */
+  border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 6px;
   overflow: hidden;
   transition: transform 0.2s ease-in;

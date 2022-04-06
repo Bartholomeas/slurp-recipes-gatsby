@@ -157,9 +157,10 @@ export const ContentContainer = styled.div`
 
 export const RecipeHeader = styled.h2`
   font-size: 3.2rem;
+  /* line-height: 1.4rem; */
   color: ${({ theme }) => theme.colors.fontColor};
   @media only screen and (min-width: 768px) {
-    font-size: 4rem;
+    font-size: 3.2rem;
   }
   @media print {
     font-size: 3rem;

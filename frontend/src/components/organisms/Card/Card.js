@@ -19,6 +19,7 @@ import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndic
 
 const Card = ({ payload }) => {
   const {
+    id = "",
     difficulties: difficulty = "none",
     img = "",
     title = "none",
@@ -27,32 +28,40 @@ const Card = ({ payload }) => {
   } = payload
   const image = img ? getImage(img.localFile) : null
 
-  return (
-    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
-      <CardWrapper>
-        {image ? <CardImg image={image} alt="Food image" /> : null}
-        <FavouriteButton>
-          <HeartEmpty />
-          <HeartFilled />
-        </FavouriteButton>
-        <CardInfoContainer>
-          <CardInfoHeaderContainer>
-            <CardRecipeInfos>
-              {type[0] ? type[0].types : "?"}
-              <Circle />
-              {diets[0] ? diets[0].diets : "?"}
-            </CardRecipeInfos>
-            <CardLabelTitle>{title}</CardLabelTitle>
-          </CardInfoHeaderContainer>
+  const checkFavouriteRecipe = () => {
+    console.log("To jest ulubione")
+    console.log(id)
+  }
 
-          <CardInfoBottomContainer>
-            <DifficultyIndicator
-              difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
-            />
-          </CardInfoBottomContainer>
-        </CardInfoContainer>
-      </CardWrapper>
-    </CardLink>
+  return (
+    // <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+    <CardWrapper>
+      {image ? <CardImg image={image} alt="Food image" /> : null}
+      <FavouriteButton onClick={() => checkFavouriteRecipe()}>
+        <HeartEmpty />
+        <HeartFilled />
+      </FavouriteButton>
+      <CardInfoContainer>
+        <CardInfoHeaderContainer>
+          <CardRecipeInfos>
+            {type[0] ? type[0].types : "?"}
+            <Circle />
+            {diets[0] ? diets[0].diets : "?"}
+          </CardRecipeInfos>
+          <CardLabelTitle>{title}</CardLabelTitle>
+        </CardInfoHeaderContainer>
+
+        <CardInfoBottomContainer>
+          <DifficultyIndicator
+            difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
+          />
+          <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+            Sprawdź →
+          </CardLink>
+        </CardInfoBottomContainer>
+      </CardInfoContainer>
+    </CardWrapper>
+    // </CardLink>
   )
 }
 

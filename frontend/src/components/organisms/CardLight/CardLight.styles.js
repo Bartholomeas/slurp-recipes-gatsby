@@ -43,10 +43,23 @@ export const CardLink = styled(Link)`
   text-decoration: none;
   align-self: flex-end;
   margin-right: 2rem;
+
+  /* text-decoration: none;
+  color: ${({ theme }) => theme.colors.secondarySupport};
+  font-family: "Poppins", sans-serif;
+   font-weight: 700; 
+  font-size: 1.6rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryColor};
+  } */
 `
 export const Button = styled.button`
   color: ${({ theme }) => theme.colors.secondarySupport};
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
   border: none;

@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { getImage } from "gatsby-plugin-image"
 import {
   CardLink,
@@ -32,12 +33,26 @@ const Card = ({ payload }) => {
     console.log("To jest ulubione")
     console.log(id)
   }
+  // https://slurp-website.herokuapp.com/users/me
+
+  let token = JSON.parse(window.localStorage.getItem("token"))
+  const getFavouriteRecipes = async e => {
+    e.preventDefault()
+
+    await axios
+      .get(`${process.env.STRAPI_URL}/users/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => console.log(data.favouriteRecipes))
+  }
 
   return (
     // <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
     <CardWrapper>
       {image ? <CardImg image={image} alt="Food image" /> : null}
-      <FavouriteButton onClick={() => checkFavouriteRecipe()}>
+      <FavouriteButton onClick={e => getFavouriteRecipes(e)}>
         <HeartEmpty />
         <HeartFilled />
       </FavouriteButton>
@@ -66,3 +81,15 @@ const Card = ({ payload }) => {
 }
 
 export default Card
+
+// query MyQuery {
+//   allStrapiUsers(filter: {id: {eq: "Users_6244c0b9317ccd0016d98b59"}}) {
+//     edges {
+//       node {
+//         favouriteRecipes {
+//           favourites
+//         }
+//       }
+//     }
+//   }
+// }

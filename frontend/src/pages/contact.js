@@ -137,6 +137,7 @@ const Contact = ({ data }) => {
           <StaticImage
             src="../../static/contact.jpg"
             alt="Phone that is making photo of food"
+            placeholder="blurred"
           />
         </AboutUsSection>
         <ContactFormSection>

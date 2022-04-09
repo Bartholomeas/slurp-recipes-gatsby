@@ -35,7 +35,12 @@ const Card = ({ payload }) => {
   }
   // https://slurp-website.herokuapp.com/users/me
 
-  let token = JSON.parse(window.localStorage.getItem("token"))
+  const windowGlobal = typeof window !== "undefined" && window
+
+  let token = windowGlobal
+    ? JSON.parse(windowGlobal.localStorage.getItem("token"))
+    : null
+
   const getFavouriteRecipes = async e => {
     e.preventDefault()
 

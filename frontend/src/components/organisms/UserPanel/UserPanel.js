@@ -38,10 +38,6 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
         <FaHeart className="navbar-icon" />
         Ulubione
       </NavbarLink>
-      <NavbarLink className="user-panel-item" to="#">
-        <FaCog className="navbar-icon" />
-        Ustawienia
-      </NavbarLink>
       <Button onClick={() => logoutHandler()} className="user-panel-item">
         <FaSignInAlt className="navbar-icon" />
         Wyloguj

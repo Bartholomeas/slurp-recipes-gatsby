@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { BgImage } from "gbimage-bridge"
+import { StaticImage } from "gatsby-plugin-image"
 
 const wiggle = keyframes`
 from {
@@ -95,8 +96,6 @@ export const LandingHeader = styled.h1`
   }
 `
 
-
-
 export const PlatesWrapper = styled.div`
   position: relative;
   display: flex;
@@ -125,7 +124,6 @@ export const PlatesBox = styled.div`
     width: 100%;
   }
 `
-
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;
   flex-direction: column;

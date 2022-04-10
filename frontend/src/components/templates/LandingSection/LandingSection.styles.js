@@ -124,42 +124,6 @@ export const PlatesBox = styled.div`
     width: 100%;
   }
 `
-export const FeaturedRecipesWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  padding: 3rem;
-  background-color: ${({ theme }) => theme.colors.greenish};
-  box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.shadow};
 
-  @media only screen and (min-width: 768px) {
-    height: 100%;
-    width: 40%;
-  }
-`
-export const CardsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  gap: 2rem;
 
-  @media only screen and (min-width: 768px) {
-    gap: 0rem;
-  }
-`
 
-export const FeaturedRecipesHeader = styled.h2`
-  margin-bottom: 2.4rem;
-  color: ${({ theme }) => theme.colors.secondaryColor};
-  @media only screen and (min-width: 768px) {
-    font-size: 4rem;
-    margin-bottom: 0;
-    margin: 2rem 0;
-  }
-`

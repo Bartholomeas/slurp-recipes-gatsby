@@ -64,7 +64,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  min-height: 200vh;
+  min-height: 100vh;
   width: 100%;
   padding: 1rem;
   padding-top: 7rem;

@@ -33,8 +33,6 @@ const Card = ({ payload }) => {
     console.log("To jest ulubione")
     console.log(id)
   }
-  // https://slurp-website.herokuapp.com/users/me
-
   const windowGlobal = typeof window !== "undefined" && window
 
   let token = windowGlobal
@@ -57,10 +55,10 @@ const Card = ({ payload }) => {
     // <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
     <CardWrapper>
       {image ? <CardImg image={image} alt="Food image" /> : null}
-      <FavouriteButton onClick={e => getFavouriteRecipes(e)}>
-        <HeartEmpty />
-        <HeartFilled />
-      </FavouriteButton>
+      {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
+      {/*  <HeartEmpty />*/}
+      {/*  <HeartFilled />*/}
+      {/*</FavouriteButton>*/}
       <CardInfoContainer>
         <CardInfoHeaderContainer>
           <CardRecipeInfos>

@@ -9,11 +9,7 @@ import {
   LandingHeader,
   PlatesWrapper,
   PlatesBox,
-  FeaturedRecipesWrapper,
-  FeaturedRecipesHeader,
-  CardsContainer,
 } from "./LandingSection.styles"
-import CardLight from "../../organisms/CardLight/CardLight"
 import Logo from "../../atoms/Logo/Logo"
 
 const LandingSection = () => {
@@ -31,28 +27,8 @@ const LandingSection = () => {
   //     }
   //   }
   // `)
-  const {
-    allStrapiRecipes: { nodes: recipes },
-    backgroundLandingImage,
-  } = useStaticQuery(graphql`
-    query GetFeaturedRecipes {
-      allStrapiRecipes(limit: 3) {
-        nodes {
-          id
-          difficulties {
-            difficulties
-          }
-          title
-          img {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 300, placeholder: BLURRED)
-              }
-            }
-          }
-        }
-      }
-
+  const { backgroundLandingImage } = useStaticQuery(graphql`
+    query GetBackgroundImage {
       backgroundLandingImage: file(relativePath: { eq: "landingMarble.jpg" }) {
         id
         childImageSharp {
@@ -71,20 +47,6 @@ const LandingSection = () => {
   return (
     <LandingImg image={pluginImage}>
       <LandingWrapper>
-        {/* <StaticImage
-          style={{
-            // position: "absolute",
-            // maxHeight: "200px",
-            height: "200px",
-            width: "300px",
-            backgroundSize: "cover",
-            zIndex: "10",
-            alignSelf: "center",
-          }}
-          src={pluginImage}
-          placeholder="blurred"
-          alt="Plate with dish"
-        /> */}
         <TextWrapper>
           <LandingHeader>
             <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
@@ -102,9 +64,6 @@ const LandingSection = () => {
           <PlatesBox>
             <StaticImage
               style={{
-                // position: "absolute",
-                // maxHeight: "200px",
-                // height: "200px",
                 width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
@@ -116,9 +75,6 @@ const LandingSection = () => {
             />
             <StaticImage
               style={{
-                // position: "absolute",
-                // maxHeight: "200px",
-                // height: "200px",
                 width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
@@ -130,9 +86,6 @@ const LandingSection = () => {
             />
             <StaticImage
               style={{
-                // position: "absolute",
-                // maxHeight: "200px",
-                // height: "200px",
                 width: "clamp(200px, 400px, 500px)",
                 backgroundSize: "cover",
                 zIndex: "10",
@@ -144,17 +97,6 @@ const LandingSection = () => {
             />
           </PlatesBox>
         </PlatesWrapper>
-        {/* <FeaturedRecipesWrapper>
-          <p>To jest test</p>
-        </FeaturedRecipesWrapper> */}
-        {/* <FeaturedRecipesWrapper>
-        <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
-        <CardsContainer>
-        {recipes.map(recipe => {
-          return <CardLight payload={recipe} key={recipe.id} />
-        })}
-        </CardsContainer>
-      </FeaturedRecipesWrapper> */}
       </LandingWrapper>
     </LandingImg>
   )

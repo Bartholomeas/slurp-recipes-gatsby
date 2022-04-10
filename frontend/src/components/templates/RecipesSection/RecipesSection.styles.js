@@ -47,9 +47,8 @@ export const CardsContainer = styled.div`
     grid-template-rows: 350px;
     gap: 2rem;
     width: 100%;
-    height: 100vh;
-    /* padding-bottom: 3rem; */
-    padding-right: 1rem;
+    //height: 100vh;
+    //padding-right: 1rem;
     padding: 0.2rem 0 2rem 1rem;
     /* overflow-y: scroll; */
   }

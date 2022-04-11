@@ -5,6 +5,7 @@ import {
   Wrapper,
   TextContainer,
   Title,
+  BottomWrapper,
   Button,
   ImageContainer,
   CardImage,
@@ -19,10 +20,12 @@ const CardLight = ({ payload }) => {
     <Wrapper>
       <TextContainer>
         <Title>{title}</Title>
-        <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} />
-        <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
-          <Button>sprawdź →</Button>
-        </CardLink>
+        <BottomWrapper>
+          <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} />
+          <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+            <Button>sprawdź →</Button>
+          </CardLink>
+        </BottomWrapper>
       </TextContainer>
 
       <ImageContainer>

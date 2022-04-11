@@ -6,17 +6,17 @@ import CardLight from "../CardLight/CardLight"
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
   background-color: ${({ theme }) => theme.colors.greenish};
   box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.shadow};
 
   @media only screen and (min-width: 768px) {
-    height: 100%;
-    width: 40%;
+    height: auto;
+    width: 100%;
   }
 `
 
@@ -25,7 +25,6 @@ export const FeaturedRecipesHeader = styled.h2`
   color: ${({ theme }) => theme.colors.secondaryColor};
   @media only screen and (min-width: 768px) {
     font-size: 4rem;
-    margin: 2rem 0;
   }
 `
 
@@ -39,7 +38,9 @@ export const CardsContainer = styled.div`
   gap: 2rem;
 
   @media only screen and (min-width: 768px) {
-    gap: 0rem;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 1200px;
   }
 `
 const FeaturedRecipes = () => {

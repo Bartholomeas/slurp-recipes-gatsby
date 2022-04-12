@@ -8,32 +8,28 @@ const SearchWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   align-self: flex-start;
-  gap: 1rem;
   width: 100%;
-  margin-bottom: 2.4rem;
 
   @media only screen and (min-width: 768px) {
     max-width: 300px;
   }
 `
-
 const SearchForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   border-radius: 6px;
-  gap: 1rem;
 `
+// const SearchLabel = styled.label`
+//   font-size: 1rem;
+//   color: ${({ theme }) => theme.colors.fontColor};
+// `
 
-const SearchLabel = styled.label`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.white};
-`
-
-const SearchInput = styled.input`
-  padding: 1rem 1.6rem;
+const SearchArea = styled.input`
+  padding: 0.8rem;
   width: 100%;
+  height: 3rem;
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   background-color: ${({ theme }) => theme.colors.white};
@@ -42,18 +38,27 @@ const SearchInput = styled.input`
 
   &:focus {
     border: none;
-    background-color: ${({ theme }) => theme.colors.grey};
+    background-color: ${({ theme }) => theme.colors.lightGrey};
     outline: 1px solid lightgrey;
   }
 `
 
 const SearchBar = () => {
+  const copyToClipboard = str => {
+    console.log(str)
+    navigator.clipboard.writeText(str)
+  }
+
   return (
     <SearchWrapper>
-      <SearchLabel htmlFor="search-bar">Wyszukaj przepisów</SearchLabel>
+      {/* <SearchLabel htmlFor="search-bar">Skopiuj adres strony</SearchLabel> */}
       <SearchForm>
-        <SearchInput name="search-bar" id="search-bar" />
-        <SearchButton />
+        <SearchArea
+          name="search-bar"
+          id="search-bar"
+          defaultValue={window.location.href}
+        />
+        <SearchButton onClick={() => copyToClipboard(window.location.href)} />
       </SearchForm>
     </SearchWrapper>
   )

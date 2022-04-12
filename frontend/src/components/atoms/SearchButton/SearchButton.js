@@ -1,8 +1,8 @@
 import React from "react"
-import { AiOutlineKey } from "react-icons/ai"
 import styled from "styled-components"
+import { AiOutlineCopy } from "react-icons/ai"
 
-const SearchIcon = styled(AiOutlineKey)`
+const SearchIcon = styled(AiOutlineCopy)`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
 `
@@ -22,9 +22,9 @@ const Button = styled.button`
   }
 `
 
-export const SearchButton = () => {
+export const SearchButton = ({ onClick }) => {
   return (
-    <Button type="submit" onClick={e => e.preventDefault()}>
+    <Button type="button" onClick={onClick}>
       <SearchIcon />
     </Button>
   )

@@ -35,7 +35,6 @@ const CardLabelTitle = styled.p`
 `
 
 const CardLabel = ({ title, type, time }) => {
-  console.log(...type)
   return (
     <CardLabelWrapper>
       <CardLabelTitle>{title}</CardLabelTitle>

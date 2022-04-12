@@ -107,7 +107,6 @@ const RegisterPanel = () => {
         .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
         .then(res => {
           togglePopup()
-          console.log(res)
         })
         .catch(err => console.log(err))
     }

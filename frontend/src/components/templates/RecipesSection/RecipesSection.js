@@ -16,7 +16,6 @@ const RecipesSection = () => {
     query GetRecipes {
       allStrapiRecipes {
         nodes {
-          ingredients
           id
           difficulties {
             difficulties
@@ -29,7 +28,6 @@ const RecipesSection = () => {
           }
           title
           time
-          preparation
           img {
             localFile {
               childImageSharp {

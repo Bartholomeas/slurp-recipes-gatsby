@@ -27,8 +27,16 @@ const AddRecipeModal = () => {
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
   const [recipeId, setRecipeId] = useState()
-  const { title, time, diet, difficulty, type, preparation, ingredients } =
-    recipeInfo
+  const {
+    title,
+    time,
+    diet,
+    difficulty,
+    type,
+    preparation,
+    ingredients,
+    calories,
+  } = recipeInfo
 
   const windowGlobal = typeof window !== "undefined" && window
   const token = windowGlobal
@@ -43,7 +51,6 @@ const AddRecipeModal = () => {
     formData.append("refId", recipeId)
     formData.append("ref", "recipes")
     formData.append("field", "img")
-    console.log(formData)
 
     await axios
       .post(`${process.env.STRAPI_URL}/upload`, formData, {
@@ -53,7 +60,6 @@ const AddRecipeModal = () => {
       })
       .then(res => {
         const imageId = res.data[0].id
-        console.log(imageId)
       })
       .catch(err => console.log(err))
   }
@@ -68,6 +74,7 @@ const AddRecipeModal = () => {
         {
           title: title,
           time: time,
+          calories: calories,
           diet: diet,
           difficulty: difficulty,
           type: type,
@@ -81,10 +88,8 @@ const AddRecipeModal = () => {
         }
       )
       .then(res => {
-        console.log(res)
         setRecipeId(res.data.id)
         uploadImage(e)
-        // console.log()
       })
       .catch(err => console.log(err))
 
@@ -93,14 +98,12 @@ const AddRecipeModal = () => {
 
   const updateInput = e => {
     setRecipeInfo({ ...recipeInfo, [e.target.name]: e.target.value })
-    console.log(recipeInfo)
   }
 
   const updateSelect = e => {
     const select = e.target
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
-    console.log(recipeInfo)
   }
 
   if (windowGlobal !== "undefined") {
@@ -139,6 +142,13 @@ const AddRecipeModal = () => {
             onChange={updateInput}
             width="25"
             nameId="time"
+            type="number"
+          />
+          <FormField
+            content="kalorie"
+            onChange={updateInput}
+            width="25"
+            nameId="calories"
             type="number"
           />
         </FormContainer>

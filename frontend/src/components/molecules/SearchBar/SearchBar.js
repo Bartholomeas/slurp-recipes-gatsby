@@ -34,7 +34,7 @@ const SearchArea = styled.input`
   background: none;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 6px 0 0 6px;
-  border: none;
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
 
   &:focus {
     border: none;
@@ -45,9 +45,9 @@ const SearchArea = styled.input`
 
 const SearchBar = () => {
   const copyToClipboard = str => {
-    console.log(str)
     navigator.clipboard.writeText(str)
   }
+  const windowGlobal = typeof window !== "undefined" && window
 
   return (
     <SearchWrapper>
@@ -56,7 +56,7 @@ const SearchBar = () => {
         <SearchArea
           name="search-bar"
           id="search-bar"
-          defaultValue={window.location.href}
+          defaultValue={windowGlobal ? windowGlobal.location.href : null}
         />
         <SearchButton onClick={() => copyToClipboard(window.location.href)} />
       </SearchForm>

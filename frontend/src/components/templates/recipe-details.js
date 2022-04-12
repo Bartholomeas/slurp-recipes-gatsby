@@ -1,10 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { Helmet } from "react-helmet"
 import {
   IconsContainer,
-  FacebookIcon,
   ShareIcon,
   PrintIcon,
   Wrapper,
@@ -25,18 +24,18 @@ import {
   IngredientsHeader,
   IngredientsList,
   IngredientsItem,
+  ShareBox,
 } from "./recipe-details-styles"
 
 import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
-import Button from "../atoms/Button/Button"
 import SharePanel from "../molecules/SharePanel/SharePanel"
 
 const RecipeDetails = ({ data }) => {
+  const [isOpen, setIsOpen] = useState(false)
   const recipeInfo = data.strapiRecipes
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
     : null
-
   return (
     <>
       <Helmet>
@@ -83,15 +82,19 @@ const RecipeDetails = ({ data }) => {
               </InfoBox>
               <InfoBox>
                 <InfoCategory>kalorie</InfoCategory>
-                <InfoValue> {parseInt(Math.random() * 1000)}kcal</InfoValue>
+                <InfoValue> ~{recipeInfo.calories} kcal</InfoValue>
               </InfoBox>
             </InfoBoxes>
             <IconsContainer>
-              <button style={{ background: "none", border: "none" }}>
-                <ShareIcon />
-              </button>
-
-              <SharePanel title={recipeInfo.title} />
+              <ShareBox>
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  style={{ background: "none", border: "none" }}
+                >
+                  <ShareIcon />
+                </button>
+                <SharePanel isOpen={isOpen} title={recipeInfo.title} />
+              </ShareBox>
 
               <PrintIcon onClick={() => window.print()} />
             </IconsContainer>
@@ -135,6 +138,7 @@ export const query = graphql`
       ingredients
       preparation
       time
+      calories
       types {
         types
       }

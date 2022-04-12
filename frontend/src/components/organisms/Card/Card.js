@@ -29,10 +29,6 @@ const Card = ({ payload }) => {
   } = payload
   const image = img ? getImage(img.localFile) : null
 
-  const checkFavouriteRecipe = () => {
-    console.log("To jest ulubione")
-    console.log(id)
-  }
   const windowGlobal = typeof window !== "undefined" && window
 
   let token = windowGlobal
@@ -68,7 +64,6 @@ const Card = ({ payload }) => {
           </CardRecipeInfos>
           <CardLabelTitle>{title}</CardLabelTitle>
         </CardInfoHeaderContainer>
-
         <CardInfoBottomContainer>
           <DifficultyIndicator
             difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}

@@ -25,19 +25,13 @@ const IconsStyle = css`
 `
 
 export const IconsContainer = styled.div`
-  /* position: relative; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   gap: 3rem;
-  /* padding: 3rem 0; */
   width: 100%;
 
   @media only screen and (min-width: 768px) {
-    /* position: absolute; */
-    /* flex-direction: column; */
-    /* align-self: flex-end; */
     gap: 1rem;
     width: auto;
   }
@@ -320,4 +314,7 @@ export const IngredientsItem = styled.li`
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
+`
+export const ShareBox = styled.div`
+  position: relative;
 `

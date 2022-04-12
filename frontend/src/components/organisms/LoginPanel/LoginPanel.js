@@ -40,7 +40,6 @@ const LoginPanel = () => {
         password: passwordInput.current.value,
       })
       .then(data => {
-        console.log(data)
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
         localStorage.setItem("user", JSON.stringify(data.data.user.username))
         setIsAuthenticated(true)

@@ -13,20 +13,24 @@ import {
 import SearchBar from "../SearchBar/SearchBar"
 
 export const Wrapper = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  /* display: flex; */
+  flex-direction: column;
   position: absolute;
-  background-color: ${({ theme }) => theme.colors.grey};
+  left: 0;
+  top: 5rem;
   height: 150px;
   width: 250px;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   z-index: 9999;
 `
 export const ButtonsContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: flex-start;
   justify-content: space-between;
-  /* gap: 1rem; */
   height: 100%;
   width: 100%;
   padding: 2rem 0;
@@ -44,7 +48,7 @@ const SharePanel = ({ ...props }) => {
   const shareUrl = windowGlobal.location
 
   return (
-    <Wrapper>
+    <Wrapper isOpen={props.isOpen}>
       <HeadingText>Udostępnij:</HeadingText>
       <SearchBar />
       <ButtonsContainer>

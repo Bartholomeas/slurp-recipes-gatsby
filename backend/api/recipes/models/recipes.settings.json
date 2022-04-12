@@ -63,6 +63,11 @@
     "ingredients": {
       "type": "text",
       "required": true
+    },
+    "calories": {
+      "type": "integer",
+      "required": true,
+      "min": 0
     }
   }
 }

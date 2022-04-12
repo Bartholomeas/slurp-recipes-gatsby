@@ -26,13 +26,21 @@ import {
   IngredientsList,
   IngredientsItem,
 } from "./recipe-details-styles"
+import {
+  FacebookShareButton,
+  // FacebookIcon,
+} from "react-share"
 import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
+import Button from "../atoms/Button/Button"
 
 const RecipeDetails = ({ data }) => {
   const recipeInfo = data.strapiRecipes
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
     : null
+
+  const windowGlobal = typeof window !== "undefined" && window
+  const shareUrl = windowGlobal.location
 
   return (
     <>
@@ -84,8 +92,12 @@ const RecipeDetails = ({ data }) => {
               </InfoBox>
             </InfoBoxes>
             <IconsContainer>
-              <FacebookIcon />
-              <ShareIcon />
+              <FacebookShareButton content="To jest button" url={shareUrl}>
+                <FacebookIcon size={40} />
+              </FacebookShareButton>
+              <button style={{ background: "none", border: "none" }}>
+                <ShareIcon />
+              </button>
               <PrintIcon onClick={() => window.print()} />
             </IconsContainer>
           </ContentContainer>

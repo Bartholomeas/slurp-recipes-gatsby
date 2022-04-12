@@ -16,9 +16,18 @@ const FilterWrapper = styled.form`
 `
 
 const FilterOptionsBody = ({ content, ...props }) => {
+  const filterHeader = Object.keys(content[0])
   return (
     <FilterWrapper>
-      <FilterOptionHeader content={Object.keys(content[0])} />
+      <FilterOptionHeader
+        content={
+          filterHeader == "diets"
+            ? "dieta"
+            : filterHeader == "difficulties"
+            ? "trudność"
+            : "posiłek"
+        }
+      />
       {content
         ? content.map((el, idx) => (
             <FilterOption

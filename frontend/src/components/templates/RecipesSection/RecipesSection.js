@@ -68,7 +68,7 @@ const RecipesSection = () => {
   const checkRecipeTruthy = (recipe, idx) => {
     const infoKey = checkedInfos[idx - 1]
 
-    return recipe[infoKey][0][infoKey] === info[infoKey];
+    return recipe[infoKey][0][infoKey] === info[infoKey]
   }
 
   useEffect(() => {

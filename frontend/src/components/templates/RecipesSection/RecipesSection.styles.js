@@ -7,6 +7,7 @@ export const RecipesWrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  width: 100vw;
   padding-top: 6rem;
   margin-bottom: 2rem;
   background-color: ${({ theme }) => theme.colors.white};
@@ -25,6 +26,7 @@ export const RecipesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   padding: 4rem 0;
   @media only screen and (min-width: 768px) {
     flex-direction: row;

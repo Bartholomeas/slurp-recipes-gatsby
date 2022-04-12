@@ -46,7 +46,6 @@ const LoginPanel = () => {
         navigate("/")
       })
       .catch(error => {
-        // alert(error)
         setErrorStatus("login")
         setErrorStatus("password")
         setIsValid(false)

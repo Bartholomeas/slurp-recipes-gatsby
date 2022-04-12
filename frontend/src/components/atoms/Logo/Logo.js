@@ -10,7 +10,7 @@ const LogoImg = styled.img`
 const Logo = () => {
   return (
     <>
-      <LogoImg src={LogoIcon} />
+      <LogoImg src={LogoIcon} alt="Logo Siorb Przepisy" />
     </>
   )
 }

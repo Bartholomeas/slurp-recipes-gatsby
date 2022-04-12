@@ -48,21 +48,33 @@ const SharePanel = ({ ...props }) => {
   const shareUrl = windowGlobal.location
 
   return (
-    <Wrapper isOpen={props.isOpen}>
+    <Wrapper onClick={props.onClick} isOpen={props.isOpen}>
       <HeadingText>Udostępnij:</HeadingText>
       <SearchBar />
       <ButtonsContainer>
-        <FacebookShareButton content="To jest button" url={shareUrl}>
+        <FacebookShareButton
+          aria-label="Udostępnij na Facebook"
+          content="To jest button"
+          url={shareUrl}
+        >
           <FacebookIcon size={40} />
         </FacebookShareButton>
-        <FacebookMessengerShareButton url={shareUrl}>
+        <FacebookMessengerShareButton
+          url={shareUrl}
+          aria-label="Udostępnij na Messenger"
+        >
           <FacebookMessengerIcon size={40} />
         </FacebookMessengerShareButton>
-        <TwitterShareButton url={shareUrl} size={40}>
+        <TwitterShareButton
+          url={shareUrl}
+          size={40}
+          aria-label="Udostępnij na Twitter"
+        >
           <TwitterIcon size={40} />
         </TwitterShareButton>
         <EmailShareButton
           subject={`Spróbuj naszego przepisu na ${props.title}`}
+          aria-label="Udostępnij przez E-mail"
         >
           <EmailIcon size={40} />
         </EmailShareButton>

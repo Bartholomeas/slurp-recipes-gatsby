@@ -88,12 +88,17 @@ const RecipeDetails = ({ data }) => {
             <IconsContainer>
               <ShareBox>
                 <button
+                  aria-label="Przycisk do udostępniania"
                   onClick={() => setIsOpen(!isOpen)}
                   style={{ background: "none", border: "none" }}
                 >
                   <ShareIcon />
                 </button>
-                <SharePanel isOpen={isOpen} title={recipeInfo.title} />
+                <SharePanel
+                  onClick={() => setIsOpen(!isOpen)}
+                  isOpen={isOpen}
+                  title={recipeInfo.title}
+                />
               </ShareBox>
 
               <PrintIcon onClick={() => window.print()} />

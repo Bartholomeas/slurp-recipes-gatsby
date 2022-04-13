@@ -47,6 +47,9 @@ const SelectField = ({
         name={nameId}
         id={nameId}
       >
+        <option style={{ color: "black" }} value="" defaultValue="">
+          Wybierz
+        </option>
         {values.values.map((value, idx) => {
           return (
             <option style={{ color: "black" }} value={value} key={value + idx}>

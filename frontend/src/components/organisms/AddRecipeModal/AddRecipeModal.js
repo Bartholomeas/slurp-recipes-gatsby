@@ -66,7 +66,6 @@ const AddRecipeModal = () => {
 
   const uploadHandler = async e => {
     e.preventDefault()
-
     await axios
       .post(
         `${process.env.STRAPI_URL}/recipes`,
@@ -90,6 +89,7 @@ const AddRecipeModal = () => {
       .then(res => {
         setRecipeId(res.data.id)
         uploadImage(e)
+        console.log(res)
       })
       .catch(err => console.log(err))
 
@@ -104,6 +104,7 @@ const AddRecipeModal = () => {
     const select = e.target
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
+    console.log(e.target.options[select.selectedIndex].value)
   }
 
   if (windowGlobal !== "undefined") {

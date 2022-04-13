@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink style={{ height: "100px" }} to="/">
+        <LogoLink style={{ height: "100px" }} to="/" aria-label="Logo strony">
           <Logo style={{ height: "100%" }} />
         </LogoLink>
         <HamburgerBtn
@@ -86,10 +86,8 @@ const Navbar = () => {
               <UserButton
                 className="join-link"
                 onClick={() => {
-                  {
-                    setIsUserPanelActive(!isUserPanelActive)
-                    setIsNavbarOpen(false)
-                  }
+                  setIsUserPanelActive(!isUserPanelActive)
+                  setIsNavbarOpen(false)
                 }}
               >
                 <BiUserCircle

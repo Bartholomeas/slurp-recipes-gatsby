@@ -43,30 +43,6 @@ const AddRecipeModal = () => {
     ? JSON.parse(windowGlobal.localStorage.getItem("token"))
     : null
 
-  //Upload zdjecia
-  const uploadImage = async (e, id) => {
-    e.preventDefault()
-    const formData = new FormData()
-
-    formData.append("files", file)
-    formData.append("refId", id)
-    formData.append("ref", "recipes")
-    formData.append("field", "img")
-
-    const { data: response } = await axios
-      .post(`${process.env.STRAPI_URL}/upload`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(res => {
-        const imageId = res.data[0].id
-        console.log(`Response z uploadu zdjecia ${res}`)
-      })
-      .catch(err => console.log(err))
-    console.log(response)
-  }
-
   //Wysylanie przepisu
   const uploadHandler = async e => {
     e.preventDefault()
@@ -92,12 +68,35 @@ const AddRecipeModal = () => {
       )
       .then(res => {
         setRecipeId(res.data.id)
-        uploadImage(e, res.data.id)
+        uploadImage(res.data.id)
         console.log(res)
       })
       .catch(err => console.log(err))
 
     closeModal(e)
+  }
+
+  //Upload zdjecia
+  async function uploadImage(id) {
+    // e.preventDefault()
+    const formData = new FormData()
+
+    formData.append("files", file)
+    formData.append("refId", id)
+    formData.append("ref", "recipes")
+    formData.append("field", "img")
+
+    await axios
+      .post(`${process.env.STRAPI_URL}/upload`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res => {
+        const imageId = res.data[0].id
+        console.log(`Response z uploadu zdjecia ${res}`)
+      })
+      .catch(err => console.log(err))
   }
 
   const updateInput = e => {

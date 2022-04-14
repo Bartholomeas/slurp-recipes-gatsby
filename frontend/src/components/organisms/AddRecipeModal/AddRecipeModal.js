@@ -11,6 +11,7 @@ import {
   Button,
 } from "./AddRecipeModal.styles"
 import SelectField from "../../molecules/SelectField/SelectField"
+import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 
 const initialState = {
   title: "",
@@ -26,7 +27,7 @@ const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
-  const [recipeId, setRecipeId] = useState()
+  const [isLoading, setIsLoading] = useState(false)
   const {
     title,
     time,
@@ -46,6 +47,7 @@ const AddRecipeModal = () => {
   //Wysylanie przepisu
   const uploadHandler = async e => {
     e.preventDefault()
+    setIsLoading(true)
     await axios
       .post(
         `${process.env.STRAPI_URL}/recipes`,
@@ -67,8 +69,8 @@ const AddRecipeModal = () => {
         }
       )
       .then(res => {
-        setRecipeId(res.data.id)
         uploadImage(res.data.id)
+        setIsLoading(false)
         console.log(res)
       })
       .catch(err => console.log(err))
@@ -93,8 +95,8 @@ const AddRecipeModal = () => {
         },
       })
       .then(res => {
-        const imageId = res.data[0].id
-        console.log(`Response z uploadu zdjecia ${res}`)
+        console.log(res)
+        setIsLoading(false)
       })
       .catch(err => console.log(err))
   }
@@ -210,6 +212,7 @@ const AddRecipeModal = () => {
           </Button>
         </ButtonWrapper>
       </ModalForm>
+      {isLoading ? <LoadingPopup /> : null}
     </ModalBody>
   )
 }

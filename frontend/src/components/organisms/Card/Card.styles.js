@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
-import Button from "../../atoms/Button/Button"
+
 const flexColumn = css`
   display: flex;
   flex-direction: column;

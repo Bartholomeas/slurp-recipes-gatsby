@@ -29,6 +29,7 @@ import {
 
 import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 import SharePanel from "../molecules/SharePanel/SharePanel"
+import LoadingPopup from "../molecules/LoadingPopup/LoadingPopup"
 
 const RecipeDetails = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -127,7 +128,6 @@ const RecipeDetails = ({ data }) => {
           </IngredientsBox>
         </RecipeWrapper>
       </Wrapper>
-
       <AddRecipeModal />
     </>
   )

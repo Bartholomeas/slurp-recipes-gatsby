@@ -12,6 +12,7 @@ import {
 } from "./AddRecipeModal.styles"
 import SelectField from "../../molecules/SelectField/SelectField"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
+import NotificationPopup from "../NotificationPopup/NotificationPopup"
 
 const initialState = {
   title: "",
@@ -38,7 +39,15 @@ const AddRecipeModal = () => {
     ingredients,
     calories,
   } = recipeInfo
+  const [isPopupActive, setIsPopupActive] = useState(false)
 
+  const togglePopup = () => {
+    setIsPopupActive(!isPopupActive)
+
+    // setTimeout(() => {
+    //   navigate(`/login`)
+    // }, 3000)
+  }
   const windowGlobal = typeof window !== "undefined" && window
   const token = windowGlobal
     ? JSON.parse(windowGlobal.localStorage.getItem("token"))
@@ -57,7 +66,7 @@ const AddRecipeModal = () => {
           time: time,
           calories: calories,
           diet: diet,
-          difficulty: difficulty,
+          difficulties: difficulty,
           type: type,
           preparation: preparation,
           ingredients: ingredients,
@@ -71,11 +80,15 @@ const AddRecipeModal = () => {
       .then(res => {
         uploadImage(res.data.id)
         setIsLoading(false)
+        togglePopup()
         console.log(res)
       })
       .catch(err => console.log(err))
 
-    closeModal(e)
+    setTimeout(() => {
+      closeModal(e)
+      togglePopup() 
+    }, 2000)
   }
 
   //Upload zdjecia
@@ -213,6 +226,10 @@ const AddRecipeModal = () => {
         </ButtonWrapper>
       </ModalForm>
       {isLoading ? <LoadingPopup /> : null}
+      <NotificationPopup onClick={() => togglePopup()} isActive={isPopupActive}>
+        Gratulacje, rejestracja przebiegła pomyślnie, zostaniesz przeniesiony na
+        stronę logowania
+      </NotificationPopup>
     </ModalBody>
   )
 }

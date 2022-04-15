@@ -26,7 +26,6 @@ import {
   IngredientsItem,
   ShareBox,
 } from "./recipe-details-styles"
-
 import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 import SharePanel from "../molecules/SharePanel/SharePanel"
 import LoadingPopup from "../molecules/LoadingPopup/LoadingPopup"
@@ -37,6 +36,7 @@ const RecipeDetails = ({ data }) => {
   const image = recipeInfo.img
     ? getImage(recipeInfo.img.localFile.childImageSharp.gatsbyImageData)
     : null
+
   return (
     <>
       <Helmet>
@@ -128,6 +128,7 @@ const RecipeDetails = ({ data }) => {
           </IngredientsBox>
         </RecipeWrapper>
       </Wrapper>
+
       <AddRecipeModal />
     </>
   )

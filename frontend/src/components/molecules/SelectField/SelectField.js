@@ -36,6 +36,7 @@ const SelectField = ({
   nameId = "",
   width = "100",
   onChange = () => {},
+  valuesIds = [],
   ...values
 }) => {
   return (
@@ -51,11 +52,27 @@ const SelectField = ({
           Wybierz
         </option>
         {values.values.map((value, idx) => {
-          return (
-            <option style={{ color: "black" }} value={value} key={value + idx}>
-              {value}
-            </option>
-          )
+          if (valuesIds.length > 0) {
+            return (
+              <option
+                style={{ color: "black" }}
+                value={valuesIds[idx]}
+                key={value + idx}
+              >
+                {value}
+              </option>
+            )
+          } else {
+            return (
+              <option
+                style={{ color: "black" }}
+                value={value}
+                key={value + idx}
+              >
+                {value}
+              </option>
+            )
+          }
         })}
       </Select>
     </SelectWrapper>

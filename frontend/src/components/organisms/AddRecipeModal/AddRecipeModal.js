@@ -17,9 +17,9 @@ import NotificationPopup from "../NotificationPopup/NotificationPopup"
 const initialState = {
   title: "",
   time: "",
-  diet: "",
-  difficulty: "",
-  type: "",
+  diets: "",
+  difficulties: "",
+  types: "",
   preparation: "",
   ingredients: "",
 }
@@ -32,9 +32,9 @@ const AddRecipeModal = () => {
   const {
     title,
     time,
-    diet,
-    difficulty,
-    type,
+    diets,
+    difficulties,
+    types,
     preparation,
     ingredients,
     calories,
@@ -43,10 +43,6 @@ const AddRecipeModal = () => {
 
   const togglePopup = () => {
     setIsPopupActive(!isPopupActive)
-
-    // setTimeout(() => {
-    //   navigate(`/login`)
-    // }, 3000)
   }
   const windowGlobal = typeof window !== "undefined" && window
   const token = windowGlobal
@@ -65,9 +61,11 @@ const AddRecipeModal = () => {
           title: title,
           time: time,
           calories: calories,
-          diet: diet,
-          difficulties: difficulty,
-          type: type,
+          diets: diets,
+          difficulties: {
+            _id: "621d079c896c806c8af640b5",
+          },
+          types: types,
           preparation: preparation,
           ingredients: ingredients,
         },
@@ -87,7 +85,7 @@ const AddRecipeModal = () => {
 
     setTimeout(() => {
       closeModal(e)
-      togglePopup() 
+      togglePopup()
     }, 2000)
   }
 
@@ -123,6 +121,8 @@ const AddRecipeModal = () => {
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
     console.log(e.target.options[select.selectedIndex].value)
+    // console.log(e.target.name)
+    console.log(recipeInfo)
   }
 
   if (windowGlobal !== "undefined") {
@@ -173,20 +173,25 @@ const AddRecipeModal = () => {
         </FormContainer>
         <FormContainer>
           <SelectField
-            nameId="diet"
+            nameId="diets"
             content="dieta"
             onChange={updateSelect}
             values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
           />
           <SelectField
-            nameId="difficulty"
+            nameId="difficulties"
             content="trudność"
             onChange={updateSelect}
+            valuesIds={[
+              "621d079c896c806c8af640b5",
+              "621d07a8896c806c8af640b6",
+              "621d07b8896c806c8af640b7",
+            ]}
             values={["łatwe", "średnie", "trudne"]}
           />
           <SelectField
-            nameId="diet"
-            content="dieta"
+            nameId="types"
+            content="posiłek"
             onChange={updateSelect}
             values={["śniadanie", "lunch", "obiad", "deser", "napój"]}
           />

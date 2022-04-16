@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-078b7123a29c82db3076.js"
+    "url": "webpack-runtime-61d4de1b9612c52517ad.js"
   },
   {
     "url": "framework-a7357820fbdc17d921b2.js"
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "d7eeaac4-417adaccc31727c17b08.js"
   },
   {
-    "url": "app-deb6b76dfdb159e81955.js"
+    "url": "app-c0e01c226524b8b2df7f.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "adfdd80826fd017bf903ad83439c2439"
+    "revision": "f6323fca6c5a9c42783567b89fec7ff5"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ffe949d50daa99a27564.js"
@@ -66,7 +66,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "d447f915672934970f21fbe4295c42fe"
+    "revision": "9082338367d670a786f44bc17fabb358"
   },
   {
     "url": "polyfill-3168e9c8de0c9c345034.js"
@@ -161,7 +161,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-deb6b76dfdb159e81955.js`))) {
+  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-c0e01c226524b8b2df7f.js`))) {
     return await fetch(event.request)
   }
 

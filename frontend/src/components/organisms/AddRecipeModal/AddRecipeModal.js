@@ -13,6 +13,7 @@ import {
 import SelectField from "../../molecules/SelectField/SelectField"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../NotificationPopup/NotificationPopup"
+import usePostRecipe from "../../../hooks/usePostRecipe"
 
 const initialState = {
   title: "",
@@ -26,6 +27,8 @@ const initialState = {
 
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
+  // const { updateSelect, updateInput, uploadHandler, uploadImage } =
+  //   usePostRecipe()
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
   const [isLoading, setIsLoading] = useState(false)
@@ -133,8 +136,6 @@ const AddRecipeModal = () => {
     console.log(recipeInfo)
   }
 
-  if (windowGlobal !== "undefined") {
-  }
   return (
     <ModalBody
       appElement={

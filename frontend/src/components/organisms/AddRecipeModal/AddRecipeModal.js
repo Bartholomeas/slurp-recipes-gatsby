@@ -100,7 +100,6 @@ const AddRecipeModal = () => {
 
   //Upload zdjecia
   async function uploadImage(id) {
-    // e.preventDefault()
     const formData = new FormData()
 
     formData.append("files", file)

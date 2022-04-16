@@ -14,7 +14,7 @@ export const RecipesWrapper = styled.section`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     justify-content: center;
     width: auto;
     max-width: 1600px;

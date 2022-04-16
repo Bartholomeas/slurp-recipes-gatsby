@@ -56,18 +56,27 @@ const AddRecipeModal = () => {
     await axios
       .post(
         `${process.env.STRAPI_URL}/recipes`,
-
         {
           title: title,
           time: time,
           calories: calories,
-          diets: diets,
-          difficulties: {
-            _id: "621d079c896c806c8af640b5",
-          },
-          types: types,
           preparation: preparation,
           ingredients: ingredients,
+          diets: [
+            {
+              _id: diets,
+            },
+          ],
+          difficulties: [
+            {
+              _id: difficulties,
+            },
+          ],
+          types: [
+            {
+              _id: types,
+            },
+          ],
         },
         {
           headers: {
@@ -121,7 +130,7 @@ const AddRecipeModal = () => {
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
     console.log(e.target.options[select.selectedIndex].value)
-    // console.log(e.target.name)
+    // console.log(types)
     console.log(recipeInfo)
   }
 
@@ -176,6 +185,12 @@ const AddRecipeModal = () => {
             nameId="diets"
             content="dieta"
             onChange={updateSelect}
+            valuesIds={[
+              "621d167b5959ad7a45d14bea",
+              "621bb7b5896c806c8af640a7",
+              "621bb7ad896c806c8af640a6",
+              "621bb7bd896c806c8af640a8",
+            ]}
             values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
           />
           <SelectField
@@ -193,7 +208,14 @@ const AddRecipeModal = () => {
             nameId="types"
             content="posiłek"
             onChange={updateSelect}
-            values={["śniadanie", "lunch", "obiad", "deser", "napój"]}
+            valuesIds={[
+              "621d048d896c806c8af640aa",
+              "621bbd62896c806c8af640a9",
+              "621d0497896c806c8af640ab",
+              "621d04a4896c806c8af640ac",
+              "62364060b17a20ff6a917404",
+            ]}
+            values={["śniadanie", "obiad", "kolacja", "deser", "napój"]}
           />
         </FormContainer>
 

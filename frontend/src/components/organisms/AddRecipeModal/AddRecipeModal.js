@@ -13,6 +13,7 @@ import {
 import SelectField from "../../molecules/SelectField/SelectField"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../NotificationPopup/NotificationPopup"
+import ErrorText from "../../atoms/ErrorText/ErrorText"
 
 const initialState = {
   title: "",
@@ -26,6 +27,7 @@ const initialState = {
 
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
+  const [isValid, setIsValid] = useState(true)
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
   const [isLoading, setIsLoading] = useState(false)
@@ -52,6 +54,7 @@ const AddRecipeModal = () => {
   //Wysylanie przepisu
   const uploadHandler = async e => {
     e.preventDefault()
+    if (!validateInputs()) return
     setIsLoading(true)
     await axios
       .post(
@@ -129,6 +132,29 @@ const AddRecipeModal = () => {
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
   }
+
+  const arra = document.querySelectorAll("input")
+
+  const formInputsArr = [
+    ...document.querySelectorAll("textarea"),
+    ...document.querySelectorAll("input"),
+  ]
+
+  console.log(formInputsArr)
+  const validateInputs = () => {
+    console.log(formInputsArr)
+    formInputsArr.forEach(input => {
+      if (input.value.trim() === "") {
+        input.classList.add("invalid")
+        setIsValid(false)
+        return false
+      } else {
+        input.classList.remove("invalid")
+      }
+      return
+    })
+  }
+  // validateInputs()
 
   return (
     <ModalBody
@@ -237,6 +263,7 @@ const AddRecipeModal = () => {
           type="file"
         />
 
+        {!isValid ? <ErrorText>Pola nie mogą być puste!</ErrorText> : null}
         <ButtonWrapper>
           <Button type="submit" style={{ marginRight: "1rem" }}>
             Dodaj przepis

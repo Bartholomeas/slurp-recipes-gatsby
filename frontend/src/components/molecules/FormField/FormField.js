@@ -48,7 +48,6 @@ const FormField = React.forwardRef(
       nameId = "",
       content = "",
       textarea = false,
-      errorInfo = content,
       type = "text",
       width = "100",
       onChange = () => {},

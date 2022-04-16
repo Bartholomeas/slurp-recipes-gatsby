@@ -12,7 +12,6 @@ export const theme = {
     fontLighter: "#636363",
     errorColor: "rgb(230, 39, 25)",
     lightGrey: "#F9F9F9",
-    // lightGrey: "#ededed",
     grey: "#DDDDDD",
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",

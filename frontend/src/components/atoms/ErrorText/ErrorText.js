@@ -5,9 +5,9 @@ import { BsExclamationCircle } from "react-icons/bs"
 const ErrorBox = styled.span`
   display: flex;
   align-items: center;
-
-  font-size: 1.6rem;
-  padding: 1.6rem 0.8rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  padding: 1.3rem 0.8rem;
   margin: 2rem 0;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.colors.errorColor};

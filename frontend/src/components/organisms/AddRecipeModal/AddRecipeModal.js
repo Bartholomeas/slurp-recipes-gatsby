@@ -13,7 +13,6 @@ import {
 import SelectField from "../../molecules/SelectField/SelectField"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../NotificationPopup/NotificationPopup"
-import usePostRecipe from "../../../hooks/usePostRecipe"
 
 const initialState = {
   title: "",
@@ -27,8 +26,6 @@ const initialState = {
 
 const AddRecipeModal = () => {
   const { isModalOpen, closeModal } = useContext(StateContext)
-  // const { updateSelect, updateInput, uploadHandler, uploadImage } =
-  //   usePostRecipe()
   const [recipeInfo, setRecipeInfo] = useState(initialState)
   const [file, setFile] = useState()
   const [isLoading, setIsLoading] = useState(false)
@@ -131,9 +128,6 @@ const AddRecipeModal = () => {
     const select = e.target
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
-    console.log(e.target.options[select.selectedIndex].value)
-    // console.log(types)
-    console.log(recipeInfo)
   }
 
   return (
@@ -254,8 +248,7 @@ const AddRecipeModal = () => {
       </ModalForm>
       {isLoading ? <LoadingPopup /> : null}
       <NotificationPopup onClick={() => togglePopup()} isActive={isPopupActive}>
-        Gratulacje, rejestracja przebiegła pomyślnie, zostaniesz przeniesiony na
-        stronę logowania
+        Przepis został pomyślnie dodany.
       </NotificationPopup>
     </ModalBody>
   )

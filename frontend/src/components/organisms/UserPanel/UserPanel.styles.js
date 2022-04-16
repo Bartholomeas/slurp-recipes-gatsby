@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   top: 7rem;
   right: 0;
   width: 100%;
-  min-height: 200px;
+  min-height: 150px;
   padding: 1rem 1.6rem;
   margin-right: 1rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};

@@ -7,8 +7,9 @@ export const Wrapper = styled.div`
   position: fixed;
   height: auto;
   width: 300px;
+  /* width: 100%; */
   max-height: 230px;
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 2rem;
   left: 50%;
   top: 50%;
@@ -19,7 +20,7 @@ export const Wrapper = styled.div`
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
   border: 1px solid green;
   border-radius: 6px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in;
 `
 export const Title = styled.p`
   border-bottom: 1px solid green;

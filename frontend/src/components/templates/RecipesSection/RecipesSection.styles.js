@@ -10,7 +10,8 @@ export const RecipesWrapper = styled.section`
   width: 100vw;
   padding-top: 6rem;
   margin-bottom: 2rem;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.grey};
+  background-color: #f7f7f7;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;

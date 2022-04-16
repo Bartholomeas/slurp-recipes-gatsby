@@ -47,7 +47,7 @@ const RegisterPanel = () => {
   // Walidacja formularza
   const validateForm = () => {
     // e.preventDefault()
-    errorInputsArray = []
+    // errorInputsArray = []
 
     // Walidacja nazwy uzytkownika
     if (registerInfo["username"] !== "") {
@@ -94,7 +94,6 @@ const RegisterPanel = () => {
       return false
     }
 
-    return
   }
 
   // Wysłanie zapytania z rejestracją
@@ -105,7 +104,7 @@ const RegisterPanel = () => {
     if (isValid) {
       await axios
         .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
-        .then(res => {
+        .then(() => {
           togglePopup()
         })
         .catch(err => console.log(err))
@@ -113,7 +112,7 @@ const RegisterPanel = () => {
   }
 
   let errorInput = ""
-  let errorInputsArray = []
+  // let errorInputsArray = []
 
   const setErrorStatus = (inputName, remove = false) => {
     if (typeof window !== "undefined") {
@@ -125,7 +124,7 @@ const RegisterPanel = () => {
         errorInput = document.querySelector(`input[id='${inputName}']`)
         errorInput.classList.add("invalid")
         errorInput.setAttribute("className", "invalid")
-        errorInputsArray.push(errorInput)
+        // errorInputsArray.push(errorInput)
       }
     }
   }

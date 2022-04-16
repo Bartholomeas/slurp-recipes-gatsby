@@ -12,8 +12,6 @@ export const FeaturedRecipesWrapper = styled.div`
   width: 100%;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.greenish};
-  box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.shadow};
-
   @media only screen and (min-width: 768px) {
     height: auto;
     width: 100%;

@@ -8,14 +8,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  /* top: 50%;
-  left: 50%; */
   margin: 0 auto;
-  height: 180px;
-  width: 200px;
+  height: 160px;
+  width: 160px;
   border-radius: 6px;
-  /* transform:translateX(-50%) */
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: rgba(0, 0, 0, 0.5);
+  color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
   z-index: 99999;
 `

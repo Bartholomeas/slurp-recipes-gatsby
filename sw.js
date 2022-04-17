@@ -27,35 +27,35 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-eda36eccbe22ce2168f8.js"
+    "url": "webpack-runtime-6c0d1c8d93085b321194.js"
   },
   {
-    "url": "framework-a7357820fbdc17d921b2.js"
+    "url": "framework-ac2000d73b9ccf98b1a9.js"
   },
   {
-    "url": "545f34e4-d147077e5ec46f990d2e.js"
+    "url": "545f34e4-7b7a25b72a8a94c1691d.js"
   },
   {
-    "url": "5e2a4920-7298015bd241303742a5.js"
+    "url": "5e2a4920-0b4209eda0e61f530d45.js"
   },
   {
-    "url": "1bfc9850-8fd483521d003834ef34.js"
+    "url": "1bfc9850-15f14758ed1d14b00a49.js"
   },
   {
-    "url": "0c428ae2-c56bd1137985026a47c3.js"
+    "url": "0c428ae2-850b4029b2d52da8253d.js"
   },
   {
-    "url": "1a48c3c1-61ed52793ab46fc13ffa.js"
+    "url": "1a48c3c1-a0eda5e450625cd99f1d.js"
   },
   {
-    "url": "d7eeaac4-417adaccc31727c17b08.js"
+    "url": "d7eeaac4-022bdfbeb082ed88dacf.js"
   },
   {
-    "url": "app-a087e03a974b37b78401.js"
+    "url": "app-9dd4806b8c222ea3831d.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "d25f8ac194163324b26edfb0b15d3b33"
+    "revision": "2092bb047d7eeda31b4e7bddda0fe66e"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ffe949d50daa99a27564.js"
@@ -66,7 +66,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "48d7776c1681bc97b079475c83064ee5"
+    "revision": "071df70ab8813a87d7fa6a7e29230630"
   },
   {
     "url": "polyfill-3168e9c8de0c9c345034.js"
@@ -161,7 +161,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-a087e03a974b37b78401.js`))) {
+  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-9dd4806b8c222ea3831d.js`))) {
     return await fetch(event.request)
   }
 

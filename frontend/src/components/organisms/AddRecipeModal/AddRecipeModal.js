@@ -140,7 +140,6 @@ const AddRecipeModal = () => {
     ]
   }
   const validateInputs = () => {
-    console.log(formInputsArr)
     formInputsArr.forEach(input => {
       if (input.value.trim() === "") {
         input.classList.add("invalid")
@@ -148,6 +147,7 @@ const AddRecipeModal = () => {
         return false
       } else {
         input.classList.remove("invalid")
+        setIsValid(true)
       }
       return
     })

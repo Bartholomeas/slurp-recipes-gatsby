@@ -10,6 +10,7 @@ import {
   FilterIcon,
 } from "./RecipesSection.styles"
 import { StateContext } from "../../../context/StateContext"
+import { getSrc } from "gatsby-plugin-image"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -34,6 +35,7 @@ const RecipesSection = () => {
                 gatsbyImageData(
                   width: 300
                   placeholder: BLURRED
+                  formats: [AUTO, AVIF]
                   transformOptions: { fit: COVER }
                 )
               }
@@ -43,7 +45,6 @@ const RecipesSection = () => {
       }
     }
   `)
-
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)

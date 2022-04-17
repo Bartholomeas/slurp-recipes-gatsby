@@ -132,15 +132,13 @@ const AddRecipeModal = () => {
     const selectValue = select.options[select.selectedIndex].value
     setRecipeInfo({ ...recipeInfo, [select.id]: selectValue })
   }
-
-  const arra = document.querySelectorAll("input")
-
-  const formInputsArr = [
-    ...document.querySelectorAll("textarea"),
-    ...document.querySelectorAll("input"),
-  ]
-
-  console.log(formInputsArr)
+  let formInputsArr
+  if (typeof window !== "undefined") {
+    formInputsArr = [
+      ...document.querySelectorAll("textarea"),
+      ...document.querySelectorAll("input"),
+    ]
+  }
   const validateInputs = () => {
     console.log(formInputsArr)
     formInputsArr.forEach(input => {
@@ -154,7 +152,6 @@ const AddRecipeModal = () => {
       return
     })
   }
-  // validateInputs()
 
   return (
     <ModalBody

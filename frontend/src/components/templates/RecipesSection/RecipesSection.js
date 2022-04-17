@@ -34,7 +34,7 @@ const RecipesSection = () => {
                 gatsbyImageData(
                   width: 300
                   placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
+                  transformOptions: { fit: COVER }
                 )
               }
             }

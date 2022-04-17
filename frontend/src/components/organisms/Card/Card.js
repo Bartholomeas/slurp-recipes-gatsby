@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   CardLink,
   CardWrapper,
@@ -48,9 +48,10 @@ const Card = ({ payload }) => {
   }
 
   return (
-    // <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
     <CardWrapper>
-      {image ? <CardImg image={image} alt="Food image" /> : null}
+      {image ? (
+        <GatsbyImage image={image} alt="Zdjęcie posiłku z przepisu" />
+      ) : null}
       {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
       {/*  <HeartEmpty />*/}
       {/*  <HeartFilled />*/}
@@ -74,7 +75,6 @@ const Card = ({ payload }) => {
         </CardInfoBottomContainer>
       </CardInfoContainer>
     </CardWrapper>
-    // </CardLink>
   )
 }
 

@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components"
 import { BgImage } from "gbimage-bridge"
-import { StaticImage } from "gatsby-plugin-image"
 
 const wiggle = keyframes`
 from {
@@ -124,6 +123,3 @@ export const PlatesBox = styled.div`
     width: 100%;
   }
 `
-
-
-

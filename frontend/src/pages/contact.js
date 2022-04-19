@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
-import axios from "axios"
 import Logo from "../components/atoms/Logo/Logo"
 
 const ContactPageWrapper = styled.div`
@@ -16,7 +15,6 @@ const ContactPageWrapper = styled.div`
   gap: 1rem;
   padding: 2rem 2rem 1rem 2rem;
   margin: 0 auto;
-  /* width: 100%; */
   margin-top: 7rem;
 `
 
@@ -83,22 +81,6 @@ const ContactFormSection = styled.section`
 `
 
 const Contact = ({ data }) => {
-  const windowGlobal = typeof window !== "undefined" && window
-
-  const getImages = async () => {
-    const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
-
-    await axios
-      .get(`${process.env.STRAPI_URL}/upload/files`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
-
-  // console.log(data)
   return (
     <>
       <Helmet>

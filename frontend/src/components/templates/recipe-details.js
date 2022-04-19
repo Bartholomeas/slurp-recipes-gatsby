@@ -28,7 +28,6 @@ import {
 } from "./recipe-details-styles"
 import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 import SharePanel from "../molecules/SharePanel/SharePanel"
-import LoadingPopup from "../molecules/LoadingPopup/LoadingPopup"
 
 const RecipeDetails = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -151,7 +150,7 @@ export const query = graphql`
       img {
         localFile {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }

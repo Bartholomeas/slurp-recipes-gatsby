@@ -10,7 +10,6 @@ import {
   FilterIcon,
 } from "./RecipesSection.styles"
 import { StateContext } from "../../../context/StateContext"
-import { getSrc } from "gatsby-plugin-image"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -35,8 +34,7 @@ const RecipesSection = () => {
                 gatsbyImageData(
                   width: 300
                   placeholder: BLURRED
-                  formats: [AUTO, AVIF]
-                  transformOptions: { fit: COVER }
+                  formats: [AUTO, WEBP]
                 )
               }
             }

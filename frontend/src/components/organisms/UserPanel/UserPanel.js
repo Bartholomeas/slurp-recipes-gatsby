@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { Wrapper, NavbarLink, Button } from "./UserPanel.styles"
 import { FaPlusCircle } from "react-icons/fa"
 import { FaSignInAlt } from "react-icons/fa"
-import { FaCog } from "react-icons/fa"
 import { FaHeart } from "react-icons/fa"
 import { StateContext } from "../../../context/StateContext"
 

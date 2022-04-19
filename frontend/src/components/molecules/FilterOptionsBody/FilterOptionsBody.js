@@ -21,9 +21,9 @@ const FilterOptionsBody = ({ content, ...props }) => {
     <FilterWrapper>
       <FilterOptionHeader
         content={
-          filterHeader == "diets"
+          filterHeader === "diets"
             ? "dieta"
-            : filterHeader == "difficulties"
+            : filterHeader === "difficulties"
             ? "trudność"
             : "posiłek"
         }

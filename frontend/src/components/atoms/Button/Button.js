@@ -6,16 +6,16 @@ const ButtonWrapper = styled.button`
   padding: 1.2rem;
   margin: 1.6rem 0;
   background: none;
-  border: 2px solid ${({ theme }) => theme.colors.primaryColor};
+  border: 2px solid ${({ theme }) => theme.colors.offGreenish};
   color: ${({ theme }) => theme.colors.lightFont};
-  /* background-color: rgba(0, 0, 0, 0.09); */
+  background-color: ${({ theme }) => theme.colors.offGreenish};
   border-radius: 6px;
   font-size: 1.4rem;
   transition: 0.3s background-color;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryColor};
+    background-color: ${({ theme }) => theme.colors.greenish};
   }
 `
 

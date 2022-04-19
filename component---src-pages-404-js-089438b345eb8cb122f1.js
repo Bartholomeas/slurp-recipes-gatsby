@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslurp_recipes=self.webpackChunkslurp_recipes||[]).push([[883],{9616:function(e,u,n){n.r(u);var t=n(7294);u.default=function(){var e=(0,t.useState)(!1),u=e[0],n=e[1];return(0,t.useEffect)((function(){n(!0)}),[]),u?t.createElement("div",null,"Page Not Found"):t.createElement("div",null,"loading")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-089438b345eb8cb122f1.js.map

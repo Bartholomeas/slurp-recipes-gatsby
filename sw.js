@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-709069fbbb4574c71904.js"
+    "url": "webpack-runtime-191eb65e8e5e5c1074de.js"
   },
   {
     "url": "framework-ac2000d73b9ccf98b1a9.js"
@@ -51,22 +51,14 @@ self.__precacheManifest = [
     "url": "d7eeaac4-022bdfbeb082ed88dacf.js"
   },
   {
-    "url": "app-77667f32e56ce06c3a50.js"
+    "url": "app-c1261ea45475b2e605f4.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "bbac7d649296253455cdfba070bb94f7"
+    "revision": "dd129f4568f4ea5dbd93db00d641c5e1"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ffe949d50daa99a27564.js"
-  },
-  {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "f2c002077289a7e1ac538802bc7f5314"
-  },
-  {
-    "url": "page-data/app-data.json",
-    "revision": "096966707f40587ddc3937f0f85a8929"
   },
   {
     "url": "polyfill-3168e9c8de0c9c345034.js"
@@ -156,12 +148,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/slurp-recipes-gatsby`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-77667f32e56ce06c3a50.js`))) {
+  if (!resources || !(await caches.match(`/app-c1261ea45475b2e605f4.js`))) {
     return await fetch(event.request)
   }
 
@@ -174,7 +166,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/slurp-recipes-gatsby/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })

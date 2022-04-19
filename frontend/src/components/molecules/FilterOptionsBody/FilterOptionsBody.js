@@ -17,13 +17,14 @@ const FilterWrapper = styled.form`
 
 const FilterOptionsBody = ({ content, ...props }) => {
   const filterHeader = Object.keys(content[0])
+  console.log(filterHeader[0])
   return (
     <FilterWrapper>
       <FilterOptionHeader
         content={
-          filterHeader === "diets"
+          filterHeader[0] === "diets"
             ? "dieta"
-            : filterHeader === "difficulties"
+            : filterHeader[0] === "difficulties"
             ? "trudność"
             : "posiłek"
         }

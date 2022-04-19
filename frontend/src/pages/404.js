@@ -1,7 +1,15 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
-const NotFound = () => {
-  return <div>There is no food. :( 404 error only</div>
+export default () => {
+  const [isMount, setMount] = useState(false)
+
+  useEffect(() => {
+    setMount(true)
+  }, [])
+
+  if (!isMount) {
+    return <div>loading</div>
+  }
+
+  return <div>Page Not Found</div>
 }
-
-export default NotFound

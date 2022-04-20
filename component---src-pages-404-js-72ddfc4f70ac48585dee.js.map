@@ -1,1 +1,0 @@
-{"version":3,"file":"component---src-pages-404-js-72ddfc4f70ac48585dee.js","mappings":"wIAMA,UAJiB,WACf,OAAO","sources":["webpack://slurp-recipes/./src/pages/404.js"],"sourcesContent":["import React from \"react\"\n\nconst NotFound = () => {\n  return <div>There is no food. :( 404 error only</div>\n}\n\nexport default NotFound\n"],"names":[],"sourceRoot":""}

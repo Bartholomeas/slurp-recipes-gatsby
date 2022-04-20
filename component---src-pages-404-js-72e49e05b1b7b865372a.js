@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslurp_recipes=self.webpackChunkslurp_recipes||[]).push([[883],{9616:function(e,u,r){r.r(u);var n=r(7294);u.default=function(){return n.createElement("div",null,"404")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-72e49e05b1b7b865372a.js.map

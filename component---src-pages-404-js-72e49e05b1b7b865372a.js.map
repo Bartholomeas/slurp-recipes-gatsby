@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-js-72e49e05b1b7b865372a.js","mappings":"wIAMA,UAJkB,WAChB,OAAO","sources":["webpack://slurp-recipes/./src/pages/404.js"],"sourcesContent":["import React from \"react\"\n\nconst ErrorPage = () => {\n  return <div>404</div>\n}\n\nexport default ErrorPage\n"],"names":[],"sourceRoot":""}

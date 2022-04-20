@@ -50,7 +50,11 @@ const Card = ({ payload }) => {
   return (
     <CardWrapper>
       {image ? (
-        <CardImg image={image} alt="Zdjęcie posiłku z przepisu" />
+        <CardImg
+          image={image}
+          loading="eager"
+          alt="Zdjęcie posiłku z przepisu"
+        />
       ) : null}
       {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
       {/*  <HeartEmpty />*/}

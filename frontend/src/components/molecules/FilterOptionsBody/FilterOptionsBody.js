@@ -17,7 +17,6 @@ const FilterWrapper = styled.form`
 
 const FilterOptionsBody = ({ content, ...props }) => {
   const filterHeader = Object.keys(content[0])
-  console.log(filterHeader[0])
   return (
     <FilterWrapper>
       <FilterOptionHeader

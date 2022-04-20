@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+    `gatsby-plugin-sharp`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-offline",
@@ -30,7 +30,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_URL,
         collectionTypes: ["recipes", "difficulties", "types", "diets", "users"],
-        queryLimit: 10000, // Defaults to 100
+        // queryLimit: 10000, // Defaults to 100
       },
     },
     {
@@ -41,12 +41,12 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: "strapiRecipes",
-        imagePath: "path.to.image",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-remote-images`,
+    //   options: {
+    //     nodeType: "strapiRecipes",
+    //     imagePath: "path.to.image",
+    //   },
+    // },
   ],
 }

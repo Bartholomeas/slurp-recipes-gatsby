@@ -29,12 +29,12 @@ export const LandingWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3rem;
   min-height: 100vh;
   width: 100%;
-  max-width: 1200px;
-  margin-top: 6rem;
-  gap: 3rem;
-  padding: 0 2rem;
+  max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+  margin-top: 5rem;
+  padding: 5rem 2rem;
   overflow: hidden;
 
   @media only screen and (min-width: 768px) {
@@ -54,44 +54,45 @@ export const TextWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   max-width: 500px;
-  gap: 3rem;
+  gap: 2rem;
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
-  text-align: left;
+  text-align: center;
   z-index: 1000;
-  & strong {
-    color: ${({ theme }) => theme.colors.accentColor};
+
+  @media only screen and (min-width: 768px) {
+    text-align: left;
   }
+
   & p {
-    /* font-size: 1.6rem; */
     color: ${({ theme }) => theme.colors.fontLighter};
+    max-width: 100%;
+    font-size: 2rem;
+    @media only screen and (min-width: 768px) {
+      max-width: none;
+    }
   }
   @media only screen and (min-width: 768px) {
     width: 40%;
   }
 `
 
-export const SiteLogo = styled.p`
-  color: ${({ theme }) => theme.colors.darkerBase};
-  font-weight: bold;
-  font-size: 3.2rem;
-  padding: 2rem 0;
-`
-
 export const LandingHeader = styled.h1`
-  /* margin-bottom: 2rem; */
+  font-family: "Poppins", sans-serif;
+  line-height: 1.3;
   font-size: 4rem;
-  font-weight: 300;
+  font-weight: 700;
   max-width: 600px;
+
+  & span {
+    color: ${({ theme }) => theme.colors.accent};
+  }
 
   @media only screen and (min-width: 576px) {
     font-size: 4.8rem;
   }
-  @media only screen and (min-width: 768px) {
-    font-size: 5.6rem;
-  }
   @media only screen and (min-width: 1600px) {
-    font-size: 6.4rem;
+    font-size: 5.6rem;
   }
 `
 
@@ -101,8 +102,8 @@ export const PlatesWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
-  height: 400px;
+  /* height: auto; */
+  height: 450px;
 
   @media only screen and (min-width: 768px) {
     width: 60%;
@@ -113,10 +114,8 @@ export const PlatesBox = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100vw;
-  /* height: 100%; */
   gap: 2rem;
   transform: rotate(-65deg);
-  /* background-color: pink; */
 
   @media only screen and (min-width: 768px) {
     gap: 5rem;

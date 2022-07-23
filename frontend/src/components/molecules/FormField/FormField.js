@@ -6,7 +6,7 @@ const inputStyles = css`
   height: 5rem;
   padding: 1rem 1.2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
   border: 2px solid ${({ theme }) => theme.colors.grey};
 `
 

@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink style={{ height: "100px" }} to="/" aria-label="Logo strony">
+        <LogoLink style={{ height: "4 0px" }} to="/" aria-label="Logo strony">
           <Logo style={{ height: "100%" }} />
         </LogoLink>
         <HamburgerBtn

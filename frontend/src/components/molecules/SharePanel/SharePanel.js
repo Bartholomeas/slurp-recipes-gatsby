@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   top: 5rem;
   height: 150px;
   width: 250px;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   padding: 1.6rem;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};

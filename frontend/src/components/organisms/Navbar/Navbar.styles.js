@@ -48,7 +48,8 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+      max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+  }
   height: 100%;
   margin: 0 auto;
 

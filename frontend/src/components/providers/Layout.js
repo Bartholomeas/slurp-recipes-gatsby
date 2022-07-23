@@ -12,8 +12,6 @@ const Wrapper = styled.div`
   transform:translateX(-50%)
   max-width: 1600px;
   scroll-behavior: smooth;
-  /* background-color:rgb(250, 250, 250);
-  z-index:-100; */
 `
 
 const Layout = ({ children }) => {

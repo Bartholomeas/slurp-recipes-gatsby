@@ -24,7 +24,7 @@ export const CardWrapper = styled.div`
   width: 100%;
   box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
   transition: transform 0.2s;
 
@@ -44,12 +44,12 @@ export const CardImg = styled(GatsbyImage)`
   background-position: center;
   height: 60%;
   width: 100%;
-  border-radius: 6px 6px 0 0;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius} 6px 0 0;
 `
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   border: none;
@@ -87,7 +87,7 @@ export const CardInfoBottomContainer = styled.div`
   align-items: flex-end;
   height: auto;
   width: 100%;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `
 export const CardRecipeInfos = styled.p`
   display: flex;
@@ -100,17 +100,17 @@ export const CardRecipeInfos = styled.p`
 export const Circle = styled.span`
   height: 0.8rem;
   width: 0.8rem;
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
   background-color: ${({ theme }) => theme.colors.darkGrey};
 `
 
 export const RecipeTime = styled.p`
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
 `
 export const DetailsButton = styled.button`
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -119,7 +119,7 @@ export const DetailsButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accentColor};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `
 

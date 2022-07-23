@@ -15,12 +15,12 @@ const IconsStyle = css`
   right: -5rem;
   top: 50%;
   font-size: 4rem;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   /* z-index: 10000; */
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accentColor};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `
 
@@ -90,7 +90,7 @@ export const GeneralContainer = styled.div`
   height: auto;
   width: 100%;
   ${maxWidth}
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -116,7 +116,7 @@ export const RecipeImage = styled(GatsbyImage)`
   object-fit: cover;
   background-size: cover;
   background-position: fixed;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 
   @media only screen and (min-width: 768px) {
     width: 60%;
@@ -137,7 +137,7 @@ export const ContentContainer = styled.div`
   width: 100%;
   padding: 2.4rem;
   background-color: ${({ theme }) => theme.colors.base};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 
   @media only screen and (min-width: 768px) {
     width: 40%;
@@ -179,12 +179,12 @@ export const InfoBox = styled.div`
 export const InfoCategory = styled.p`
   font-size: 2rem;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
 `
 export const InfoValue = styled.p`
   font-size: 2.8rem;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
 
   @media print {
     font-size: 1.6rem;
@@ -214,7 +214,7 @@ export const PreparationContainer = styled.div`
   align-self: flex-start;
   min-height: 50vh;
   padding: 2rem;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   @media only screen and (min-width: 768px) {
     width: 65%;
@@ -266,7 +266,7 @@ export const IngredientsBox = styled.div`
   top: 8rem;
   font-size: 1.4rem;
   padding: 0 2.4rem;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   background-color: ${({ theme }) => theme.colors.base};
   overflow-y: scroll;
 
@@ -291,7 +291,7 @@ export const IngredientsBox = styled.div`
 export const IngredientsHeader = styled.h3`
   font-size: 2.4rem;
   margin-top: 2rem;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
 `
 export const IngredientsList = styled.ul`
   width: 90%;

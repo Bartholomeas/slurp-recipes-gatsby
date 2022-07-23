@@ -19,7 +19,7 @@ const SearchForm = styled.form`
   justify-content: center;
   align-items: center;
   width: 100%;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `
 // const SearchLabel = styled.label`
 //   font-size: 1rem;
@@ -33,7 +33,7 @@ const SearchArea = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 6px 0 0 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius} 0 0 6px;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
 
   &:focus {

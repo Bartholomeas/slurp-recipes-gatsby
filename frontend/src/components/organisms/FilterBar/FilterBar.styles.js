@@ -18,7 +18,7 @@ export const FilterWrapper = styled.div`
   transform-origin: left bottom;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
   transition: transform 0.2s ease-in;
   z-index: 200;

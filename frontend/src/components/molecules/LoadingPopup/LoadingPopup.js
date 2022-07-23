@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   height: 160px;
   width: 160px;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   background-color: rgba(0, 0, 0, 0.5);
   color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.otherStyles.shadow};
@@ -35,7 +35,7 @@ export const Circle = styled.span`
     width: 60px;
     border: solid 8px ${({ theme }) => theme.colors.darkGrey};
     border-bottom-color: ${({ theme }) => theme.colors.base};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
     animation: 1.5s linear infinite ${spinner};
     transform: translate3d(-50%, -50%, 0);
   }

@@ -34,7 +34,8 @@ const FooterContainer = styled.div`
   gap: 2rem;
   height: 100%;
   width: 100%;
-  max-width: 1200px;
+      max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+  }
   padding: 4rem 2rem;
   margin: 0 auto;
 

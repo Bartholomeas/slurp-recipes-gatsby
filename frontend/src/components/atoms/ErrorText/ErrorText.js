@@ -9,7 +9,7 @@ const ErrorBox = styled.span`
   font-size: 1.4rem;
   padding: 1.3rem 0.8rem;
   margin: 2rem 0;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   background-color: ${({ theme }) => theme.colors.errorColor};
   color: ${({ theme }) => theme.colors.white};
 `

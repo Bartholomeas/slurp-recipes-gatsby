@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   max-width: 400px;
   padding: 0.3rem;
   background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
   transition: transform 0.2s;
 
@@ -28,7 +28,7 @@ export const TextContainer = styled.div`
   height: 100%;
   width: 60%;
   padding: 0.8rem 0.2rem 0.8rem 2rem;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   /* background-color: ${({ theme }) => theme.colors.base}; */
 `
 export const Title = styled.p`
@@ -48,7 +48,7 @@ export const CardLink = styled(Link)`
   margin-right: 2rem;
 `
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -57,7 +57,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accentColor};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `
 export const ImageContainer = styled.div`
@@ -69,5 +69,5 @@ export const ImageContainer = styled.div`
 export const CardImage = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `

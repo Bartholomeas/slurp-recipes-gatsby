@@ -23,7 +23,7 @@ export const Select = styled.select`
   height: 5rem;
   padding: 1rem 1.2rem;
   border: none;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   border: 2px solid ${({ theme }) => theme.colors.grey};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};

@@ -16,7 +16,7 @@ export const ModalBody = styled(Modal)`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow-y: scroll;
   z-index: 1000;
 
@@ -54,9 +54,9 @@ export const Button = styled.button`
   padding: 1rem 2rem;
   color: ${({ theme }) => theme.colors.lightFont};
   background-color: ${({ closeBtn, theme }) =>
-    closeBtn ? theme.colors.grey : theme.colors.accentColor};
+    closeBtn ? theme.colors.grey : theme.colors.accent};
   border: none;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   transition: background-color 0.2s, transform 0.2s;
   cursor: pointer;
 

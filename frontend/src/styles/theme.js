@@ -3,7 +3,8 @@ export const theme = {
     base: "#F94C66",
     darkerBase: "#C3354A",
     veryDarkBase: "#671010",
-    accentColor: "#399685",
+    accent: "#399685",
+    darkAccent: "#20685B",
     fontColor: "#313131",
     fontLighter: "#636363",
     errorColor: "rgb(230, 39, 25)",
@@ -15,7 +16,18 @@ export const theme = {
   },
 
   otherStyles: {
+    maxWidth: "1200px",
     shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
+    smallRadius: "8px",
+    mediumRadius: "16px",
+    bigRadius: "32px",
+  },
+
+  fontSize: {
+    small: "0.8rem",
+    standard: "1.6rem",
+    medium: "2.4rem",
+    big: "3.2rem",
   },
 
   breakpoints: {

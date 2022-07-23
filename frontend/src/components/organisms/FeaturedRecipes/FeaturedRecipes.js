@@ -20,7 +20,7 @@ export const FeaturedRecipesWrapper = styled.div`
 
 export const FeaturedRecipesHeader = styled.h2`
   margin-bottom: 2.4rem;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   @media only screen and (min-width: 768px) {
     font-size: 4rem;
   }
@@ -38,7 +38,7 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     gap: 2rem;
-    max-width: 1200px;
+    max-width: ${({ theme }) => theme.otherStyles.maxWidth};
   }
 `
 const FeaturedRecipes = () => {

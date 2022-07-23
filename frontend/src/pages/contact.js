@@ -11,7 +11,8 @@ const ContactPageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  max-width: 1200px;
+      max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+  }
   gap: 1rem;
   padding: 2rem 2rem 1rem 2rem;
   margin: 0 auto;
@@ -26,7 +27,7 @@ const AboutUsSection = styled.section`
   justify-content: flex-start;
   width: 100%;
   min-height: 50vh;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.lightGrey};
 
@@ -55,7 +56,7 @@ const AboutUsTextWrapper = styled.div`
 const AboutUsHeader = styled.h1`
   margin-bottom: 2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.accent};
   font-size: 4rem;
 
   @media only screen and (min-width: 768px) {

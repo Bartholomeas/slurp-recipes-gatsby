@@ -4,29 +4,15 @@ import { StaticImage, getImage } from "gatsby-plugin-image"
 import {
   LandingWrapper,
   LandingImg,
-  LandingLogoWrapper,
   TextWrapper,
   LandingHeader,
   PlatesWrapper,
   PlatesBox,
 } from "./LandingSection.styles"
-import Logo from "../../atoms/Logo/Logo"
+import Button from "../../atoms/Button/Button"
 
 const LandingSection = () => {
-  // const { backgroundImage } = useStaticQuery(graphql`
-  //   query GetBgImage {
-  //     file(relativePath: { eq: "landingMarble.jpg" }) {
-  //       id
-  //       childImageSharp {
-  //         gatsbyImageData(
-  //           width: 1950
-  //           webpOptions: { quality: 70 }
-  //           quality: 50
-  //         )
-  //       }
-  //     }
-  //   }
-  // `)
+  //
   const { backgroundLandingImage } = useStaticQuery(graphql`
     query GetBackgroundImage {
       backgroundLandingImage: file(relativePath: { eq: "landingMarble.jpg" }) {
@@ -49,17 +35,15 @@ const LandingSection = () => {
       <LandingWrapper>
         <TextWrapper>
           <LandingHeader>
-            <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
+            <span> Przepisy </span>idealnie skrojone na każdą okazję.
           </LandingHeader>
           <p>
-            Wspólnie z Wami pracujemy nad tym, aby każdy dzień był
-            najsmaczniejszym dniem, precz z żywieniową nudą!
+            Ciężko pracujemy aby w twojej kuchni nie zapanowała kuchenna nuda.
+            Chcesz się przekonać?
           </p>
-
-          <LandingLogoWrapper>
-            <Logo />
-          </LandingLogoWrapper>
+          <Button isLong={true}>Sprawdź</Button>
         </TextWrapper>
+
         <PlatesWrapper>
           <PlatesBox>
             <StaticImage

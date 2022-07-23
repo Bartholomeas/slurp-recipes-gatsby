@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        font-size: 1.6rem;
-        font-family: "Playfair Display", serif;
+        font-family: 'Poppins', sans-serif;
+        font-family: 'Playfair Display', serif;
     }
 `

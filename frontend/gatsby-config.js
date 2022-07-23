@@ -41,12 +41,12 @@ module.exports = {
       },
     },
 
-    // {
-    //   resolve: `gatsby-plugin-remote-images`,
-    //   options: {
-    //     nodeType: "strapiRecipes",
-    //     imagePath: "path.to.image",
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "strapiRecipes",
+        imagePath: "path.to.image",
+      },
+    },
   ],
 }

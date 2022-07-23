@@ -70,7 +70,7 @@ export const FiltersButton = styled.button`
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   background: none;
   border: none;
   font-size: 4rem;

@@ -8,9 +8,9 @@ const Heading = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   margin: 4rem 0;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+  color: ${({ theme }) => theme.colors.darkerBase};
   color: ${({ theme }) => theme.colors.white};
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -28,9 +28,7 @@ const Heading = styled.h1`
 `
 
 const Header = ({ children }) => {
-  return (
-      <Heading>{children}</Heading>
-  )
+  return <Heading>{children}</Heading>
 }
 
 export default Header

@@ -17,7 +17,7 @@ export const FilterWrapper = styled.div`
     scale(${({ isOpen }) => (isOpen ? "1" : "0")});
   transform-origin: left bottom;
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: 6px;
   overflow: hidden;
   transition: transform 0.2s ease-in;

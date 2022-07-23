@@ -31,7 +31,7 @@ const CardLabelTitle = styled.p`
   align-self: flex-start;
   flex-grow: 1;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+  color: ${({ theme }) => theme.colors.darkerBase};
 `
 
 const CardLabel = ({ title, type, time }) => {

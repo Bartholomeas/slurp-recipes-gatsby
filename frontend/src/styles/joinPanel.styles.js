@@ -11,7 +11,7 @@ export const JoinPanelWrapper = styled.div`
   width: 100%;
   padding: 3rem;
   border-radius: 6px;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   background-color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
 
@@ -38,7 +38,7 @@ export const JoinLink = styled(Link)`
   color: ${({ theme }) => theme.colors.darkGrey};
 `
 export const ColoredText = styled.span`
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
 `
 export const PasswordInfoText = styled.p`
   display: flex;

@@ -23,8 +23,8 @@ const ContactWrapper = styled.div`
   width: 100%;
   height: auto;
   /* padding: 0 2rem; */
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  background-color: ${({ theme }) => theme.colors.accentColor};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: 6px;
 `
 const ContactFormBox = styled.div`
@@ -50,7 +50,7 @@ const ContactFormBody = styled.form`
   width: 100%;
   padding: 2rem 2rem 0 2rem;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.darkerSecondary};
+  background-color: ${({ theme }) => theme.colors.accentColor};
   color: ${({ theme }) => theme.colors.lightGrey};
   @media only screen and (min-width: 768px) {
     height: 100%;
@@ -59,12 +59,12 @@ const ContactFormBody = styled.form`
 `
 const FastfoodIcon = styled(IoFastFood)`
   font-size: 30rem;
-  color: ${({ theme }) => theme.colors.darkerSecondary};
+  color: ${({ theme }) => theme.colors.accentColor};
   animation: 1s ${wiggle} infinite alternate-reverse;
 `
 
 const Statement = styled.p`
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-size: 1.6rem;
   padding: 2rem;
 `

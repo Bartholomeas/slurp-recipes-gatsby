@@ -1,13 +1,9 @@
 export const theme = {
   colors: {
-    primaryColor: "#FFB901",
-    lightPrimary: "#FEEECA",
-    darkerPrimary: "#F2B61A",
-    secondaryColor: "#399685",
-    darkerSecondary: "#328972",
-    secondarySupport: "#1F6946",
-    greenish: "#EEF6F1",
-    offGreenish: "#D6E5DB",
+    base: "#F94C66",
+    darkerBase: "#C3354A",
+    veryDarkBase: "#671010",
+    accentColor: "#399685",
     fontColor: "#313131",
     fontLighter: "#636363",
     errorColor: "rgb(230, 39, 25)",
@@ -15,7 +11,11 @@ export const theme = {
     grey: "#DDDDDD",
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",
-    shadow: "rgba(46, 46, 46, 0.26)",
+    shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
+  },
+
+  otherStyles: {
+    shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
   },
 
   breakpoints: {

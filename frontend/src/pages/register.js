@@ -9,7 +9,7 @@ const RegisterWrapper = styled.div`
   justify-content: center;
   height: 100vh;
   margin-top: 7rem;
-  background-color: ${({ theme }) => theme.colors.greenish};
+  background-color: ${({ theme }) => theme.colors.base};
 
   @media only screen and (min-width: 768px) {
     padding: 3rem;

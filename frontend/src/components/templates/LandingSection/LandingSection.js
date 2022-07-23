@@ -49,7 +49,7 @@ const LandingSection = () => {
       <LandingWrapper>
         <TextWrapper>
           <LandingHeader>
-            <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
+            <strong> Przepisy</strong> idealnie skrojone na każdą okazję.
           </LandingHeader>
           <p>
             Wspólnie z Wami pracujemy nad tym, aby każdy dzień był

@@ -19,7 +19,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerPrimary};
+    background-color: ${({ theme }) => theme.colors.darkerBase};
   }
 `
 

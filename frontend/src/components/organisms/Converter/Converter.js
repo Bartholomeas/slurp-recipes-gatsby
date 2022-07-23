@@ -29,7 +29,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
   let cup, spoon, teaspoon
 
   const measures = [
-    (cup = {
+    {
       name: "cup",
       g: {
         "mąka pszenna": 150,
@@ -44,8 +44,8 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         mleko: 200,
       },
       ml: 250,
-    }),
-    (spoon = {
+    },
+    {
       name: "spoon",
       g: {
         "mąka pszenna": 9,
@@ -60,8 +60,8 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         mleko: 15,
       },
       ml: 15,
-    }),
-    (teaspoon = {
+    },
+    {
       name: "teaspoon",
       g: {
         "mąka pszenna": 3,
@@ -76,7 +76,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         mleko: 5,
       },
       ml: 5,
-    }),
+    } ,
   ]
 
   const setInputValue = e => {
@@ -139,10 +139,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
   }, [dataToConvert])
 
   return (
-    <ConverterWrapper
-      // onClick={() => setIsConverterActive(false)}
-      isConverterActive={isConverterActive}
-    >
+    <ConverterWrapper isConverterActive={isConverterActive}>
       <ConverterHeader>Konwertuj miary</ConverterHeader>
       <MeasuresContainer>
         <TopContainer>

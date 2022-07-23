@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
-export default () => {
-  const [isMount, setMount] = useState(false)
-
-  useEffect(() => {
-    setMount(true)
-  }, [])
-
-  if (!isMount) {
-    return <div>loading</div>
-  }
-
-  return <div>Page Not Found</div>
+const ErrorPage = () => {
+  return <div>404</div>
 }
+
+export default ErrorPage

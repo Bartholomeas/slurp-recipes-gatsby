@@ -60,7 +60,7 @@ export const TextWrapper = styled.div`
   text-align: left;
   z-index: 1000;
   & strong {
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.accentColor};
   }
   & p {
     /* font-size: 1.6rem; */
@@ -72,7 +72,7 @@ export const TextWrapper = styled.div`
 `
 
 export const SiteLogo = styled.p`
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+  color: ${({ theme }) => theme.colors.darkerBase};
   font-weight: bold;
   font-size: 3.2rem;
   padding: 2rem 0;

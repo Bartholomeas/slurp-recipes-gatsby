@@ -11,7 +11,7 @@ export const FeaturedRecipesWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.greenish};
+  background-color: ${({ theme }) => theme.colors.base};
   @media only screen and (min-width: 768px) {
     height: auto;
     width: 100%;
@@ -20,7 +20,7 @@ export const FeaturedRecipesWrapper = styled.div`
 
 export const FeaturedRecipesHeader = styled.h2`
   margin-bottom: 2.4rem;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   @media only screen and (min-width: 768px) {
     font-size: 4rem;
   }

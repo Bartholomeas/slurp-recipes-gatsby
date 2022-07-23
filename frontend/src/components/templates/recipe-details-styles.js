@@ -15,12 +15,12 @@ const IconsStyle = css`
   right: -5rem;
   top: 50%;
   font-size: 4rem;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   /* z-index: 10000; */
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.darkerSecondary};
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 `
 
@@ -136,7 +136,7 @@ export const ContentContainer = styled.div`
   height: 100%;
   width: 100%;
   padding: 2.4rem;
-  background-color: ${({ theme }) => theme.colors.greenish};
+  background-color: ${({ theme }) => theme.colors.base};
   border-radius: 6px;
 
   @media only screen and (min-width: 768px) {
@@ -179,12 +179,12 @@ export const InfoBox = styled.div`
 export const InfoCategory = styled.p`
   font-size: 2rem;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.secondarySupport};
+  color: ${({ theme }) => theme.colors.accentColor};
 `
 export const InfoValue = styled.p`
   font-size: 2.8rem;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
 
   @media print {
     font-size: 1.6rem;
@@ -226,7 +226,7 @@ export const PreparationContainer = styled.div`
 export const PrepHeader = styled.h3`
   font-size: 4rem;
   margin: 2.4rem 0;
-  color: ${({ theme }) => theme.colors.darkerPrimary};
+  color: ${({ theme }) => theme.colors.darkerBase};
   @media print {
     font-size: 2.4rem;
     margin: 0;
@@ -248,7 +248,7 @@ export const StepListItem = styled.li`
     font-size: 4rem;
     list-style-type: none;
     line-height: 1.2rem;
-    color: ${({ theme }) => theme.colors.darkerPrimary};
+    color: ${({ theme }) => theme.colors.darkerBase};
 
     @media print {
       font-size: 2rem;
@@ -267,7 +267,7 @@ export const IngredientsBox = styled.div`
   font-size: 1.4rem;
   padding: 0 2.4rem;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.offGreenish};
+  background-color: ${({ theme }) => theme.colors.base};
   overflow-y: scroll;
 
   @media only screen and (min-width: 768px) {
@@ -291,7 +291,7 @@ export const IngredientsBox = styled.div`
 export const IngredientsHeader = styled.h3`
   font-size: 2.4rem;
   margin-top: 2rem;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
 `
 export const IngredientsList = styled.ul`
   width: 90%;

@@ -8,7 +8,7 @@ export const ConverterWrapper = styled.div`
   right: 0;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: 6px;
   transform: scale(
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
@@ -53,7 +53,7 @@ export const ConvertedContainer = styled.div`
 `
 export const ConvertedInfo = styled.p`
   padding: 1rem;
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.accentColor};
   border-radius: 6px;
 `
 
@@ -65,8 +65,8 @@ export const ConvertedValuesBox = styled.div`
   height: 100%;
   padding: 2rem 1rem;
   border-radius: 6px;
-  color: ${({ theme }) => theme.colors.secondarySupport};
-  background-color: ${({ theme }) => theme.colors.greenish};
+  color: ${({ theme }) => theme.colors.accentColor};
+  background-color: ${({ theme }) => theme.colors.base};
   font-size: 1.6rem;
 `
 export const ConvertedValue = styled.p`

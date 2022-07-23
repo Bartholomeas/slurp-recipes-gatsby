@@ -15,7 +15,7 @@ export const ModalBody = styled(Modal)`
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.lightGrey};
   color: ${({ theme }) => theme.colors.fontColor};
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: 6px;
   overflow-y: scroll;
   z-index: 1000;
@@ -54,14 +54,14 @@ export const Button = styled.button`
   padding: 1rem 2rem;
   color: ${({ theme }) => theme.colors.lightFont};
   background-color: ${({ closeBtn, theme }) =>
-    closeBtn ? theme.colors.grey : theme.colors.secondaryColor};
+    closeBtn ? theme.colors.grey : theme.colors.accentColor};
   border: none;
   border-radius: 6px;
   transition: background-color 0.2s, transform 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerPrimary};
+    background-color: ${({ theme }) => theme.colors.darkerBase};
     transform: scale(1.05);
   }
 `

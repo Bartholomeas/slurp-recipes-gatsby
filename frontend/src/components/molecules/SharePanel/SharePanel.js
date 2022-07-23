@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   border-radius: 6px;
   padding: 1.6rem;
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   z-index: 9999;
 `
 export const ButtonsContainer = styled.div`

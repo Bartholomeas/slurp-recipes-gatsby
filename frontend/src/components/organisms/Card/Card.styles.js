@@ -22,7 +22,7 @@ export const CardWrapper = styled.div`
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 6px;
   overflow: hidden;
@@ -43,12 +43,13 @@ export const CardImg = styled(GatsbyImage)`
   background-size: cover;
   background-position: center;
   height: 60%;
+  width: 100%;
   border-radius: 6px 6px 0 0;
 `
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.secondarySupport};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   border: none;
@@ -57,7 +58,7 @@ export const CardLink = styled(Link)`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.colors.base};
   }
 `
 export const CardInfoContainer = styled.div`
@@ -104,12 +105,12 @@ export const Circle = styled.span`
 `
 
 export const RecipeTime = styled.p`
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
 `
 export const DetailsButton = styled.button`
-  color: ${({ theme }) => theme.colors.secondarySupport};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -118,7 +119,7 @@ export const DetailsButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 `
 

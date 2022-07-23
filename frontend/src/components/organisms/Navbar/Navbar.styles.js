@@ -11,7 +11,7 @@ const joinLinkStyles = css`
   font-size: 1.6rem;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.colors.base};
   }
 `
 const navLinkStyles = css`
@@ -105,7 +105,7 @@ export const NavListItem = styled.li`
     content: "";
     width: 100%;
     height: 3px;
-    background-color: ${({ theme }) => theme.colors.primaryColor};
+    background-color: ${({ theme }) => theme.colors.base};
     bottom: 0;
     transform: scale(0);
     transform-origin: left;
@@ -154,7 +154,7 @@ export const ListButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.colors.base};
   }
 `
 

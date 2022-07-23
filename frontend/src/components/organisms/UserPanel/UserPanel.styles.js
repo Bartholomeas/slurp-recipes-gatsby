@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   padding: 1rem 1.6rem;
   margin-right: 1rem;
   background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: 6px;
   transform: scale(
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.primaryColor};
+      color: ${({ theme }) => theme.colors.base};
       transform: scale(1.01);
     }
     @media only screen and (min-width: 768px) {

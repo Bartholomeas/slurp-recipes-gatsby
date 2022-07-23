@@ -29,7 +29,7 @@ export const TextContainer = styled.div`
   width: 60%;
   padding: 0.8rem 0.2rem 0.8rem 2rem;
   border-radius: 6px;
-  /* background-color: ${({ theme }) => theme.colors.greenish}; */
+  /* background-color: ${({ theme }) => theme.colors.base}; */
 `
 export const Title = styled.p`
   font-size: 2rem;
@@ -48,7 +48,7 @@ export const CardLink = styled(Link)`
   margin-right: 2rem;
 `
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.secondarySupport};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -57,7 +57,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 `
 export const ImageContainer = styled.div`

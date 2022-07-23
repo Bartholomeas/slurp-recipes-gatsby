@@ -55,7 +55,7 @@ const AboutUsTextWrapper = styled.div`
 const AboutUsHeader = styled.h1`
   margin-bottom: 2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.accentColor};
   font-size: 4rem;
 
   @media only screen and (min-width: 768px) {

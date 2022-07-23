@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 import {
   CardLink,
   CardWrapper,
@@ -11,16 +11,11 @@ import {
   Circle,
   CardLabelTitle,
   CardInfoBottomContainer,
-  HeartFilled,
-  HeartEmpty,
-  FavouriteButton,
-  DetailsButton,
 } from "./Card.styles"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
 
 const Card = ({ payload }) => {
   const {
-    id = "",
     difficulties: difficulty = "none",
     img = "",
     title = "none",
@@ -83,15 +78,3 @@ const Card = ({ payload }) => {
 }
 
 export default Card
-
-// query MyQuery {
-//   allStrapiUsers(filter: {id: {eq: "Users_6244c0b9317ccd0016d98b59"}}) {
-//     edges {
-//       node {
-//         favouriteRecipes {
-//           favourites
-//         }
-//       }
-//     }
-//   }
-// }

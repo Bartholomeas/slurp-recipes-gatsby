@@ -11,8 +11,8 @@ const ContactPageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-      max-width: ${({ theme }) => theme.otherStyles.maxWidth};
-  }
+  max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+
   gap: 1rem;
   padding: 2rem 2rem 1rem 2rem;
   margin: 0 auto;
@@ -92,11 +92,11 @@ const Contact = ({ data }) => {
           name="description"
           content="Przepisy, które pokocha cała rodzina!"
         />
-        <link rel="canonical" href="http://localhost:8000/contact" />
+        <link rel="canonical" href="http://localhost:8000/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </Helmet>

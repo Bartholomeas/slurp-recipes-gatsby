@@ -12,7 +12,6 @@ import {
 } from "./Navbar.styles"
 import BorderButton from "../../atoms/BorderButton/BorderButton"
 import { StateContext } from "../../../context/StateContext"
-import { BiUserCircle, BiRepost } from "react-icons/bi"
 import UserPanel from "../UserPanel/UserPanel"
 import Logo from "../../atoms/Logo/Logo"
 import Button from "../../atoms/Button/Button"
@@ -39,7 +38,7 @@ const Navbar = () => {
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink style={{ height: "4 0px" }} to="/" aria-label="Logo strony">
+        <LogoLink style={{ height: "40px" }} to="/" aria-label="Logo strony">
           <Logo style={{ height: "100%" }} />
         </LogoLink>
         <HamburgerBtn

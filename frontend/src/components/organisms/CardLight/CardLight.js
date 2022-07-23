@@ -21,7 +21,7 @@ const CardLight = ({ payload }) => {
       <TextContainer>
         <Title>{title}</Title>
         <BottomWrapper>
-          <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} />
+          {/* <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} /> */}
           <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
             <Button>sprawdź →</Button>
           </CardLink>

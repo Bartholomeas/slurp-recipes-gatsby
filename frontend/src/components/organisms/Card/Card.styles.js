@@ -44,7 +44,7 @@ export const CardImg = styled(GatsbyImage)`
   background-position: center;
   height: 60%;
   width: 100%;
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius} 6px 0 0;
+  /* border-radius: ${({ theme }) => theme.otherStyles.smallRadius} 6px 0 0; */
 `
 
 export const CardLink = styled(Link)`
@@ -56,52 +56,43 @@ export const CardLink = styled(Link)`
   background: none;
   padding: 2rem 0 0 2rem;
   cursor: pointer;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.base};
-  }
 `
 export const CardInfoContainer = styled.div`
-  ${flexColumn}
+  ${flexColumn};
+  justify-content: flex-start;
   height: 40%;
   width: 100%;
+  gap: 0.8rem;
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 1rem 1.6rem 2rem;
+  padding: 1.5rem 1.6rem 1rem;
 `
 export const CardLabelTitle = styled.p`
   font-size: 2rem;
   align-self: flex-start;
-  flex-grow: 1;
+  margin-top: 0.8rem;
   font-weight: 700;
+  height: auto;
+  line-height: 1.2;
   color: ${({ theme }) => theme.colors.fontColor};
 `
 
 export const CardInfoHeaderContainer = styled.div`
   ${flexColumn}
-  justify-content: space-between;
-  height: 100%;
-`
-export const CardInfoBottomContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: auto;
-  width: 100%;
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-`
-export const CardRecipeInfos = styled.p`
-  display: flex;
-  align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
-  color: ${({ theme }) => theme.colors.darkGrey};
-  font-size: 1.6rem;
+  align-items: flex-start;
+  height: 100%;
+  background-color: pink;
 `
-export const Circle = styled.span`
-  height: 0.8rem;
-  width: 0.8rem;
-  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+
+export const CardRecipeInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  color: ${({ theme }) => theme.colors.fontLighter};
+  font-size: 1.2rem;
+  text-transform: uppercase;
 `
 
 export const RecipeTime = styled.p`

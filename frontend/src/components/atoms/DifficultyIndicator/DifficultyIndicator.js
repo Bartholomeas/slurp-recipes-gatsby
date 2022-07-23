@@ -1,26 +1,34 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../styles/theme"
 
 export const DifficultyWrapper = styled.div`
+  position: absolute;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.8rem;
+  width: 10rem;
+  transform: translateY(-100%);
+  background-color: ${({ difficulty, theme }) => {
+    if (difficulty === "łatwe") {
+      return theme.colors.accent
+    } else if (difficulty === "średnie") {
+      return theme.colors.gold
+    } else {
+      return theme.colors.darkBase
+    }
+  }};
+  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
+  & p {
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSize.standard};
+  }
 `
-export const DifficultyLevel = styled.span``
 
 const DifficultyIndicator = ({ difficulty = "" }) => {
   return (
-    <DifficultyWrapper>
+    <DifficultyWrapper difficulty={difficulty}>
       <p> {difficulty}</p>
-
-      {/* <DifficultyLevel
-        isFilled={difficulty >= 1 ? true : false}
-      ></DifficultyLevel>
-      <DifficultyLevel
-        isFilled={difficulty >= 2 ? true : false}
-      ></DifficultyLevel>
-      <DifficultyLevel
-        isFilled={difficulty === 3 ? true : false}
-      ></DifficultyLevel> */}
     </DifficultyWrapper>
   )
 }

@@ -6,13 +6,11 @@ import {
   CardWrapper,
   CardImg,
   CardInfoContainer,
-  CardInfoHeaderContainer,
   CardRecipeInfos,
-  Circle,
   CardLabelTitle,
-  CardInfoBottomContainer,
 } from "./Card.styles"
 import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndicator"
+import RatingIndicator from "../../molecules/RatingIndicator/RatingIndicator"
 
 const Card = ({ payload }) => {
   const {
@@ -43,37 +41,35 @@ const Card = ({ payload }) => {
   }
 
   return (
-    <CardWrapper>
-      {image ? (
-        <CardImg
-          image={image}
-          loading="eager"
-          alt="Zdjęcie posiłku z przepisu"
-        />
-      ) : null}
-      {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
-      {/*  <HeartEmpty />*/}
-      {/*  <HeartFilled />*/}
-      {/*</FavouriteButton>*/}
-      <CardInfoContainer>
-        <CardInfoHeaderContainer>
-          <CardRecipeInfos>
-            {type[0] ? type[0].types : "?"}
-            <Circle />
-            {diets[0] ? diets[0].diets : "?"}
-          </CardRecipeInfos>
-          <CardLabelTitle>{title}</CardLabelTitle>
-        </CardInfoHeaderContainer>
-        <CardInfoBottomContainer>
+    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+      <CardWrapper>
+        {image ? (
+          <CardImg
+            image={image}
+            loading="eager"
+            alt="Zdjęcie posiłku z przepisu"
+          />
+        ) : null}
+        {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
+        {/*  <HeartEmpty />*/}
+        {/*  <HeartFilled />*/}
+        {/*</FavouriteButton>*/}
+        <CardInfoContainer>
           <DifficultyIndicator
             difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
           />
-          <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
-            Sprawdź →
-          </CardLink>
-        </CardInfoBottomContainer>
-      </CardInfoContainer>
-    </CardWrapper>
+          {/* <CardInfoHeaderContainer> */}
+          <CardLabelTitle>{title}</CardLabelTitle>
+          <CardRecipeInfos>
+            <p>{type[0] ? type[0].types : ""}</p>
+            <p>{diets[0] ? diets[0].diets : ""}</p>
+          </CardRecipeInfos>
+          {/* </CardInfoHeaderContainer> */}
+          {/* <CardInfoBottomContainer></CardInfoBottomContainer> */}
+          <RatingIndicator />
+        </CardInfoContainer>
+      </CardWrapper>
+    </CardLink>
   )
 }
 

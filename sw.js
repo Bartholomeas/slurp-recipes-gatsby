@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-0893af9af5a97e9e944d.js"
+    "url": "webpack-runtime-c377f91dbba6b5fecd6d.js"
   },
   {
     "url": "framework-ac2000d73b9ccf98b1a9.js"
@@ -36,29 +36,23 @@ self.__precacheManifest = [
     "url": "545f34e4-7b7a25b72a8a94c1691d.js"
   },
   {
-    "url": "5e2a4920-0b4209eda0e61f530d45.js"
-  },
-  {
     "url": "1bfc9850-15f14758ed1d14b00a49.js"
   },
   {
-    "url": "0c428ae2-850b4029b2d52da8253d.js"
+    "url": "0c428ae2-38b2ae0b4bc51f78fab9.js"
   },
   {
-    "url": "1a48c3c1-a0eda5e450625cd99f1d.js"
+    "url": "d7eeaac4-344aea24673a17249d87.js"
   },
   {
-    "url": "d7eeaac4-022bdfbeb082ed88dacf.js"
-  },
-  {
-    "url": "app-77667f32e56ce06c3a50.js"
+    "url": "app-9a40ea0bdd8b439f7484.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "22bdd4b45b5fb40f0048665c12828f25"
+    "revision": "195a4e3aad6dce2116e6da4843beecb1"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ffe949d50daa99a27564.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-99517b2a74bf9141284d.js"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -66,10 +60,10 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "491b382af8fee7c0ef807a13374a4fbf"
+    "revision": "ffadcc98a58b305fa38ae7d62e4da80d"
   },
   {
-    "url": "polyfill-3168e9c8de0c9c345034.js"
+    "url": "polyfill-6cfa4e8adb6996c7991b.js"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -161,7 +155,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-77667f32e56ce06c3a50.js`))) {
+  if (!resources || !(await caches.match(`/slurp-recipes-gatsby/app-9a40ea0bdd8b439f7484.js`))) {
     return await fetch(event.request)
   }
 

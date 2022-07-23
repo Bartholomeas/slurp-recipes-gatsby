@@ -41,7 +41,9 @@ const LandingSection = () => {
             Ciężko pracujemy aby w twojej kuchni nie zapanowała kuchenna nuda.
             Chcesz się przekonać?
           </p>
-          <Button isLong={true}>Sprawdź</Button>
+          <Button isLong={true} accentColor={true}>
+            Sprawdź
+          </Button>
         </TextWrapper>
 
         <PlatesWrapper>

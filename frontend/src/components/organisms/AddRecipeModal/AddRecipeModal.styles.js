@@ -61,7 +61,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkerBase};
+    background-color: ${({ theme }) => theme.colors.darkBase};
     transform: scale(1.05);
   }
 `

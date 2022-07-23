@@ -5,13 +5,17 @@ import { AiOutlineMenu } from "react-icons/ai"
 const joinLinkStyles = css`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   color: ${({ theme }) => theme.colors.fontColor};
   font-weight: bold;
   font-size: 1.6rem;
 
   &:hover {
     color: ${({ theme }) => theme.colors.base};
+  }
+
+  @media only screen and (min-width: 768px) {
+    margin-left: 2rem;
   }
 `
 const navLinkStyles = css`
@@ -48,10 +52,10 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-      max-width: ${({ theme }) => theme.otherStyles.maxWidth};
-  }
+  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
+  /* padding: 0 1rem; */
 
   @media only screen and (max-width: 1920px) {
     padding: 0 2rem;
@@ -63,12 +67,12 @@ export const LinkContainer = styled.ul`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* gap: 1.4rem; */
+  gap: 1rem;
   list-style: none;
 
   & .join-icon {
     font-size: 2.4rem;
-    margin-right: 1rem;
+    margin-right: 0.4rem;
   }
 
   &.join-link {
@@ -77,7 +81,7 @@ export const LinkContainer = styled.ul`
 
   @media only screen and (max-width: 768px) {
     position: absolute;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     left: 0;
@@ -101,21 +105,6 @@ export const NavListItem = styled.li`
   height: 5rem;
   overflow: hidden;
 
-  &::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 3px;
-    background-color: ${({ theme }) => theme.colors.base};
-    bottom: 0;
-    transform: scale(0);
-    transform-origin: left;
-    transition: transform 0.2s ease-in-out;
-  }
-  &:hover&::before {
-    transform: scale(1);
-  }
-
   @media only screen and(min-width:768px) {
     width: auto;
   }
@@ -137,20 +126,21 @@ export const UserButton = styled.button`
   transition: color 0.3s;
 `
 
+export const ConverterButton = styled.button``
+
 export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 2rem; */
   width: 10rem;
-  /* background-color: pink; */
 `
 
 export const ListButton = styled.button`
   ${navLinkStyles}
   gap:.6rem;
   background: none;
-  border: none;
+  border: ${({ theme }) => theme.otherStyles.border};
+  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
   z-index: 1000;
   cursor: pointer;
 

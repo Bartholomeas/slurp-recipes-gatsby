@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     base: "#F94C66",
-    darkerBase: "#C3354A",
+    darkBase: "#C3354A",
     veryDarkBase: "#671010",
     accent: "#399685",
     darkAccent: "#20685B",
@@ -12,6 +12,7 @@ export const theme = {
     grey: "#DDDDDD",
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",
+    gold: "DD9C1E",
     shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
   },
 
@@ -21,6 +22,7 @@ export const theme = {
     smallRadius: "8px",
     mediumRadius: "16px",
     bigRadius: "32px",
+    border: "2px solid #F94C66",
   },
 
   fontSize: {

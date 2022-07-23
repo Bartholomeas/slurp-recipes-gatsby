@@ -8,14 +8,14 @@ import {
   NavLink,
   UserButton,
   HamburgerBtn,
-  ListButton,
   NavListItem,
 } from "./Navbar.styles"
+import BorderButton from "../../atoms/BorderButton/BorderButton"
 import { StateContext } from "../../../context/StateContext"
-import { FiLogIn } from "react-icons/fi"
 import { BiUserCircle, BiRepost } from "react-icons/bi"
 import UserPanel from "../UserPanel/UserPanel"
 import Logo from "../../atoms/Logo/Logo"
+import Button from "../../atoms/Button/Button"
 
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false)
@@ -51,22 +51,10 @@ const Navbar = () => {
         />
         <LinkContainer isNavbarOpen={isNavbarOpen}>
           <NavListItem>
-            <ListButton
-              onClick={() => {
-                setIsConverterActive(!isConverterActive)
-                setIsNavbarOpen(false)
-              }}
-              data-testid="converter-icon"
-            >
-              <BiRepost style={{ fontSize: "2.4rem" }} />
-              konwerter
-            </ListButton>
-          </NavListItem>
-          <NavListItem>
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/"
-              activeStyle={{ color: "#F2B61A", fontWeight: "700" }}
+              activeStyle={{ color: "#F94C66", fontWeight: "700" }}
             >
               przepisy
             </NavLink>
@@ -76,10 +64,21 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsNavbarOpen(false)}
               to="/contact"
-              activeStyle={{ color: "#F2B61A", fontWeight: "700" }}
+              activeStyle={{ color: "#F94C66", fontWeight: "700" }}
             >
               kontakt
             </NavLink>
+          </NavListItem>
+          <NavListItem>
+            <BorderButton
+              onClick={() => {
+                setIsConverterActive(!isConverterActive)
+                setIsNavbarOpen(false)
+              }}
+              data-testid="converter-icon"
+            >
+              Konwerter
+            </BorderButton>
           </NavListItem>
           <NavListItem>
             {isAuthenticated ? (
@@ -90,10 +89,10 @@ const Navbar = () => {
                   setIsNavbarOpen(false)
                 }}
               >
-                <BiUserCircle
+                {/* <BiUserCircle
                   className="join-icon"
                   onClick={() => setIsNavbarOpen(false)}
-                />{" "}
+                />{" "} */}
                 {userName}
               </UserButton>
             ) : (
@@ -102,7 +101,7 @@ const Navbar = () => {
                 className="join-link"
                 onClick={() => setIsNavbarOpen(false)}
               >
-                <FiLogIn className="join-icon" /> Dołącz
+                <Button isLong={true}>Dołącz</Button>
               </NavLink>
             )}
           </NavListItem>

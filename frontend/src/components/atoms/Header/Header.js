@@ -8,7 +8,7 @@ const Heading = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   margin: 4rem 0;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkBase};
   color: ${({ theme }) => theme.colors.white};
 
   &::after {

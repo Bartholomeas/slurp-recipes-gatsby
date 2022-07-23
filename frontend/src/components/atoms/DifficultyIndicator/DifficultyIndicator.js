@@ -4,28 +4,15 @@ import { theme } from "../../../styles/theme"
 
 export const DifficultyWrapper = styled.div`
   display: flex;
-  gap: 0.6rem;
 `
-export const DifficultyLevel = styled.span`
-  width: 1.6rem;
-  height: 1.6rem;
-  color: white;
-  border: 2px solid ${({ theme }) => theme.colors.accent};
-  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
-  background-color: ${({ isFilled }) =>
-    isFilled ? theme.colors.accent : "none"};
-`
+export const DifficultyLevel = styled.span``
 
-const DifficultyIndicator = ({ difficulty }) => {
-  difficulty === "łatwe"
-    ? (difficulty = 1)
-    : difficulty === "średnie"
-    ? (difficulty = 2)
-    : (difficulty = 3)
-
+const DifficultyIndicator = ({ difficulty = "" }) => {
   return (
     <DifficultyWrapper>
-      <DifficultyLevel
+      <p> {difficulty}</p>
+
+      {/* <DifficultyLevel
         isFilled={difficulty >= 1 ? true : false}
       ></DifficultyLevel>
       <DifficultyLevel
@@ -33,7 +20,7 @@ const DifficultyIndicator = ({ difficulty }) => {
       ></DifficultyLevel>
       <DifficultyLevel
         isFilled={difficulty === 3 ? true : false}
-      ></DifficultyLevel>
+      ></DifficultyLevel> */}
     </DifficultyWrapper>
   )
 }

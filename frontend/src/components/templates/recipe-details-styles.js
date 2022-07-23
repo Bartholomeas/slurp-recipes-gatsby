@@ -226,7 +226,7 @@ export const PreparationContainer = styled.div`
 export const PrepHeader = styled.h3`
   font-size: 4rem;
   margin: 2.4rem 0;
-  color: ${({ theme }) => theme.colors.darkerBase};
+  color: ${({ theme }) => theme.colors.darkBase};
   @media print {
     font-size: 2.4rem;
     margin: 0;
@@ -248,7 +248,7 @@ export const StepListItem = styled.li`
     font-size: 4rem;
     list-style-type: none;
     line-height: 1.2rem;
-    color: ${({ theme }) => theme.colors.darkerBase};
+    color: ${({ theme }) => theme.colors.darkBase};
 
     @media print {
       font-size: 2rem;

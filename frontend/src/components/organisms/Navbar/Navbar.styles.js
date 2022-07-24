@@ -52,10 +52,12 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: ${({ theme }) => theme.otherStyles.maxWidth};
   height: 100%;
   margin: 0 auto;
-  /* padding: 0 1rem; */
+  background-color: skyblue;
+
+  /* padding: 0 2rem; */
 
   @media only screen and (max-width: 1920px) {
     padding: 0 2rem;
@@ -69,6 +71,7 @@ export const LinkContainer = styled.ul`
   align-items: center;
   gap: 1rem;
   list-style: none;
+  /* background-color: skyblue; */
 
   & .join-icon {
     font-size: 2.4rem;
@@ -112,6 +115,7 @@ export const NavListItem = styled.li`
 
 export const NavLink = styled(Link)`
   ${navLinkStyles}
+  /* background-color:pink; */
   &.join-link {
     ${joinLinkStyles}
   }
@@ -132,7 +136,6 @@ export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10rem;
 `
 
 export const ListButton = styled.button`

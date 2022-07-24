@@ -105,21 +105,21 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper>
-      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
-      <RecipesContainer>
-        <FiltersButton>
-          <FilterIcon onClick={filterBarHandler} />
-        </FiltersButton>
-        <CardsContainer>
-          {info.diets || info.difficulties || info.types
-            ? searchedRecipes.map(recipe => {
-                return <Card key={recipe.id} payload={recipe} />
-              })
-            : recipes.map(recipe => {
-                return <Card key={recipe.id} payload={recipe} />
-              })}
-        </CardsContainer>
-      </RecipesContainer>
+      {/* <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} /> */}
+      {/* <RecipesContainer> */}
+      <FiltersButton>
+        <FilterIcon onClick={filterBarHandler} />
+      </FiltersButton>
+      <CardsContainer>
+        {info.diets || info.difficulties || info.types
+          ? searchedRecipes.map(recipe => {
+              return <Card key={recipe.id} payload={recipe} />
+            })
+          : recipes.map(recipe => {
+              return <Card key={recipe.id} payload={recipe} />
+            })}
+      </CardsContainer>
+      {/* </RecipesContainer> */}
     </RecipesWrapper>
   )
 }

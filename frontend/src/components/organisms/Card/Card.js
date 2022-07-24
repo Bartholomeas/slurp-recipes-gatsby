@@ -58,14 +58,11 @@ const Card = ({ payload }) => {
           <DifficultyIndicator
             difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
           />
-          {/* <CardInfoHeaderContainer> */}
           <CardLabelTitle>{title}</CardLabelTitle>
           <CardRecipeInfos>
             <p>{type[0] ? type[0].types : ""}</p>
             <p>{diets[0] ? diets[0].diets : ""}</p>
           </CardRecipeInfos>
-          {/* </CardInfoHeaderContainer> */}
-          {/* <CardInfoBottomContainer></CardInfoBottomContainer> */}
           <RatingIndicator />
         </CardInfoContainer>
       </CardWrapper>

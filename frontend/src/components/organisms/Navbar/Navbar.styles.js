@@ -5,17 +5,13 @@ import { AiOutlineMenu } from "react-icons/ai"
 const joinLinkStyles = css`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   color: ${({ theme }) => theme.colors.fontColor};
   font-weight: bold;
   font-size: 1.6rem;
 
   &:hover {
     color: ${({ theme }) => theme.colors.base};
-  }
-
-  @media only screen and (min-width: 768px) {
-    margin-left: 2rem;
   }
 `
 const navLinkStyles = css`
@@ -24,7 +20,7 @@ const navLinkStyles = css`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
   color: ${({ theme }) => theme.colors.fontColor};
   font-size: 1.6rem;
   text-decoration: none;
@@ -55,7 +51,6 @@ export const NavContainer = styled.div`
   max-width: ${({ theme }) => theme.otherStyles.maxWidth};
   height: 100%;
   margin: 0 auto;
-  background-color: skyblue;
 
   /* padding: 0 2rem; */
 
@@ -69,7 +64,7 @@ export const LinkContainer = styled.ul`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 2.4rem;
   list-style: none;
   /* background-color: skyblue; */
 

@@ -4,6 +4,7 @@ import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
 import {
   TopContainer,
+  SearchbarContainer,
   RecipesWrapper,
   FiltersButton,
   CardsContainer,
@@ -107,13 +108,17 @@ const RecipesSection = () => {
   return (
     <RecipesWrapper>
       <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
+
       <TopContainer>
-        <h2>Przepisy</h2>
-        <SearchBar />
+        <SearchbarContainer>
+          <h2>Przepisy</h2>
+          <SearchBar />
+        </SearchbarContainer>
         <FiltersButton>
           <BsFilterCircleFill onClick={filterBarHandler} />
         </FiltersButton>
       </TopContainer>
+
       <CardsContainer>
         {info.diets || info.difficulties || info.types
           ? searchedRecipes.map(recipe => {

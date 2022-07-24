@@ -38,6 +38,7 @@ export const CardWrapper = styled.div`
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
   transition: transform 0.2s;
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
 
   &:hover {
     transform: scale(0.98);
@@ -58,7 +59,7 @@ export const CardImg = styled(GatsbyImage)`
 
 export const CardInfoContainer = styled.div`
   ${flexColumn};
-  justify-content: flex;
+  justify-content: space-between;
   height: 150px;
   width: 100%;
   gap: 0.8rem;
@@ -68,7 +69,7 @@ export const CardInfoContainer = styled.div`
 export const CardLabelTitle = styled.p`
   font-size: 2rem;
   align-self: flex-start;
-  /* margin-top: 0.8rem; */
+  margin-top: 0.8rem;
   font-weight: 700;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.fontColor};

@@ -10,19 +10,25 @@ export const RecipesWrapper = styled.section`
   padding-top: 6rem;
   margin-bottom: 2rem;
   margin: 0 auto;
-  background-color: ${({ theme }) => theme.colors.grey};
-  background-color: #f7f7f7;
+  /* background-color: ${({ theme }) => theme.colors.grey}; */
 `
 
 export const TopContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   padding: 2rem;
-  background-color: pink;
+`
+export const SearchbarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+
   & h2 {
     color: ${({ theme }) => theme.colors.fontColor};
-    font-size: ${({ theme }) => theme.fontSize.medium};
+    font-size: ${({ theme }) => theme.fontSize.big};
   }
 `
 
@@ -78,5 +84,9 @@ export const FiltersButton = styled.button`
 
   &:hover {
     transform: scale(0.95);
+  }
+
+  @media only screen and (min-width: 768px) {
+    position: initial;
   }
 `

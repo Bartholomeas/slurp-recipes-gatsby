@@ -8,7 +8,7 @@ export const theme = {
     fontColor: "#313131",
     fontLighter: "#6F6F6F",
     errorColor: "rgb(230, 39, 25)",
-    lightGrey: "#F9F9F9",
+    lightGrey: "#D4D4D4",
     grey: "#DDDDDD",
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",

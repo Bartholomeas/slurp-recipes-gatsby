@@ -14,7 +14,7 @@ export const ConverterWrapper = styled.div`
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );
   transform-origin: top right;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease;
   z-index: -15;
 
   @media only screen and (min-width: 768px) {

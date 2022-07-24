@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   height: 150px;
   width: 100%;
   max-width: 400px;
-  padding: 0.3rem;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
@@ -44,8 +43,6 @@ export const BottomWrapper = styled.div`
 export const CardLink = styled(Link)`
   padding: 1rem 0;
   text-decoration: none;
-  /* align-self: flex-end; */
-  margin-right: 2rem;
 `
 export const Button = styled.button`
   color: ${({ theme }) => theme.colors.accent};
@@ -62,7 +59,7 @@ export const Button = styled.button`
 `
 export const ImageContainer = styled.div`
   height: 100%;
-  width: 40%;
+  width: 60%;
   overflow: hidden;
 `
 

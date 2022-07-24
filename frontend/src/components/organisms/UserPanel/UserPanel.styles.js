@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
   );
   transform-origin: top right;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease;
   z-index: 1000;
 
   & .modal-body {
@@ -47,7 +47,7 @@ export const Wrapper = styled.div`
     margin-bottom: 1.8rem;
     font-size: 1.6rem;
     color: ${({ theme }) => theme.colors.fontColor};
-    transition: color 0.3s ease-in-out;
+    transition: color 0.2s ease;
 
     &:hover {
       color: ${({ theme }) => theme.colors.base};

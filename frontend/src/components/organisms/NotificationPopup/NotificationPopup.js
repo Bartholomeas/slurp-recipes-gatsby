@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   border: 1px solid green;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  transition: transform 0.1s ease-in;
+  transition: transform 0.1s ease;
 `
 export const Title = styled.p`
   border-bottom: 1px solid green;

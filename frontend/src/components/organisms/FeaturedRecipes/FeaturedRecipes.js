@@ -31,16 +31,16 @@ export const FeaturedRecipesHeader = styled.h2`
 export const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   height: 100%;
   width: 100%;
-  gap: 2rem;
-
+  margin: 0 auto;
+  max-width: ${({ theme }) => theme.otherStyles.maxWidth};
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 2rem;
-    max-width: ${({ theme }) => theme.otherStyles.maxWidth};
+    justify-content: center;
   }
 `
 const FeaturedRecipes = () => {

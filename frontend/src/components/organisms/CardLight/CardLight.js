@@ -14,41 +14,24 @@ import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndic
 
 const CardLight = ({ payload }) => {
   const { title = "", difficulties = "", img = "" } = payload
-
   const image = img ? getImage(img.localFile.childImageSharp) : null
   return (
-    <Wrapper>
-      <TextContainer>
-        <Title>{title}</Title>
-        <BottomWrapper>
-          {/* <DifficultyIndicator difficulty={difficulties[0]["difficulties"]} /> */}
-          <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
-            <Button>sprawdź →</Button>
-          </CardLink>
-        </BottomWrapper>
-      </TextContainer>
+    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+      <Wrapper>
+        <TextContainer>
+          <Title>{title}</Title>
+          <BottomWrapper></BottomWrapper>
+        </TextContainer>
 
-      <ImageContainer>
-        <CardImage
-          image={image}
-          alt="Featured recipe photo"
-          placeholder="blurred"
-        ></CardImage>
-        {/* <CardImage
-            style={{
-              height: "100%",
-              width: "100%",
-              backgroundSize: "cover",
-              backgroundAttachment: "fixed",
-            }}
+        <ImageContainer>
+          <CardImage
             image={image}
-            src={image}
-            // src="../../../images/landing2.jpg"
-            placeholder="blurred"
             alt="Featured recipe photo"
-          /> */}
-      </ImageContainer>
-    </Wrapper>
+            placeholder="blurred"
+          ></CardImage>
+        </ImageContainer>
+      </Wrapper>
+    </CardLink>
   )
 }
 

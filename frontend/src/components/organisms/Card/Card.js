@@ -56,7 +56,7 @@ const Card = ({ payload }) => {
         {/*</FavouriteButton>*/}
         <CardInfoContainer>
           <DifficultyIndicator
-            difficulty={difficulty[0] ? difficulty[0].difficulties : "easy"}
+            difficulty={difficulty[0].difficulties ?? "easy"}
           />
           <CardLabelTitle>{title}</CardLabelTitle>
           <CardRecipeInfos>

@@ -15,14 +15,14 @@ export const FilterWrapper = styled.div`
   top: 50%;
   transform: translate(-50%, -50%)
     scale(${({ isOpen }) => (isOpen ? "1" : "0")});
-  transform-origin: left bottom;
+  transform-origin: right bottom;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   overflow: hidden;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease;
   z-index: 200;
-  @media only screen and (min-width: 768px) {
+  /* @media only screen and (min-width: 768px) {
     position: relative;
     display: flex;
     min-height: 100%;
@@ -32,7 +32,7 @@ export const FilterWrapper = styled.div`
     transform: translate(0);
     z-index: 0;
     opacity: 1;
-  }
+  } */
 `
 
 export const FilterHeader = styled.p`

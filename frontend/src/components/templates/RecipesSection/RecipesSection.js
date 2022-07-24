@@ -3,13 +3,14 @@ import { graphql, useStaticQuery } from "gatsby"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
 import {
-  RecipesContainer,
+  TopContainer,
   RecipesWrapper,
   FiltersButton,
   CardsContainer,
-  FilterIcon,
 } from "./RecipesSection.styles"
+import { BsFilterCircleFill } from "react-icons/bs"
 import { StateContext } from "../../../context/StateContext"
+import SearchBar from "../../molecules/SearchBar/SearchBar"
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
@@ -105,11 +106,14 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper>
-      {/* <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} /> */}
-      {/* <RecipesContainer> */}
-      <FiltersButton>
-        <FilterIcon onClick={filterBarHandler} />
-      </FiltersButton>
+      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
+      <TopContainer>
+        <h2>Przepisy</h2>
+        <SearchBar />
+        <FiltersButton>
+          <BsFilterCircleFill onClick={filterBarHandler} />
+        </FiltersButton>
+      </TopContainer>
       <CardsContainer>
         {info.diets || info.difficulties || info.types
           ? searchedRecipes.map(recipe => {
@@ -119,7 +123,6 @@ const RecipesSection = () => {
               return <Card key={recipe.id} payload={recipe} />
             })}
       </CardsContainer>
-      {/* </RecipesContainer> */}
     </RecipesWrapper>
   )
 }

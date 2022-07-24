@@ -169,7 +169,7 @@ const AddRecipeModal = () => {
         },
       }}
     >
-      <ModalHeader>Add recipe</ModalHeader>
+      <ModalHeader>Dodaj Przepis</ModalHeader>
       <ModalForm
         onSubmit={e => {
           uploadHandler(e)

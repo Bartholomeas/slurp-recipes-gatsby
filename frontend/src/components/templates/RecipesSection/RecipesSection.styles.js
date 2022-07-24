@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { BsFilterCircleFill } from "react-icons/bs"
 
 export const RecipesWrapper = styled.section`
   display: flex;
@@ -7,21 +6,26 @@ export const RecipesWrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  /* width: 100vw; */
+  max-width: ${({ theme }) => theme.otherStyles.maxWidth};
   padding-top: 6rem;
   margin-bottom: 2rem;
+  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.grey};
   background-color: #f7f7f7;
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    width: auto;
-    padding: 5rem 0;
-    max-width: ${({ theme }) => theme.otherStyles.maxWidth};
-    margin: 0 auto;
+`
+
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+  background-color: pink;
+  & h2 {
+    color: ${({ theme }) => theme.colors.fontColor};
+    font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `
+
 export const RecipesContainer = styled.div`
   position: relative;
   display: flex;
@@ -59,30 +63,20 @@ export const CardsContainer = styled.div`
   @media only screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
   }
-  /* @media only screen and (min-width: 1600px) {
-    grid-template-columns: repeat(5, 1fr);
-  } */
 `
 
 export const FiltersButton = styled.button`
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
-  color: ${({ theme }) => theme.colors.accent};
+  right: 2rem;
+  color: ${({ theme }) => theme.colors.darkBase};
   background: none;
   border: none;
   font-size: 4rem;
-  cursor: pointer;
   z-index: 1000;
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
+  cursor: pointer;
 
   &:hover {
     transform: scale(0.95);
   }
-`
-
-export const FilterIcon = styled(BsFilterCircleFill)`
-  align-self: normal;
 `

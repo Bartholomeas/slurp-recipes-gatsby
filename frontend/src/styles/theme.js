@@ -13,7 +13,6 @@ export const theme = {
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",
     gold: "#DD9C1E",
-    beige: "#FFF7E3",
     shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
   },
 

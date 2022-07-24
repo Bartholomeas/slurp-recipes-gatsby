@@ -58,7 +58,7 @@ export const CardImg = styled(GatsbyImage)`
 
 export const CardInfoContainer = styled.div`
   ${flexColumn};
-  justify-content: flex-start;
+  justify-content: flex;
   height: 150px;
   width: 100%;
   gap: 0.8rem;

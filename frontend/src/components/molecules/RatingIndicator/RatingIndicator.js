@@ -9,13 +9,23 @@ import {
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.beige};
+  /* align-items: center; */
+  align-self: flex-start;
+  gap: 0.8rem;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.gold};
   border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
 `
 
 const RatingIndicator = () => {
-  return <Wrapper>ssstar</Wrapper>
+  return (
+    <Wrapper>
+      <TiStarFullOutline />
+      <TiStarFullOutline />
+      <TiStarFullOutline />
+      <TiStarHalfOutline />
+      <TiStarOutline />
+    </Wrapper>
+  )
 }
-
 export default RatingIndicator

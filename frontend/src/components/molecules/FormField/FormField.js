@@ -2,19 +2,21 @@ import React from "react"
 import styled, { css } from "styled-components"
 
 const inputStyles = css`
+  posiiton: relative;
   width: 100%;
   height: 5rem;
   padding: 1rem 1.2rem;
   border: none;
-  border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
-  border: 2px solid ${({ theme }) => theme.colors.grey};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};
+  box-shadow: inset ${({ theme }) => theme.colors.shadow};
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   margin-bottom: 1.6rem;
 
@@ -29,6 +31,7 @@ const Wrapper = styled.div`
 
 const Label = styled.label`
   font-size: 1.6rem;
+  color: ${({ theme }) => theme.colors.fontColor};
   margin-bottom: 1rem;
 `
 
@@ -39,7 +42,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   ${inputStyles}
   resize:vertical;
-  height: 150%;
+  height: 150px;
 `
 
 const FormField = React.forwardRef(

@@ -11,16 +11,14 @@ const maxWidth = css`
 `
 
 const IconsStyle = css`
-  /* position: absolute; */
   right: -5rem;
   top: 50%;
   font-size: 4rem;
-  color: ${({ theme }) => theme.colors.accent};
-  /* z-index: 10000; */
+  color: ${({ theme }) => theme.colors.offWhite};
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.white};
   }
 `
 
@@ -136,8 +134,9 @@ export const ContentContainer = styled.div`
   height: 100%;
   width: 100%;
   padding: 2.4rem;
-  background-color: ${({ theme }) => theme.colors.base};
+  background-color: ${({ theme }) => theme.colors.darkBase};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
 
   @media only screen and (min-width: 768px) {
     width: 40%;
@@ -146,6 +145,11 @@ export const ContentContainer = styled.div`
   @media print {
     width: 40%;
     height: 300px;
+  }
+
+  & h2,
+  p {
+    color: ${({ theme }) => theme.colors.offWhite};
   }
 `
 
@@ -177,14 +181,14 @@ export const InfoBox = styled.div`
   flex-direction: column;
 `
 export const InfoCategory = styled.p`
-  font-size: 2rem;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.accent};
+  font-size: 1.6rem;
+  /* font-weight: bold; */
 `
 export const InfoValue = styled.p`
   font-size: 2.8rem;
+  font-family: "Playfair Display", serif;
+
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.accent};
 
   @media print {
     font-size: 1.6rem;
@@ -215,7 +219,8 @@ export const PreparationContainer = styled.div`
   min-height: 50vh;
   padding: 2rem;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   @media only screen and (min-width: 768px) {
     width: 65%;
   }
@@ -225,8 +230,10 @@ export const PreparationContainer = styled.div`
 `
 export const PrepHeader = styled.h3`
   font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
   margin: 2.4rem 0;
-  color: ${({ theme }) => theme.colors.darkBase};
+  color: ${({ theme }) => theme.colors.veryDarkBase};
   @media print {
     font-size: 2.4rem;
     margin: 0;
@@ -255,47 +262,54 @@ export const StepListItem = styled.li`
     }
   }
 `
-export const IngredientsBox = styled.div`
-  position: static;
+export const IngredientsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+  padding: 0 2.4rem;
+  font-size: 1.4rem;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
+  /* position: static;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 300px;
   max-height: 500px;
   top: 8rem;
-  font-size: 1.4rem;
   padding: 0 2.4rem;
+  font-size: 1.4rem;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  background-color: ${({ theme }) => theme.colors.base};
-  overflow-y: scroll;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
+  overflow-y: scroll; */
 
   @media only screen and (min-width: 768px) {
-    position: sticky;
     width: 35%;
-  }
-
-  @media print {
     height: auto;
-    max-height: 100vh;
-    overflow-y: auto;
   }
 
   @media print {
     position: static;
     width: 30%;
     height: auto;
+    max-height: 100vh;
     font-size: 1.2rem;
+    overflow-y: auto;
   }
 `
 export const IngredientsHeader = styled.h3`
   font-size: 2.4rem;
   margin-top: 2rem;
-  color: ${({ theme }) => theme.colors.accent};
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.veryDarkBase};
 `
 export const IngredientsList = styled.ul`
-  width: 90%;
-  height: 100%;
+  width: 100%;
+  height: auto;
   padding: 2rem 1.6rem;
   list-style: none;
   list-style-position: inside;
@@ -304,12 +318,13 @@ export const IngredientsItem = styled.li`
   position: relative;
   margin-bottom: 1.6rem;
   font-size: 1.6rem;
-  &::before {
+  list-style-type: circle;
+  /* &::before {
     content: "🍔";
     position: absolute;
     margin-left: -20px;
     margin-right: 10px;
-  }
+  } */
   @media print {
     font-size: 1.2rem;
     margin-bottom: 1rem;

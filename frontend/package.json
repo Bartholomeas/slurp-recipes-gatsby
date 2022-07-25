@@ -15,12 +15,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.24.0",
     "emailjs-com": "^3.2.0",
-    "gatsby": "^4.19.2",
+    "gatsby": "^3.13.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-image": "^1.14.2",
+    "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-offline": "^4.13.0",
     "gatsby-plugin-react-helmet": "^4.14.0",
     "gatsby-plugin-remote-images": "^3.3.0",
@@ -38,6 +39,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-modal": "^3.14.4",
+    "react-redux": "^8.0.2",
     "react-share": "^4.4.0",
     "styled-components": "^5.3.3"
   },

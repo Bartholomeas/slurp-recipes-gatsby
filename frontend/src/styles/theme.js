@@ -12,6 +12,7 @@ export const theme = {
     grey: "#DDDDDD",
     darkGrey: "#AEAEAE",
     white: "#FFFFFF",
+    offWhite: "#FFF7E3",
     gold: "#DD9C1E",
     shadow: "5px 10px 40px rgba(151, 151, 151, 0.25)",
   },

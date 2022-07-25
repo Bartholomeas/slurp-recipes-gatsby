@@ -1,29 +1,14 @@
 import React from "react"
 import emailjs from "emailjs-com"
 import styled, { keyframes } from "styled-components"
-import Header from "../../atoms/Header/Header"
 import Button from "../../atoms/Button/Button"
 import FormField from "../../molecules/FormField/FormField"
-import { IoFastFood } from "react-icons/io5"
-
-const wiggle = keyframes`
-from {
-  transform:rotate(-5deg)
-}
-to{
-  transform:rotate(5deg)
-
-}`
 
 const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: auto;
-  /* padding: 0 2rem; */
-  background-color: ${({ theme }) => theme.colors.accent};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `
@@ -31,9 +16,8 @@ const ContactFormBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
   padding: 3rem 0;
+  background-color: orange;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -49,18 +33,13 @@ const ContactFormBody = styled.form`
   align-items: center;
   width: 100%;
   padding: 2rem 2rem 0 2rem;
+  gap: 0.8rem;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  background-color: ${({ theme }) => theme.colors.accent};
   color: ${({ theme }) => theme.colors.lightGrey};
   @media only screen and (min-width: 768px) {
     height: 100%;
     max-width: 500px;
   }
-`
-const FastfoodIcon = styled(IoFastFood)`
-  font-size: 30rem;
-  color: ${({ theme }) => theme.colors.accent};
-  animation: 1s ${wiggle} infinite alternate-reverse;
 `
 
 const Statement = styled.p`
@@ -70,7 +49,7 @@ const Statement = styled.p`
 `
 
 const FormButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.lightGrey};
+  color: ${({ theme }) => theme.colors.white};
 `
 
 const ContactForm = () => {
@@ -93,21 +72,15 @@ const ContactForm = () => {
   }
 
   return (
-    <ContactWrapper>
-      <Header>Send recipe to us</Header>
-      <ContactFormBox>
-        <ContactFormBody onSubmit={sendEmail}>
-          <FormField nameId="from_name" content="Twój email" type="email" />
-          <FormField nameId="title" content="Tytuł" />
-          <FormField textarea={true} nameId="message" content="Wiadomość" />
-          <FormButton isLong type="submit" value="send">
-            Wyślij
-          </FormButton>
-          <Statement>{statement}</Statement>
-        </ContactFormBody>
-        <FastfoodIcon />
-      </ContactFormBox>
-    </ContactWrapper>
+    <ContactFormBody onSubmit={sendEmail}>
+      <FormField nameId="from_name" content="Twój email" type="email" />
+      <FormField nameId="title" content="Tytuł" />
+      <FormField textarea={true} nameId="message" content="Wiadomość" />
+      <FormButton isLong type="submit" value="send">
+        Wyślij
+      </FormButton>
+      <Statement>{statement}</Statement>
+    </ContactFormBody>
   )
 }
 

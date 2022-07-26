@@ -27,7 +27,6 @@ export const Select = styled.select`
   border: 2px solid ${({ theme }) => theme.colors.grey};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};
-  font-family: "Playfair Display", serif;
   cursor: pointer;
 `
 

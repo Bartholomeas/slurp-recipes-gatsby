@@ -182,11 +182,9 @@ export const InfoBox = styled.div`
 `
 export const InfoCategory = styled.p`
   font-size: 1.6rem;
-  /* font-weight: bold; */
 `
 export const InfoValue = styled.p`
-  font-size: 2.8rem;
-  font-family: "Playfair Display", serif;
+  font-size: ${({ theme }) => theme.fontSize.medium};
 
   font-weight: bold;
 
@@ -230,7 +228,6 @@ export const PreparationContainer = styled.div`
 `
 export const PrepHeader = styled.h3`
   font-size: 4rem;
-  font-family: "Playfair Display", serif;
   font-weight: bold;
   margin: 2.4rem 0;
   color: ${({ theme }) => theme.colors.veryDarkBase};
@@ -303,7 +300,6 @@ export const IngredientsContainer = styled.div`
 export const IngredientsHeader = styled.h3`
   font-size: 2.4rem;
   margin-top: 2rem;
-  font-family: "Playfair Display", serif;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.veryDarkBase};
 `

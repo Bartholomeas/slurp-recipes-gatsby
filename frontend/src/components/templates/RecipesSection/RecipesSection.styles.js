@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const RecipesWrapper = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -72,11 +73,14 @@ export const CardsContainer = styled.div`
 `
 
 export const FiltersButton = styled.button`
+  display: ${({ isActive }) => (isActive ? "block" : "none")};
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  color: ${({ theme }) => theme.colors.darkBase};
+  color: ${({ theme }) => theme.colors.accent};
   background: none;
+  width: 50px;
+  height: 50px;
   border: none;
   font-size: 4rem;
   z-index: 1000;
@@ -87,6 +91,5 @@ export const FiltersButton = styled.button`
   }
 
   @media only screen and (min-width: 768px) {
-    position: initial;
   }
 `

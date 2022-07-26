@@ -34,31 +34,13 @@ const LogoWrapper = styled.div`
 
 const Contact = ({ data }) => {
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <html lang="en" />
-        <title>Contact s:urp!</title>
-        <meta
-          name="description"
-          content="Przepisy, które pokocha cała rodzina!"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-
-      <ContactPageWrapper>
-        <h2>Skontaktuj się z nami</h2>
-        <ContactForm />
-        <LogoWrapper>
-          <Logo />
-        </LogoWrapper>
-      </ContactPageWrapper>
-    </>
+    <ContactPageWrapper>
+      <h2>Skontaktuj się z nami</h2>
+      <ContactForm />
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
+    </ContactPageWrapper>
   )
 }
 

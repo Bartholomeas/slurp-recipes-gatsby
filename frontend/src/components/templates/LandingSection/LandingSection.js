@@ -12,7 +12,6 @@ import {
 import Button from "../../atoms/Button/Button"
 
 const LandingSection = () => {
-  //
   const { backgroundLandingImage } = useStaticQuery(graphql`
     query GetBackgroundImage {
       backgroundLandingImage: file(relativePath: { eq: "landingMarble.jpg" }) {
@@ -41,9 +40,11 @@ const LandingSection = () => {
             Ciężko pracujemy aby w twojej kuchni nie zapanowała kuchenna nuda.
             Chcesz się przekonać?
           </p>
-          <Button isLong={true} accentColor={true}>
-            Sprawdź
-          </Button>
+          <a href="#recipes">
+            <Button isLong={true} accentColor={true}>
+              Sprawdź
+            </Button>
+          </a>
         </TextWrapper>
 
         <PlatesWrapper>

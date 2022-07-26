@@ -12,9 +12,9 @@ export const GlobalStyles = createGlobalStyle`
     html {
         font-size: 62.5%;
     }
-
+    
     body {
         font-family: 'Poppins', sans-serif;
-        /* font-family: 'Playfair Display', serif; */
+        scroll-behavior:smooth;
     }
 `

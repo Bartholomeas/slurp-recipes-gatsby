@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
-import { Helmet } from "react-helmet"
 import {
   IconsContainer,
   ShareIcon,
@@ -38,21 +37,6 @@ const RecipeDetails = ({ data }) => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <html lang="en" />
-        <title>Siorb {recipeInfo.title}</title>
-        <meta
-          name="description"
-          content="Przepisy, które pokocha cała rodzina!"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
       <Wrapper>
         <GeneralContainer>
           <RecipeImage image={image} alt="Food header img" />

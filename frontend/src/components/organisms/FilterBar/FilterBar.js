@@ -51,7 +51,7 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
     clearFiltering()
     setSearchedRecipes([])
   }
-
+  // isOpen={isOpen}
   return (
     <FilterWrapper isOpen={isOpen}>
       <FilterContainer>

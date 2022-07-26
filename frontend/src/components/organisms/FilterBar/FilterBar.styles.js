@@ -22,17 +22,18 @@ export const FilterWrapper = styled.div`
   overflow: hidden;
   transition: transform 0.2s ease;
   z-index: 200;
-  /* @media only screen and (min-width: 768px) {
-    position: relative;
-    display: flex;
-    min-height: 100%;
-    max-width: 200px;
-    left: 0;
+  @media only screen and (min-width: 768px) {
+    position: absolute;
+    right: 0;
     top: 0;
-    transform: translate(0);
-    z-index: 0;
+    max-width: 300px;
+    box-shadow: ${({ theme }) => theme.colors.shadow};
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* transform: translate(0); */
     opacity: 1;
-  } */
+  }
 `
 
 export const FilterHeader = styled.p`

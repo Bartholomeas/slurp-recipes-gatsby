@@ -48,6 +48,7 @@ const RecipesSection = () => {
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
+  const [isActive, setIsActive] = useState(false)
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const {
     info,
@@ -105,21 +106,34 @@ const RecipesSection = () => {
     }
   }, [diets, types, difficulties])
 
-  return (
-    <RecipesWrapper>
-      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
+  const checkScrollPosition = () => {
+    const recipesSectionPosition = document.querySelector("#recipes").offsetTop
+    setIsActive(false)
+    if (window.scrollY + window.innerHeight - 150 > recipesSectionPosition)
+      setIsActive(true)
+  }
 
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollPosition)
+    return () => {
+      window.removeEventListener("scroll", checkScrollPosition)
+    }
+  }, [])
+
+  return (
+    <RecipesWrapper id="recipes">
       <TopContainer>
         <SearchbarContainer>
           <h2>Przepisy</h2>
           <SearchBar />
         </SearchbarContainer>
-        <FiltersButton>
-          <BsFilterCircleFill onClick={filterBarHandler} />
-        </FiltersButton>
+        <FilterBar isOpen={false} clearFiltering={clearFiltering} />
       </TopContainer>
 
       <CardsContainer>
+        <FiltersButton isActive={isActive}>
+          <BsFilterCircleFill onClick={filterBarHandler} />
+        </FiltersButton>
         {info.diets || info.difficulties || info.types
           ? searchedRecipes.map(recipe => {
               return <Card key={recipe.id} payload={recipe} />

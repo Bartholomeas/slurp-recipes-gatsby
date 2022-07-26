@@ -72,6 +72,10 @@ export const TextWrapper = styled.div`
       max-width: none;
     }
   }
+
+  & a {
+    width: 100%;
+  }
   @media only screen and (min-width: 768px) {
     width: 40%;
   }

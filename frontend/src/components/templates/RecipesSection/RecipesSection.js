@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useSelector, useDispatch } from "react-redux"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
 import {
@@ -45,6 +46,11 @@ const RecipesSection = () => {
       }
     }
   `)
+
+  // const { recipes } = useSelector(state => state.recipes)
+  console.log(recipes)
+  const dispatch = useDispatch()
+  // console.log(...data.allStrapiRecipes.nodes)
   const [recipes] = useState(data.allStrapiRecipes.nodes)
   const [isOpen, setIsOpen] = useState(false)
   const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
@@ -122,14 +128,14 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper id="recipes">
+      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
       <TopContainer>
         <SearchbarContainer>
           <h2>Przepisy</h2>
           <SearchBar />
         </SearchbarContainer>
-        <FilterBar isOpen={false} clearFiltering={clearFiltering} />
+        {/* <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} /> */}
       </TopContainer>
-
       <CardsContainer>
         <FiltersButton isActive={isActive}>
           <BsFilterCircleFill onClick={filterBarHandler} />

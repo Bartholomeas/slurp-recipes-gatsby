@@ -7,31 +7,27 @@ export const FilterWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-self: flex-start;
   height: 100vh;
   width: 100%;
+  padding: 2rem;
   margin-top: 4rem;
-  left: 50%;
+  right: 50%;
   top: 50%;
-  transform: translate(-50%, -50%)
-    scale(${({ isOpen }) => (isOpen ? "1" : "0")});
+  transform: translate(50%, -50%) scale(${({ isOpen }) => (isOpen ? "1" : "0")});
   transform-origin: right bottom;
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  overflow: hidden;
   transition: transform 0.2s ease;
   z-index: 200;
+  overflow: hidden;
+
   @media only screen and (min-width: 768px) {
-    position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
+    transform: translate(0) scale(${({ isOpen }) => (isOpen ? "1" : "0")});
     max-width: 300px;
     box-shadow: ${({ theme }) => theme.colors.shadow};
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    /* transform: translate(0); */
     opacity: 1;
   }
 `

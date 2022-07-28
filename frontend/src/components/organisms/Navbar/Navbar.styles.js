@@ -36,6 +36,7 @@ export const NavWrapper = styled.nav`
   min-width: 100%;
   height: 7rem;
   background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   z-index: 10000;
 
   @media print {
@@ -89,7 +90,7 @@ export const LinkContainer = styled.ul`
     padding: 4rem 0;
     transform: scale(${({ isNavbarOpen }) => (isNavbarOpen ? "1" : "0")});
     transform-origin: top right;
-    background-color: ${({ theme }) => theme.colors.lightGrey};
+    background-color: ${({ theme }) => theme.colors.white};
     transition: transform 0.2s;
     overflow: hidden;
     z-index: -10;

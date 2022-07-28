@@ -23,10 +23,11 @@ export const Select = styled.select`
   height: 5rem;
   padding: 1rem 1.2rem;
   border: none;
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  border: 2px solid ${({ theme }) => theme.colors.grey};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};
+  box-shadow: inset ${({ theme }) => theme.colors.shadow};
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   cursor: pointer;
 `
 

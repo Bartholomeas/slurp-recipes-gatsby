@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  recipes: [],
+  recipes: ["dupa"],
 }
 
 const recipesSlice = createSlice({
@@ -10,10 +10,12 @@ const recipesSlice = createSlice({
   reducers: {
     setRecipes: (state, action) => {
       console.log(state)
+      state.recipes = [action.payload]
     },
   },
 })
 
 const store = configureStore({ reducer: { recipes: recipesSlice.reducer } })
 
+export const recipesActions = recipesSlice.actions
 export default store

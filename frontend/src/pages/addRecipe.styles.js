@@ -1,40 +1,28 @@
 import styled from "styled-components"
 import Modal from "react-modal"
 
-export const ModalBody = styled(Modal)`
-  position: relative;
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  top: 50%;
-  left: 50%;
-  height: calc(100% - 7rem);
-  padding: 4rem 0;
-  margin-top: 3.4rem;
-  transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  color: ${({ theme }) => theme.colors.fontColor};
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  overflow-y: scroll;
-  z-index: 1000;
-
-  @media only screen and (min-width: 768px) {
-    height: auto;
-    padding: 2rem 0;
-    height: auto;
-    width: 600px;
-  }
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  /* max-width: ${({ theme }) => theme.otherStyles.maxWidth}; */
+  max-width:900px;
+  padding: 7rem 2rem 2rem
+  background-color: pink;
 `
-export const ModalHeader = styled.h2`
-  position: relative;
+
+export const Container = styled.div``
+
+export const AddRecipeHeader = styled.h2`
   align-self: flex-start;
   margin-left: 2rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.fontColor};
-  padding: 1rem 0;
+  font-size: ${({ theme }) => theme.fontSize.medium};
 `
 
 export const FormContainer = styled.div`
@@ -46,8 +34,13 @@ export const FormContainer = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  align-self: end;
-  align-content: end;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 6rem;
 `
 
 export const Button = styled.button`
@@ -65,9 +58,9 @@ export const Button = styled.button`
     transform: scale(1.05);
   }
 `
-// MODAL FORM
+// addRecipe FORM
 
-export const ModalForm = styled.form`
+export const Form = styled.form`
   width: 100%;
   height: 100%;
   padding: 2rem;

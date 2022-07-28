@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { Helmet } from "react-helmet"
 import ContactForm from "../components/organisms/ContactForm/ContactForm"
 import Logo from "../components/atoms/Logo/Logo"
 
@@ -32,7 +31,7 @@ const LogoWrapper = styled.div`
   height: 100px;
 `
 
-const Contact = ({ data }) => {
+const Contact = ({}) => {
   return (
     <ContactPageWrapper>
       <h2>Skontaktuj się z nami</h2>

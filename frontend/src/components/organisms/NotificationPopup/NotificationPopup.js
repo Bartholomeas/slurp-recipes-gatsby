@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   top: 50%;
   transform: translateX(-50%) scale(${({ isActive }) => (isActive ? "1" : "0")});
   transform-origin: bottom;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};
   box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
   border: 1px solid green;

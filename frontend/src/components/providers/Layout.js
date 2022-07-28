@@ -6,7 +6,6 @@ import { theme } from "../../styles/theme"
 import Navbar from "../organisms/Navbar/Navbar"
 import Footer from "../organisms/Footer/Footer"
 import styled from "styled-components"
-import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 
 const Wrapper = styled.div`
   left: 50%;
@@ -36,7 +35,6 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Navbar />
-        <AddRecipeModal />
         <Wrapper>{children}</Wrapper>
         <Footer />
       </ThemeProvider>

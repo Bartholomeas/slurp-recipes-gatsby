@@ -25,7 +25,6 @@ import {
   IngredientsItem,
   ShareBox,
 } from "./recipe-details-styles"
-import AddRecipeModal from "../organisms/AddRecipeModal/AddRecipeModal"
 import SharePanel from "../molecules/SharePanel/SharePanel"
 
 const RecipeDetails = ({ data }) => {
@@ -110,8 +109,6 @@ const RecipeDetails = ({ data }) => {
           </IngredientsContainer>
         </RecipeWrapper>
       </Wrapper>
-
-      <AddRecipeModal />
     </>
   )
 }

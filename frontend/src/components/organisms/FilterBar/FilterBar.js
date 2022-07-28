@@ -4,7 +4,7 @@ import { FilterWrapper, FilterContainer, ClearButton } from "./FilterBar.styles"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 import { StateContext } from "../../../context/StateContext"
 
-const FilterBar = ({ isOpen, clearFiltering }) => {
+const FilterBar = ({ isOpen = false, clearFiltering }) => {
   const data = useStaticQuery(graphql`
     query Filters {
       allStrapiDifficulties {
@@ -51,7 +51,6 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
     clearFiltering()
     setSearchedRecipes([])
   }
-  // isOpen={isOpen}
   return (
     <FilterWrapper isOpen={isOpen}>
       <FilterContainer>
@@ -59,6 +58,7 @@ const FilterBar = ({ isOpen, clearFiltering }) => {
         <FilterOptionsBody props={difficulties} content={difficulties} />
         <FilterOptionsBody props={types} content={types} />
         <ClearButton
+          isLong={true}
           onClick={() => {
             clearState()
           }}

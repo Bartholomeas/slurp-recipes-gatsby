@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `
 
 const Label = styled.label`
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: ${({ theme }) => theme.colors.fontColor};
   margin-bottom: 1rem;
 `

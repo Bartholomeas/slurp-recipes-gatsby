@@ -7,8 +7,8 @@ export const ConverterWrapper = styled.div`
   top: 7rem;
   right: 0;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   transform: scale(
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}

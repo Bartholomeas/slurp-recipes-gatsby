@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
   min-height: 150px;
   padding: 1rem 1.6rem;
   margin-right: 1rem;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  box-shadow: 0px 2px 5px ${({ theme }) => theme.otherStyles.shadow};
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   transform: scale(
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}

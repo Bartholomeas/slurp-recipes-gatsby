@@ -6,8 +6,6 @@ import { FaHeart } from "react-icons/fa"
 import { StateContext } from "../../../context/StateContext"
 
 const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
-  const { isModalOpen, setIsModalOpen } = useContext(StateContext)
-
   const windowGlobal = typeof window !== "undefined" && window
   const logoutHandler = () => {
     windowGlobal.localStorage.removeItem("token")
@@ -25,10 +23,9 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
       <NavbarLink
         onClick={() => {
           setIsUserPanelActive(!isUserPanelActive)
-          setIsModalOpen(!isModalOpen)
         }}
         className="user-panel-item"
-        to="#"
+        to="/addRecipe"
       >
         <FaPlusCircle className="navbar-icon" />
         Dodaj przepis

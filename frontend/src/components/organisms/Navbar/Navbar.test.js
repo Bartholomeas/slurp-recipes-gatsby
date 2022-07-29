@@ -24,11 +24,4 @@ describe("Navbar", () => {
     expect(measure).toBeInTheDocument()
     expect(cutlery).toBeInTheDocument()
   })
-
-  // it("tests the dummy mock request", async () => {
-  //   window.fetch = jest.fn()
-  //   window.fetch.mockResolvedValueOnce({
-  //     json: async () => [{ isAuthenticated: true }],
-  //   })
-  // })
 })

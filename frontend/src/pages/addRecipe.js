@@ -2,15 +2,8 @@ import React, { useState } from "react"
 import axios from "axios"
 import styled from "styled-components"
 import FormField from "../components/molecules/FormField/FormField"
-// import {
-//   Wrapper,
-//   Container,
-//   AddRecipeHeader,
-//   Form,
-//   FormContainer,
-//   ButtonWrapper,
-// } from "./addRecipe.styles"
-// import Button from "../components/atoms/Button/Button"
+
+import Button from "../components/atoms/Button/Button"
 import SelectField from "../components/molecules/SelectField/SelectField"
 import LoadingPopup from "../components/molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../components/organisms/NotificationPopup/NotificationPopup"
@@ -25,13 +18,10 @@ const Wrapper = styled.div`
   height: 100%;
   margin: 0 auto;
   margin-top: 10rem;
-  /* max-width: ${({ theme }) => theme.otherStyles.maxWidth}; */
   max-width:900px;
   padding: 7rem 2rem 2rem
   background-color: pink;
 `
-
-const Container = styled.div``
 
 const AddRecipeHeader = styled.h2`
   align-self: flex-start;
@@ -58,23 +48,6 @@ const ButtonWrapper = styled.div`
   width: 100%;
   height: 6rem;
 `
-
-const Button = styled.button`
-  padding: 1rem 2rem;
-  color: ${({ theme }) => theme.colors.lightFont};
-  background-color: ${({ closeBtn, theme }) =>
-    closeBtn ? theme.colors.grey : theme.colors.accent};
-  border: none;
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  transition: background-color 0.2s, transform 0.2s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.darkBase};
-    transform: scale(1.05);
-  }
-`
-// addRecipe FORM
 
 const Form = styled.form`
   width: 100%;
@@ -126,7 +99,6 @@ const AddRecipe = () => {
     ? JSON.parse(windowGlobal.localStorage.getItem("token"))
     : null
 
-  //Wysylanie przepisu
   const uploadHandler = async e => {
     e.preventDefault()
     if (!validateInputs()) return
@@ -223,111 +195,108 @@ const AddRecipe = () => {
 
   return (
     <Wrapper>
-      <Container>
-        <AddRecipeHeader>Dodaj Przepis</AddRecipeHeader>
+      {/* <Container> */}
+      <AddRecipeHeader>Dodaj Przepis</AddRecipeHeader>
 
-        <Form
-          onSubmit={e => {
-            uploadHandler(e)
+      <Form
+        onSubmit={e => {
+          uploadHandler(e)
+        }}
+      >
+        <FormContainer>
+          <FormField
+            onChange={updateInput}
+            width="70"
+            nameId="title"
+            content="tytuł"
+          />
+          <FormField
+            content="czas"
+            onChange={updateInput}
+            width="25"
+            nameId="time"
+            type="number"
+          />
+          <FormField
+            content="kalorie"
+            onChange={updateInput}
+            width="25"
+            nameId="calories"
+            type="number"
+          />
+        </FormContainer>
+        <FormContainer>
+          <SelectField
+            nameId="diets"
+            content="dieta"
+            onChange={updateSelect}
+            valuesIds={[
+              "621d167b5959ad7a45d14bea",
+              "621bb7b5896c806c8af640a7",
+              "621bb7ad896c806c8af640a6",
+              "621bb7bd896c806c8af640a8",
+            ]}
+            values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
+          />
+          <SelectField
+            nameId="difficulties"
+            content="trudność"
+            onChange={updateSelect}
+            valuesIds={[
+              "621d079c896c806c8af640b5",
+              "621d07a8896c806c8af640b6",
+              "621d07b8896c806c8af640b7",
+            ]}
+            values={["łatwe", "średnie", "trudne"]}
+          />
+          <SelectField
+            nameId="types"
+            content="posiłek"
+            onChange={updateSelect}
+            valuesIds={[
+              "621d048d896c806c8af640aa",
+              "621bbd62896c806c8af640a9",
+              "621d0497896c806c8af640ab",
+              "621d04a4896c806c8af640ac",
+              "62364060b17a20ff6a917404",
+            ]}
+            values={["śniadanie", "obiad", "kolacja", "deser", "napój"]}
+          />
+        </FormContainer>
+
+        <FormField
+          content="przygotowanie"
+          onChange={updateInput}
+          textarea={true}
+          nameId="preparation"
+          type="textarea"
+        />
+        <FormField
+          content="składniki"
+          onChange={updateInput}
+          textarea={true}
+          nameId="ingredients"
+          type="textarea"
+        />
+
+        <FormField
+          content="zdjęcie"
+          onChange={e => {
+            setFile(e.target.files[0])
           }}
-        >
-          <FormContainer>
-            <FormField
-              onChange={updateInput}
-              width="70"
-              nameId="title"
-              content="tytuł"
-            />
-            <FormField
-              content="czas"
-              onChange={updateInput}
-              width="25"
-              nameId="time"
-              type="number"
-            />
-            <FormField
-              content="kalorie"
-              onChange={updateInput}
-              width="25"
-              nameId="calories"
-              type="number"
-            />
-          </FormContainer>
-          <FormContainer>
-            <SelectField
-              nameId="diets"
-              content="dieta"
-              onChange={updateSelect}
-              valuesIds={[
-                "621d167b5959ad7a45d14bea",
-                "621bb7b5896c806c8af640a7",
-                "621bb7ad896c806c8af640a6",
-                "621bb7bd896c806c8af640a8",
-              ]}
-              values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
-            />
-            <SelectField
-              nameId="difficulties"
-              content="trudność"
-              onChange={updateSelect}
-              valuesIds={[
-                "621d079c896c806c8af640b5",
-                "621d07a8896c806c8af640b6",
-                "621d07b8896c806c8af640b7",
-              ]}
-              values={["łatwe", "średnie", "trudne"]}
-            />
-            <SelectField
-              nameId="types"
-              content="posiłek"
-              onChange={updateSelect}
-              valuesIds={[
-                "621d048d896c806c8af640aa",
-                "621bbd62896c806c8af640a9",
-                "621d0497896c806c8af640ab",
-                "621d04a4896c806c8af640ac",
-                "62364060b17a20ff6a917404",
-              ]}
-              values={["śniadanie", "obiad", "kolacja", "deser", "napój"]}
-            />
-          </FormContainer>
-
-          <FormField
-            content="przygotowanie"
-            onChange={updateInput}
-            textarea={true}
-            nameId="preparation"
-            type="textarea"
-          />
-          <FormField
-            content="składniki"
-            onChange={updateInput}
-            textarea={true}
-            nameId="ingredients"
-            type="textarea"
-          />
-
-          <FormField
-            content="zdjęcie"
-            onChange={e => {
-              setFile(e.target.files[0])
-            }}
-            nameId="image"
-            type="file"
-          />
-          {!isValid ? <ErrorText>Pola nie mogą być puste!</ErrorText> : null}
-          <Button isLong={true} type="submit">
-            Dodaj przepis
-          </Button>
-        </Form>
-        {isLoading ? <LoadingPopup /> : null}
-        <NotificationPopup
-          onClick={() => togglePopup()}
-          isActive={isPopupActive}
-        >
-          Przepis został pomyślnie dodany.
-        </NotificationPopup>
-      </Container>
+          nameId="image"
+          type="file"
+        />
+        {!isValid ? <ErrorText>Pola nie mogą być puste!</ErrorText> : null}
+        <Button isLong={true} type="submit">
+          Dodaj przepis
+        </Button>
+      </Form>
+      {isLoading ? <LoadingPopup /> : null}
+      <NotificationPopup onClick={() => togglePopup()} isActive={isPopupActive}>
+        Przepis został pomyślnie dodany.
+      </NotificationPopup>
+      {/* </Container> */}
     </Wrapper>
   )
 }

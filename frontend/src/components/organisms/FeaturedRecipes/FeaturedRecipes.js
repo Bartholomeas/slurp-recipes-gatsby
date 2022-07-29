@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import CardLight from "../CardLight/CardLight"
+import { useDispatch, useSelector } from "react-redux"
+import { recipesActions } from "../../../store/recipesSlice"
 
 export const FeaturedRecipesWrapper = styled.div`
   display: flex;
@@ -44,38 +46,29 @@ export const CardsContainer = styled.div`
   }
 `
 const FeaturedRecipes = () => {
-  const {
-    allStrapiRecipes: { nodes: recipes },
-  } = useStaticQuery(graphql`
-    query GetFeaturedRecipes {
-      allStrapiRecipes(limit: 3) {
-        nodes {
-          id
-          difficulties {
-            difficulties
-          }
-          title
-          img {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 300
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP]
-                )
-              }
-            }
-          }
-        }
-      }
+  const { recipes, featuredRecipes } = useSelector(state => state.recipes)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const getRecipesData = async () => {
+      const response = await recipes
+      if (response.length > 0)
+        dispatch(
+          recipesActions.setFeaturedRecipes([
+            response[0],
+            response[1],
+            response[2],
+          ])
+        )
     }
-  `)
+    getRecipesData()
+  }, [recipes])
 
   return (
     <FeaturedRecipesWrapper>
       <FeaturedRecipesHeader>Przepisy dnia</FeaturedRecipesHeader>
       <CardsContainer>
-        {recipes.map(recipe => {
+        {featuredRecipes.map(recipe => {
           return <CardLight payload={recipe} key={recipe.id} />
         })}
       </CardsContainer>

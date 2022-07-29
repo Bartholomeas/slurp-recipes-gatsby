@@ -11,12 +11,13 @@ import {
   ConvertedValuesBox,
   ConvertedContainer,
   ConvertedValue,
+  ButtonContainer,
 } from "./Converter.styles"
 import { FaUtensilSpoon } from "react-icons/fa"
 import { GiSpoon } from "react-icons/gi"
 import { BsCupFill } from "react-icons/bs"
 
-const Converter = ({ setIsConverterActive, isConverterActive }) => {
+const Converter = ({ closeConverter, isConverterActive }) => {
   const initialState = { product: "mąka pszenna", symbol: "g", value: "" }
   const [dataToConvert, setDataToConvert] = useState(initialState)
   const [convertedValues, setConvertedValues] = useState({
@@ -76,7 +77,7 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
         mleko: 5,
       },
       ml: 5,
-    } ,
+    },
   ]
 
   const setInputValue = e => {
@@ -199,9 +200,14 @@ const Converter = ({ setIsConverterActive, isConverterActive }) => {
           </ConvertedValuesBox>
         </ConvertedContainer>
       </MeasuresContainer>
-      <Button isLong onClick={() => setDataToConvert(initialState)}>
-        Wyczyść
-      </Button>
+      <ButtonContainer>
+        <Button isLong onClick={() => setDataToConvert(initialState)}>
+          Wyczyść
+        </Button>
+        <Button greyColor={true} onClick={() => closeConverter()}>
+          Zamknij
+        </Button>
+      </ButtonContainer>
     </ConverterWrapper>
   )
 }

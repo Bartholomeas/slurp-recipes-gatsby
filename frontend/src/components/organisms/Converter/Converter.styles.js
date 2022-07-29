@@ -1,3 +1,4 @@
+import { FaCentercode } from "react-icons/fa"
 import styled from "styled-components"
 
 export const ConverterWrapper = styled.div`
@@ -13,7 +14,7 @@ export const ConverterWrapper = styled.div`
   transform: scale(
     ${({ isConverterActive }) => (isConverterActive ? "1" : "0")}
   );
-  transform-origin: top right;
+  transform-origin: top;
   transition: transform 0.2s ease;
   z-index: -15;
 
@@ -21,7 +22,6 @@ export const ConverterWrapper = styled.div`
     height: auto;
     width: 400px;
     right: 2rem;
-    transform-origin: top left;
   }
 `
 
@@ -48,8 +48,12 @@ export const ConvertedContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 50%;
-  background-color: pink;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+
+  & p {
+    font-size: ${({ theme }) => theme.fontSize.standard};
+  }
 `
 export const ConvertedInfo = styled.p`
   padding: 1rem;
@@ -66,7 +70,7 @@ export const ConvertedValuesBox = styled.div`
   padding: 2rem 1rem;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   color: ${({ theme }) => theme.colors.accent};
-  background-color: ${({ theme }) => theme.colors.base};
+  /* background-color: ${({ theme }) => theme.colors.white}; */
   font-size: 1.6rem;
 `
 export const ConvertedValue = styled.p`
@@ -76,4 +80,10 @@ export const ConvertedValue = styled.p`
   align-items: center;
   gap: 2rem;
   font-size: 1.6rem;
+`
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 `

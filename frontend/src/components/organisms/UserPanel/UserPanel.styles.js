@@ -15,14 +15,13 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 150px;
   padding: 1rem 1.6rem;
-  margin-right: 1rem;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.otherStyles.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   transform: scale(
     ${({ isUserPanelActive }) => (isUserPanelActive ? "1" : "0")}
   );
-  transform-origin: top right;
+  transform-origin: top;
   transition: transform 0.2s ease;
   z-index: 1000;
 
@@ -42,7 +41,7 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    /* width: 60%; */
     padding: 0.6rem 1rem;
     margin-bottom: 1.8rem;
     font-size: 1.6rem;
@@ -56,6 +55,7 @@ export const Wrapper = styled.div`
     @media only screen and (min-width: 768px) {
       justify-content: flex-start;
       width: 100%;
+      margin-right: 1rem;
     }
   }
 
@@ -71,5 +71,6 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.fontColor};
   background: none;
   border: none;
+  width: 100%;
   cursor: pointer;
 `

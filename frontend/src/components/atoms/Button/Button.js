@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { theme } from "../../../styles/theme"
 
 const ButtonWrapper = styled.button`
   width: ${({ isLong }) => (isLong ? "100%" : "auto")};
@@ -7,8 +8,12 @@ const ButtonWrapper = styled.button`
   margin: 1.6rem 0;
   color: ${({ theme }) => theme.colors.white};
   border: none;
-  background-color: ${({ accentColor, theme }) =>
-    accentColor ? theme.colors.accent : theme.colors.base};
+  background-color: ${({ accentColor, greyColor, theme }) =>
+    accentColor
+      ? theme.colors.accent
+      : greyColor
+      ? theme.colors.lightGrey
+      : theme.colors.base};
   border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
   font-size: 1.4rem;
   font-weight: 700;
@@ -25,6 +30,7 @@ const Button = ({
   children,
   isLong = false,
   accentColor = false,
+  greyColor = false,
   className,
   onClick,
 }) => {
@@ -32,6 +38,7 @@ const Button = ({
     <ButtonWrapper
       isLong={isLong}
       accentColor={accentColor}
+      greyColor={greyColor}
       onClick={onClick}
       className={className}
     >

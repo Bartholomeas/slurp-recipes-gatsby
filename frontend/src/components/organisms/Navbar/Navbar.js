@@ -1,4 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { uiActions } from "../../../store/uiSlice"
 import Converter from "../Converter/Converter"
 import {
   NavContainer,
@@ -17,9 +19,11 @@ import Logo from "../../atoms/Logo/Logo"
 import Button from "../../atoms/Button/Button"
 
 const Navbar = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false)
-  const [isConverterActive, setIsConverterActive] = useState(false)
-  const [isUserPanelActive, setIsUserPanelActive] = useState(false)
+  const { navbarStatus, converterStatus, userPanelStatus } = useSelector(
+    state => state.ui
+  )
+  const dispatch = useDispatch()
+
   const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
   const windowGlobal = typeof window !== "undefined" && window
 
@@ -35,6 +39,22 @@ const Navbar = () => {
     }
   })
 
+  const closeNavbar = () => {
+    dispatch(uiActions.toggleNavbar(false))
+  }
+
+  const closeConverter = () => {
+    dispatch(uiActions.toggleConverter(false))
+  }
+
+  const toggleUserPanel = (close = false) => {
+    if (close) {
+      dispatch(uiActions.toggleUserPanel(close))
+      return
+    }
+    dispatch(uiActions.toggleUserPanel())
+  }
+
   return (
     <NavWrapper>
       <NavContainer>
@@ -44,14 +64,14 @@ const Navbar = () => {
         <HamburgerBtn
           aria-label="Open mobile menu"
           onClick={() => {
-            setIsNavbarOpen(!isNavbarOpen)
-            setIsUserPanelActive(false)
+            dispatch(uiActions.toggleNavbar())
+            toggleUserPanel(true)
           }}
         />
-        <LinkContainer isNavbarOpen={isNavbarOpen}>
+        <LinkContainer isNavbarOpen={navbarStatus}>
           <NavListItem>
             <NavLink
-              onClick={() => setIsNavbarOpen(false)}
+              onClick={closeNavbar}
               to="/"
               activeStyle={{ color: "#F94C66", fontWeight: "700" }}
             >
@@ -61,7 +81,7 @@ const Navbar = () => {
 
           <NavListItem>
             <NavLink
-              onClick={() => setIsNavbarOpen(false)}
+              onClick={closeNavbar}
               to="/contact"
               activeStyle={{ color: "#F94C66", fontWeight: "700" }}
             >
@@ -71,8 +91,8 @@ const Navbar = () => {
           <NavListItem>
             <BorderButton
               onClick={() => {
-                setIsConverterActive(!isConverterActive)
-                setIsNavbarOpen(false)
+                dispatch(uiActions.toggleConverter(false))
+                closeNavbar()
               }}
               data-testid="converter-icon"
             >
@@ -84,34 +104,26 @@ const Navbar = () => {
               <UserButton
                 className="join-link"
                 onClick={() => {
-                  setIsUserPanelActive(!isUserPanelActive)
-                  setIsNavbarOpen(false)
+                  dispatch(uiActions.toggleUserPanel())
+                  closeNavbar()
                 }}
               >
-                {/* <BiUserCircle
-                  className="join-icon"
-                  onClick={() => setIsNavbarOpen(false)}
-                />{" "} */}
                 {userName}
               </UserButton>
             ) : (
-              <NavLink
-                to="/login"
-                className="join-link"
-                onClick={() => setIsNavbarOpen(false)}
-              >
+              <NavLink to="/login" className="join-link" onClick={closeNavbar}>
                 <Button isLong={true}>Dołącz</Button>
               </NavLink>
             )}
           </NavListItem>
         </LinkContainer>
         <UserPanel
-          isUserPanelActive={isUserPanelActive}
-          setIsUserPanelActive={setIsUserPanelActive}
+          isUserPanelActive={userPanelStatus}
+          setIsUserPanelActive={toggleUserPanel}
         />
         <Converter
-          setIsConverterActive={setIsConverterActive}
-          isConverterActive={isConverterActive}
+          closeConverter={closeConverter}
+          isConverterActive={converterStatus}
         />
       </NavContainer>
     </NavWrapper>

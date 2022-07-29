@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   recipes: [],
+  featuredRecipes: [],
   choosenFilters: [],
 }
 
@@ -11,6 +12,9 @@ const recipesSlice = createSlice({
   reducers: {
     setRecipes: (state, action) => {
       state.recipes = [...action.payload]
+    },
+    setFeaturedRecipes: (state, action) => {
+      state.featuredRecipes = [...action.payload]
     },
   },
 })

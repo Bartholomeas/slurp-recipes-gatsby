@@ -15,15 +15,11 @@ const UserPanel = ({ isUserPanelActive, setIsUserPanelActive }) => {
 
   return (
     <Wrapper
-      onClick={e => {
-        setIsUserPanelActive(!isUserPanelActive)
-      }}
+      onClick={() => setIsUserPanelActive(true)}
       isUserPanelActive={isUserPanelActive}
     >
       <NavbarLink
-        onClick={() => {
-          setIsUserPanelActive(!isUserPanelActive)
-        }}
+        onClick={() => setIsUserPanelActive(true)}
         className="user-panel-item"
         to="/addRecipe"
       >

@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useSelector, useDispatch } from "react-redux"
+import { recipesActions } from "../../../store/recipesSlice"
+import { uiActions } from "../../../store/uiSlice"
 import Card from "../../organisms/Card/Card"
 import FilterBar from "../../organisms/FilterBar/FilterBar"
 import {
@@ -47,14 +49,15 @@ const RecipesSection = () => {
     }
   `)
 
-  // const { recipes } = useSelector(state => state.recipes)
-  console.log(recipes)
+  const { recipes } = useSelector(state => state.recipes)
+  const { filterbarStatus, filterBtnStatus } = useSelector(state => state.ui)
   const dispatch = useDispatch()
-  // console.log(...data.allStrapiRecipes.nodes)
-  const [recipes] = useState(data.allStrapiRecipes.nodes)
-  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    dispatch(recipesActions.setRecipes(data.allStrapiRecipes.nodes))
+  }, [data])
+
   const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
-  const [isActive, setIsActive] = useState(false)
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const {
     info,
@@ -63,7 +66,7 @@ const RecipesSection = () => {
   let checkedInfos = []
 
   const filterBarHandler = () => {
-    setIsOpen(!isOpen)
+    dispatch(uiActions.toggleFilterbar())
   }
 
   const clearFiltering = () => {
@@ -114,9 +117,9 @@ const RecipesSection = () => {
 
   const checkScrollPosition = () => {
     const recipesSectionPosition = document.querySelector("#recipes").offsetTop
-    setIsActive(false)
+    dispatch(uiActions.toggleFilterBtn(false))
     if (window.scrollY + window.innerHeight - 150 > recipesSectionPosition)
-      setIsActive(true)
+      dispatch(uiActions.toggleFilterBtn(true))
   }
 
   useEffect(() => {
@@ -128,16 +131,15 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper id="recipes">
-      <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} />
+      <FilterBar isOpen={filterbarStatus} clearFiltering={clearFiltering} />
       <TopContainer>
         <SearchbarContainer>
           <h2>Przepisy</h2>
           <SearchBar />
         </SearchbarContainer>
-        {/* <FilterBar isOpen={isOpen} clearFiltering={clearFiltering} /> */}
       </TopContainer>
       <CardsContainer>
-        <FiltersButton isActive={isActive}>
+        <FiltersButton isActive={filterBtnStatus}>
           <BsFilterCircleFill onClick={filterBarHandler} />
         </FiltersButton>
         {info.diets || info.difficulties || info.types

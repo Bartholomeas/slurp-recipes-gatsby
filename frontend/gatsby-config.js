@@ -9,7 +9,7 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: "/slurp-recipes-gatsby",
+  pathPrefix: "/slurp-recipes-gatsby/",
   siteMetadata: {
     title: "Siorb przepisy",
     description: "Najlepsze przepisy na każdą okazję",
@@ -25,18 +25,6 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-testing",
 
-    // {
-    //   resolve: `gatsby-plugin-sharp`,
-    //   options: {
-    //     defaults: {},
-    //     failOnError: true,
-    //     base64Width: 20,
-    //     // forceBase64Format: `webp`,
-    //     useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
-    //     stripMetadata: true,
-    //     defaultQuality: 50,
-    //   },
-    // },
     {
       resolve: `gatsby-source-strapi`,
       options: {

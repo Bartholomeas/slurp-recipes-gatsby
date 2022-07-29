@@ -1,22 +1,95 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import axios from "axios"
-import { StateContext } from "../context/StateContext"
+import styled from "styled-components"
 import FormField from "../components/molecules/FormField/FormField"
-import {
-  Wrapper,
-  Container,
-  AddRecipeHeader,
-  Form,
-  FormContainer,
-  ButtonWrapper,
-  // Button,
-} from "./addRecipe.styles"
-import Button from "../components/atoms/Button/Button"
+// import {
+//   Wrapper,
+//   Container,
+//   AddRecipeHeader,
+//   Form,
+//   FormContainer,
+//   ButtonWrapper,
+// } from "./addRecipe.styles"
+// import Button from "../components/atoms/Button/Button"
 import SelectField from "../components/molecules/SelectField/SelectField"
 import LoadingPopup from "../components/molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../components/organisms/NotificationPopup/NotificationPopup"
 
 import ErrorText from "../components/atoms/ErrorText/ErrorText"
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  /* max-width: ${({ theme }) => theme.otherStyles.maxWidth}; */
+  max-width:900px;
+  padding: 7rem 2rem 2rem
+  background-color: pink;
+`
+
+const Container = styled.div``
+
+const AddRecipeHeader = styled.h2`
+  align-self: flex-start;
+  margin-left: 2rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.fontColor};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+`
+
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+`
+
+const ButtonWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 6rem;
+`
+
+const Button = styled.button`
+  padding: 1rem 2rem;
+  color: ${({ theme }) => theme.colors.lightFont};
+  background-color: ${({ closeBtn, theme }) =>
+    closeBtn ? theme.colors.grey : theme.colors.accent};
+  border: none;
+  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
+  transition: background-color 0.2s, transform 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.darkBase};
+    transform: scale(1.05);
+  }
+`
+// addRecipe FORM
+
+const Form = styled.form`
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+
+  @media only screen and (max-width: 320px) {
+    min-height: 400px;
+    overflow-y: scroll;
+  }
+  @media only screen and (min-width: 768px) {
+    height: auto;
+    overflow: auto;
+  }
+`
 
 const initialState = {
   title: "",

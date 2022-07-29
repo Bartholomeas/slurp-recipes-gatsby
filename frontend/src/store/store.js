@@ -1,21 +1,9 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit"
+import recipesSlice from "./recipesSlice"
+import uiSlice from "./uiSlice"
 
-const initialState = {
-  recipes: ["dupa"],
-}
-
-const recipesSlice = createSlice({
-  name: "recipes",
-  initialState,
-  reducers: {
-    setRecipes: (state, action) => {
-      console.log(state)
-      state.recipes = [action.payload]
-    },
-  },
+const store = configureStore({
+  reducer: { ui: uiSlice.reducer, recipes: recipesSlice.reducer },
 })
 
-const store = configureStore({ reducer: { recipes: recipesSlice.reducer } })
-
-export const recipesActions = recipesSlice.actions
 export default store

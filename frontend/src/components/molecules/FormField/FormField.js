@@ -4,8 +4,8 @@ import styled, { css } from "styled-components"
 const inputStyles = css`
   posiiton: relative;
   width: 100%;
-  height: 5rem;
-  padding: 1rem 1.2rem;
+  height: 3.2rem;
+  padding: 0.8rem 1rem;
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};
   box-shadow: inset ${({ theme }) => theme.colors.shadow};
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   margin-bottom: 1.6rem;
 
@@ -42,7 +42,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   ${inputStyles}
   resize:vertical;
-  height: 150px;
+  height: 6.4rem;
 `
 
 const FormField = React.forwardRef(

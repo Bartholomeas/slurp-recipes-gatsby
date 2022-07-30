@@ -315,12 +315,7 @@ export const IngredientsItem = styled.li`
   margin-bottom: 1.6rem;
   font-size: 1.6rem;
   list-style-type: circle;
-  /* &::before {
-    content: "🍔";
-    position: absolute;
-    margin-left: -20px;
-    margin-right: 10px;
-  } */
+
   @media print {
     font-size: 1.2rem;
     margin-bottom: 1rem;

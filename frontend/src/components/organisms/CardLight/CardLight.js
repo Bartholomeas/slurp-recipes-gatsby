@@ -15,12 +15,15 @@ import DifficultyIndicator from "../../atoms/DifficultyIndicator/DifficultyIndic
 const CardLight = ({ payload }) => {
   const { title = "", difficulties = "", img = "" } = payload
   const image = img ? getImage(img.localFile.childImageSharp) : null
+
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <Wrapper>
         <TextContainer>
           <Title>{title}</Title>
-          <BottomWrapper></BottomWrapper>
+          <BottomWrapper>
+            <DifficultyIndicator difficulty={difficulties[0].difficulties} />
+          </BottomWrapper>
         </TextContainer>
 
         <ImageContainer>

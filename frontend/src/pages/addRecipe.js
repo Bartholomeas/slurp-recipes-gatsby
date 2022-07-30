@@ -7,20 +7,24 @@ import Button from "../components/atoms/Button/Button"
 import SelectField from "../components/molecules/SelectField/SelectField"
 import LoadingPopup from "../components/molecules/LoadingPopup/LoadingPopup"
 import NotificationPopup from "../components/organisms/NotificationPopup/NotificationPopup"
-
 import ErrorText from "../components/atoms/ErrorText/ErrorText"
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   margin-top: 10rem;
-  max-width:900px;
-  padding: 7rem 2rem 2rem
-  background-color: pink;
+  padding: 2rem 2rem;
+`
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
 `
 
 const AddRecipeHeader = styled.h2`
@@ -37,16 +41,6 @@ const FormContainer = styled.div`
   align-items: center;
   gap: 1rem;
   width: 100%;
-`
-
-const ButtonWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  height: 6rem;
 `
 
 const Form = styled.form`
@@ -195,108 +189,111 @@ const AddRecipe = () => {
 
   return (
     <Wrapper>
-      {/* <Container> */}
-      <AddRecipeHeader>Dodaj Przepis</AddRecipeHeader>
+      <Container>
+        <AddRecipeHeader>Dodaj Przepis</AddRecipeHeader>
 
-      <Form
-        onSubmit={e => {
-          uploadHandler(e)
-        }}
-      >
-        <FormContainer>
-          <FormField
-            onChange={updateInput}
-            width="70"
-            nameId="title"
-            content="tytuł"
-          />
-          <FormField
-            content="czas"
-            onChange={updateInput}
-            width="25"
-            nameId="time"
-            type="number"
-          />
-          <FormField
-            content="kalorie"
-            onChange={updateInput}
-            width="25"
-            nameId="calories"
-            type="number"
-          />
-        </FormContainer>
-        <FormContainer>
-          <SelectField
-            nameId="diets"
-            content="dieta"
-            onChange={updateSelect}
-            valuesIds={[
-              "621d167b5959ad7a45d14bea",
-              "621bb7b5896c806c8af640a7",
-              "621bb7ad896c806c8af640a6",
-              "621bb7bd896c806c8af640a8",
-            ]}
-            values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
-          />
-          <SelectField
-            nameId="difficulties"
-            content="trudność"
-            onChange={updateSelect}
-            valuesIds={[
-              "621d079c896c806c8af640b5",
-              "621d07a8896c806c8af640b6",
-              "621d07b8896c806c8af640b7",
-            ]}
-            values={["łatwe", "średnie", "trudne"]}
-          />
-          <SelectField
-            nameId="types"
-            content="posiłek"
-            onChange={updateSelect}
-            valuesIds={[
-              "621d048d896c806c8af640aa",
-              "621bbd62896c806c8af640a9",
-              "621d0497896c806c8af640ab",
-              "621d04a4896c806c8af640ac",
-              "62364060b17a20ff6a917404",
-            ]}
-            values={["śniadanie", "obiad", "kolacja", "deser", "napój"]}
-          />
-        </FormContainer>
-
-        <FormField
-          content="przygotowanie"
-          onChange={updateInput}
-          textarea={true}
-          nameId="preparation"
-          type="textarea"
-        />
-        <FormField
-          content="składniki"
-          onChange={updateInput}
-          textarea={true}
-          nameId="ingredients"
-          type="textarea"
-        />
-
-        <FormField
-          content="zdjęcie"
-          onChange={e => {
-            setFile(e.target.files[0])
+        <Form
+          onSubmit={e => {
+            uploadHandler(e)
           }}
-          nameId="image"
-          type="file"
-        />
-        {!isValid ? <ErrorText>Pola nie mogą być puste!</ErrorText> : null}
-        <Button isLong={true} type="submit">
-          Dodaj przepis
-        </Button>
-      </Form>
-      {isLoading ? <LoadingPopup /> : null}
-      <NotificationPopup onClick={() => togglePopup()} isActive={isPopupActive}>
-        Przepis został pomyślnie dodany.
-      </NotificationPopup>
-      {/* </Container> */}
+        >
+          <FormContainer>
+            <FormField
+              onChange={updateInput}
+              width="70"
+              nameId="title"
+              content="tytuł"
+            />
+            <FormField
+              content="czas"
+              onChange={updateInput}
+              width="25"
+              nameId="time"
+              type="number"
+            />
+            <FormField
+              content="kalorie"
+              onChange={updateInput}
+              width="25"
+              nameId="calories"
+              type="number"
+            />
+          </FormContainer>
+          <FormContainer>
+            <SelectField
+              nameId="diets"
+              content="dieta"
+              onChange={updateSelect}
+              valuesIds={[
+                "621d167b5959ad7a45d14bea",
+                "621bb7b5896c806c8af640a7",
+                "621bb7ad896c806c8af640a6",
+                "621bb7bd896c806c8af640a8",
+              ]}
+              values={["zbilansowana", "wege", "wegańska", "bez-laktozy"]}
+            />
+            <SelectField
+              nameId="difficulties"
+              content="trudność"
+              onChange={updateSelect}
+              valuesIds={[
+                "621d079c896c806c8af640b5",
+                "621d07a8896c806c8af640b6",
+                "621d07b8896c806c8af640b7",
+              ]}
+              values={["łatwe", "średnie", "trudne"]}
+            />
+            <SelectField
+              nameId="types"
+              content="posiłek"
+              onChange={updateSelect}
+              valuesIds={[
+                "621d048d896c806c8af640aa",
+                "621bbd62896c806c8af640a9",
+                "621d0497896c806c8af640ab",
+                "621d04a4896c806c8af640ac",
+                "62364060b17a20ff6a917404",
+              ]}
+              values={["śniadanie", "obiad", "kolacja", "deser", "napój"]}
+            />
+          </FormContainer>
+
+          <FormField
+            content="przygotowanie"
+            onChange={updateInput}
+            textarea={true}
+            nameId="preparation"
+            type="textarea"
+          />
+          <FormField
+            content="składniki"
+            onChange={updateInput}
+            textarea={true}
+            nameId="ingredients"
+            type="textarea"
+          />
+
+          <FormField
+            content="zdjęcie"
+            onChange={e => {
+              setFile(e.target.files[0])
+            }}
+            nameId="image"
+            type="file"
+          />
+          {!isValid ? <ErrorText>Pola nie mogą być puste!</ErrorText> : null}
+          <Button isLong={true} type="submit">
+            Dodaj przepis
+          </Button>
+        </Form>
+        {isLoading ? <LoadingPopup /> : null}
+        <NotificationPopup
+          onClick={() => togglePopup()}
+          isActive={isPopupActive}
+        >
+          Przepis został pomyślnie dodany.
+        </NotificationPopup>
+      </Container>
     </Wrapper>
   )
 }

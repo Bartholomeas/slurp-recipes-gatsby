@@ -24,22 +24,6 @@ const Card = ({ payload }) => {
 
   const windowGlobal = typeof window !== "undefined" && window
 
-  let token = windowGlobal
-    ? JSON.parse(windowGlobal.localStorage.getItem("token"))
-    : null
-
-  const getFavouriteRecipes = async e => {
-    e.preventDefault()
-
-    await axios
-      .get(`${process.env.STRAPI_URL}/users/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(({ data }) => console.log(data.favouriteRecipes))
-  }
-
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>

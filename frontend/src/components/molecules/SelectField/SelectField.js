@@ -20,8 +20,8 @@ export const SelectLabel = styled.label`
 `
 export const Select = styled.select`
   width: 100%;
-  height: 5rem;
-  padding: 1rem 1.2rem;
+  height: 3.2rem;
+  padding: 0.8rem 1rem;
   border: none;
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};

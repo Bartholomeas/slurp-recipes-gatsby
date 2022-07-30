@@ -10,11 +10,9 @@ import {
   EmailShareButton,
   EmailIcon,
 } from "react-share"
-import SearchBar from "../SearchBar/SearchBar"
 
 export const Wrapper = styled.div`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-  /* display: flex; */
   flex-direction: column;
   position: absolute;
   left: 0;
@@ -36,6 +34,9 @@ export const ButtonsContainer = styled.div`
   padding: 2rem 0;
 `
 export const HeadingText = styled.p`
+  color: ${({ theme }) => theme.colors.fontColor};
+  color: red;
+  font-size: ${({ theme }) => theme.fontSize.normal};
   padding-bottom: 1rem;
 `
 export const LinkInput = styled.input`
@@ -50,7 +51,6 @@ const SharePanel = ({ ...props }) => {
   return (
     <Wrapper onClick={props.onClick} isOpen={props.isOpen}>
       <HeadingText>Udostępnij:</HeadingText>
-      <SearchBar />
       <ButtonsContainer>
         <FacebookShareButton
           aria-label="Udostępnij na Facebook"

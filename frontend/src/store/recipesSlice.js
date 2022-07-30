@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
   recipes: [],
   featuredRecipes: [],
+  filteredRecipes: [],
+  searchedRecipes: [],
   choosenFilters: [],
 }
 
@@ -15,6 +17,9 @@ const recipesSlice = createSlice({
     },
     setFeaturedRecipes: (state, action) => {
       state.featuredRecipes = [...action.payload]
+    },
+    setSearchedRecipes: (state, action) => {
+      state.searchedRecipes = [...action.payload]
     },
   },
 })

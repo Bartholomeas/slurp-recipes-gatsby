@@ -8,7 +8,7 @@ const inputStyles = css`
   padding: 0.8rem 1rem;
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};
-  box-shadow: inset ${({ theme }) => theme.colors.shadow};
+  box-shadow: ${({ theme }) => theme.colors.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
 `
 

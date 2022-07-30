@@ -26,7 +26,7 @@ export const Select = styled.select`
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontColor};
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};
-  box-shadow: inset ${({ theme }) => theme.colors.shadow};
+  box-shadow: ${({ theme }) => theme.colors.shadow};
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   cursor: pointer;
 `

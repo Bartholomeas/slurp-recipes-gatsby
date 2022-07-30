@@ -11,6 +11,7 @@ const FilterOptionText = styled.input`
 const FilterOptionLabel = styled.label`
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
+  margin: 0 0.8rem;
   color: ${({ theme }) => theme.colors.fontColor};
 `
 
@@ -27,7 +28,7 @@ export const FilterOption = ({ name, option = "", id }) => {
         isChecker={false}
         onClick={e => getSpecificRecipes(e)}
         name={name}
-        type="radio"
+        type="checkbox"
         id={`${option}-${id}`}
       ></FilterOptionText>
       <FilterOptionLabel htmlFor={`${option}-${id}`}>

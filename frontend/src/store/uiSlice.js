@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+  isAuthenticated: false,
   navbarStatus: false,
   converterStatus: false,
   userPanelStatus: false,
@@ -13,6 +14,9 @@ const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
+    setAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload
+    },
     toggleNavbar: (state, action) => {
       if (action.payload) {
         state.navbarStatus = action.payload

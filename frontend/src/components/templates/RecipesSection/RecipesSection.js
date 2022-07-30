@@ -80,41 +80,42 @@ const RecipesSection = () => {
     return recipe[infoKey][0][infoKey] === info[infoKey]
   }
 
-  useEffect(() => {
-    if (info.diets || info.difficulties || info.types) {
-      for (const key in info) {
-        if (info[key] !== "") {
-          checkedInfos.push(key)
-        }
-      }
+  // useEffect(() => {
+  //   if (info.diets || info.difficulties || info.types) {
+  //     for (const key in info) {
+  //       if (info[key] !== "") {
+  //         checkedInfos.push(key)
+  //       }
+  //     }
 
-      if (checkedInfos.length === 1) {
-        recipes.forEach(recipe => {
-          if (
-            recipe[checkedInfos[0]][0][checkedInfos[0]] ===
-            info[checkedInfos[0]]
-          ) {
-            setFilteredRecipes(filteredRecipes => [...filteredRecipes, recipe])
-            setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
-          }
-        })
-      }
+  //     if (checkedInfos.length === 1) {
+  //       recipes.forEach(recipe => {
+  //         if (
+  //           recipe[checkedInfos[0]][0][checkedInfos[0]] ===
+  //           info[checkedInfos[0]]
+  //         ) {
+  //           setFilteredRecipes(filteredRecipes => [...filteredRecipes, recipe])
+  //           setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
+  //         }
+  //       })
+  //     }
 
-      if (checkedInfos.length > 1) {
-        filteredRecipes.forEach(recipe => {
-          if (checkRecipeTruthy(recipe, checkedInfos.length)) {
-            setSearchedRecipes([])
-            setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
-          }
-        })
-      }
-    }
+  //     if (checkedInfos.length > 1) {
+  //       filteredRecipes.forEach(recipe => {
+  //         if (checkRecipeTruthy(recipe, checkedInfos.length)) {
+  //           setSearchedRecipes([])
+  //           setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
+  //         }
+  //       })
+  //     }
+  //   }
 
-    return () => {
-      setSearchedRecipes([])
-    }
-  }, [diets, types, difficulties])
+  //   return () => {
+  //     setSearchedRecipes([])
+  //   }
+  // }, [diets, types, difficulties])
 
+  // SCROLL BTN
   const checkScrollPosition = () => {
     const recipesSectionPosition = document.querySelector("#recipes").offsetTop
     dispatch(uiActions.toggleFilterBtn(false))

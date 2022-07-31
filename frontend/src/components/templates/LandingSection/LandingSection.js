@@ -89,24 +89,3 @@ const LandingSection = () => {
   )
 }
 export default LandingSection
-
-// const windowGlobal = typeof window !== "undefined" && window
-// useEffect(() => {
-//   const token = JSON.parse(windowGlobal.localStorage.getItem("token"))
-//   const getRecipesOfTheDay = async () => {
-//     await axios
-//       .get(`${process.env.STRAPI_URL}/recipes`, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       })
-//       .then(({ data }) => {
-//         for (let i = 0; i < 3; i++) {
-//           // console.log(recipes[i]["img"]["url"])
-//           setFeaturedRecipes(featuredRecipes => [...featuredRecipes, data[i]])
-//         }
-//       })
-//   }
-//   getRecipesOfTheDay()
-//   return () => setFeaturedRecipes([])
-// }, [])

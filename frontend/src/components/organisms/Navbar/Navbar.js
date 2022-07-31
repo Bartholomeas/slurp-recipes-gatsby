@@ -1,7 +1,9 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { uiActions } from "../../../store/uiSlice"
 import Converter from "../Converter/Converter"
+import useAuth from "../../../hooks/useAuth"
+
 import {
   NavContainer,
   NavWrapper,
@@ -19,12 +21,12 @@ import Logo from "../../atoms/Logo/Logo"
 import Button from "../../atoms/Button/Button"
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const { navbarStatus, converterStatus, userPanelStatus } = useSelector(
     state => state.ui
   )
-  const dispatch = useDispatch()
+  const [setAuthentication, isAuthenticated] = useAuth()
 
-  const { isAuthenticated, setIsAuthenticated } = useContext(StateContext)
   const windowGlobal = typeof window !== "undefined" && window
 
   let userName = windowGlobal
@@ -33,9 +35,9 @@ const Navbar = () => {
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("token"))) {
-      setIsAuthenticated(true)
+      setAuthentication(true)
     } else {
-      setIsAuthenticated(false)
+      setAuthentication(false)
     }
   })
 

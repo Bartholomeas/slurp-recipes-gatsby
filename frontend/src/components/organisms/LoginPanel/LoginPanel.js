@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react"
 import axios from "axios"
 import { navigate } from "gatsby"
-import { useDispatch, useSelector } from "react-redux"
-import { authActions } from "../../../store/authSlice"
+import useAuth from "../../../hooks/useAuth"
 import Button from "../../atoms/Button/Button"
-import { StateContext } from "../../../context/StateContext"
 import {
   JoinPanelWrapper,
   JoinHeader,
@@ -17,12 +15,10 @@ import ErrorText from "../../atoms/ErrorText/ErrorText"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 
 const LoginPanel = () => {
-  const dispatch = useDispatch()
-  const { isAuthenticated } = useSelector(state => state.auth)
+  const [setAuthentication] = useAuth()
 
   const [isLoading, setIsLoading] = useState(false)
   const [isValid, setIsValid] = useState(true)
-  const { setIsAuthenticated } = useContext(StateContext)
   const loginInput = React.createRef({})
   const passwordInput = React.createRef({})
   let errorInput
@@ -52,8 +48,7 @@ const LoginPanel = () => {
         localStorage.setItem("token", JSON.stringify(data.data.jwt))
         localStorage.setItem("user", JSON.stringify(data.data.user.username))
         setIsLoading(false)
-        // setIsAuthenticated(true)
-        dispatch(authActions.setIsAuthenticated(true))
+        setAuthentication(true)
         navigate("/")
       })
       .catch(error => {
@@ -61,8 +56,7 @@ const LoginPanel = () => {
         setErrorStatus("login")
         setErrorStatus("password")
         setIsValid(false)
-        // setIsAuthenticated(false)
-        dispatch(authActions.setIsAuthenticated(false))
+        setAuthentication(false)
       })
   }
 

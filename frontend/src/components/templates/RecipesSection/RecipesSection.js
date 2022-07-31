@@ -70,8 +70,8 @@ const RecipesSection = () => {
   }
 
   const clearFiltering = () => {
-    checkedInfos = []
-    setFilteredRecipes([])
+    // checkedInfos = []
+    // setFilteredRecipes([])
   }
 
   const checkRecipeTruthy = (recipe, idx) => {
@@ -132,7 +132,7 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper id="recipes">
-      <FilterBar isOpen={filterbarStatus} clearFiltering={clearFiltering} />
+      <FilterBar isOpen={filterbarStatus} />
       <TopContainer>
         <SearchbarContainer>
           <h2>Przepisy</h2>

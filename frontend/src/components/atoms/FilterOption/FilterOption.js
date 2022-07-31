@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { StateContext } from "../../../context/StateContext"
+import useFilters from "../../../hooks/useFilters"
 
 const FilterOptionWrapper = styled.div`
   margin-bottom: 0.8rem;
@@ -15,19 +15,18 @@ const FilterOptionLabel = styled.label`
   color: ${({ theme }) => theme.colors.fontColor};
 `
 
-export const FilterOption = ({ name, option = "", id }) => {
-  const { info, setInfo } = useContext(StateContext)
-
-  const getSpecificRecipes = input => {
-    setInfo({ ...info, [input.target.name]: option[0] })
-  }
-
+export const FilterOption = ({ name, option, id }) => {
+  // const { info, setInfo } = useContext(StateContext)
+  const [getFilters] = useFilters()
+  // const getSpecificRecipes = input => {
+  //   // setInfo({ ...info, [input.target.name]: option[0] })
+  // }
   return (
     <FilterOptionWrapper>
       <FilterOptionText
-        isChecker={false}
-        onClick={e => getSpecificRecipes(e)}
+        onClick={e => getFilters(e)}
         name={name}
+        value={option}
         type="checkbox"
         id={`${option}-${id}`}
       ></FilterOptionText>

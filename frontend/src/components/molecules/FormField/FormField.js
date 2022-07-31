@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 const inputStyles = css`
   posiiton: relative;
   width: 100%;
-  height: 3.2rem;
+  height: 4.2rem;
   padding: 0.8rem 1rem;
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkBase};

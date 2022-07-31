@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
   recipes: [],
   featuredRecipes: [],
-  filteredRecipes: [],
   searchedRecipes: [],
-  choosenFilters: [],
+  choosenFilters: {},
+  filteredRecipes: [],
 }
 
 const recipesSlice = createSlice({
@@ -15,11 +15,22 @@ const recipesSlice = createSlice({
     setRecipes: (state, action) => {
       state.recipes = [...action.payload]
     },
+
     setFeaturedRecipes: (state, action) => {
       state.featuredRecipes = [...action.payload]
     },
+
     setSearchedRecipes: (state, action) => {
       state.searchedRecipes = [...action.payload]
+    },
+
+    setChoosenFilters: (state, action) => {
+      if (action.payload)
+        state.choosenFilters = { ...state.choosenFilters, ...action.payload }
+    },
+
+    clearChoosenFilters: state => {
+      state.choosenFilters = {}
     },
   },
 })

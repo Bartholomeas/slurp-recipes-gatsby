@@ -20,7 +20,7 @@ export const SelectLabel = styled.label`
 `
 export const Select = styled.select`
   width: 100%;
-  height: 3.2rem;
+  height: 4.2rem;
   padding: 0.8rem 1rem;
   border: none;
   background-color: ${({ theme }) => theme.colors.white};
@@ -48,7 +48,7 @@ const SelectField = ({
         name={nameId}
         id={nameId}
       >
-        <option style={{ color: "black" }} value="" defaultValue="">
+        <option disabled style={{ color: "black" }} value="" defaultValue="">
           Wybierz
         </option>
         {values.values.map((value, idx) => {

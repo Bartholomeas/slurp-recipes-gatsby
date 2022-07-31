@@ -1,10 +1,11 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
+import useFilters from "../../../hooks/useFilters"
 import { graphql, useStaticQuery } from "gatsby"
 import { FilterWrapper, FilterContainer, ClearButton } from "./FilterBar.styles"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 import { StateContext } from "../../../context/StateContext"
 
-const FilterBar = ({ isOpen = false, clearFiltering }) => {
+const FilterBar = ({ isOpen = false }) => {
   const data = useStaticQuery(graphql`
     query Filters {
       allStrapiDifficulties {
@@ -24,6 +25,7 @@ const FilterBar = ({ isOpen = false, clearFiltering }) => {
       }
     }
   `)
+  const { clearFilters } = useFilters()
 
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
@@ -49,8 +51,8 @@ const FilterBar = ({ isOpen = false, clearFiltering }) => {
 
   const clearState = () => {
     clearAllRadioButtons()
-    setInfo(initialState)
-    clearFiltering()
+    // setInfo(initialState)
+    // clearFiltering()
     setSearchedRecipes([])
   }
   return (
@@ -62,7 +64,7 @@ const FilterBar = ({ isOpen = false, clearFiltering }) => {
         <ClearButton
           isLong={true}
           onClick={() => {
-            clearState()
+            clearFilters()
           }}
         >
           Wyczyść

@@ -30,7 +30,13 @@ const recipesSlice = createSlice({
     },
 
     clearChoosenFilters: state => {
-      state.choosenFilters = {}
+      state.choosenFilters = initialState.choosenFilters
+      state.filteredRecipes = []
+    },
+
+    filterRecipes: (state, action) => {
+      state.filteredRecipes = [...action.payload]
+      console.log(state.filteredRecipes)
     },
   },
 })

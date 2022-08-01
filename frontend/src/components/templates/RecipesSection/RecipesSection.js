@@ -49,7 +49,7 @@ const RecipesSection = () => {
     }
   `)
 
-  const { recipes } = useSelector(state => state.recipes)
+  const { recipes, filteredRecipes } = useSelector(state => state.recipes)
   const { filterbarStatus, filterBtnStatus } = useSelector(state => state.ui)
   const dispatch = useDispatch()
 
@@ -57,65 +57,10 @@ const RecipesSection = () => {
     dispatch(recipesActions.setRecipes(data.allStrapiRecipes.nodes))
   }, [data])
 
-  const { searchedRecipes, setSearchedRecipes } = useContext(StateContext)
-  const [filteredRecipes, setFilteredRecipes] = useState([])
-  const {
-    info,
-    info: { diets, difficulties, types },
-  } = useContext(StateContext)
-  let checkedInfos = []
-
   const filterBarHandler = () => {
     dispatch(uiActions.toggleFilterbar())
   }
 
-  const clearFiltering = () => {
-    // checkedInfos = []
-    // setFilteredRecipes([])
-  }
-
-  const checkRecipeTruthy = (recipe, idx) => {
-    const infoKey = checkedInfos[idx - 1]
-
-    return recipe[infoKey][0][infoKey] === info[infoKey]
-  }
-
-  // useEffect(() => {
-  //   if (info.diets || info.difficulties || info.types) {
-  //     for (const key in info) {
-  //       if (info[key] !== "") {
-  //         checkedInfos.push(key)
-  //       }
-  //     }
-
-  //     if (checkedInfos.length === 1) {
-  //       recipes.forEach(recipe => {
-  //         if (
-  //           recipe[checkedInfos[0]][0][checkedInfos[0]] ===
-  //           info[checkedInfos[0]]
-  //         ) {
-  //           setFilteredRecipes(filteredRecipes => [...filteredRecipes, recipe])
-  //           setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
-  //         }
-  //       })
-  //     }
-
-  //     if (checkedInfos.length > 1) {
-  //       filteredRecipes.forEach(recipe => {
-  //         if (checkRecipeTruthy(recipe, checkedInfos.length)) {
-  //           setSearchedRecipes([])
-  //           setSearchedRecipes(searchedRecipes => [...searchedRecipes, recipe])
-  //         }
-  //       })
-  //     }
-  //   }
-
-  //   return () => {
-  //     setSearchedRecipes([])
-  //   }
-  // }, [diets, types, difficulties])
-
-  // SCROLL BTN
   const checkScrollPosition = () => {
     const recipesSectionPosition = document.querySelector("#recipes").offsetTop
     dispatch(uiActions.toggleFilterBtn(false))
@@ -143,8 +88,8 @@ const RecipesSection = () => {
         <FiltersButton isActive={filterBtnStatus}>
           <BsFilterCircleFill onClick={filterBarHandler} />
         </FiltersButton>
-        {info.diets || info.difficulties || info.types
-          ? searchedRecipes.map(recipe => {
+        {filteredRecipes.length > 0
+          ? filteredRecipes.map(recipe => {
               return <Card key={recipe.id} payload={recipe} />
             })
           : recipes.map(recipe => {

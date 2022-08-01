@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Button from "../../atoms/Button/Button"
 
 export const FilterWrapper = styled.div`
   position: fixed;
@@ -53,5 +52,10 @@ export const FilterContainer = styled.div`
     align-items: center;
   }
 `
-
-export const ClearButton = styled(Button)``
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  width: 100%;
+`

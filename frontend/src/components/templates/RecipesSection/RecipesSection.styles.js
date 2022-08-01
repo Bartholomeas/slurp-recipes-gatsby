@@ -11,7 +11,6 @@ export const RecipesWrapper = styled.section`
   padding-top: 6rem;
   margin-bottom: 2rem;
   margin: 0 auto;
-  /* background-color: ${({ theme }) => theme.colors.grey}; */
 `
 
 export const TopContainer = styled.div`

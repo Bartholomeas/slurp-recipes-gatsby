@@ -16,15 +16,14 @@ const FilterOptionLabel = styled.label`
 `
 
 export const FilterOption = ({ name, option, id }) => {
-  // const { info, setInfo } = useContext(StateContext)
-  const [getFilters] = useFilters()
-  // const getSpecificRecipes = input => {
-  //   // setInfo({ ...info, [input.target.name]: option[0] })
-  // }
+  const { getFilters } = useFilters()
+
   return (
     <FilterOptionWrapper>
       <FilterOptionText
-        onClick={e => getFilters(e)}
+        onClick={e => {
+          getFilters(e)
+        }}
         name={name}
         value={option}
         type="checkbox"

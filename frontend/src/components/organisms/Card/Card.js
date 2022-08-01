@@ -22,8 +22,6 @@ const Card = ({ payload }) => {
   } = payload
   const image = img ? getImage(img.localFile) : null
 
-  const windowGlobal = typeof window !== "undefined" && window
-
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>
@@ -34,10 +32,7 @@ const Card = ({ payload }) => {
             alt="Zdjęcie posiłku z przepisu"
           />
         ) : null}
-        {/*<FavouriteButton onClick={e => getFavouriteRecipes(e)}>*/}
-        {/*  <HeartEmpty />*/}
-        {/*  <HeartFilled />*/}
-        {/*</FavouriteButton>*/}
+
         <CardInfoContainer>
           <DifficultyIndicator
             difficulty={difficulty[0].difficulties ?? "easy"}

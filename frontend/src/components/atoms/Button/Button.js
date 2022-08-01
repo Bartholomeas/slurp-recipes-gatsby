@@ -5,8 +5,8 @@ import { theme } from "../../../styles/theme"
 const ButtonWrapper = styled.button`
   width: ${({ isLong }) => (isLong ? "100%" : "auto")};
   padding: 1.2rem 2.4rem;
-  margin: 1.6rem 0;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ greyColor, theme }) =>
+    greyColor ? theme.colors.fontColor : theme.colors.white};
   border: none;
   background-color: ${({ accentColor, greyColor, theme }) =>
     accentColor
@@ -14,10 +14,12 @@ const ButtonWrapper = styled.button`
       : greyColor
       ? theme.colors.lightGrey
       : theme.colors.base};
+
   border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
   font-size: 1.4rem;
   font-weight: 700;
   transition: 0.3s background-color;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
 
   &:hover {

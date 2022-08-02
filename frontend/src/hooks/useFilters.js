@@ -3,12 +3,17 @@ import { recipesActions } from "../store/recipesSlice"
 
 const useFilters = () => {
   const dispatch = useDispatch()
-  const { recipes, filteredRecipes, choosenFilters } = useSelector(
-    state => state.recipes
-  )
+  const { recipes, choosenFilters } = useSelector(state => state.recipes)
 
   const getFilters = (e = false) => {
     const { name, value } = e.target
+    const inputs = e.target
+      .closest("form")
+      .querySelectorAll('input[type="checkbox"]')
+
+    inputs.forEach(input => {
+      if (choosenFilters[input.name] === input.value) input.checked = false
+    })
 
     dispatch(recipesActions.setChoosenFilters({ [name]: value }))
   }
@@ -23,59 +28,11 @@ const useFilters = () => {
   }
 
   const filterRecipes = () => {
-    const difficultiesConditional = choosenFilters.difficulties
-    const typesConditional = choosenFilters.types
-    const dietsConditional = choosenFilters.diets
-    // const checkPropertyCompatibility = recipe => {
-    //   for (const property in choosenFilters) {
-    //     let propertyType
-    //     if (property === "difficulties") {
-    //       propertyType = difficultiesConditional
-    //     } else if (property === "types") {
-    //       propertyType = typesConditional
-    //     } else if (property === "diets") {
-    //       propertyType = dietsConditional
-    //     }
-    //     if (recipe[property][0][property] === propertyType) return true
-    //     return false
-    //   }
-    // }
-    // console.log(choosenFilters[1])
-
     const keys = Object.keys(choosenFilters)
 
     const filteredRecipesByFilters = recipes.filter(recipe => {
       return keys.every(key => recipe[key][0][key] === choosenFilters[key])
     })
-    console.log(filteredRecipesByFilters)
-    // const filtersKeys = Object.keys(choosenFilters)
-    // const filtersValues = choosenFilters[filtersKeys]
-    // const filters = [
-    //   recipe =>
-    //     recipe[filtersKeys[0]][0][filtersKeys[0]] === difficultiesConditional,
-    // ]
-
-    // const filteredRecipesByFilters = recipes.reduce((acc, recipe) => {
-    //   if (filters.every(filter => filter(recipe))) return acc.concat(recipe)
-    //   return acc
-    // }, [])
-
-    //podejscie z CHAINOWANIEM
-    // const key = Object.keys(choosenFilters)
-    // const value = choosenFilters[key]
-    // let filteredRecipesByFilters = recipes.filter(recipe => {
-    //   console.log(value)
-    //   return recipe[key[0]][0][key[0]] === value
-    // })
-    //   .filter(recipe => {
-    //     const key = Object.keys(choosenFilters)
-    //     if (!key[1]) return false
-    //     const value = choosenFilters[key]
-    //     console.log(value)
-    //     return recipe[key[0]][0][key[0]] === value
-    //   })
-    console.log(filteredRecipesByFilters)
-
     dispatch(recipesActions.filterRecipes(filteredRecipesByFilters))
   }
 
@@ -83,9 +40,3 @@ const useFilters = () => {
 }
 
 export default useFilters
-// (recipe.types[0].types === typesConditional &&
-//   recipe.diets[0].diets === dietsConditional) ||
-// (recipe.types[0].types === typesConditional &&
-//   recipe.difficulties[0].difficulties === difficultiesConditional) ||
-// (recipe.diets[0].diets === dietsConditional &&
-//   recipe.difficulties[0].difficulties === difficultiesConditional)

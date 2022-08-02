@@ -26,31 +26,36 @@ const useFilters = () => {
     const difficultiesConditional = choosenFilters.difficulties
     const typesConditional = choosenFilters.types
     const dietsConditional = choosenFilters.diets
-
-    const checkPropertyCompatibility = recipe => {
-      for (const property in choosenFilters) {
-        let propertyType
-        if (property === "difficulties") {
-          propertyType = difficultiesConditional
-        } else if (property === "types") {
-          propertyType = typesConditional
-        } else if (property === "diets") {
-          propertyType = dietsConditional
-        }
-        if (recipe[property][0][property] === propertyType) return true
-        return false
-      }
-    }
-
-    // const heh = recipes.reduce((result, value) => {
-    //   if (value.diets[0].diets === dietsConditional) return result
-    //   return result.push(value)
-    // }, [])
-    const filteredRecipesByFilters = recipes.reduce((itemMap, item) => {
-      if (!checkPropertyCompatibility(item)) return itemMap
-      return [...itemMap, item]
-    }, [])
+    // const checkPropertyCompatibility = recipe => {
+    //   for (const property in choosenFilters) {
+    //     let propertyType
+    //     if (property === "difficulties") {
+    //       propertyType = difficultiesConditional
+    //     } else if (property === "types") {
+    //       propertyType = typesConditional
+    //     } else if (property === "diets") {
+    //       propertyType = dietsConditional
+    //     }
+    //     if (recipe[property][0][property] === propertyType) return true
+    //     return false
+    //   }
+    // }
+    // console.log(choosenFilters[1])
+    const key = Object.keys(choosenFilters)
+    const value = choosenFilters[key]
+    let filteredRecipesByFilters = recipes.filter(recipe => {
+      console.log(value)
+      return recipe[key[0]][0][key[0]] === value
+    })
+    //   .filter(recipe => {
+    //     const key = Object.keys(choosenFilters)
+    //     if (!key[1]) return false
+    //     const value = choosenFilters[key]
+    //     console.log(value)
+    //     return recipe[key[0]][0][key[0]] === value
+    //   })
     console.log(filteredRecipesByFilters)
+
     dispatch(recipesActions.filterRecipes(filteredRecipesByFilters))
   }
 
@@ -58,14 +63,9 @@ const useFilters = () => {
 }
 
 export default useFilters
-//   return (
-//     (recipe.difficulties[0].difficulties === difficultiesConditional &&
-//       recipe.diets[0].diets === dietsConditional &&
-//       recipe.types[0].types === typesConditional) ||
-//     (recipe.types[0].types === typesConditional &&
-//       recipe.diets[0].diets === dietsConditional) ||
-//     (recipe.types[0].types === typesConditional &&
-//       recipe.difficulties[0].difficulties === difficultiesConditional) ||
-//     (recipe.diets[0].diets === dietsConditional &&
-//       recipe.difficulties[0].difficulties === difficultiesConditional)
-//   )
+// (recipe.types[0].types === typesConditional &&
+//   recipe.diets[0].diets === dietsConditional) ||
+// (recipe.types[0].types === typesConditional &&
+//   recipe.difficulties[0].difficulties === difficultiesConditional) ||
+// (recipe.diets[0].diets === dietsConditional &&
+//   recipe.difficulties[0].difficulties === difficultiesConditional)

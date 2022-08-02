@@ -41,12 +41,32 @@ const useFilters = () => {
     //   }
     // }
     // console.log(choosenFilters[1])
-    const key = Object.keys(choosenFilters)
-    const value = choosenFilters[key]
-    let filteredRecipesByFilters = recipes.filter(recipe => {
-      console.log(value)
-      return recipe[key[0]][0][key[0]] === value
+
+    const keys = Object.keys(choosenFilters)
+
+    const filteredRecipesByFilters = recipes.filter(recipe => {
+      return keys.every(key => recipe[key][0][key] === choosenFilters[key])
     })
+    console.log(filteredRecipesByFilters)
+    // const filtersKeys = Object.keys(choosenFilters)
+    // const filtersValues = choosenFilters[filtersKeys]
+    // const filters = [
+    //   recipe =>
+    //     recipe[filtersKeys[0]][0][filtersKeys[0]] === difficultiesConditional,
+    // ]
+
+    // const filteredRecipesByFilters = recipes.reduce((acc, recipe) => {
+    //   if (filters.every(filter => filter(recipe))) return acc.concat(recipe)
+    //   return acc
+    // }, [])
+
+    //podejscie z CHAINOWANIEM
+    // const key = Object.keys(choosenFilters)
+    // const value = choosenFilters[key]
+    // let filteredRecipesByFilters = recipes.filter(recipe => {
+    //   console.log(value)
+    //   return recipe[key[0]][0][key[0]] === value
+    // })
     //   .filter(recipe => {
     //     const key = Object.keys(choosenFilters)
     //     if (!key[1]) return false

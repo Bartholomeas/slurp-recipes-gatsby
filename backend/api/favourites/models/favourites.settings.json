@@ -1,0 +1,15 @@
+{
+  "kind": "collectionType",
+  "collectionName": "Favourites",
+  "info": {
+    "name": "Favourites",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

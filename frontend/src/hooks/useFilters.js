@@ -9,7 +9,7 @@ const useFilters = () => {
     const { name, value } = e.target
     const inputs = e.target
       .closest("form")
-      .querySelectorAll('input[type="checkbox"]')
+      .querySelectorAll('input[type="checkbox"]') 
 
     inputs.forEach(input => {
       if (choosenFilters[input.name] === input.value) input.checked = false

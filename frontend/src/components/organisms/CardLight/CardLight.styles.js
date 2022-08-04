@@ -26,7 +26,7 @@ export const TextContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 60%;
-  padding: 0.8rem 0.2rem 0.8rem 2rem;
+  padding: 0.8rem 0.8rem 0.8rem 2rem;
   border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
   /* background-color: ${({ theme }) => theme.colors.base}; */
 `

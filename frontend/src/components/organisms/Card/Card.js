@@ -19,9 +19,9 @@ const Card = ({ payload }) => {
     title = "none",
     diets = "none",
     types: type = "none",
+    rating = 0,
   } = payload
   const image = img ? getImage(img.localFile) : null
-
   return (
     <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
       <CardWrapper>
@@ -42,7 +42,7 @@ const Card = ({ payload }) => {
             <p>{type[0] ? type[0].types : ""}</p>
             <p>{diets[0] ? diets[0].diets : ""}</p>
           </CardRecipeInfos>
-          <RatingIndicator />
+          <RatingIndicator rating={rating} />
         </CardInfoContainer>
       </CardWrapper>
     </CardLink>

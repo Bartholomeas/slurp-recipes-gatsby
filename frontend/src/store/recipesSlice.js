@@ -36,7 +36,6 @@ const recipesSlice = createSlice({
 
     filterRecipes: (state, action) => {
       state.filteredRecipes = [...action.payload]
-      console.log(state.filteredRecipes)
     },
   },
 })

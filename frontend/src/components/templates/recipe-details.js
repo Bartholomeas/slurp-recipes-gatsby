@@ -26,6 +26,7 @@ import {
   ShareBox,
 } from "./recipe-details-styles"
 import SharePanel from "../molecules/SharePanel/SharePanel"
+import RatingIndicator from "../molecules/RatingIndicator/RatingIndicator"
 
 const RecipeDetails = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +43,7 @@ const RecipeDetails = ({ data }) => {
 
           <ContentContainer>
             <RecipeHeader>{recipeInfo.title}</RecipeHeader>
-
+            <RatingIndicator rating={recipeInfo.rating} />
             <InfoBoxes>
               <InfoBox>
                 <InfoCategory>dieta</InfoCategory>
@@ -119,6 +120,7 @@ export const query = graphql`
   query RecipeDetails($slug: String) {
     strapiRecipes(title: { eq: $slug }) {
       id
+      rating
       title
       ingredients
       preparation

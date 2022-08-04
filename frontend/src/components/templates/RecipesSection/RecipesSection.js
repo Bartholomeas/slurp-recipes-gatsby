@@ -13,7 +13,6 @@ import {
   CardsContainer,
 } from "./RecipesSection.styles"
 import { BsFilterCircleFill } from "react-icons/bs"
-import { StateContext } from "../../../context/StateContext"
 import SearchBar from "../../molecules/SearchBar/SearchBar"
 
 const RecipesSection = () => {
@@ -22,6 +21,7 @@ const RecipesSection = () => {
       allStrapiRecipes {
         nodes {
           id
+          rating
           difficulties {
             difficulties
           }

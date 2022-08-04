@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useMemo } from "react"
 import styled from "styled-components"
 import {
   TiStarFullOutline,
@@ -17,14 +17,45 @@ export const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.otherStyles.bigRadius};
 `
 
-const RatingIndicator = () => {
+const RatingIndicator = ({ rating }) => {
+  const [hoverRating, setRating] = useState(0)
+
+  const starRating = useMemo(() => {
+    const ratingArray = [0, 0, 0, 0, 0]
+    const ratingNumber = rating.toString().split(".")[0]
+    const ratingDecimal = rating.toString().split(".")[1]
+    for (let i = 0; i < ratingNumber; i++) {
+      ratingArray[i] = 1
+    }
+    if (ratingDecimal) {
+      ratingArray[ratingNumber] = 0.5
+    }
+    setRating(ratingArray.reduce((acc, curr) => acc + curr, 0))
+
+    return ratingArray
+  }, [rating])
+
+  console.log(hoverRating)
   return (
     <Wrapper>
-      <TiStarFullOutline />
-      <TiStarFullOutline />
-      <TiStarFullOutline />
-      <TiStarHalfOutline />
-      <TiStarOutline />
+      {starRating.map((star, index) =>
+        star === 1 ? (
+          <TiStarFullOutline
+            // onMouseEnter={() => setRating(star)}
+            key={`${index}-${Math.random() * 10 * Math.random()}`}
+          />
+        ) : star === 0.5 ? (
+          <TiStarHalfOutline
+            // onMouseEnter={() => setRating(star)}
+            key={`${index}-${Math.random() * 10 * Math.random()}`}
+          />
+        ) : (
+          <TiStarOutline
+            // onMouseEnter={() => setRating(star)}
+            key={`${index}-${Math.random() * 10 * Math.random()}`}
+          />
+        )
+      )}
     </Wrapper>
   )
 }

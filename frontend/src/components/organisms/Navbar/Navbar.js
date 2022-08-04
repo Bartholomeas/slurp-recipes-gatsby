@@ -15,7 +15,6 @@ import {
   NavListItem,
 } from "./Navbar.styles"
 import BorderButton from "../../atoms/BorderButton/BorderButton"
-import { StateContext } from "../../../context/StateContext"
 import UserPanel from "../UserPanel/UserPanel"
 import Logo from "../../atoms/Logo/Logo"
 import Button from "../../atoms/Button/Button"

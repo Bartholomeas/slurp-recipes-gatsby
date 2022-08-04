@@ -18,8 +18,6 @@ export const Wrapper = styled.div`
 `
 
 const RatingIndicator = ({ rating }) => {
-  const [hoverRating, setRating] = useState(0)
-
   const starRating = useMemo(() => {
     const ratingArray = [0, 0, 0, 0, 0]
     const ratingNumber = rating.toString().split(".")[0]
@@ -30,30 +28,19 @@ const RatingIndicator = ({ rating }) => {
     if (ratingDecimal) {
       ratingArray[ratingNumber] = 0.5
     }
-    setRating(ratingArray.reduce((acc, curr) => acc + curr, 0))
 
     return ratingArray
   }, [rating])
 
-  console.log(hoverRating)
   return (
     <Wrapper>
       {starRating.map((star, index) =>
         star === 1 ? (
-          <TiStarFullOutline
-            // onMouseEnter={() => setRating(star)}
-            key={`${index}-${Math.random() * 10 * Math.random()}`}
-          />
+          <TiStarFullOutline key={index} />
         ) : star === 0.5 ? (
-          <TiStarHalfOutline
-            // onMouseEnter={() => setRating(star)}
-            key={`${index}-${Math.random() * 10 * Math.random()}`}
-          />
+          <TiStarHalfOutline key={index} />
         ) : (
-          <TiStarOutline
-            // onMouseEnter={() => setRating(star)}
-            key={`${index}-${Math.random() * 10 * Math.random()}`}
-          />
+          <TiStarOutline key={index} />
         )
       )}
     </Wrapper>

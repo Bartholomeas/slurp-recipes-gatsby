@@ -23,15 +23,11 @@ const ContactPageWrapper = styled.div`
   }
 `
 
-const ContactFormSection = styled.section`
-  width: 100%;
-`
-
 const LogoWrapper = styled.div`
   height: 100px;
 `
 
-const Contact = ({}) => {
+const Contact = () => {
   return (
     <ContactPageWrapper>
       <h2>Skontaktuj się z nami</h2>

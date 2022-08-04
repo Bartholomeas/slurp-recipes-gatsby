@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useEffect, useCallback } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useSelector, useDispatch } from "react-redux"
 import { recipesActions } from "../../../store/recipesSlice"
@@ -55,25 +55,24 @@ const RecipesSection = () => {
 
   useEffect(() => {
     dispatch(recipesActions.setRecipes(data.allStrapiRecipes.nodes))
-  }, [data])
+  }, [data, dispatch])
 
   const filterBarHandler = () => {
     dispatch(uiActions.toggleFilterbar())
   }
 
-  const checkScrollPosition = () => {
+  const checkScrollPosition = useCallback(() => {
     const recipesSectionPosition = document.querySelector("#recipes").offsetTop
     dispatch(uiActions.toggleFilterBtn(false))
     if (window.scrollY + window.innerHeight - 150 > recipesSectionPosition)
       dispatch(uiActions.toggleFilterBtn(true))
-  }
-
+  }, [dispatch])
   useEffect(() => {
     window.addEventListener("scroll", checkScrollPosition)
     return () => {
       window.removeEventListener("scroll", checkScrollPosition)
     }
-  }, [])
+  }, [checkScrollPosition, dispatch])
 
   return (
     <RecipesWrapper id="recipes">
@@ -85,7 +84,7 @@ const RecipesSection = () => {
         </SearchbarContainer>
       </TopContainer>
       <CardsContainer>
-        <FiltersButton isActive={filterBtnStatus}>
+        <FiltersButton isActive={filterBtnStatus} aria-label="filter button">
           <BsFilterCircleFill onClick={filterBarHandler} />
         </FiltersButton>
         {filteredRecipes.length > 0

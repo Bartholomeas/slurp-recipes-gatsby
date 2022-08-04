@@ -9,9 +9,5 @@ const FilterOptionHeaderText = styled.p`
 `
 
 export const FilterOptionHeader = ({ content }) => {
-  return (
-    <FilterOptionHeaderText htmlFor="difficulty">
-      {content}
-    </FilterOptionHeaderText>
-  )
+  return <FilterOptionHeaderText>{content}</FilterOptionHeaderText>
 }

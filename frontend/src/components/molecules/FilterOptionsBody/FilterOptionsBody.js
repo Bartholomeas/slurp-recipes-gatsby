@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { FilterOptionHeader } from "../../atoms/FilterLabel/FilterHeader"
+import { FilterOptionHeader } from "../../atoms/FilterLabel/FilterOptionHeader"
 import { FilterOption } from "../../atoms/FilterOption/FilterOption"
 
 const FilterWrapper = styled.form`
@@ -15,7 +15,7 @@ const FilterWrapper = styled.form`
   }
 `
 
-const FilterOptionsBody = ({ content, ...props }) => {
+const FilterOptionsBody = ({ content }) => {
   const filterHeader = Object.keys(content[0])
   return (
     <FilterWrapper>

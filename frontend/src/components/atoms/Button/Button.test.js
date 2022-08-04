@@ -1,15 +1,15 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { render, screen } from "@testing-library/react"
 import TestWrapper from "../../providers/TestWrapper"
 import Button from "./Button"
 
 it("renders correctly", () => {
-  const tree = renderer
-    .create(
-      <TestWrapper>
-        <Button>Send button</Button>
-      </TestWrapper>
-    )
-    .toJSON()
-  expect(tree).toBeTruthy()
+  render(
+    <TestWrapper>
+      <Button>Send button</Button>
+    </TestWrapper>
+  )
+
+  const buttonElement = screen.getByText(/Send button/i)
+  expect(buttonElement).toBeInTheDocument()
 })

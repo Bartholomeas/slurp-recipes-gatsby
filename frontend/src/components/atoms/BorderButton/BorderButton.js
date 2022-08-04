@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 const ButtonWrapper = styled.button`
   width: ${({ isLong }) => (isLong ? "100%" : "auto")};
@@ -13,7 +13,6 @@ const ButtonWrapper = styled.button`
   font-weight: 700;
   transition: 0.3s background-color;
   cursor: pointer;
-
   &:hover {
     background-color: ${({ theme }) => theme.colors.base};
     color: ${({ theme }) => theme.colors.white};

@@ -9,7 +9,7 @@ const FilterWrapper = styled.form`
   justify-content: center;
   align-items: flex-start;
   width: 30%;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   @media only screen and (min-width: 768px) {
     width: 70%;
   }
@@ -28,16 +28,15 @@ const FilterOptionsBody = ({ content }) => {
             : "posiłek"
         }
       />
-      {content
-        ? content.map((el, idx) => (
-            <FilterOption
-              key={idx}
-              name={Object.keys(content[0])}
-              option={Object.values(el)}
-              id={idx}
-            />
-          ))
-        : null}
+      {content &&
+        content.map((el, idx) => (
+          <FilterOption
+            key={idx}
+            name={Object.keys(content[0])}
+            option={Object.values(el)}
+            id={idx}
+          />
+        ))}
     </FilterWrapper>
   )
 }

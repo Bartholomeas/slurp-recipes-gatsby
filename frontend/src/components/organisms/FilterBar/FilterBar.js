@@ -35,13 +35,12 @@ const FilterBar = ({ isOpen = false }) => {
   const types = data.allStrapiTypes.nodes
 
   const { clearFilters, filterRecipes } = useFilters()
-
   return (
-    <FilterWrapper isOpen={isOpen}>
+    <FilterWrapper data-testid="filterbar" isOpen={isOpen}>
       <FilterContainer>
-        <FilterOptionsBody props={diets} content={diets} />
-        <FilterOptionsBody props={difficulties} content={difficulties} />
-        <FilterOptionsBody props={types} content={types} />
+        <FilterOptionsBody content={diets} />
+        <FilterOptionsBody content={difficulties} />
+        <FilterOptionsBody content={types} />
         <ButtonContainer>
           <Button isLong={true} onClick={filterRecipes}>
             Zatwierdź

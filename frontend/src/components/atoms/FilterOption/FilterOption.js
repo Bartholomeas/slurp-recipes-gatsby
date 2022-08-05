@@ -25,10 +25,11 @@ export const FilterOption = ({ name, option, id }) => {
           getFilters(e)
         }}
         name={name}
+        data-testid="checkbox-input"
         value={option}
         type="checkbox"
         id={`${option}-${id}`}
-      ></FilterOptionText>
+      />
       <FilterOptionLabel htmlFor={`${option}-${id}`}>
         {option}
       </FilterOptionLabel>

@@ -54,6 +54,7 @@ const FormField = React.forwardRef(
       type = "text",
       width = "100",
       onChange = () => {},
+        placeholder="",
       inputFunc,
     },
     ref
@@ -68,6 +69,7 @@ const FormField = React.forwardRef(
             name={nameId}
             type={type}
             ref={ref}
+            placeholder={placeholder}
             onKeyUp={inputFunc}
           />
         ) : (

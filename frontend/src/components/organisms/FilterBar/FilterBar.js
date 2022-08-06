@@ -36,10 +36,10 @@ const FilterBar = ({ isOpen = false }) => {
 
   const { clearFilters, filterRecipes } = useFilters()
   return (
-    <FilterWrapper data-testid="filterbar" isOpen={isOpen}>
+    <FilterWrapper isOpen={isOpen} data-testid="filterbar">
       <FilterContainer>
         <FilterOptionsBody content={diets} />
-        <FilterOptionsBody content={difficulties} />
+        <FilterOptionsBody content={difficulties}/>
         <FilterOptionsBody content={types} />
         <ButtonContainer>
           <Button isLong={true} onClick={filterRecipes}>

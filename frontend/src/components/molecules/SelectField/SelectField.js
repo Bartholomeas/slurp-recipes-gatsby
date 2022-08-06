@@ -37,6 +37,7 @@ const SelectField = ({
   width = "100",
   onChange = () => {},
   valuesIds = [],
+    testid ="",
   ...values
 }) => {
   return (
@@ -47,8 +48,9 @@ const SelectField = ({
         onChange={(e => onChange(e)) || null}
         name={nameId}
         id={nameId}
+        data-testid={testid}
       >
-        <option disabled style={{ color: "black" }} value="" defaultValue="">
+        <option disabled style={{ color: "black" }} value="" defaultValue="" data-testid={"select-option"}>
           Wybierz
         </option>
         {values.values.map((value, idx) => {

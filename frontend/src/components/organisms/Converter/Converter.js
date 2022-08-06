@@ -27,7 +27,7 @@ const Converter = ({ closeConverter, isConverterActive }) => {
   })
 
   let timer
-  let cup, spoon, teaspoon
+  // let cup, spoon, teaspoon
 
   const measures = [
     {
@@ -56,7 +56,7 @@ const Converter = ({ closeConverter, isConverterActive }) => {
         kakao: 6,
         "bułka tarta": 9,
         "kasza manna": 15,
-        sól: 9,
+        "sól": 9,
         olej: 15,
         mleko: 15,
       },
@@ -99,10 +99,9 @@ const Converter = ({ closeConverter, isConverterActive }) => {
   }
 
   useEffect(() => {
-    const calculateConvertedValue = (({
+    const calculateConvertedValue = ({
       product = "",
       symbol = "",
-      value = "",
     }) => {
       if (symbol === "dag") {
         measures.forEach(measure => {
@@ -136,11 +135,12 @@ const Converter = ({ closeConverter, isConverterActive }) => {
           }))
         })
       }
-    })(dataToConvert)
+    }
+    calculateConvertedValue(dataToConvert)
   }, [dataToConvert])
 
   return (
-    <ConverterWrapper isConverterActive={isConverterActive}>
+    <ConverterWrapper isConverterActive={isConverterActive} data-testid={"converter-body"}>
       <ConverterHeader>Konwertuj miary</ConverterHeader>
       <MeasuresContainer>
         <TopContainer>
@@ -161,6 +161,7 @@ const Converter = ({ closeConverter, isConverterActive }) => {
               "olej",
               "mleko",
             ]}
+            testid={'select-product'}
           />
           <SelectField
             onChange={e => setSelectValue(e)}
@@ -168,10 +169,12 @@ const Converter = ({ closeConverter, isConverterActive }) => {
             content="miara"
             width="30"
             values={["g", "dag", "ml"]}
+            testid={'select-measures'}
           />
         </TopContainer>
         <FormField
           inputFunc={e => setInputValue(e)}
+          placeholder="Wprowadź wartość.."
           nameId="value"
           content="wartość"
           type="number"

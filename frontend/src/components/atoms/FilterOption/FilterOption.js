@@ -5,7 +5,7 @@ import useFilters from "../../../hooks/useFilters"
 const FilterOptionWrapper = styled.div`
   margin-bottom: 0.8rem;
 `
-const FilterOptionText = styled.input`
+const FilterOptionInput = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
 `
 const FilterOptionLabel = styled.label`
@@ -20,7 +20,7 @@ export const FilterOption = ({ name, option, id }) => {
 
   return (
     <FilterOptionWrapper>
-      <FilterOptionText
+      <FilterOptionInput
         onClick={e => {
           getFilters(e)
         }}

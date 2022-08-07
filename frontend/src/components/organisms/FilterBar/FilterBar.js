@@ -29,7 +29,7 @@ const FilterBar = ({ isOpen = false }) => {
       }
     }
   `)
-
+console.log(data)
   const diets = data.allStrapiDiets.nodes
   const difficulties = data.allStrapiDifficulties.nodes
   const types = data.allStrapiTypes.nodes

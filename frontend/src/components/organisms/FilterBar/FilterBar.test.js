@@ -23,24 +23,24 @@ it("renders filter bar correctly", ()=>{
             <FilterBar isOpen={true}/>
         </TestWrapper>
     )
-
+console.log(query)
 const filterBarElement = screen.getByTestId('filterbar')
     expect(filterBarElement).toBeInTheDocument()
     expect(filterBarElement).toBeVisible()
 
 
 });
-it("clears the filters", ()=>{
-    render (
-        <TestWrapper>
-            <FilterBar isOpen={true}/>
-        </TestWrapper>
-    )
-const clearButtonElement = screen.getByRole("button", {name: /Wyczyść/i})
-    const checkboxElements = screen.getAllByTestId("checkbox-input")
-    toggleInputs(checkboxElements)
-    fireEvent.click(clearButtonElement)
-    checkInputsStatus(checkboxElements)
-})
+// it("clears the filters", ()=>{
+//     render (
+//         <TestWrapper>
+//             <FilterBar isOpen={true}/>
+//         </TestWrapper>
+//     )
+// const clearButtonElement = screen.getByRole("button", {name: /Wyczyść/i})
+//     const checkboxElements = screen.getAllByTestId("checkbox-input")
+//     toggleInputs(checkboxElements)
+//     fireEvent.click(clearButtonElement)
+//     checkInputsStatus(checkboxElements)
+// })
 
 })

@@ -46,8 +46,31 @@ const RecipesSection = () => {
           }
         }
       }
-    }
+      
+        allStrapiDifficulties {
+        nodes {
+          difficulties
+        }
+      }
+      allStrapiTypes {
+        nodes {
+          types
+        }
+      }
+      allStrapiDiets {
+        nodes {
+          diets
+        }
+      }
+      
+    }  
   `)
+
+  const filterbarData =  {
+    allStrapiDiets:data.allStrapiDiets,
+      allStrapiDifficulties:data.allStrapiDifficulties,
+      allStrapiTypes: data.allStrapiTypes
+    }
 
   const { recipes, filteredRecipes } = useSelector(state => state.recipes)
   const { filterbarStatus, filterBtnStatus } = useSelector(state => state.ui)
@@ -76,7 +99,7 @@ const RecipesSection = () => {
 
   return (
     <RecipesWrapper id="recipes">
-      <FilterBar isOpen={filterbarStatus} />
+      <FilterBar data={filterbarData} isOpen={filterbarStatus} />
       <TopContainer>
         <SearchbarContainer>
           <h2>Przepisy</h2>

@@ -9,30 +9,11 @@ import {
 import Button from "../../atoms/Button/Button"
 import FilterOptionsBody from "../../molecules/FilterOptionsBody/FilterOptionsBody"
 
-const FilterBar = ({ isOpen = false }) => {
-  const data = useStaticQuery(graphql`
-    query Filters {
-      allStrapiDifficulties {
-        nodes {
-          difficulties
-        }
-      }
-      allStrapiTypes {
-        nodes {
-          types
-        }
-      }
-      allStrapiDiets {
-        nodes {
-          diets
-        }
-      }
-    }
-  `)
-console.log(data)
-  const diets = data.allStrapiDiets.nodes
-  const difficulties = data.allStrapiDifficulties.nodes
-  const types = data.allStrapiTypes.nodes
+const FilterBar = ({data={},  isOpen = false }) => {
+
+  const diets = data.allStrapiDiets.nodes || {}
+  const difficulties = data.allStrapiDifficulties.nodes || {}
+  const types = data.allStrapiTypes.nodes || {}
 
   const { clearFilters, filterRecipes } = useFilters()
   return (

@@ -4,6 +4,19 @@ import FilterBar from "./FilterBar"
 import TestWrapper from "../../providers/TestWrapper"
 
 
+
+beforeEach(() => {
+    StaticQuery.mockImplementationOnce(({ render }) =>
+        render({
+            site: {
+                siteMetadata: {
+                    title: `Default Starter`,
+                },
+            },
+        })
+    )
+})
+
 const toggleInputs = (checkboxes)=>{
 checkboxes.forEach(checkbox => {
 fireEvent.click(checkbox)

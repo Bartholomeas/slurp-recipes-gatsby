@@ -80,29 +80,42 @@ describe("Converter component", () => {
         <Converter isConverterActive={true} />
       </TestWrapper>
     )
-    const productSelectElement = screen.getByTestId("select-product")
-    fireEvent.click(productSelectElement)
-    fireEvent.change(productSelectElement, { target: { value: "kakao" } })
+    const productSelectElement = screen.getByTestId("select-product");
+    fireEvent.click(productSelectElement);
+    fireEvent.change(productSelectElement, { target: { value: "kakao" } });
 
-    const measuresSelectElement = screen.getByTestId("select-measures")
-    fireEvent.click(measuresSelectElement)
-    fireEvent.change(measuresSelectElement, { target: { value: "dag" } })
+    const measuresSelectElement = screen.getByTestId("select-measures");
+    fireEvent.click(measuresSelectElement);
+    fireEvent.change(measuresSelectElement, { target: { value: "dag" } });
 
-    const inputElement = screen.getByPlaceholderText(/Wprowadź wartość../i)
-    fireEvent.change(inputElement, { target: { value: "1337" } })
+    const inputElement = screen.getByPlaceholderText(/Wprowadź wartość../i);
+    fireEvent.change(inputElement, { target: { value: "1337" } });
 
-    const cupValue = screen.getByText(/szklanki/i)
-    const spoonValue = screen.getByText(/łyżki/i)
-    const teaspoonValue = screen.getByText(/łyżeczki/i)
+    const cupValue = screen.getByText(/szklanki/i);
+    const spoonValue = screen.getByText(/łyżki/i);
+    const teaspoonValue = screen.getByText(/łyżeczki/i);
 
-    const cleanButton = screen.getByText(/Wyczyść/i)
-    fireEvent.click(cleanButton)
+    const cleanButton = screen.getByText(/Wyczyść/i);
+    fireEvent.click(cleanButton);
 
-  expect(inputElement.value).toBe('')
+  expect(inputElement.value).toBe('');
     setTimeout(() => {
-      expect(cupValue).toBe("0 szklanki")
-      expect(spoonValue).toBe("0 łyżki")
-      expect(teaspoonValue).toBe("0 łyżeczki")
-    }, 300)
+      expect(cupValue).toBe("0 szklanki");
+      expect(spoonValue).toBe("0 łyżki");
+      expect(teaspoonValue).toBe("0 łyżeczki");
+    }, 300);
+  })
+  it("closes converter", ()=>{
+    render(
+        <TestWrapper>
+          <Converter isConverterActive={true} />
+        </TestWrapper>
+    )
+
+    const converterElement = screen.getByTestId("converter-body");
+    const closeButtonElement = screen.getByText(/Zamknij/i);
+    fireEvent.click(closeButtonElement);
+    expect(converterElement).not.toBeVisible();
+
   })
 })

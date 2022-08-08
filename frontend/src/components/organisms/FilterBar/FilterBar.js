@@ -15,7 +15,6 @@ const FilterBar = ({data={},  isOpen = false }) => {
   const difficulties = data.allStrapiDifficulties.nodes || {}
   const types = data.allStrapiTypes.nodes || {}
 
-  console.log(data)
   const { clearFilters, filterRecipes } = useFilters()
   return (
     <FilterWrapper isOpen={isOpen} data-testid="filterbar">

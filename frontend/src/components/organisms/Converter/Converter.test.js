@@ -77,7 +77,7 @@ describe("Converter component", () => {
   it("cleans all values", () => {
     render(
       <TestWrapper>
-        <Converter isConverterActive={true} />
+        <Converter isConverterActive={false} />
       </TestWrapper>
     )
     const productSelectElement = screen.getByTestId("select-product");
@@ -114,8 +114,11 @@ describe("Converter component", () => {
 
     const converterElement = screen.getByTestId("converter-body");
     const closeButtonElement = screen.getByText(/Zamknij/i);
+    expect(closeButtonElement).toBeInTheDocument();
     fireEvent.click(closeButtonElement);
+    setTimeout(()=>{
     expect(converterElement).not.toBeVisible();
+    },500)
 
   })
 })

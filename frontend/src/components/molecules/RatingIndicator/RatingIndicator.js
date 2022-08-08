@@ -33,7 +33,7 @@ const RatingIndicator = ({ rating }) => {
   }, [rating])
 
   return (
-    <Wrapper>
+    <Wrapper data-testid={"rating-indicator"}>
       {starRating.map((star, index) =>
         star === 1 ? (
           <TiStarFullOutline key={index} />

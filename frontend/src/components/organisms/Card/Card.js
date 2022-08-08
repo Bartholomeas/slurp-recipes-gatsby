@@ -1,5 +1,4 @@
 import React from "react"
-import axios from "axios"
 import { getImage } from "gatsby-plugin-image"
 import {
   CardLink,
@@ -21,9 +20,11 @@ const Card = ({ payload }) => {
     types: type = "none",
     rating = 0,
   } = payload
-  const image = img ? getImage(img.localFile) : null
+
+  const image = img ? getImage(img.localFile) : null;
+
   return (
-    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`}>
+    <CardLink to={`/${title.toLowerCase().replace(/\s/g, "_")}`} data-testid={"card-body"}>
       <CardWrapper>
         {image ? (
           <CardImg
@@ -35,7 +36,7 @@ const Card = ({ payload }) => {
 
         <CardInfoContainer>
           <DifficultyIndicator
-            difficulty={difficulty[0].difficulties ?? "easy"}
+            difficulty={difficulty[0].difficulties ?? "łatwe"}
           />
           <CardLabelTitle>{title}</CardLabelTitle>
           <CardRecipeInfos>

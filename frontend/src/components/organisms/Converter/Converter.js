@@ -98,7 +98,7 @@ const Converter = ({ closeConverter, isConverterActive }) => {
         <Button isLong onClick={() => clearData()}>
           Wyczyść
         </Button>
-        <Button greyColor={true} onClick={() => closeConverter()}>
+        <Button greyColor={true} onClick={closeConverter}>
           Zamknij
         </Button>
       </ButtonContainer>

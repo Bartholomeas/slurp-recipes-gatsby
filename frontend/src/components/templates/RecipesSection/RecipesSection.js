@@ -12,8 +12,9 @@ import {
   FiltersButton,
   CardsContainer,
 } from "./RecipesSection.styles"
-import { BsFilterCircleFill } from "react-icons/bs"
 import SearchBar from "../../molecules/SearchBar/SearchBar"
+import { BsFilterCircleFill } from "react-icons/bs"
+
 
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`

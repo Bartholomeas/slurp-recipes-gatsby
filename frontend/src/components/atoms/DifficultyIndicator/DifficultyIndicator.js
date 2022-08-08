@@ -25,10 +25,10 @@ export const DifficultyWrapper = styled.div`
   }
 `
 
-const DifficultyIndicator = ({ difficulty = "" }) => {
+const DifficultyIndicator = ({ difficulty = "łatwe" }) => {
   return (
     <DifficultyWrapper difficulty={difficulty}>
-      <p> {difficulty}</p>
+      <p data-testid={"difficulty-text"}> {difficulty}</p>
     </DifficultyWrapper>
   )
 }

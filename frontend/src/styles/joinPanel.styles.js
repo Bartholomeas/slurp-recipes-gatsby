@@ -36,6 +36,7 @@ export const JoinForm = styled.form`
 export const JoinLink = styled(Link)`
   text-decoration: none;
   font-size: 1.2rem;
+  margin: 1rem 0;
   color: ${({ theme }) => theme.colors.darkGrey};
 `
 export const ColoredText = styled.span`

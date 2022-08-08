@@ -36,20 +36,17 @@ const RegisterPanel = () => {
 
     setTimeout(() => {
       navigate(`/login`)
-    }, 3000)
+    }, 5000)
   }
 
-  // Aktualizacja stanu inputów
   const updateInput = e => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value })
   }
 
-  // Walidacja formularza
   const validateForm = () => {
     // e.preventDefault()
     // errorInputsArray = []
 
-    // Walidacja nazwy uzytkownika
     if (registerInfo["username"] !== "") {
       setErrorStatus("username", true)
       setIsValid(true)
@@ -59,7 +56,6 @@ const RegisterPanel = () => {
       setIsValid(false)
     }
 
-    // Walidacja email
     if (mailRegex.test(registerInfo["email"])) {
       setErrorStatus("email", true)
     } else {
@@ -67,7 +63,6 @@ const RegisterPanel = () => {
       setErrorMessage("Adres e-mail niepoprawny")
       setIsValid(false)
     }
-    // Walidacja hasła
     if (passwordRegex.test(registerInfo["confirm_password"])) {
       if (registerInfo["password"] === registerInfo["confirm_password"]) {
         setErrorStatus("password", true)
@@ -96,7 +91,6 @@ const RegisterPanel = () => {
 
   }
 
-  // Wysłanie zapytania z rejestracją
   const registerUser = async e => {
     e.preventDefault()
 
@@ -112,7 +106,6 @@ const RegisterPanel = () => {
   }
 
   let errorInput = ""
-  // let errorInputsArray = []
 
   const setErrorStatus = (inputName, remove = false) => {
     if (typeof window !== "undefined") {
@@ -124,7 +117,6 @@ const RegisterPanel = () => {
         errorInput = document.querySelector(`input[id='${inputName}']`)
         errorInput.classList.add("invalid")
         errorInput.setAttribute("className", "invalid")
-        // errorInputsArray.push(errorInput)
       }
     }
   }
@@ -170,9 +162,8 @@ const RegisterPanel = () => {
       <JoinLink to="/login">
         Masz konto? <ColoredText>Zaloguj się.</ColoredText>
       </JoinLink>
-      <NotificationPopup onClick={togglePopup} isActive={isPopupActive}>
-        Gratulacje, rejestracja przebiegła pomyślnie, zostaniesz przeniesiony na
-        stronę logowania
+      <NotificationPopup onClick={()=> navigate(`/login`)} isActive={isPopupActive}>
+        Zostałeś zarejestrowany, trwa przenoszenie na stronę logowania
       </NotificationPopup>
     </JoinPanelWrapper>
   )

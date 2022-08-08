@@ -20,12 +20,11 @@ import { BsCupFill } from "react-icons/bs"
 
 const Converter = ({ closeConverter, isConverterActive }) => {
   const {
-    initialState,
     setSelectValue,
     setInputValue,
     dataToConvert,
     convertedValues,
-    setDataToConvert,
+      clearData
   } = useConverter()
 
   return (
@@ -96,7 +95,7 @@ const Converter = ({ closeConverter, isConverterActive }) => {
         </ConvertedContainer>
       </MeasuresContainer>
       <ButtonContainer>
-        <Button isLong onClick={() => setDataToConvert(initialState)}>
+        <Button isLong onClick={() => clearData()}>
           Wyczyść
         </Button>
         <Button greyColor={true} onClick={() => closeConverter()}>

@@ -1,27 +1,29 @@
 import React from "react"
 import { act } from "react-test-renderer"
 import { render, screen, fireEvent } from "@testing-library/react"
-import LoginPanel from "./LoginPanel"
 import axios from "axios"
+import LoginPanel from "./LoginPanel"
 import TestWrapper from "../../providers/TestWrapper"
+// import { authorizeUser } from "./authorizeUser"
+export { authorizeUser } from "./LoginPanel"
 
-jest.mock("axios", () => ({
-  post: jest.fn((_url, _body) => {
-    console.log("to axios request jest")
-    return new Promise(resolve => {
-      //   url = _url
-      //   body = _body
-      resolve(true)
-    })
-  }),
-}))
+axios.post = jest.fn(() => {
+  console.log("Axios mocked post")
+})
 
 // jest.mock("axios", () => ({
-//   authorizeUser: jest.fn((_url, _body) => {
+//   post: jest.fn(() => {
+//     console.log("to axios request jest")
+//     return new Promise(resolve => {
+//       resolve(true)
+//     })
+//   }),
+// }))
+
+// jest.mock("authorizeUser", () => ({
+//   authorizeUser: jest.fn(() => {
 //     console.log("to authorizeUser jest")
 //     return new Promise(resolve => {
-//       url = _url
-//       body = _body
 //       resolve(true)
 //     })
 //   }),
@@ -72,7 +74,7 @@ describe("Login panel component", () => {
       password: "Testowe123",
     }
 
-    const response = { data: { status: 200 } }
+    const response = { status: 200 }
     act(() => {
       axios.post.mockResolvedValue(response)
 

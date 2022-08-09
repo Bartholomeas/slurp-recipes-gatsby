@@ -37,7 +37,7 @@ const Navbar = () => {
     } else {
       setAuthentication(false)
     }
-  })
+  }, [])
 
   const closeNavbar = () => {
     dispatch(uiActions.toggleNavbar(false))

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -136,7 +136,6 @@ const AddRecipe = () => {
       .catch(err => console.log(err))
   }
 
-  //Upload zdjecia
   async function uploadImage(id) {
     const formData = new FormData()
 

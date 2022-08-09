@@ -10,31 +10,15 @@ export { authorizeUser } from "./LoginPanel"
 
 axios.post = jest.fn(() => {
   console.log("Axios mocked post")
+  return false
 })
 
 global.authorizeUser = jest.fn(() => {
-  return new Promise(resolve => resolve(true))
+  return new Promise(resolve => {
+    console.log("authorizeUser mocked")
+    resolve(true)
+  })
 })
-
-// jest.mock("axios", () => ({
-//   post: jest.fn(() => {
-//     console.log("to axios request jest")
-//     return new Promise(resolve => {
-//       resolve(true)
-//     })
-//   }),
-// }))
-
-// jest.mock("authorizeUser", () => ({
-//   authorizeUser: jest.fn(() => {
-//     console.log("to authorizeUser jest")
-//     return new Promise(resolve => {
-//       resolve(true)
-//     })
-//   }),
-// }))
-
-// jest.fn()
 
 describe("Login panel component", () => {
   beforeEach(() => {
@@ -61,6 +45,7 @@ describe("Login panel component", () => {
   it("logs in", async () => {
     render(
       <TestWrapper>
+        1
         <LoginPanel />
       </TestWrapper>
     )
@@ -83,15 +68,32 @@ describe("Login panel component", () => {
       axios.post.mockResolvedValue(response)
 
       expect(axios.post).toHaveBeenCalledTimes(1)
-
       expect(axios.post).toHaveBeenCalledWith(
         `${process.env.STRAPI_URL}/auth/local`,
         object
       )
     })
+    setTimeout(() => {
+      expect(screen.getByLabelText(/login/i)).toBeFalsy()
+    }, 1000)
+  })
 
-    // setTimeout(() => {
-    //   expect(screen.getByLabelText(/login/i)).toBeFalsy()
-    // }, 1000)
+  it("logs in with error", async () => {
+    render(
+      <TestWrapper>
+        <LoginPanel />
+      </TestWrapper>
+    )
+
+    const loginInput = screen.getByLabelText(/login/i)
+    const passwordInput = screen.getByLabelText(/hasło/i)
+    const loginButton = screen.getByRole("button")
+
+    await act(async () => {
+      axios.post.mockRejectedValue(new Error("Error"))
+      fireEvent.change(passwordInput, { target: { value: "" } })
+      fireEvent.change(loginInput, { target: { value: "" } })
+      fireEvent.click(loginButton)
+    })
   })
 })

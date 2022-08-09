@@ -14,6 +14,7 @@ import {
 } from "../../../styles/joinPanel.styles"
 import { AiOutlineQuestionCircle as QuestionIcon } from "react-icons/ai"
 import ErrorText from "../../atoms/ErrorText/ErrorText"
+import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 
 const RegisterPanel = () => {
   const [registerInfo, setRegisterInfo] = useState({
@@ -22,6 +23,7 @@ const RegisterPanel = () => {
     password: "",
     confirm_password: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [isValid, setIsValid] = useState(true)
   const [isPopupActive, setIsPopupActive] = useState(false)
@@ -44,9 +46,6 @@ const RegisterPanel = () => {
   }
 
   const validateForm = () => {
-    // e.preventDefault()
-    // errorInputsArray = []
-
     if (registerInfo["username"] !== "") {
       setErrorStatus("username", true)
       setIsValid(true)
@@ -88,25 +87,28 @@ const RegisterPanel = () => {
       setIsValid(false)
       return false
     }
-
   }
 
   const registerUser = async e => {
     e.preventDefault()
-
+    setIsLoading(true)
     validateForm()
     if (isValid) {
-      await axios
-        .post(`${process.env.STRAPI_URL}/auth/local/register`, registerInfo)
-        .then(() => {
-          togglePopup()
-        })
-        .catch(err => console.log(err))
+      try {
+        await axios.post(
+          `${process.env.STRAPI_URL}/auth/local/register`,
+          registerInfo
+        )
+        togglePopup()
+        setIsLoading(false)
+      } catch (error) {
+        setIsLoading(false)
+        console.log(error)
+      }
     }
   }
 
   let errorInput = ""
-
   const setErrorStatus = (inputName, remove = false) => {
     if (typeof window !== "undefined") {
       if (remove === true) {
@@ -122,50 +124,56 @@ const RegisterPanel = () => {
   }
 
   return (
-    <JoinPanelWrapper>
-      <JoinHeader>Zarejestruj się.</JoinHeader>
-      <JoinForm>
-        <FormField
-          onChange={e => updateInput(e)}
-          nameId="username"
-          content="Nazwa użytkownika"
-        />
-        <FormField
-          onChange={e => updateInput(e)}
-          nameId="email"
-          type="email"
-          content="E-mail"
-        />
-        <FormField
-          onChange={e => updateInput(e)}
-          nameId="password"
-          type="password"
-          content="Hasło"
-        />
-        <FormField
-          onChange={e => updateInput(e)}
-          nameId="confirm_password"
-          type="password"
-          content="Powtórz hasło"
-        />
-        <PasswordInfoText>
-          <QuestionIcon style={{ marginRight: "1rem" }} />
-          Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną cyfrę
-          i wielką literę
-        </PasswordInfoText>
-        {!isValid ? <ErrorText>{errorMessage}</ErrorText> : null}
+    <>
+      <JoinPanelWrapper>
+        <JoinHeader>Zarejestruj się.</JoinHeader>
+        <JoinForm>
+          <FormField
+            onChange={e => updateInput(e)}
+            nameId="username"
+            content="Nazwa użytkownika"
+          />
+          <FormField
+            onChange={e => updateInput(e)}
+            nameId="email"
+            type="email"
+            content="E-mail"
+          />
+          <FormField
+            onChange={e => updateInput(e)}
+            nameId="password"
+            type="password"
+            content="Hasło"
+          />
+          <FormField
+            onChange={e => updateInput(e)}
+            nameId="confirm_password"
+            type="password"
+            content="Powtórz hasło"
+          />
+          <PasswordInfoText>
+            <QuestionIcon style={{ marginRight: "1rem" }} />
+            Hasło musi zawierać conajmniej 8 znaków w tym przynajmniej jedną
+            cyfrę i wielką literę
+          </PasswordInfoText>
+          {!isValid ? <ErrorText>{errorMessage}</ErrorText> : null}
 
-        <Button onClick={e => registerUser(e)} type="submit" isLong>
-          Zarejestruj
-        </Button>
-      </JoinForm>
-      <JoinLink to="/login">
-        Masz konto? <ColoredText>Zaloguj się.</ColoredText>
-      </JoinLink>
-      <NotificationPopup onClick={()=> navigate(`/login`)} isActive={isPopupActive}>
-        Zostałeś zarejestrowany, trwa przenoszenie na stronę logowania
-      </NotificationPopup>
-    </JoinPanelWrapper>
+          <Button onClick={e => registerUser(e)} type="submit" isLong>
+            Zarejestruj
+          </Button>
+        </JoinForm>
+        <JoinLink to="/login">
+          Masz konto? <ColoredText>Zaloguj się.</ColoredText>
+        </JoinLink>
+        <NotificationPopup
+          onClick={() => navigate(`/login`)}
+          isActive={isPopupActive}
+        >
+          Zostałeś zarejestrowany, trwa przenoszenie na stronę logowania
+        </NotificationPopup>
+      </JoinPanelWrapper>
+      {isLoading && <LoadingPopup />}
+    </>
   )
 }
 

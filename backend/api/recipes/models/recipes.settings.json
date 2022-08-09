@@ -68,9 +68,6 @@
       "type": "integer",
       "required": true,
       "min": 0
-    },
-    "rating": {
-      "type": "decimal"
     }
   }
 }

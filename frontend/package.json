@@ -12,7 +12,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",

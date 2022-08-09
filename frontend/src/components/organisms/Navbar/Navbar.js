@@ -1,8 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { uiActions } from "../../../store/uiSlice"
 import Converter from "../Converter/Converter"
-import useAuth from "../../../hooks/useAuth"
 
 import {
   NavContainer,
@@ -21,10 +20,10 @@ import Button from "../../atoms/Button/Button"
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const { navbarStatus, converterStatus, userPanelStatus } = useSelector(
+  const [isAuthenticated, setAuthentication] = useState(false)
+  const { navbarStatus, userPanelStatus, converterStatus } = useSelector(
     state => state.ui
   )
-  const [setAuthentication, isAuthenticated] = useAuth()
 
   const windowGlobal = typeof window !== "undefined" && window
 

@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react"
-import useAuth from "./useAuth"
 import axios from "axios"
 import { navigate } from "gatsby"
 
 export const useAuthorize = () => {
-  const [setAuthentication] = useAuth()
-
   const [isLoading, setIsLoading] = useState(false)
   const [isValid, setIsValid] = useState(true)
   const loginInput = React.createRef({})
   const passwordInput = React.createRef({})
   let errorInput
+
+  // const setAuthentication = type => {
+  //   if (type) dispatch(authActions.setAuthenticated(true))
+  //   else dispatch(authActions.setAuthenticated(false))
+  // }
+
+  const setLocalStorage = (token, user) => {
+    // token && localStorage.setItem("token", JSON.stringify(data))
+  }
 
   const setErrorStatus = (inputName, remove = false) => {
     if (typeof window !== "undefined") {
@@ -38,18 +44,22 @@ export const useAuthorize = () => {
       localStorage.setItem("token", JSON.stringify(data.data.jwt))
       localStorage.setItem("user", JSON.stringify(data.data.user.username))
       setIsLoading(false)
-      setAuthentication(true)
       navigate("/")
     } catch {
       setIsLoading(false)
       setErrorStatus("login")
       setErrorStatus("password")
       setIsValid(false)
-      setAuthentication(false)
     }
   }
 
-  return { isLoading, isValid, passwordInput, loginInput, authorizeUser }
+  return {
+    isLoading,
+    isValid,
+    passwordInput,
+    loginInput,
+    authorizeUser,
+  }
 }
 
 // export default useAuthorize

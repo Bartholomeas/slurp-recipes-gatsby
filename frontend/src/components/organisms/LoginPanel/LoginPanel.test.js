@@ -1,6 +1,7 @@
 import React from "react"
-import { act } from "react-test-renderer"
 import { render, screen, fireEvent } from "@testing-library/react"
+import { act } from "react-dom/test-utils"
+// import TestRenderer from "react-test-renderer"
 import axios from "axios"
 import LoginPanel from "./LoginPanel"
 import TestWrapper from "../../providers/TestWrapper"
@@ -9,6 +10,10 @@ export { authorizeUser } from "./LoginPanel"
 
 axios.post = jest.fn(() => {
   console.log("Axios mocked post")
+})
+
+global.authorizeUser = jest.fn(() => {
+  return new Promise(resolve => resolve(true))
 })
 
 // jest.mock("axios", () => ({
@@ -65,9 +70,8 @@ describe("Login panel component", () => {
     const loginButton = screen.getByRole("button")
     fireEvent.change(loginInput, { target: { value: "test123@onet.pl" } })
     fireEvent.change(passwordInput, { target: { value: "Testowe123" } })
-    act(() => {
-      fireEvent.click(loginButton)
-    })
+
+    fireEvent.click(loginButton)
 
     const object = {
       identifier: "test123@onet.pl",
@@ -75,7 +79,7 @@ describe("Login panel component", () => {
     }
 
     const response = { status: 200 }
-    act(() => {
+    await act(async () => {
       axios.post.mockResolvedValue(response)
 
       expect(axios.post).toHaveBeenCalledTimes(1)
@@ -86,8 +90,8 @@ describe("Login panel component", () => {
       )
     })
 
-    setTimeout(() => {
-      expect(screen.getByLabelText(/login/i)).toBeFalsy()
-    }, 1000)
+    // setTimeout(() => {
+    //   expect(screen.getByLabelText(/login/i)).toBeFalsy()
+    // }, 1000)
   })
 })

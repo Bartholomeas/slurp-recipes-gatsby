@@ -1,4 +1,4 @@
-## Live: https://bartholomeas.github.io/slurp-recipes-graphql/
+## Live: https://bartholomeas.github.io/slurp-recipes-gatsby/
 
 ## General info
 Recipes website with functions like: 

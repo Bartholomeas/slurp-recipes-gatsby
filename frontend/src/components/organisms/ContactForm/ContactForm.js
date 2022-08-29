@@ -9,6 +9,7 @@ import {
   ContactFormBody,
   FormButton,
 } from "./ContactForm.styles"
+import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
 
 const ContactForm = () => {
   const [contactData, setContactData] = useState({
@@ -17,6 +18,7 @@ const ContactForm = () => {
     message: "",
   })
   const [inputsValid, setInputsValid] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const updateInput = e => {
     setContactData({ ...contactData, [e.target.name]: e.target.value })
@@ -25,7 +27,6 @@ const ContactForm = () => {
   const checkInputs = () => {
     for (const key in contactData) {
       if (contactData[key] === "") {
-        console.log(key)
         setErrorStatus(key)
         setInputsValid(false)
       } else {
@@ -39,6 +40,7 @@ const ContactForm = () => {
     e.preventDefault()
 
     try {
+      setIsLoading(true)
       checkInputs()
       if (inputsValid) {
         const data = await emailjs.sendForm(
@@ -49,13 +51,16 @@ const ContactForm = () => {
         )
         console.log(data)
       }
+      setIsLoading(false)
     } catch {
+      setIsLoading(false)
       throw new Error("Something went wrong :(")
     }
   }
 
   return (
     <ContactFormBody onSubmit={sendEmail}>
+      {isLoading && <LoadingPopup />}
       <FormField
         nameId="from_name"
         content="Twój email"

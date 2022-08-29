@@ -41,8 +41,9 @@ const Input = styled.input`
 
 const Textarea = styled.textarea`
   ${inputStyles}
-  resize:vertical;
-  height: 6.4rem;
+  height: 100vh;
+  max-height: 200px;
+  resize: vertical;
 `
 
 const FormField = React.forwardRef(
@@ -54,7 +55,7 @@ const FormField = React.forwardRef(
       type = "text",
       width = "100",
       onChange = () => {},
-        placeholder="",
+      placeholder = "",
       inputFunc,
     },
     ref
@@ -71,9 +72,16 @@ const FormField = React.forwardRef(
             ref={ref}
             placeholder={placeholder}
             onKeyUp={inputFunc}
+            data-id="input-field"
           />
         ) : (
-          <Textarea onChange={e => onChange(e)} id={nameId} name={nameId} />
+          <Textarea
+            onChange={e => onChange(e)}
+            id={nameId}
+            name={nameId}
+            data-id="input-field"
+            as="input"
+          />
         )}
       </Wrapper>
     )

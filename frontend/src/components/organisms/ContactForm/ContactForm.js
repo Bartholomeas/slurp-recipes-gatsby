@@ -1,85 +1,82 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import emailjs from "emailjs-com"
-import styled, { keyframes } from "styled-components"
-import Button from "../../atoms/Button/Button"
+import styled from "styled-components"
 import FormField from "../../molecules/FormField/FormField"
-
-const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 3px 2px 10px -3px ${({ theme }) => theme.otherStyles.shadow};
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-`
-const ContactFormBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 0;
-  background-color: orange;
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  }
-`
-
-const ContactFormBody = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 2rem 2rem 0 2rem;
-  gap: 0.8rem;
-  border-radius: ${({ theme }) => theme.otherStyles.smallRadius};
-  color: ${({ theme }) => theme.colors.lightGrey};
-  @media only screen and (min-width: 768px) {
-    height: 100%;
-    max-width: 500px;
-  }
-`
-
-const Statement = styled.p`
-  color: ${({ theme }) => theme.colors.accent};
-  font-size: 1.6rem;
-  padding: 2rem;
-`
-
-const FormButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.white};
-`
+import { setErrorStatus } from "../../utils/errorHelper"
+import {
+  ContactWrapper,
+  ContactFormBox,
+  ContactFormBody,
+  FormButton,
+} from "./ContactForm.styles"
 
 const ContactForm = () => {
-  let statement = ""
+  const [contactData, setContactData] = useState({
+    from_name: "",
+    title: "",
+    message: "",
+  })
+  const [inputsValid, setInputsValid] = useState(false)
 
-  const sendEmail = e => {
+  const updateInput = e => {
+    setContactData({ ...contactData, [e.target.name]: e.target.value })
+  }
+
+  const checkInputs = () => {
+    for (const key in contactData) {
+      if (contactData[key] === "") {
+        console.log(key)
+        setErrorStatus(key)
+        setInputsValid(false)
+      } else {
+        setErrorStatus(key, true)
+        setInputsValid(true)
+      }
+    }
+  }
+
+  const sendEmail = async e => {
     e.preventDefault()
-    emailjs
-      .sendForm(
-        "gmail",
-        "template_13f70rg",
-        e.target,
-        "user_YtL1kdHkWKGLr0UtEhpBK"
-      )
-      .then(result => {
-        console.log(result.text)
-        return (statement = "Pomyślnie wysłano wiadomość")
-      })
-      .catch(err => console.log(err))
+
+    try {
+      checkInputs()
+      if (inputsValid) {
+        const data = await emailjs.sendForm(
+          "gmail",
+          "template_13f70rg",
+          e.target,
+          "user_YtL1kdHkWKGLr0UtEhpBK"
+        )
+        console.log(data)
+      }
+    } catch {
+      throw new Error("Something went wrong :(")
+    }
   }
 
   return (
     <ContactFormBody onSubmit={sendEmail}>
-      <FormField nameId="from_name" content="Twój email" type="email" />
-      <FormField nameId="title" content="Tytuł" />
-      <FormField textarea={true} nameId="message" content="Wiadomość" />
+      <FormField
+        nameId="from_name"
+        content="Twój email"
+        type="email"
+        onChange={e => updateInput(e)}
+      />
+      <FormField
+        nameId="title"
+        content="Tytuł"
+        onChange={e => updateInput(e)}
+      />
+      <FormField
+        textarea={true}
+        nameId="message"
+        content="Wiadomość"
+        onChange={e => updateInput(e)}
+      />
       <FormButton isLong type="submit" value="send">
         Wyślij
       </FormButton>
-      <Statement>{statement}</Statement>
+      {/* <Statement>{statement}</Statement> */}
     </ContactFormBody>
   )
 }

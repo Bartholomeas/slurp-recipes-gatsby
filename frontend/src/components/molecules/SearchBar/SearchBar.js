@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { recipesActions } from "../../../store/recipesSlice"
-import {SearchWrapper,
-    SearchLabel,
-    SearchArea,
-    ResultsWrapper,
-    ResultsTitle,
-    ResultsContainer
+import {
+  SearchWrapper,
+  SearchLabel,
+  SearchArea,
+  ResultsWrapper,
+  ResultsTitle,
+  ResultsContainer,
 } from "./SearchBar.styles.js"
 import FoundRecipe from "../FoundRecipe/FoundRecipe"
 import { TbSearch } from "react-icons/tb"
-
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("")

@@ -9,7 +9,7 @@ const useFilters = () => {
     const { name, value } = e.target
     const inputs = e.target
       .closest("form")
-      .querySelectorAll('input[type="checkbox"]') 
+      .querySelectorAll('input[type="checkbox"]')
 
     inputs.forEach(input => {
       if (choosenFilters[input.name] === input.value) input.checked = false
@@ -24,6 +24,7 @@ const useFilters = () => {
     inputs.forEach(input => {
       input.checked = false
     })
+
     dispatch(recipesActions.clearChoosenFilters())
   }
 
@@ -33,6 +34,7 @@ const useFilters = () => {
     const filteredRecipesByFilters = recipes.filter(recipe => {
       return keys.every(key => recipe[key][0][key] === choosenFilters[key])
     })
+
     dispatch(recipesActions.filterRecipes(filteredRecipesByFilters))
   }
 

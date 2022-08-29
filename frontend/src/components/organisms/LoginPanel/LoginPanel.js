@@ -12,15 +12,14 @@ import {
 import FormField from "../../molecules/FormField/FormField"
 import ErrorText from "../../atoms/ErrorText/ErrorText"
 import LoadingPopup from "../../molecules/LoadingPopup/LoadingPopup"
+import { setErrorStatus } from "../../utils/errorHelper"
 
 const LoginPanel = () => {
-  // const [isAuthenticated, setAuthentication] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isValid, setIsValid] = useState(true)
-  const loginInput = React.createRef({})
-  const passwordInput = React.createRef({})
-
-  let errorInput
+  const loginInput = React.createRef("")
+  const passwordInput = React.createRef("")
+  // let errorInput
 
   const authorizeUser = async e => {
     e.preventDefault()
@@ -30,7 +29,6 @@ const LoginPanel = () => {
         identifier: loginInput.current.value,
         password: passwordInput.current.value,
       })
-      console.log("Real function, not mocked")
       localStorage.setItem("token", JSON.stringify(data.data.jwt))
       localStorage.setItem("user", JSON.stringify(data.data.user.username))
       setIsLoading(false)
@@ -40,20 +38,6 @@ const LoginPanel = () => {
       setErrorStatus("login")
       setErrorStatus("password")
       setIsValid(false)
-    }
-  }
-
-  const setErrorStatus = (inputName, remove = false) => {
-    if (typeof window !== "undefined") {
-      if (remove === true) {
-        document
-          .querySelector(`input[id='${inputName}']`)
-          .classList.remove("invalid")
-      } else {
-        errorInput = document.querySelector(`input[id='${inputName}']`)
-        errorInput.classList.add("invalid")
-        errorInput.setAttribute("className", "invalid")
-      }
     }
   }
 

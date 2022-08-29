@@ -15,7 +15,6 @@ import {
 import SearchBar from "../../molecules/SearchBar/SearchBar"
 import { BsFilterCircleFill } from "react-icons/bs"
 
-
 const RecipesSection = () => {
   const data = useStaticQuery(graphql`
     query GetRecipes {
@@ -47,8 +46,8 @@ const RecipesSection = () => {
           }
         }
       }
-      
-        allStrapiDifficulties {
+
+      allStrapiDifficulties {
         nodes {
           difficulties
         }
@@ -63,15 +62,14 @@ const RecipesSection = () => {
           diets
         }
       }
-      
-    }  
+    }
   `)
 
-  const filterbarData =  {
-    allStrapiDiets:data.allStrapiDiets,
-      allStrapiDifficulties:data.allStrapiDifficulties,
-      allStrapiTypes: data.allStrapiTypes
-    }
+  const filterbarData = {
+    allStrapiDiets: data.allStrapiDiets,
+    allStrapiDifficulties: data.allStrapiDifficulties,
+    allStrapiTypes: data.allStrapiTypes,
+  }
 
   const { recipes, filteredRecipes } = useSelector(state => state.recipes)
   const { filterbarStatus, filterBtnStatus } = useSelector(state => state.ui)
@@ -91,6 +89,7 @@ const RecipesSection = () => {
     if (window.scrollY + window.innerHeight - 150 > recipesSectionPosition)
       dispatch(uiActions.toggleFilterBtn(true))
   }, [dispatch])
+
   useEffect(() => {
     window.addEventListener("scroll", checkScrollPosition)
     return () => {
